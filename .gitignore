@@ -22,4 +22,5 @@
 **/*.snm
 **/*.fdb_latexmk
 **/*.synctex.gz
+**/*.synctex(busy)
 **/*.run.xml
