@@ -2,12 +2,17 @@
 
 \newcounter{itemnumber}
 
-\newenvironment{obiettiviList}[1]{% Prefix
+\newenvironment{mylist}[1]{% Prefix
 \setcounter{itemnumber}{0}%
-\begin{list}{\textbf{#1}}{}%
+\begin{list}{\textbf{#1}}{itemnumber}%
 }{\end{list}}
 
 \newcommand{\obiettiviLink}[1]{%linklabel
 \stepcounter{itemnumber}%
 \item\textbf{\theitemnumber}\ : \hypertarget{#1}%
+}
+
+\newcommand{\requisitiLink}[1]{%linklabel, title
+\stepcounter{itemnumber}%
+\item\textbf{\theitemnumber} : \hypertarget{#1} %textbf{#2} non so perché ma non mi va!
 }

@@ -1,2 +1,70 @@
 \section{Requisiti funzionali}
 \label{sec:RequisitiFunzionali}
+
+Nel seguente capitolo verranno presentati i requisiti funzionali (RF)
+del sistema con la motivazione della loro presenza e legame 
+con gli obiettivi sopra citati. 
+\begin {mylist} {RF}
+    \requisitiLink{rf.one}  \\ %macano i titoli
+    Il sistema deve permettere all'utente di registrarsi sul sito (\hyperlink{ob.one}{OB1}) in qualsiasi momento 
+    esso voglia. Ad ogni modo il sistema deve rendere disponibile all'utente di accedere al sito
+    anche come utente anonimo. \\ \\
+    \textbf{UTENTE AUTENTICATO}
+    \requisitiLink{rf.two} \\ 
+    Il sistema, agli utenti autenticati sul sito, darà la possibilità di convidere 
+    il proprio calendario su più dispositivi. Inoltre, grazie all'autenticazione, il sito
+    presenterà un più alto livello di privacy e security, per preservare i propri dati sensibili..
+    (RFNx). \\ \\
+    \textbf{UTENTE NON AUTENTICATO}
+    \requisitiLink{rf.three} \\
+    L'accesso mediante utente anonimo non presenterà problemi dal punto di vista 
+    della sicurezza e privacy (RFN *), ma andrà a discapito della condivisione
+    tra dispositivi diversi.
+    \requisitiLink{rf.four} \\
+    Il sistema deve dare la possibilità all'utente, sia anonimo che non (RF1), di aggiungere
+    un evento (impegno) al calendario mediante un form (pop-up). Nella compilazione
+    dell'impegno il sistema deve permettere al cliente di imporre restrizioni, f.e. quando porre
+    l'attività da svolgere. Il pop-up, inoltre, deve presentare dei form (non so, una 
+    zona del pop-up) dove l'utente può impostare la priorità dell'impegno, una descrizione e un
+    titolo di quest'ultimo.
+    deve essere data la possibiltà di imporre impegni routine oppure impegni ripetuti su 
+    più giorni. 
+    \requisitiLink{rf.five} \\
+    Una volta compilato il pop-up di aggiunta impegno, il sistema 
+    deve inserire l'impegno nel calendario seguendo le restrizioni e priorità inserite 
+    dall'utente a tempo di compilazione dell'evento (RF4).  
+    \requisitiLink{rf.six} \\
+    Il sistema deve presentare un form personalizzato per l'impostazione delle ore
+    di sonno. Il sito deve dare la possibilità all'utente di poter modificare le ore 
+    di sonno giorno per giorno, oppure applicare le stesse ore per più giorni (OBx)
+    \requisitiLink{rf.seven} \\
+    Il sistema deve inviare delle notifiche per ciascun impegno. Nel pop-up
+    di compilazione dell'evento (RF6) deve essere data la possibilità all'utente
+    di impostare una notifica personalizzata riguardo a tale attività.
+    Le personalizzazioni riguardano: quando ricevere tale notifica e il titolo di questa, per 
+    default quest'ultimo sarà il titolo dato all'evento.
+    \requisitiLink{rf.eight} \\
+    In quanto è un'applicazione molto diffusa tra gli utenti che utilizzano calendari,
+    il sistema deve permettere all'utente di poter importare eventi da Google Calendar. 
+    Quando gli eventi saranno aggiunti da Google Calendar, questi saranno
+    imposti nel calendario di PlanIt seguendo le stesse regole per gli impegni 
+    aggiunti direttamente dal sito (si veda RF5).
+    \requisitiLink{rf.nine} \\
+    Il sito deve presentare delle infografiche sull'uso tempo. L'utente, così, potrà
+    visualizzare dei grafici esemplificativi di come il proprio tempo viene speso. 
+    (OBx)
+    \requisitiLink{rf.ten} \\
+    Il sistema deve riorganizzare automaticamente il calendario in caso di ritardi sugli 
+    impegni; sarà data la possibilità all'utente di notificare il sistema di ritardi e 
+    a quel punto il sito dovrò ripianificare il calendario, sempre secondo le regole mostrate
+    in RF5 (seguono sempre le stesse regole).  
+    \requisitiLink(rf.eleven) \\
+    Il sistema, a fine giornata, deve presentare un resoconto, dove l'utente potrà
+    comunicare le attività fatte e non, in modo tale da dare la possibilità al sistema di 
+    ricalcolare eventuali modifiche in base agli impegni non conclusi (si veda
+    anche RF8 per modifiche calendario per ritardi)..
+    
+
+
+
+\end{mylist}
