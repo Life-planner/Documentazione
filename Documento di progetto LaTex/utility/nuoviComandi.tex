@@ -1,1 +1,13 @@
 \newcommand{\nome}[0]{PlanIt\xspace}
+
+\newcounter{itemnumber}
+
+\newenvironment{obiettiviList}[1]{% Prefix
+\setcounter{itemnumber}{0}%
+\begin{list}{\textbf{#1}}{}%
+}{\end{list}}
+
+\newcommand{\obiettiviLink}[1]{%linklabel
+\stepcounter{itemnumber}%
+\item\textbf{\theitemnumber}\ : \hypertarget{#1}%
+}
