@@ -1,18 +1,13 @@
 \newcommand{\nome}[0]{PlanIt\xspace}
 
-\newcounter{itemnumber}
+\newcounter{numeroElemento}
 
-\newenvironment{mylist}[1]{% Prefix
-\setcounter{itemnumber}{0}%
-\begin{list}{\textbf{#1}}{itemnumber}%
-}{\end{list}}
+\newenvironment{listaPersonale}[1]{
+    \setcounter{numeroElemento}{0}
+    \begin{list}{\textbf{#1}}{}
+        }{\end{list}}
 
-\newcommand{\obiettiviLink}[1]{%linklabel
-\stepcounter{itemnumber}%
-\item\textbf{\theitemnumber}\ : \hypertarget{#1}% non capisco perché l'hyperlink non funziona bene e mi va sotto di una riga
-}
-
-\newcommand{\requisitiLink}[1]{%linklabel, title
-\stepcounter{itemnumber}%
-\item\textbf{\theitemnumber} : \hypertarget{#1} %textbf{#2} non so perché ma non mi va!
+\newcommand{\elemento}[2][]{
+    \stepcounter{numeroElemento}
+    \item \textbf{\thenumeroElemento} : \textbf{#1}  \label{#2}
 }
