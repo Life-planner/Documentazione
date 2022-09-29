@@ -1,9 +1,18 @@
 \newcommand{\nome}[0]{PlanIt\xspace}
 
 \newenvironment{listaPersonale}[1]{
-    \begin{enumerate}[label=\textbf{#1 \arabic*}, ref= #1\arabic*]{}
+    \begin{enumerate}[label=\textbf{#1 \arabic{enumi}}, ref= #1 \arabic{enumi}]{}
+        }{\end{enumerate}}
+
+\newenvironment{listaPersonale2}[1]{
+    \begin{enumerate}[label=\textbf{#1 \arabic{enumi}.\arabic{enumii}}, ref= #1 \arabic{enumi}.\arabic{enumii}]{}
+        }{\end{enumerate}}
+
+\newenvironment{listaPersonale3}[1]{
+    \begin{enumerate}[label=\textbf{#1 \arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}, ref= #1 \arabic{enumi}.\arabic{enumii}.\arabic{enumiii}]{}
         }{\end{enumerate}}
 
 \newcommand{\elemento}[2][]{
     \item\label{#2} :\ifx&#1&\else\textbf{ #1 \\}\fi
 }
+
