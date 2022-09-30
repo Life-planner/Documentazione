@@ -1,32 +1,127 @@
 \section{Requisiti funzionali}
 \label{sec:RequisitiFunzionali}
 
-Nel seguente capitolo verranno presentati i requisiti funzionali (RF)
-del sistema con la motivazione della loro presenza e legame
-con gli obiettivi sopra citati.
+Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistema con la motivazione della loro presenza e legame con gli obiettivi sopra citati.
 \begin {listaPersonale}{RF}
-\elemento{rf.one} \\ %macano i titoli
-Il sistema deve permettere all'utente di registrarsi sul sito (\ref{ob.one}) in qualsiasi momento esso voglia. Ad ogni modo il sistema deve rendere disponibile all'utente di accedere al sito anche come utente anonimo.
-\elemento[UTENTE AUTENTICATO]{rf.two}
-Il sistema, agli utenti autenticati sul sito, darà la possibilità di convidere il proprio calendario su più dispositivi. Inoltre, grazie all'autenticazione, il sito presenterà un più alto livello di privacy e security, per preservare i propri dati sensibili..
-(RFNx).
-\elemento[UTENTE NON AUTENTICATO]{rf.three}
-L'accesso mediante utente anonimo non presenterà problemi dal punto di vista della sicurezza e privacy (RFN *), ma andrà a discapito della condivisione tra dispositivi diversi.
-\elemento{rf.four} \\
-Il sistema deve dare la possibilità all'utente, sia anonimo che non (RF1), di aggiungere un evento (impegno) al calendario mediante un form (pop-up). Nella compilazione dell'impegno il sistema deve permettere al cliente di imporre restrizioni, f.e. quando porre l'attività da svolgere. Il pop-up, inoltre, deve presentare dei form (non so, una zona del pop-up) dove l'utente può impostare la priorità dell'impegno, una descrizione e un titolo di quest'ultimo. deve essere data la possibiltà di imporre impegni routine oppure impegni ripetuti su più giorni.
-\elemento{rf.five} \\
-Una volta compilato il pop-up di aggiunta impegno, il sistema deve inserire l'impegno nel calendario seguendo le restrizioni e priorità inserite dall'utente a tempo di compilazione dell'evento (RF4).
-\elemento{rf.six} \\
-Il sistema deve presentare un form personalizzato per l'impostazione delle ore di sonno. Il sito deve dare la possibilità all'utente di poter modificare le ore di sonno giorno per giorno, oppure applicare le stesse ore per più giorni (OBx)
-\elemento{rf.seven} \\
-Il sistema deve inviare delle notifiche per ciascun impegno. Nel pop-up di compilazione dell'evento (RF6) deve essere data la possibilità all'utente di impostare una notifica personalizzata riguardo a tale attività. Le personalizzazioni riguardano: quando ricevere tale notifica e il titolo di questa, per default quest'ultimo sarà il titolo dato all'evento.
-\elemento{rf.eight} \\
-In quanto è un'applicazione molto diffusa tra gli utenti che utilizzano calendari, il sistema deve permettere all'utente di poter importare eventi da Google Calendar. Quando gli eventi saranno aggiunti da Google Calendar, questi saranno imposti nel calendario di PlanIt seguendo le stesse regole per gli impegni aggiunti direttamente dal sito (si veda RF5).
-\elemento{rf.nine} \\
-Il sito deve presentare delle infografiche sull'uso tempo. L'utente, così, potrà visualizzare dei grafici esemplificativi di come il proprio tempo viene speso. (OBx)
-\elemento{rf.ten} \\
-Il sistema deve riorganizzare automaticamente il calendario in caso di ritardi sugli impegni; sarà data la possibilità all'utente di notificare il sistema di ritardi e a quel punto il sito dovrò ripianificare il calendario, sempre secondo le regole mostrate in RF5 (seguono sempre le stesse regole).
-\elemento{rf.eleven} \\
-Il sistema, a fine giornata, deve presentare un resoconto, dove l'utente potrà comunicare le attività fatte e non, in modo tale da dare la possibilità al sistema di ricalcolare eventuali modifiche in base agli impegni non conclusi (si veda anche RF8 per modifiche calendario per ritardi)..
+\elemento[ACCESSO E REGISTRAZIONE AL SITO]{rf:1} 
+Il sistema deve permettere all'utente di avere 3 livelli di accesso:
+\begin{itemize}
+	\item utente autenticato-standard(\ref{ob:1});
+    \item utente non autenticato (\ref{ob:1}); 
+    \item utente autenticato-premium (\ref{ob:6});
+\end{itemize}
+Il sistema deve permettere all'utente di registrarsi sul sito (\ref{ob:1}) in qualsiasi momento esso voglia e inoltre deve permettere di abbonarsi al servizio premium, con un account preesistente o anche durante la fase di registrazione.\\
+Ad ogni modo il sistema deve rendere disponibile all'utente di utilizzare il sito anche come utente non autenticato in versione demo(\ref{rf:3}). 
+
+
+\begin {listaPersonale2}{RF}
+\elemento[METODI AUTENTICAZIONE]{rf:1:1}
+L'autenticazione può essere fatta con email e password o con servizi di terze parti, più nello specifico con Google, Facebook, LinkedIn, Twitter e Apple (\ref{ob:1}).
+\end {listaPersonale2}
+
+
+\elemento[UTENTE AUTENTICATO-STANDARD]{rf:2}
+Un utente autenticato standard è un utente registrato che ha effettuato il login e che usufruisce delle funzionalità base della piattaforma.
+
+\begin {listaPersonale2}{RF}
+\elemento[FUNZIONALITA’]{rf:2:1}
+Il sistema offrirà agli utenti con account autenticato-standard tutti i servizi sottoelencati, eccetto quelli descritti nella sezione utente autenticato-premium (\ref{rf:2.2}), con le limitazioni elencate in \ref{rf:2.2.2}.
+
+\elemento[UTENTE AUTENTICATO-PREMIUM]{rf:2.2}
+L’utente avrà la possibilità anche di accedere ad un maggior numero di funzionalità della piattaforma grazie alla sottoscrizione di un abbonamento mediante un pagamento mensile.
+Inoltre il pagamento degli utenti premium contribuirà alla sostenibilità economica del sito(\ref{ob:6}).
+
+\begin {listaPersonale3}{RF}
+\elemento[PAGAMENTO]{rf:2.2.1}
+Il sistema offrirà la possibilità all’utente di pagare l’abbonamento con un servizio esterno, ovvero PayPal e/o Stripe. (\ref{ob:6})
+
+
+\elemento[FUNZIONALITA’ AGGIUNTIVE(\ref{ob:6})]{rf:2.2.2}
+Grazie all’account premium, il sistema permetterà di accedere alle funzionalità standard e a dei servizi aggiuntivi:
+\begin{itemize}
+    \item poter avere un numero illimitato di calendari personali in base allo loro scopo: gli utenti non premium potranno avere solo 5 calendari personali.
+    \item poter avere un numero illimitato di calendari condivisi: gli utenti standard potranno averne 3.
+\end{itemize}
+
+
+\end {listaPersonale3}
+\end {listaPersonale2}
+
+\elemento[UTENTE NON AUTENTICATO]{RF:3} 
+Nel caso di un utente non autenticato (\ref{ob:1}), il sistema permetterà di effettuare l’accesso e/o registrazione nelle modalità descritte in \ref{rf:1}. Nel caso l’utente non volesse registrarsi o accedere, il sito darà la possibilità di usufruire delle funzionalità in versione demo.
+
+\begin{listaPersonale2}{RF}
+    \elemento{DEMO}{rf:3.1}
+    L'utente non autenticato avrà la possibilità di utilizzare il sito senza che le modifiche
+    fatte vengano salvate sui server delle piattaforma; nel caso in cui l'utente si registrasse sul sito, verranno caricate e rese disponibili su più dispositivi.
+
+\begin{listaPersonale3}{RF}
+	\elemento[FUNZIONALITÀ MANCANTI]{rf:3.1.1}
+    L’utente non autenticato non avrà a disposizione diverse funzionalità tra cui \ref{rf:4}, \ref{rf:8}, \ref{rf:10}, \ref{rf:11}.
+\end{listaPersonale3}
+
+\end{listaPersonale2}
+
+RF4 CONDIVISIONE DEL CALENDARIO 
+Il sistema darà la possibilità di condividere il proprio calendario su più dispositivi (\ref{ob:8}).
+
+RF4.1 INTERAZIONE DI CALENDARI CON ALTRE PERSONE
+Il sistema deve offrire la possibilità agli utenti autenticati di interagire tra loro 
+mediante la condivisione e integrazione dei loro calendari (\ref{ob:8}). 
+Grazie alla condivisione e integrazione dei calendari tra gli utenti del sito, i clienti avranno la possibilità di programmare gli eventi in comune.
+
+RF5 COMPILAZIONE EVENTO 
+Il sistema deve dare la possibilità all'utente di aggiungere un evento al calendario mediante un pop-up (\ref{ob:2}). 
+Nella compilazione dell’attività, il sistema deve permettere al cliente: 
+	-RF5.1 di imporre restrizioni, per esempio definire ora e giorno dell’attività da svolgere; 
+	-RF5.2 impostare la priorità dell'impegno;
+	-RF5.3 scrivere una descrizione e un titolo;
+	-RF5.4 definire impegni di routine oppure impegni ripetuti su 
+	più giorni. 
+-RF5.5 L’utente avrà la possibilità di impostare le ore di sonno giorno per giorno oppure applicare le stesse ore per più giorni.
+
+RF6 IMPOSTAZIONE IMPEGNO
+Una volta compilato il pop-up di aggiunta impegno, il sistema deve inserire l'impegno nel calendario (\ref{ob:3}) seguendo le restrizioni e priorità inserite dall'utente a tempo di compilazione dell'evento (RF5).
+
+
+RF7 NOTIFICHE
+Il sistema deve inviare delle notifiche per ciascun impegno (\ref{ob:4}), fornendo la possibilità di 
+personalizzarle, infatti nel pop-up di compilazione dell'evento (RF5) deve essere possibile: 
+	-RF7.1: impostare quando ricevere tale notifica
+	-RF7.2: definire il titolo della notifica: di default quest'ultimo sarà il titolo dell’evento.
+
+RF8 INTERAZIONE CON SISTEMI DI TERZE PARTI
+Il sito deve permettere all’utente di interagire con sistemi di terzi parti (\ref{ob:5}), ad esempio:
+
+RF8.1 INTERAZIONE con GOOGLE CALENDAR
+In quanto è un'applicazione molto diffusa tra gli utenti che utilizzano calendari,
+il sistema deve rendere possibile all'utente di poter interagire eventi da Google Calendar. 
+In particolare: 
+	-RF8.1.1 si potranno importare eventi da Google Calendar, e questi, quando saranno aggiunti, saranno importati nel calendario personale seguendo le stesse regole per gli impegni aggiunti direttamente dal sito (si veda RF5).
+	-RF8.1.2 si potranno esportare gli eventi dai diversi calendari personali a Google Calendar.
+
+RF8.2 INTERAZIONE con Google Maps
+Il sistema darà la possibilità all’utente di aggiungere il luogo dove si svolgerà l’impegno.
+
+
+RF9 INFORMAZIONI sull’USO del TEMPO
+Il sito deve presentare delle infografiche sull'uso tempo. L'utente, così, potrà
+visualizzare dei grafici esemplificativi su come viene speso il proprio tempo. 
+(\ref{ob:12})
+
+RF10 RIORGANIZZAZIONE DI ATTIVITA' 
+Il sistema deve riorganizzare automaticamente il calendario in caso di ritardi (\ref{ob:3}). Sarà data la possibilità all'utente di notificare il sistema di ritardi e il sito dovrà ripianificare il calendario, sempre secondo le regole descritte nel RF6. 
+
+RF11 RESOCONTO GIORNATA
+Il sistema, a fine giornata, deve presentare un resoconto (\ref{ob:7}), dove l'utente potrà
+comunicare le attività fatte e non, in modo tale da dare la possibilità al sistema di 
+ricalcolare eventuali modifiche in base agli impegni non conclusi sempre secondo le modalità citate in RF6.
+
+RF12 FILTRO IMPEGNI 
+Il sito offrirà la possibilità di poter visualizzare gli impegni dato un specifico filtro(\ref{ob:10}) definito dall’utente secondo alcuni criteri: 
+RF12.1 Titolo evento con corrispondenza totale o parziale.
+RF12.2 Data evento.
+RF12.3 Priorità evento.
+RF12.4 Persone incluse nell’evento.
 
 \end{listaPersonale}
