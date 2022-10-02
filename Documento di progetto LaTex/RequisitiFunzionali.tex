@@ -13,18 +13,18 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 	Il sistema deve permettere all'utente di registrarsi sul sito (\ref{ob:1}) in qualsiasi momento esso voglia e inoltre deve permettere di abbonarsi al servizio premium, con un account preesistente o anche durante la fase di registrazione.\\
 	A ogni modo il sistema deve rendere disponibile all'utente di utilizzare il sito anche come utente non autenticato in versione demo(\ref{rf:3}).
 
-	\begin{listaPersonale2}{}
+	\begin{listaPersonale2}{RF}
 		\elemento[METODI AUTENTICAZIONE]{rf:1:1} L'autenticazione può essere fatta con email e password o con servizi di terze parti, più nello specifico con Google, Facebook, LinkedIn, Twitter e Apple (\ref{ob:1}).
 	\end{listaPersonale2}
 
 	\elemento[UTENTE AUTENTICATO-STANDARD]{rf:2} Un utente autenticato standard è un utente registrato che ha effettuato il login e che usufruisce delle funzionalità base della piattaforma.
 
-	\begin{listaPersonale2}{}
+	\begin{listaPersonale2}{RF}
 		\elemento[FUNZIONALITA']{rf:2:1} Il sistema offrirà agli utenti con account autenticato-standard tutti i servizi sottoelencati, eccetto quelli descritti nella sezione utente autenticato-premium (\ref{rf:2.2}), con le limitazioni elencate in \ref{rf:2.2.2}.
 
-		\elemento[UTENTE AUTENTICATO-PREMIUM]{rf:2.2} L'utente avrà la possibilità anche di accedere a un maggior numero di funzionalità della piattaforma grazie alla sottoscrizione di un abbonamento mediante un pagamento mensile. Inoltre il pagamento degli utenti premium contribuirà alla sostenibilità economica del sito(\ref{ob:6}).
+		\elemento[UTENTE AUTENTICATO-PREMIUM]{rf:2.2} L'utente avrà la possibilità anche di accedere a un maggior numero di funzionalità della piattaforma grazie alla sottoscrizione di un abbonamento mediante un pagamento mensile(\ref{ob:6}). Inoltre il pagamento degli utenti premium contribuirà alla sostenibilità economica del sito.
 
-		\begin{listaPersonale3}{}
+		\begin{listaPersonale3}{RF}
 			\elemento[PAGAMENTO]{rf:2.2.1} Il sistema offrirà la possibilità all'utente di pagare l'abbonamento con un servizio di pagamento esterno. (\ref{ob:6})
 
 			\elemento[FUNZIONALITA' AGGIUNTIVE(\ref{ob:6})]{rf:2.2.2} Grazie all'account premium, il sistema permetterà di accedere alle funzionalità standard e a dei servizi aggiuntivi:
@@ -38,7 +38,7 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 
 	\elemento[UTENTE NON AUTENTICATO]{rf:3} Nel caso di un utente non autenticato (\ref{ob:1}), il sistema permetterà di effettuare l'accesso e/o registrazione nelle modalità descritte in \ref{rf:1}. Nel caso l'utente non volesse registrarsi o accedere, il sito darà la possibilità di usufruire delle funzionalità in versione demo.
 
-	\begin{listaPersonale2}{}
+	\begin{listaPersonale2}{RF}
 		\elemento[DEMO]{rf:3.1}	L'utente non autenticato avrà la possibilità di utilizzare il sito senza che le modifiche fatte vengano salvate sui server della piattaforma; nel caso in cui l'utente si registrasse sul sito, verranno caricate e rese disponibili su più dispositivi.
 
 		\begin{listaPersonale3}{}
@@ -48,7 +48,7 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 
 	\elemento[CONDIVISIONE DEL CALENDARIO]{rf:4} Il sistema darà la possibilità di condividere il proprio calendario su più dispositivi (\ref{ob:8}).
 
-	\begin{listaPersonale2}{}
+	\begin{listaPersonale2}{RF}
 		\elemento[INTERAZIONE DI CALENDARI CON ALTRE PERSONE]{rf:4.1} Il sistema deve offrire la possibilità agli utenti autenticati d'interagire tra loro mediante la condivisione e integrazione dei loro calendari (\ref{ob:8}). Grazie alla condivisione e integrazione dei calendari tra gli utenti del sito, i clienti avranno la possibilità di programmare gli eventi in comune.
 	\end{listaPersonale2}
 
@@ -72,7 +72,7 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 
 	\elemento[INTERAZIONE CON SISTEMI DI TERZE PARTI]{rf:8} Il sito deve permettere all'utente d'interagire con sistemi di terzi parti (\ref{ob:5}), ad esempio:
 
-	\begin{listaPersonale2}{}
+	\begin{listaPersonale2}{RF}
 		\elemento[INTERAZIONE con GOOGLE CALENDAR]{rf:8.1} In quanto è un'applicazione molto diffusa tra gli utenti che utilizzano calendari, il sistema deve rendere possibile all'utente di poter interagire eventi da Google Calendar. In particolare:
 		\begin{listaPersonale3}{}
 			\elemento{rf:8.1.1} si potranno importare eventi da Google Calendar, e questi, quando saranno aggiunti, saranno importati nel calendario personale seguendo le stesse regole per gli impegni aggiunti direttamente dal sito (si veda \ref{rf:5}).
