@@ -13,47 +13,47 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 	Il sistema deve permettere all'utente di registrarsi sul sito (\ref{ob:1}) in qualsiasi momento esso voglia e inoltre deve permettere di abbonarsi al servizio premium, con un account preesistente o anche durante la fase di registrazione.\\
 	A ogni modo il sistema deve rendere disponibile all'utente di utilizzare il sito anche come utente non autenticato in versione demo(\ref{rf:3}).
 
-	\begin {listaPersonale2}{RF}
-	\elemento[METODI AUTENTICAZIONE]{rf:1:1} L'autenticazione può essere fatta con email e password o con servizi di terze parti, più nello specifico con Google, Facebook, LinkedIn, Twitter e Apple (\ref{ob:1}).
-	\end {listaPersonale2}
+	\begin{listaPersonale2}{}
+		\elemento[METODI AUTENTICAZIONE]{rf:1:1} L'autenticazione può essere fatta con email e password o con servizi di terze parti, più nello specifico con Google, Facebook, LinkedIn, Twitter e Apple (\ref{ob:1}).
+	\end{listaPersonale2}
 
 	\elemento[UTENTE AUTENTICATO-STANDARD]{rf:2} Un utente autenticato standard è un utente registrato che ha effettuato il login e che usufruisce delle funzionalità base della piattaforma.
 
-	\begin {listaPersonale2}{RF}
-	\elemento[FUNZIONALITA']{rf:2:1} Il sistema offrirà agli utenti con account autenticato-standard tutti i servizi sottoelencati, eccetto quelli descritti nella sezione utente autenticato-premium (\ref{rf:2.2}), con le limitazioni elencate in \ref{rf:2.2.2}.
+	\begin{listaPersonale2}{}
+		\elemento[FUNZIONALITA']{rf:2:1} Il sistema offrirà agli utenti con account autenticato-standard tutti i servizi sottoelencati, eccetto quelli descritti nella sezione utente autenticato-premium (\ref{rf:2.2}), con le limitazioni elencate in \ref{rf:2.2.2}.
 
-	\elemento[UTENTE AUTENTICATO-PREMIUM]{rf:2.2} L'utente avrà la possibilità anche di accedere a un maggior numero di funzionalità della piattaforma grazie alla sottoscrizione di un abbonamento mediante un pagamento mensile. Inoltre il pagamento degli utenti premium contribuirà alla sostenibilità economica del sito(\ref{ob:6}).
+		\elemento[UTENTE AUTENTICATO-PREMIUM]{rf:2.2} L'utente avrà la possibilità anche di accedere a un maggior numero di funzionalità della piattaforma grazie alla sottoscrizione di un abbonamento mediante un pagamento mensile. Inoltre il pagamento degli utenti premium contribuirà alla sostenibilità economica del sito(\ref{ob:6}).
 
-	\begin {listaPersonale3}{RF}
-	\elemento[PAGAMENTO]{rf:2.2.1} Il sistema offrirà la possibilità all'utente di pagare l'abbonamento con un servizio di pagamento esterno. (\ref{ob:6})
+		\begin{listaPersonale3}{}
+			\elemento[PAGAMENTO]{rf:2.2.1} Il sistema offrirà la possibilità all'utente di pagare l'abbonamento con un servizio di pagamento esterno. (\ref{ob:6})
 
-	\elemento[FUNZIONALITA' AGGIUNTIVE(\ref{ob:6})]{rf:2.2.2} Grazie all'account premium, il sistema permetterà di accedere alle funzionalità standard e a dei servizi aggiuntivi:
-	\begin{itemize}
-		\item poter avere un numero illimitato di calendari personali in base allo loro scopo: gli utenti non premium potranno avere solo 5 calendari personali.
-		\item poter avere un numero illimitato di calendari condivisi: gli utenti standard potranno averne 3.
-	\end{itemize}
+			\elemento[FUNZIONALITA' AGGIUNTIVE(\ref{ob:6})]{rf:2.2.2} Grazie all'account premium, il sistema permetterà di accedere alle funzionalità standard e a dei servizi aggiuntivi:
+			\begin{itemize}
+				\item poter avere un numero illimitato di calendari personali in base allo loro scopo: gli utenti non premium potranno avere solo 5 calendari personali.
+				\item poter avere un numero illimitato di calendari condivisi: gli utenti standard potranno averne 3.
+			\end{itemize}
 
-	\end {listaPersonale3}
-	\end {listaPersonale2}
+		\end{listaPersonale3}
+	\end{listaPersonale2}
 
 	\elemento[UTENTE NON AUTENTICATO]{rf:3} Nel caso di un utente non autenticato (\ref{ob:1}), il sistema permetterà di effettuare l'accesso e/o registrazione nelle modalità descritte in \ref{rf:1}. Nel caso l'utente non volesse registrarsi o accedere, il sito darà la possibilità di usufruire delle funzionalità in versione demo.
 
-	\begin{listaPersonale2}{RF}
+	\begin{listaPersonale2}{}
 		\elemento[DEMO]{rf:3.1}	L'utente non autenticato avrà la possibilità di utilizzare il sito senza che le modifiche fatte vengano salvate sui server della piattaforma; nel caso in cui l'utente si registrasse sul sito, verranno caricate e rese disponibili su più dispositivi.
 
-		\begin{listaPersonale3}{RF}
+		\begin{listaPersonale3}{}
 			\elemento[FUNZIONALITÀ MANCANTI]{rf:3.1.1} L'utente non autenticato non avrà a disposizione diverse funzionalità tra cui \ref{rf:4}, \ref{rf:8}, \ref{rf:10}, \ref{rf:11}.
 		\end{listaPersonale3}
 	\end{listaPersonale2}
 
 	\elemento[CONDIVISIONE DEL CALENDARIO]{rf:4} Il sistema darà la possibilità di condividere il proprio calendario su più dispositivi (\ref{ob:8}).
 
-	\begin{listaPersonale2}{RF}
+	\begin{listaPersonale2}{}
 		\elemento[INTERAZIONE DI CALENDARI CON ALTRE PERSONE]{rf:4.1} Il sistema deve offrire la possibilità agli utenti autenticati d'interagire tra loro mediante la condivisione e integrazione dei loro calendari (\ref{ob:8}). Grazie alla condivisione e integrazione dei calendari tra gli utenti del sito, i clienti avranno la possibilità di programmare gli eventi in comune.
 	\end{listaPersonale2}
 
 	\elemento[COMPILAZIONE EVENTO]{rf:5} Il sistema deve dare la possibilità all'utente di aggiungere un evento al calendario mediante un pop-up (\ref{ob:2}). Nella compilazione dell'attività, il sistema deve permettere al cliente:
-	\begin{listaPersonale2}{RF}
+	\begin{listaPersonale2}{}
 		\elemento{rf:5.1} d'imporre restrizioni, per esempio definire ora e giorno dell'attività da svolgere;
 		\elemento{rf:5.2} impostare la priorità dell'impegno;
 		\elemento{rf:5.3} scrivere una descrizione e un titolo;
@@ -65,16 +65,16 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 	\elemento[IMPOSTAZIONE IMPEGNO]{rf:6} Una volta compilato il pop-up di aggiunta impegno, il sistema deve inserire l'impegno nel calendario (\ref{ob:3}) seguendo le restrizioni e priorità inserite dall'utente a tempo di compilazione dell'evento (\ref{rf:5}).
 
 	\elemento[NOTIFICHE]{rf:7} Il sistema deve inviare delle notifiche per ciascun impegno (\ref{ob:4}), fornendo la possibilità di personalizzarle, infatti nel pop-up di compilazione dell'evento (\ref{rf:5}) deve essere possibile:
-	\begin{listaPersonale2}{RF}
+	\begin{listaPersonale2}{}
 		\elemento{rf:7.1} impostare quando ricevere tale notifica
 		\elemento{rf:7.2} definire il titolo della notifica: di default quest'ultimo sarà il titolo dell'evento.
 	\end{listaPersonale2}
 
 	\elemento[INTERAZIONE CON SISTEMI DI TERZE PARTI]{rf:8} Il sito deve permettere all'utente d'interagire con sistemi di terzi parti (\ref{ob:5}), ad esempio:
 
-	\begin{listaPersonale2}{RF}
+	\begin{listaPersonale2}{}
 		\elemento[INTERAZIONE con GOOGLE CALENDAR]{rf:8.1} In quanto è un'applicazione molto diffusa tra gli utenti che utilizzano calendari, il sistema deve rendere possibile all'utente di poter interagire eventi da Google Calendar. In particolare:
-		\begin{listaPersonale3}{RF}
+		\begin{listaPersonale3}{}
 			\elemento{rf:8.1.1} si potranno importare eventi da Google Calendar, e questi, quando saranno aggiunti, saranno importati nel calendario personale seguendo le stesse regole per gli impegni aggiunti direttamente dal sito (si veda \ref{rf:5}).
 			\elemento{rf:8.1.2} si potranno esportare gli eventi dai diversi calendari personali a Google Calendar.
 		\end{listaPersonale3}
@@ -89,7 +89,7 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 	\elemento[RESOCONTO GIORNATA]{rf:11} Il sistema, a fine giornata, deve presentare un resoconto (\ref{ob:7}), dove l'utente potrà comunicare le attività fatte e non, in modo tale da dare la possibilità al sistema di ricalcolare eventuali modifiche in base agli impegni non conclusi sempre secondo le modalità citate in \ref{rf:6}
 
 	\elemento[FILTRO IMPEGNI]{rf:12} Il sito offrirà la possibilità di poter visualizzare gli impegni dato un specifico filtro(\ref{ob:10}) definito dall'utente secondo alcuni criteri:
-	\begin{listaPersonale2}{RF}
+	\begin{listaPersonale2}{}
 		\elemento{rf:12.1} Titolo evento con corrispondenza totale o parziale.
 		\elemento{rf:12.2} Data evento.
 		\elemento{rf:12.3} Priorità evento.
