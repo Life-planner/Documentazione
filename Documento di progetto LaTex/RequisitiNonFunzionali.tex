@@ -2,9 +2,8 @@
 \label{sec:RequisitiNonFunzionali}
 
 \begin{listaPersonale}{RNF}
-    \elemento[PRIVACY]{rnf:1} L'applicazione deve essere progettata e realizzata in ottemperanza del Regolamento per la protezione dei dati (GDPR) dell'Unione Europa entrata in vigore nel 2016. In specifico il sito dovrà adempiere:
+    \elemento[PRIVACY]{rnf:1} L'applicazione deve essere progettata e realizzata in ottemperanza del Regolamento per la protezione dei dati (GDPR) dell'Unione Europa entrata in vigore nel 2016(\ref{ob:9}). In specifico il sito dovrà adempiere:
     \begin{listaPersonale2}{}
-
         \elemento{rnf:1.1} \href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e1898-1-1}{Capo 2, Articolo 6} trattamento lecito dei dati personali; poiché i dati personali sono necessari per il legittimo interesse di utilizzo del sito, il consenso sarà richiesto solo per alcune funzionalità (\ref{rf:4}). In caso il consenso non venisse dato l'utente non potrà avere accesso a suddette funzionalità della piattaforma.
         \begin{listaPersonale3}{}
             \elemento{rnf:1.1.1} In caso di un utente premium il sistema richiederà ulteriori dati, tra cui quelli di fatturazione, i quali saranno obbligatori per adempiere agli obblighi di legge.
@@ -39,7 +38,7 @@
     \end{listaPersonale2}
 
 
-    \elemento[SICUREZZA]{rnf:2} Il sito di rete deve essere progettato e realizzato per garantire la sicurezza dei dati (OB9) adottando pratiche e metodologie nella fase di trasmissione di dati tramite rete Internet, ad esempio il sito dovrà provvedere a:
+    \elemento[SICUREZZA]{rnf:2} Il sito di rete deve essere progettato e realizzato per garantire la sicurezza dei dati (\ref{ob:9}) adottando pratiche e metodologie nella fase di trasmissione di dati tramite rete Internet, ad esempio il sito dovrà provvedere a:
     \begin{listaPersonale2}{}
         \elemento{rnf:2.1} mantenere privati i dati degli utenti ed evitare attacchi di tipo "sniffing" o "man in the middle" (mediante il protocollo HTTPS;)
         \elemento{rnf:2.2} applicare politiche di tipo "CORS";
@@ -47,31 +46,29 @@
         \elemento{rnf:2.4} alla protezione dei server da attacchi DDOS.
     \end{listaPersonale2}
 
-    \elemento[SCALABILITÀ]{rnf:3} L'applicazione deve garantire l'elaborazione di un numero crescente di utenti in modo tale da offrire tutte le sue funzionalità indipendentemente dal numero di utenti connessi.
+    \elemento[SCALABILITÀ]{rnf:3} L'applicazione deve garantire l'elaborazione di un numero crescente di utenti in modo tale da offrire tutte le sue funzionalità indipendentemente dal numero di utenti connessi(\ref{ob:13}).
 
-    \elemento[AFFIDABILITÀ]{rnf:4} Il sito deve garantire le funzionalità che ci si aspetta vengano eseguite quando viene fatta una determinata azione da parte dell'utente, per questo motivo:
+    \elemento[AFFIDABILITÀ]{rnf:4} Il sito deve garantire le funzionalità che ci si aspetta vengano eseguite quando viene fatta una determinata azione da parte dell'utente(\ref{ob:14}), per questo motivo:
     \begin{listaPersonale2}{}
         \elemento{rnf:4.1} un'azione non è definita completata fintanto che il server non confermi l'avvenuto successo dell'azione richiesta;
         \elemento{rnf:4.2} tutte le eccezioni devono essere gestite con errori appropriati
         \elemento{rnf:4.3} la piattaforma deve essere progettata in modo tale di essere resiliente in caso di fallimento di uno dei suoi componenti; (Si può adottare una programmazione a microservizi in modo tale da far si che se c'è un problema su un microservizi il resto del sito continua a funzionare correttamente)
     \end{listaPersonale2}
 
-    \elemento[MEMORIZZAZIONE]{rnf:5} La memorizzazione dei dati dovrà essere effettuata nei server della piattaforma; quando un utente adopera il sito, si dovranno scaricare i propri calendari in locale.
+    \elemento[PRESTAZIONI]{rnf:7} Il sito dovrà presentare almeno un punteggio di 85\% valutazione delle prestazioni(\ref{ob:14}) tramite l'utilizzo dello strumento “lighthouse” di Google Chrome.
 
-    \elemento[PRESTAZIONI]{rnf:6} Il sito dovrà presentare almeno un punteggio di 85\% valutazione delle prestazioni tramite l'utilizzo dello strumento “lighthouse” di Google Chrome.
+    \elemento[COMPATIBILITÀ]{rnf:8} Il sito deve essere compatibile(\ref{ob:14}) con i browser Chromium based, Firefox e Safari di edizione 2022.
 
-    \elemento[COMPATIBILITÀ]{rnf:7} Il sito deve essere compatibile con i browser Chromium based, Firefox e Safari di edizione 2022.
+    \elemento[WEB APP]{rnf:9} Il sito dovrà rendere disponibile all'utente una web app (\ref{ob:11}) per aumentare le funzionalità offerte dalla piattaforma.
 
-    \elemento[WEB APP]{rnf:8} Il sito dovrà rendere disponibile all'utente una web app (\ref{ob:11}) per aumentare le funzionalità offerte dalla piattaforma.
-
-    \elemento[INTEROPERABILITÀ]{rnf:9} Il sistema deve poter operare con sistemi esterni, che prestano delle funzionalità aggiuntive nella piattaforma, non implementate direttamente dal sito. In modo specifico i sistemi esterni presenti dovranno essere:
+    \elemento[INTEROPERABILITÀ]{rnf:10} Il sistema deve poter operare con sistemi esterni(\ref{ob:5}), che prestano delle funzionalità aggiuntive nella piattaforma, non implementate direttamente dal sito. In modo specifico i sistemi esterni presenti dovranno essere:
     \begin{listaPersonale2}{}
-        \elemento{rnf:9.1}sistemi di mappe;
-        \elemento{rnf:9.2}sistemi di pagamento;
-        \elemento{rnf:9.3}sistemi di autenticazione.
+        \elemento{rnf:10.1} sistemi di mappe;
+        \elemento{rnf:10.2} sistemi di pagamento;
+        \elemento{rnf:10.3} sistemi di autenticazione.
     \end{listaPersonale2}
 
-    \elemento[PORTABILITÀ]{rnf:10} Il sistema deve essere capace di adattarsi a diversi dispositivi le cui dimensioni sono variabili.
+    \elemento[PORTABILITÀ]{rnf:11} Il sistema deve essere capace di adattarsi(\ref{ob:5}) a diversi dispositivi le cui dimensioni sono variabili.
 
-    \elemento[LINGUA DI SISTEMA]{rnf:11} Il sito deve essere fornita in lingua italiana.
+    \elemento[LINGUA DI SISTEMA]{rnf:12} Il sito deve essere fornita in lingua italiana(\ref{ob:14}).
 \end{listaPersonale}
