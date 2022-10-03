@@ -1,2 +1,68 @@
 \section{Requisiti non funzionali}
 \label{sec:RequisitiNonFunzionali}
+
+\begin{listaPersonale}{RNF}
+    \elemento[PRIVACY]{rnf:1} L'applicazione deve essere progettata e realizzata in ottemperanza del Regolamento per la protezione dei dati (GDPR) dell'Unione Europa entrata in vigore nel 2016(\ref{ob:9}). In specifico il sito dovrà adempiere:
+    \begin{listaPersonale2}{}
+        \elemento{rnf:1.1} \href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e1898-1-1}{Capo 2, Articolo 6} trattamento lecito dei dati personali; poiché i dati personali sono necessari per il legittimo interesse di utilizzo del sito, il consenso sarà richiesto solo per alcune funzionalità (Es. \ref{rf:4}). In caso il consenso non venisse dato l'utente non potrà avere accesso ad alcune funzionalità della piattaforma.
+        \begin{listaPersonale3}{}
+            \elemento{rnf:1.1.1} In caso di un utente premium il sistema richiederà ulteriori dati, tra cui quelli di fatturazione, i quali saranno obbligatori per adempiere agli obblighi di legge.
+        \end{listaPersonale3}
+
+        \elemento{rnf:1.2} Creare un'informativa sulle finalità e modalità dei trattamenti: il contenuto dell'informativa dovrà presentare le istruzioni date nel \href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e2261-1-1}{Capo 3, Sezione 2, Articolo 13} del GDPR, ovvero:
+        \begin{listaPersonale3}{}
+            \elemento{rnf:1.2.1} categoria di dati raccolti;
+            \elemento{rnf:1.2.2} finalità del trattamento;
+            \elemento{rnf:1.2.3} periodo di conservazione;
+        \end{listaPersonale3}
+
+        \elemento{rnf:1.3} a dei requisiti di presentazione, ovvero l'informativa deve essere chiara, concisa, facilmente accessibile e comprensibile;
+
+        \elemento{rnf:1.4} al riconoscimento di alcuni diritti, ovvero:
+        \begin{listaPersonale3}{}
+            \elemento{rnf:1.4.1} diritto di accesso ai dati da parte dell'utente (\href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e2520-1-1}{Capo 3, Sezione 2, Articolo 15});
+            \elemento{rnf:1.4.2} diritto di rettifica (\href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e2606-1-1}{Cap 3, Sezione 3, Articolo 16});
+            \elemento{rnf:1.4.3} diritto all'oblio/cancellazione (\href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e2613-1-1}{Cap 3, Sezione 3, Articolo 17});
+            \elemento{rnf:1.4.4} diritto di opposizione (\href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e2810-1-1}{Cap 3, Sezione 4, Articolo 21});
+        \end{listaPersonale3}
+
+        \elemento{rnf:1.5} alla resa facile e gratuita nell'esercizio dei propri diritti (\href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e2189-1-1}{Capo 3, Sezione 1, Articolo 12, Comma 2});
+        \elemento{rnf:1.6} a informare gli utenti in caso di violazione (\href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e3497-1-1}{Capo 4, Sezione 2, Articolo 34});
+    \end{listaPersonale2}
+
+
+    \elemento[SICUREZZA]{rnf:2} Il sito di rete deve essere progettato e realizzato per garantire la sicurezza dei dati (\ref{ob:9}) adottando pratiche e metodologie nella fase di trasmissione di dati tramite rete Internet, ad esempio il sito dovrà provvedere a:
+    \begin{listaPersonale2}{}
+        \elemento{rnf:2.1} mantenere privati i dati degli utenti ed evitare attacchi di rete tipo "sniffing" o "man in the middle";
+        \elemento{rnf:2.2} applicare politiche sull'origine dei dati;
+        \elemento{rnf:2.3} assicurare che non possano essere effettuati attacchi XSS;
+        \elemento{rnf:2.4} alla protezione dei server da attacchi DDOS.
+    \end{listaPersonale2}
+
+    \elemento[SCALABILITÀ]{rnf:3} L'applicazione deve garantire l'elaborazione di un numero crescente di utenti in modo tale da offrire tutte le sue funzionalità indipendentemente dal numero di utenti connessi(\ref{ob:13}).
+
+    \elemento[AFFIDABILITÀ]{rnf:4} Il sito deve garantire il funzionamento delle funzionalità che ci si aspetta vengano eseguite quando viene fatta una determinata azione da parte dell'utente(\ref{ob:14}), per questo motivo:
+    \begin{listaPersonale2}{}
+        \elemento{rnf:4.1} un'azione non è definita completata fintanto che il server non confermi l'avvenuto successo dell'azione richiesta;
+        \elemento{rnf:4.2} tutte le eccezioni devono essere gestite con errori appropriati
+        \elemento{rnf:4.3} la piattaforma deve essere progettata in modo tale di essere resiliente in caso di fallimento di uno dei suoi componenti;
+    \end{listaPersonale2}
+
+    \elemento[PRESTAZIONI]{rnf:5} Il sito dovrà presentare almeno un punteggio di 85\% durante nella valutazione delle prestazioni(\ref{ob:14}) mediante l'utilizzo dello strumento “lighthouse” di Google Chrome.
+
+    \elemento[COMPATIBILITÀ]{rnf:6} Il sito deve essere compatibile(\ref{ob:14}) con i browser Chromium based, Firefox e Safari di edizione 2022.
+
+    \elemento[WEB APP]{rnf:7} La piattaforma dovrà rendere disponibile all'utente una web app (\ref{ob:11}) per aumentare le funzionalità offerte.
+
+    \elemento[INTEROPERABILITÀ]{rnf:8} Il sistema deve poter operare con sistemi esterni(\ref{ob:5}), che prestano delle funzionalità aggiuntive nella piattaforma, non implementate direttamente dal sito. In modo specifico i sistemi esterni presenti dovranno essere:
+    \begin{listaPersonale2}{}
+        \elemento{rnf:10.1} sistemi di mappe;
+        \elemento{rnf:10.2} sistemi di pagamento;
+        \elemento{rnf:10.3} sistemi di autenticazione;
+        \elemento{rnf:10.4} Google Calendar.
+    \end{listaPersonale2}
+
+    \elemento[PORTABILITÀ]{rnf:9} Il sistema deve essere capace di adattarsi(\ref{ob:5}) a diversi dispositivi le cui dimensioni possono essere variabili.
+
+    \elemento[LINGUA DI SISTEMA]{rnf:10} Il sito deve essere fornito in lingua italiana(\ref{ob:14}).
+\end{listaPersonale}

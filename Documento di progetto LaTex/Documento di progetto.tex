@@ -12,14 +12,24 @@
 \tableofcontents
 \pagebreak
 
-\input{ScopoDelProgetto.tex}
-\input{ObiettiviDelProgetto.tex}
+\include{ScopoDelProgetto.tex}
+\include{ObiettiviDelProgetto.tex}
+\include{RequisitiFunzionali.tex}
 
-\begin{comment}
-\input{RequisitiFunzionali.tex}
-\input{RequisitiNonFunzionali.tex}
-\input{RequisitiFrontEnd.tex}
-\input{RequisitiBackEnd.tex}
-\end{comment}
+
+\include{RequisitiNonFunzionali.tex}
+\include{RequisitiFrontEnd.tex}
+\include{RequisitiBackEnd.tex}
+
+Servizi usati
+\begin{itemize}
+    \item Googlle maps/OpenStreet maps
+    \item Google calendar
+    \item PayPal/Stripe
+    \item Auth0
+    \item Claudflare
+\end{itemize}
+
+\ref{rnf:4.3} (Si può adottare una programmazione a microservizi in modo tale da far si che se c'è un problema su un microservizio il resto del sito continua a funzionare correttamente)
 
 \end{document}
