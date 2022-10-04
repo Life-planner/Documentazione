@@ -20,7 +20,7 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 	\elemento[UTENTE AUTENTICATO-STANDARD]{rf:2} Un utente autenticato standard è un utente registrato che ha effettuato il login e che usufruisce delle funzionalità base della piattaforma.
 
 	\begin{listaPersonale2}{RF}
-		\elemento[FUNZIONALITA']{rf:2:1} Il sistema offrirà agli utenti con account autenticato-standard tutti i servizi sottoelencati, eccetto quelli descritti nella sezione utente autenticato-premium (\ref{rf:2.2}), con le limitazioni elencate in \ref{rf:2.2.2}.
+		\elemento[FUNZIONALITA']{rf:2:1} Il sistema offrirà agli utenti con account autenticato-standard tutti i servizi sottoelencati, eccetto quelli descritti nella sezione utente autenticato-premium (\ref{rf:2.2}), con le limitazioni elencate in \ref{rf:2.2.2}. Inoltre sarà possibile aggiungere o modificare il proprio username da usare per un più rapido riconoscimento nei calendari condivisi.
 
 		\elemento[UTENTE AUTENTICATO-PREMIUM]{rf:2.2} L'utente avrà la possibilità anche di accedere a un maggior numero di funzionalità della piattaforma grazie alla sottoscrizione di un abbonamento mediante un pagamento mensile(\ref{ob:6}). Inoltre il pagamento degli utenti premium contribuirà alla sostenibilità economica del sito.
 
@@ -52,13 +52,15 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 		\elemento[INTERAZIONE DI CALENDARI CON ALTRE PERSONE]{rf:4.1} Il sistema deve offrire la possibilità agli utenti autenticati d'interagire tra loro mediante la condivisione e integrazione dei loro calendari (\ref{ob:8}). Grazie alla condivisione e integrazione dei calendari tra gli utenti del sito, i clienti avranno la possibilità di programmare gli eventi in comune.
 	\end{listaPersonale2}
 
-	\elemento[COMPILAZIONE EVENTO]{rf:5} Il sistema deve dare la possibilità all'utente di aggiungere un evento al calendario mediante un pop-up (\ref{ob:2}). Nella compilazione dell'attività, il sistema deve permettere al cliente:
+	\elemento[COMPILAZIONE/MODIFICA EVENTO]{rf:5} Il sistema deve dare la possibilità all'utente di aggiungere e modificare un evento del calendario mediante l'utilizzo di un pop-up (\ref{ob:2}). Nella compilazione dell'attività, il sistema deve permettere al cliente:
 	\begin{listaPersonale2}{}
 		\elemento{rf:5.1} d'imporre restrizioni, per esempio definire ora e giorno dell'attività da svolgere;
 		\elemento{rf:5.2} impostare la priorità dell'impegno;
 		\elemento{rf:5.3} scrivere una descrizione e un titolo;
 		\elemento{rf:5.4} definire impegni di routine oppure impegni ripetuti su più giorni.
-		\elemento{rf:5.5} l'utente avrà la possibilità d'impostare le ore di sonno giorno per giorno oppure applicare le stesse ore per più giorni.
+		\elemento{rf:5.5} l'utente avrà la possibilità d'impostare le ore di sonno giorno per giorno oppure applicare le stesse ore per più giorni;
+		\elemento{rf:5.6} aggiungere il luogo dove si terrà l'impegno;
+		\elemento{rf:5.7} impostare le autorizzazioni per eventuali utenti con cui verrà condiviso l'evento.
 	\end{listaPersonale2}
 
 
@@ -73,10 +75,10 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 	\elemento[INTERAZIONE CON SISTEMI DI TERZE PARTI]{rf:8} Il sito deve permettere all'utente d'interagire con sistemi di terzi parti (\ref{ob:5}), ad esempio:
 
 	\begin{listaPersonale2}{RF}
-		\elemento[INTERAZIONE con GOOGLE CALENDAR]{rf:8.1} In quanto è un'applicazione molto diffusa tra gli utenti che utilizzano calendari, il sistema deve rendere possibile all'utente di poter interagire eventi da Google Calendar. In particolare:
+		\elemento[INTERAZIONE con GOOGLE CALENDAR]{rf:8.1} In quanto è un'applicazione molto diffusa tra gli utenti che utilizzano calendari, il sistema deve rendere possibile all'utente di poter interagire con eventi di Google Calendar. In particolare la piattaforma deve permettere di:
 		\begin{listaPersonale3}{}
-			\elemento{rf:8.1.1} si potranno importare eventi da Google Calendar, e questi, quando saranno aggiunti, saranno importati nel calendario personale seguendo le stesse regole per gli impegni aggiunti direttamente dal sito (si veda \ref{rf:5}).
-			\elemento{rf:8.1.2} si potranno esportare gli eventi dai diversi calendari personali a Google Calendar.
+			\elemento{rf:8.1.1} importare ed esportare manualmente;
+			\elemento{rf:8.1.2} importare ed esportare in automatico.
 		\end{listaPersonale3}
 
 		\elemento[INTERAZIONE CON UN SERVIZIO DI MAPPE]{rf:8.2} Il sistema darà la possibilità all'utente di aggiungere il luogo dove si svolgerà l'impegno.
@@ -94,5 +96,18 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 		\elemento{rf:12.2} Data evento.
 		\elemento{rf:12.3} Priorità evento.
 		\elemento{rf:12.4} Persone incluse nell'evento.
+	\end{listaPersonale2}
+
+	\elemento[IMPOSTAZIONI PREDEFINITE DI UN CALENDARIO]{rf:13} Ogni calendario avrà una sezione dedicata dove l'utente potrà modificare le impostazioni predefinite del calendario. Queste impostazioni saranno usate per precompilare i campi dell'evento, che si sta aggiungendo. L'utente, durante la fase di aggiunta dell'evento, potrà modificare i campi precompilati. La sezione delle impostazioni di un calendario conterrà la possibilità di definire i valori di default per i seguenti requisiti funzionali: \ref{rf:5.1}, \ref{rf:5.2}, \ref{rf:5.3}(come prefisso o suffisso), \ref{rf:5.5}, \ref{rf:5.6}, \ref{rf:5.7}, \ref{rf:7.1}, \ref{rf:7.2} e inoltre questa sezione conterrà le impostazioni per:
+	\begin{listaPersonale2}{}
+		\elemento{rf:13.1} modificare il nome del calendario;
+		\elemento{rf:13.2} modificare il colore del calendario.
+	\end{listaPersonale2}
+
+	\elemento[IMPOSTAZIONI ACCOUNT]{rf:14} Il sito permetterà all'utente di modificare delle impostazioni riguardo al proprio account; i campi che si potranno modificare saranno:
+	\begin{listaPersonale2}{}
+		\elemento{rf:14.1} modifica password;
+		\elemento{rf:14.2} modifica username;
+		\elemento{rf:14.3} impostare preferenze e interazioni con servizi di terze parti RF 8.1 e RF 8.2.
 	\end{listaPersonale2}
 \end{listaPersonale}
