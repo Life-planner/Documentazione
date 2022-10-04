@@ -1,2 +1,51 @@
 \section{Requisiti Back-End}
 \label{sec:RequisitiBackEnd}
+
+Nel presente capitolo vengono riportati i sistemi esterni con cui l'applicazione dovrà interfacciarsi per poter funzionare e una loro descrizione.
+
+I sistemi esterni con cui PlanIt si dovrà interfacciare sono:
+\begin{enumerate}
+    \item sistemi di mappe: Google Maps e OpenStreetMaps;
+    \item sistema di gestione del calendario: Google Calendar;
+    \item sistemi di pagamento: PayPal e/o Stripe;
+    \item sistemi di autenticazione: Auth0;
+    \item sistemi per la protezione da attacchi: Cloudflare;
+    \item sistema di archiviazione delle informazioni: MongoDB;
+    \item sistema di controllo della privacy e cookie: Iubenda.
+\end{enumerate}
+
+\subsection*{DESCRIZIONI}
+\begin{enumerate}
+    \item Le API dei servizi di mappe Google Maps e OpenstreetMaps, daranno la possibilità all'utente d'indicare la posizione esatta di dove si terrà l'impegno(\ref{rf:8.2}); tale posizione potrà essere specificata quando si compila il pop-up di compilazione impegno (\ref{rf:5}), oppure in un successivo momento durante la modifica dell'evento stesso (\ref{rf:5}).
+
+    \item L'integrazione con Google Calendar(\ref{rf:8.1}) permetterà d'importare ed esportare eventi dalla sua piattaforma.\\
+          Il processo potrà avvenire mediante:
+          \begin{itemize}
+              \item L'importazione e l'esportazione tramite file: \\
+                    Si potranno importare ed esportare eventi da Google Calendar mediante l'utilizzo di un file.
+              \item L'importazione e l'esportazione in automatico: \\
+                    Mediante l'uso delle API fornite dalla piattaforma Google Calendar, sarà possibile importare ed esportare eventi direttamente da e verso un calendario già esistente sulla piattaforma.
+          \end{itemize}
+
+    \item L'integrazione con i sistemi di pagamento PayPal e Stripe gestiranno i pagamenti per la sottoscrizione a un account premium (\ref{rf:2.2.1}).
+
+    \item Il sistema di autenticazione Auth0 gestirà la procedura di accesso e registrazione al sito (\ref{rf:1}), permettendo accessi e registrazioni sicure (\ref{rnf:2}) alla piattaforma. Mediante l'utilizzo di questo sistema di accesso esterno sarà anche possibile accedere e registrarsi direttamente sul sito tramite l'utilizzo di account di servizi terzi, tra cui: Google e Apple, e altri eventuali servizi di terzi parti.
+
+    \item Il servizio CloudFlare verrà utilizzato per diversi scopi tra cui:
+          \begin{enumerate}
+              \item protezione da attacchi DDOS (\ref{rnf:2});
+              \item CDN (Content Delivery Network) in modo tale da servire le pagine statiche o file statici del sito con poca latenza;
+              \item DNS così da poter creare diversi sotto domini;
+              \item Certificato SSL, così da rendere sicura la connessione tra l'utente e la piattaforma (\ref{rnf:2}).
+          \end{enumerate}
+
+    \item Il sistema di archiviazione delle informazioni MongoDB dovrà gestire tutti i dati coinvolti nei processi della piattaforma, nello specifico: la memorizzazione del calendario, degli eventi, eventuali condivisioni, le informazioni di ogni utente per l'integrazione con i servizi di terze parti e le preferenze dell'utente.
+
+    \item Il sistema di gestione della privacy e cookie Iubenda sarà utilizzato per generare una politica sulla privacy (\ref{rnf:1}) che rispetterà i parametri di legge, e in caso di modifiche alle leggi in vigore informerà la piattaforma per adottare le modifiche necessarie per adempiere ai nuovi obblighi di legge. Inoltre Iubenda fornirà un' integrazione per accettare/rifiutare i cookie (\ref{rnf:11}).
+
+\end{enumerate}
+
+\subsection*{Servizi esterni}
+\begin{center}
+    \includegraphics[width=1\textwidth]{img/Servizi/Servizi esterni.drawio.png}
+\end{center}
