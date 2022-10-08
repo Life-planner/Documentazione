@@ -33,10 +33,17 @@
 
     \elemento[SICUREZZA]{rnf:2} Il sito di rete deve essere progettato e realizzato per garantire la sicurezza dei dati (\ref{ob:9}) adottando pratiche e metodologie nella fase di trasmissione di dati tramite rete Internet, ad esempio il sito dovrà provvedere a:
     \begin{listaPersonale2}{}
-        \elemento{rnf:2.1} mantenere privati i dati degli utenti ed evitare attacchi di rete tipo "sniffing" o "man in the middle";
-        \elemento{rnf:2.2} applicare politiche sull'origine dei dati;
-        \elemento{rnf:2.3} assicurare che non possano essere effettuati attacchi XSS;
-        \elemento{rnf:2.4} alla protezione dei server da attacchi DDOS.
+        \elemento {rnf:2.1} avere, come primo livello di sicurezza, una password decisa obbligatoriamente dagli utenti in fase di autenticazione. La password deve seguire degli standard, ovvero avere almeno: 
+        \begin{itemize}
+            \item almeno 8 caratteri;
+            \item almeno una lettera maiuscola; 
+            \item alemno una lettera minuscola; 
+            \item almeno un simbolo.
+        \end{itemize}
+        \elemento{rnf:2.2} mantenere privati i dati degli utenti ed evitare attacchi di rete tipo "sniffing" o "man in the middle";
+        \elemento{rnf:2.3} applicare politiche sull'origine dei dati;
+        \elemento{rnf:2.4} assicurare che non possano essere effettuati attacchi XSS;
+        \elemento{rnf:2.5} alla protezione dei server da attacchi DDOS.
     \end{listaPersonale2}
 
     \elemento[SCALABILITÀ]{rnf:3} L'applicazione deve garantire l'elaborazione di un numero crescente di utenti in modo tale da offrire tutte le sue funzionalità indipendentemente dal numero di utenti connessi(\ref{ob:13}).

@@ -50,9 +50,10 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 
 	\begin{listaPersonale2}{RF}
 		\elemento[INTERAZIONE DI CALENDARI CON ALTRE PERSONE]{rf:4.1} Il sistema deve offrire la possibilità agli utenti autenticati d'interagire tra loro mediante la condivisione e integrazione dei loro calendari (\ref{ob:8}). Grazie alla condivisione e integrazione dei calendari tra gli utenti del sito, i clienti avranno la possibilità di programmare gli eventi in comune.
+		\elemento [CALENDARI PERSONALI] {rf:4.2} La piattaforma deve rendere possibile all’utente di avere più calendari personali (\ref{ob:8}) riguardo alle varie attività da svolgere, che si possono visualizzare ogni qualvolta si voglia. Il numero di calendari personali, reso disponibile dal sito, dipende dal tipo di account dell’utente (\ref{rf:2.2.2}).
 	\end{listaPersonale2}
 
-	\elemento[COMPILAZIONE/MODIFICA EVENTO]{rf:5} Il sistema deve dare la possibilità all'utente di aggiungere e modificare un evento del calendario mediante l'utilizzo di un pop-up (\ref{ob:2}). Nella compilazione dell'attività, il sistema deve permettere al cliente:
+	\elemento[COMPILAZIONE/MODIFICA EVENTO]{rf:5} Il sistema deve dare la possibilità all'utente di aggiungere, eliminare e modificare un evento del calendario mediante l'utilizzo di un pop-up (\ref{ob:2}) e nella schermata dedicata agli eventi. Nella compilazione dell'attività, il sistema deve permettere al cliente:
 	\begin{listaPersonale2}{}
 		\elemento{rf:5.1} d'imporre restrizioni, per esempio definire ora e giorno dell'attività da svolgere;
 		\elemento{rf:5.2} impostare la priorità dell'impegno;
@@ -60,7 +61,8 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 		\elemento{rf:5.4} definire impegni di routine oppure impegni ripetuti su più giorni.
 		\elemento{rf:5.5} l'utente avrà la possibilità d'impostare le ore di sonno giorno per giorno oppure applicare le stesse ore per più giorni;
 		\elemento{rf:5.6} aggiungere il luogo dove si terrà l'impegno;
-		\elemento{rf:5.7} impostare le autorizzazioni per eventuali utenti con cui verrà condiviso l'evento.
+		\elemento{rf:5.7} impostare le autorizzazioni per eventuali utenti con cui verrà condiviso l'evento;
+		\elemento {rf:5.8} di poter aggiungere l'evento ad un raggruppamento di altre attività.
 	\end{listaPersonale2}
 
 
@@ -110,4 +112,7 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 		\elemento{rf:14.2} modifica username;
 		\elemento{rf:14.3} impostare preferenze e interazioni con servizi di terze parti (\ref{rf:8.1}) e (\ref{rf:8.2}).
 	\end{listaPersonale2}
+
+	\elemento [RECUPERO PASSWORD] {rf:15} %è da chiedere bene se sia veramente o meno un req funzionale 
+	Il sistema rende disponibile all’ utente autenticato la possibilità di recuperare la sua password, fornendo alla piattaforma la propria email con cui si è registrati. Il sistema manderà un’email all'indirizzo fornito, in cui sarà presente un link che porterà ad una pagina dove si potrà reimpostare la propria password. La nuova password da inserire deve seguire le regole indicate nel RNF2.x.
 \end{listaPersonale}
