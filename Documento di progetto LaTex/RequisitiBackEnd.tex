@@ -1,11 +1,11 @@
-\section{Requisiti Back-End}
+\section{Design Back-End}
 \label{sec:RequisitiBackEnd}
 
 Nel presente capitolo vengono riportati i sistemi esterni con cui l'applicazione dovrà interfacciarsi per poter funzionare e una loro descrizione.
 
 I sistemi esterni con cui PlanIt si dovrà interfacciare sono:
 \begin{enumerate}
-    \item sistemi di mappe: Google Maps e OpenStreetMaps;
+    \item sistemi di mappe: Google Maps e OpenStreetMap;
     \item sistema di gestione del calendario: Google Calendar;
     \item sistemi di pagamento: PayPal e/o Stripe;
     \item sistemi di autenticazione: Auth0;
@@ -16,7 +16,7 @@ I sistemi esterni con cui PlanIt si dovrà interfacciare sono:
 
 \subsection*{DESCRIZIONI}
 \begin{enumerate}
-    \item Le API dei servizi di mappe Google Maps e OpenstreetMaps, daranno la possibilità all'utente d'indicare la posizione esatta di dove si terrà l'impegno(\ref{rf:8.2}); tale posizione potrà essere specificata quando si compila il pop-up di compilazione impegno (\ref{rf:5}), oppure in un successivo momento durante la modifica dell'evento stesso (\ref{rf:5}).
+    \item Le API dei servizi di mappe Google Maps e OpenstreetMap, daranno la possibilità all'utente d'indicare la posizione esatta di dove si terrà l'impegno(\ref{rf:8.2}); tale posizione potrà essere specificata quando si compila il pop-up di compilazione impegno (\ref{rf:5}), oppure in un successivo momento durante la modifica dell'evento stesso (\ref{rf:5}).
 
     \item L'integrazione con Google Calendar(\ref{rf:8.1}) permetterà d'importare ed esportare eventi dalla sua piattaforma.\\
           Il processo potrà avvenire mediante:
@@ -29,7 +29,7 @@ I sistemi esterni con cui PlanIt si dovrà interfacciare sono:
 
     \item L'integrazione con i sistemi di pagamento PayPal e Stripe gestiranno i pagamenti per la sottoscrizione a un account premium (\ref{rf:2.2.1}).
 
-    \item Il sistema di autenticazione Auth0 gestirà la procedura di accesso e registrazione al sito (\ref{rf:1}), permettendo accessi e registrazioni sicure (\ref{rnf:2}) alla piattaforma. Mediante l'utilizzo di questo sistema di accesso esterno sarà anche possibile accedere e registrarsi direttamente sul sito tramite l'utilizzo di account di servizi terzi, tra cui: Google e Apple, e altri eventuali servizi di terzi parti.
+    \item Il sistema di autenticazione Auth0 gestirà la procedura di accesso e registrazione al sito (\ref{rf:1}), permettendo accessi e registrazioni sicure (\ref{rnf:2}) alla piattaforma. Mediante l'utilizzo di questo sistema di accesso esterno sarà anche possibile accedere e registrarsi direttamente sul sito tramite l'utilizzo di account di servizi terzi, tra cui: Google e altri eventuali servizi di terzi parti.
 
     \item Il servizio CloudFlare verrà utilizzato per diversi scopi tra cui:
           \begin{enumerate}

@@ -10,11 +10,11 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 		\item utente non autenticato (\ref{ob:1});
 		\item utente autenticato-premium (\ref{ob:6});
 	\end{itemize}
-	Il sistema deve permettere all'utente di registrarsi sul sito (\ref{ob:1}) in qualsiasi momento esso voglia e inoltre deve permettere di abbonarsi al servizio premium, con un account preesistente o anche durante la fase di registrazione.\\
-	A ogni modo il sistema deve rendere disponibile all'utente di utilizzare il sito anche come utente non autenticato in versione demo(\ref{rf:3}).
+	Il sistema deve permettere all'utente di registrarsi sul sito (\ref{ob:1}) in qualsiasi momento esso voglia, seguendo le regole definite in RNF\ref{rnf:2.1}; inoltre, la piattaforma deve permettere di abbonarsi al servizio premium, con un account preesistente o durante la fase di registrazione.\\
+	A ogni modo il sistema deve rendere disponibile all'utente di utilizzare la piattaforma anche come utente non autenticato in versione demo(\ref{rf:3}) cosicché possa provare il sito prima di registrarsi.
 
 	\begin{listaPersonale2}{RF}
-		\elemento[METODI AUTENTICAZIONE]{rf:1.1} L'autenticazione può essere fatta con email e password o con servizi di terze parti, più nello specifico con Google, Apple ed eventuali servizi di terze parti (\ref{ob:1}).
+		\elemento[METODI AUTENTICAZIONE]{rf:1.1} L'autenticazione può essere fatta con email e password o con servizi di terze parti, più nello specifico con Google o con eventuali servizi di terze parti (\ref{ob:1}).
 	\end{listaPersonale2}
 
 	\elemento[UTENTE AUTENTICATO-STANDARD]{rf:2} Un utente autenticato standard è un utente registrato che ha effettuato il login e che usufruisce delle funzionalità base della piattaforma.
@@ -29,8 +29,8 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 
 			\elemento[FUNZIONALITA' AGGIUNTIVE(\ref{ob:6})]{rf:2.2.2} Grazie all'account premium, il sistema permetterà di accedere alle funzionalità standard e a dei servizi aggiuntivi:
 			\begin{itemize}
-				\item poter avere un numero illimitato di calendari personali in base allo loro scopo: gli utenti non premium potranno avere solo 5 calendari personali.
-				\item poter avere un numero illimitato di calendari condivisi: gli utenti standard potranno averne 3.
+				\item poter avere un numero illimitato di calendari personali in base allo loro scopo: gli utenti non premium potranno avere solo 5 calendari personali (\ref{rf:4.2}).
+				\item poter avere un numero illimitato di calendari condivisi: gli utenti standard potranno averne 3 (\ref{rf:4.1}).
 			\end{itemize}
 
 		\end{listaPersonale3}
@@ -42,7 +42,7 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 		\elemento[DEMO]{rf:3.1}	L'utente non autenticato avrà la possibilità di utilizzare il sito senza che le modifiche fatte vengano salvate sui server della piattaforma; nel caso in cui l'utente si registrasse sul sito, verranno caricate e rese disponibili su più dispositivi.
 
 		\begin{listaPersonale3}{}
-			\elemento[FUNZIONALITÀ MANCANTI]{rf:3.1.1} L'utente non autenticato non avrà a disposizione diverse funzionalità tra cui \ref{rf:4}, \ref{rf:8}, \ref{rf:10}, \ref{rf:11}.
+			\elemento[FUNZIONALITÀ MANCANTI]{rf:3.1.1} L'utente non autenticato non avrà a disposizione diverse funzionalità tra cui \ref{rf:4}, \ref{rf:8}, \ref{rf:10}, \ref{rf:11}, \ref{rf:14} e \ref{rf:15}.
 		\end{listaPersonale3}
 	\end{listaPersonale2}
 
@@ -55,18 +55,19 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 
 	\elemento[COMPILAZIONE/MODIFICA EVENTO]{rf:5} Il sistema deve dare la possibilità all'utente di aggiungere, eliminare e modificare un evento del calendario mediante l'utilizzo di un pop-up (\ref{ob:2}) e nella schermata dedicata agli eventi. Nella compilazione dell'attività, il sistema deve permettere al cliente:
 	\begin{listaPersonale2}{}
-		\elemento{rf:5.1} d'imporre restrizioni, per esempio definire ora e giorno dell'attività da svolgere;
+		\elemento{rf:5.1} d'imporre restrizioni, ovvero definire ora e giorno dell'attività da svolgere;
 		\elemento{rf:5.2} impostare la priorità dell'impegno;
 		\elemento{rf:5.3} scrivere una descrizione e un titolo;
 		\elemento{rf:5.4} definire impegni di routine oppure impegni ripetuti su più giorni.
-		\elemento{rf:5.5} l'utente avrà la possibilità d'impostare le ore di sonno giorno per giorno oppure applicare le stesse ore per più giorni;
+		\elemento{rf:5.5} l'utente avrà la possibilità d'impostare le ore di sonno giorno per giorno oppure applicare le stesse ore per più giorni, chiamate "Abitudini";
 		\elemento{rf:5.6} aggiungere il luogo dove si terrà l'impegno;
 		\elemento{rf:5.7} impostare le autorizzazioni per eventuali utenti con cui verrà condiviso l'evento;
-		\elemento {rf:5.8} di poter aggiungere l'evento ad un raggruppamento di altre attività.
+		\elemento {rf:5.8} di poter aggiungere l'evento ad un raggruppamento di altre attività; un raggruppamento è un insieme di attività che non hanno restrizioni di orario;
+		\elemento {rf:5.9} impostare la difficoltà, ovvero definire quanto l'evento sia difficile da completare.
 	\end{listaPersonale2}
 
 
-	\elemento[IMPOSTAZIONE IMPEGNO]{rf:6} Una volta compilato il pop-up di aggiunta impegno, il sistema deve inserire l'impegno nel calendario (\ref{ob:3}) seguendo le restrizioni e priorità inserite dall'utente a tempo di compilazione dell'evento (\ref{rf:5}).
+	\elemento[IMPOSTAZIONE IMPEGNO]{rf:6} Una volta compilato il pop-up di aggiunta impegno, il sistema deve inserire automaticamente l'impegno nel calendario (\ref{ob:3}) seguendo le restrizioni, difficoltà, priorità e gli altri campi inseriti dall'utente a tempo di compilazione dell'evento (\ref{rf:5}).
 
 	\elemento[NOTIFICHE]{rf:7} Il sistema deve inviare delle notifiche per ciascun impegno (\ref{ob:4}), fornendo la possibilità di personalizzarle, infatti nel pop-up di compilazione dell'evento (\ref{rf:5}) deve essere possibile:
 	\begin{listaPersonale2}{}
@@ -90,14 +91,14 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 
 	\elemento[RIORGANIZZAZIONE DI ATTIVITA']{rf:10} Il sistema deve riorganizzare automaticamente il calendario in caso di ritardi (\ref{ob:3}). Sarà data la possibilità all'utente di notificare il sistema di ritardi e il sito dovrà ripianificare il calendario, sempre secondo le regole descritte nel \ref{rf:6}.
 
-	\elemento[RESOCONTO GIORNATA]{rf:11} Il sistema, a fine giornata, deve presentare un resoconto (\ref{ob:7}), dove l'utente potrà comunicare le attività fatte e non, in modo tale da dare la possibilità al sistema di ricalcolare eventuali modifiche in base agli impegni non conclusi sempre secondo le modalità citate in \ref{rf:6}
+	\elemento[RESOCONTO GIORNATA]{rf:11} Il sistema, a fine giornata, deve presentare un resoconto (\ref{ob:7}), dove l'utente potrà comunicare le attività fatte e non, in modo tale da dare la possibilità al sistema di ricalcolare eventuali modifiche in base agli impegni non conclusi sempre secondo le modalità citate in \ref{rf:6}.
 
 	\elemento[FILTRO IMPEGNI]{rf:12} Il sito offrirà la possibilità di poter visualizzare gli impegni dato un specifico filtro(\ref{ob:10}) definito dall'utente secondo alcuni criteri:
 	\begin{listaPersonale2}{}
-		\elemento{rf:12.1} Titolo evento con corrispondenza totale o parziale.
-		\elemento{rf:12.2} Data evento.
-		\elemento{rf:12.3} Priorità evento.
-		\elemento{rf:12.4} Persone incluse nell'evento.
+		\elemento{rf:12.1} titolo evento con corrispondenza totale o parziale;
+		\elemento{rf:12.2} data evento;
+		\elemento{rf:12.3} priorità evento;
+		\elemento{rf:12.4} persone incluse nell'evento.
 	\end{listaPersonale2}
 
 	\elemento[IMPOSTAZIONI PREDEFINITE DI UN CALENDARIO]{rf:13} Ogni calendario avrà una sezione dedicata dove l'utente potrà modificare le impostazioni predefinite del calendario(\ref{ob:8}). Queste impostazioni saranno usate per precompilare i campi dell'evento, che si sta aggiungendo. L'utente, durante la fase di aggiunta dell'evento, potrà modificare i campi precompilati(\ref{ob:2}). La sezione delle impostazioni di un calendario conterrà la possibilità di definire i valori di default per i seguenti requisiti funzionali: \ref{rf:5.1}, \ref{rf:5.2}, \ref{rf:5.3}(come prefisso o suffisso), \ref{rf:5.5}, \ref{rf:5.6}, \ref{rf:5.7}, \ref{rf:7.1}, \ref{rf:7.2} e inoltre questa sezione conterrà le impostazioni per:
