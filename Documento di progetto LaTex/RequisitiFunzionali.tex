@@ -14,7 +14,7 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 	A ogni modo il sistema deve rendere disponibile all'utente di utilizzare la piattaforma anche come utente non autenticato in versione demo(\ref{rf:3}) cosicché possa provare il sito prima di registrarsi.
 
 	\begin{listaPersonale2}{RF}
-		\elemento[METODI AUTENTICAZIONE]{rf:1.1} L'autenticazione può essere fatta con email e password o con servizi di terze parti, più nello specifico con Google o con eventuali servizi di terze parti (\ref{ob:1}).
+		\elemento[METODI AUTENTICAZIONE]{rf:1.1} L'autenticazione può essere fatta con email e password o con servizi di terze parti, più nello specifico con Google. (\ref{ob:1}).
 	\end{listaPersonale2}
 
 	\elemento[UTENTE AUTENTICATO-STANDARD]{rf:2} Un utente autenticato standard è un utente registrato che ha effettuato il login e che usufruisce delle funzionalità base della piattaforma.
@@ -36,7 +36,7 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 		\end{listaPersonale3}
 	\end{listaPersonale2}
 
-	\elemento[UTENTE NON AUTENTICATO]{rf:3} Nel caso di un utente non autenticato (\ref{ob:1}), il sistema permetterà di effettuare l'accesso e/o registrazione nelle modalità descritte in \ref{rf:1}. Nel caso l'utente non volesse registrarsi o accedere, il sito darà la possibilità di usufruire delle funzionalità in versione demo.
+	\elemento[UTENTE NON AUTENTICATO]{rf:3} Nel caso di un utente non autenticato (\ref{ob:1}), il sistema permetterà di effettuare l'accesso e/o registrazione nelle modalità descritte in \ref{rf:1}. Nel caso l'utente non volesse registrarsi, il sito darà la possibilità di usufruire delle funzionalità in versione demo.
 
 	\begin{listaPersonale2}{RF}
 		\elemento[DEMO]{rf:3.1}	L'utente non autenticato avrà la possibilità di utilizzare il sito senza che le modifiche fatte vengano salvate sui server della piattaforma; nel caso in cui l'utente si registrasse sul sito, verranno caricate e rese disponibili su più dispositivi.
@@ -55,19 +55,19 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 
 	\elemento[COMPILAZIONE/MODIFICA EVENTO]{rf:5} Il sistema deve dare la possibilità all'utente di aggiungere, eliminare e modificare un evento del calendario mediante l'utilizzo di un pop-up (\ref{ob:2}) e nella schermata dedicata agli eventi. Nella compilazione dell'attività, il sistema deve permettere al cliente:
 	\begin{listaPersonale2}{}
-		\elemento{rf:5.1} d'imporre restrizioni, ovvero definire ora e giorno dell'attività da svolgere;
+		\elemento{rf:5.1} d'imporre restrizioni, ovvero definire ora e giorno dell'attività da svolgere o define una scadenza,deadline;
 		\elemento{rf:5.2} impostare la priorità dell'impegno;
 		\elemento{rf:5.3} scrivere una descrizione e un titolo;
-		\elemento{rf:5.4} definire impegni di routine oppure impegni ripetuti su più giorni.
-		\elemento{rf:5.5} l'utente avrà la possibilità d'impostare le ore di sonno giorno per giorno oppure applicare le stesse ore per più giorni, chiamate "Abitudini";
+		\elemento{rf:5.4} definire impegni di routine oppure impegni ripetuti su più giorni, chiamate "Abitudini".
+		\elemento{rf:5.5} l'utente avrà la possibilità d'impostare le ore di sonno giorno per giorno oppure applicare le stesse ore per più giorni;
 		\elemento{rf:5.6} aggiungere il luogo dove si terrà l'impegno;
-		\elemento{rf:5.7} impostare le autorizzazioni per eventuali utenti con cui verrà condiviso l'evento;
-		\elemento {rf:5.8} di poter aggiungere l'evento ad un raggruppamento di altre attività; un raggruppamento è un insieme di attività che non hanno restrizioni di orario;
-		\elemento {rf:5.9} impostare la difficoltà, ovvero definire quanto l'evento sia difficile da completare.
+		\elemento{rf:5.7} condividere l'evento con altri utenti;
+		\elemento {rf:5.8} di poter aggiungere l'evento ad un raggruppamento di altre attività; un raggruppamento è un insieme di attività presenti nel calendario principale;
+		\elemento {rf:5.9} impostare la difficoltà, ovvero definire la complessità dell'evento da completare.
 	\end{listaPersonale2}
 
 
-	\elemento[IMPOSTAZIONE IMPEGNO]{rf:6} Una volta compilato il pop-up di aggiunta impegno, il sistema deve inserire automaticamente l'impegno nel calendario (\ref{ob:3}) seguendo le restrizioni, difficoltà, priorità e gli altri campi inseriti dall'utente a tempo di compilazione dell'evento (\ref{rf:5}).
+	\elemento[INSERIMENTO IMPEGNO]{rf:6} Una volta compilato il pop-up di aggiunta impegno, il sistema deve inserire automaticamente l'impegno nel calendario (\ref{ob:3}) seguendo le restrizioni, difficoltà, priorità e gli altri campi inseriti dall'utente a tempo di compilazione dell'evento (\ref{rf:5}).
 
 	\elemento[NOTIFICHE]{rf:7} Il sistema deve inviare delle notifiche per ciascun impegno (\ref{ob:4}), fornendo la possibilità di personalizzarle, infatti nel pop-up di compilazione dell'evento (\ref{rf:5}) deve essere possibile:
 	\begin{listaPersonale2}{}
@@ -104,7 +104,9 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 	\elemento[IMPOSTAZIONI PREDEFINITE DI UN CALENDARIO]{rf:13} Ogni calendario avrà una sezione dedicata dove l'utente potrà modificare le impostazioni predefinite del calendario(\ref{ob:8}). Queste impostazioni saranno usate per precompilare i campi dell'evento, che si sta aggiungendo. L'utente, durante la fase di aggiunta dell'evento, potrà modificare i campi precompilati(\ref{ob:2}). La sezione delle impostazioni di un calendario conterrà la possibilità di definire i valori di default per i seguenti requisiti funzionali: \ref{rf:5.1}, \ref{rf:5.2}, \ref{rf:5.3}(come prefisso o suffisso), \ref{rf:5.5}, \ref{rf:5.6}, \ref{rf:5.7}, \ref{rf:7.1}, \ref{rf:7.2} e inoltre questa sezione conterrà le impostazioni per:
 	\begin{listaPersonale2}{}
 		\elemento{rf:13.1} modificare il nome del calendario;
-		\elemento{rf:13.2} modificare il colore del calendario.
+		\elemento {rf:13.2} modificare la lista degli utenti a cui è condiviso il calendario;
+		\elemento{rf:13.3} modificare il colore del calendario;
+		\elemento{rf:13.4} modificare il fuso orario utilizzato all'interno del calendario;
 	\end{listaPersonale2}
 
 	\elemento[IMPOSTAZIONI ACCOUNT]{rf:14} Il sito permetterà all'utente di modificare delle impostazioni riguardo al proprio account (\ref{ob:1}); i campi che si potranno modificare saranno:
@@ -112,6 +114,7 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 		\elemento{rf:14.1} modifica password;
 		\elemento{rf:14.2} modifica username;
 		\elemento{rf:14.3} impostare preferenze e interazioni con servizi di terze parti (\ref{rf:8.1}) e (\ref{rf:8.2}).
+		\elemento{rf:14.4} modifica del metodo di pagamento predefinito;
 	\end{listaPersonale2}
 
 	\elemento [RECUPERO PASSWORD] {rf:15} %è da chiedere bene se sia veramente o meno un req funzionale 

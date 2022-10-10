@@ -11,7 +11,8 @@ I sistemi esterni con cui PlanIt si dovrà interfacciare sono:
     \item sistemi di autenticazione: Auth0;
     \item sistemi per la protezione da attacchi: Cloudflare;
     \item sistema di archiviazione delle informazioni: MongoDB;
-    \item sistema di controllo della privacy e cookie: Iubenda.
+    \item sistema di controllo della privacy e cookie: Iubenda;
+    \item sistema di posta elettronica, email.
 \end{enumerate}
 
 \subsection*{DESCRIZIONI}
@@ -42,7 +43,13 @@ I sistemi esterni con cui PlanIt si dovrà interfacciare sono:
     \item Il sistema di archiviazione delle informazioni MongoDB dovrà gestire tutti i dati coinvolti nei processi della piattaforma, nello specifico: la memorizzazione del calendario, degli eventi, eventuali condivisioni, le informazioni di ogni utente per l'integrazione con i servizi di terze parti e le preferenze dell'utente.
 
     \item Il sistema di gestione della privacy e cookie Iubenda sarà utilizzato per generare una politica sulla privacy (\ref{rnf:1}) che rispetterà i parametri di legge, e in caso di modifiche alle leggi in vigore informerà la piattaforma per adottare le modifiche necessarie per adempiere ai nuovi obblighi di legge. Inoltre Iubenda fornirà un' integrazione per accettare/rifiutare i cookie (\ref{rnf:11}).
-
+    
+    \item Il sistema di posta elettronica, email sarà utilizzato per inviare email informative sul sito e email relative a comunicazioni per l'utente, ovvero: 
+    \begin{itemize}
+        \item reset password (\ref{rf:15});
+        \item conferma creazione account(\ref{rf:1});
+        \item promemoria scadenza piano a pagamento(\ref{rf:2.2}).
+    \end{itemize}
 \end{enumerate}
 
 \subsection*{Servizi esterni}
