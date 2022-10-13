@@ -33,10 +33,18 @@
 
     \elemento[SICUREZZA]{rnf:2} Il sito di rete deve essere progettato e realizzato per garantire la sicurezza dei dati (\ref{ob:9}) adottando pratiche e metodologie nella fase di trasmissione di dati tramite rete Internet, ad esempio il sito dovrà provvedere a:
     \begin{listaPersonale2}{}
-        \elemento{rnf:2.1} mantenere privati i dati degli utenti ed evitare attacchi di rete tipo "sniffing" o "man in the middle";
-        \elemento{rnf:2.2} applicare politiche sull'origine dei dati;
-        \elemento{rnf:2.3} assicurare che non possano essere effettuati attacchi XSS;
-        \elemento{rnf:2.4} alla protezione dei server da attacchi DDOS.
+        \elemento {rnf:2.1} avere, come primo livello di sicurezza, una password ed email decisa obbligatoriamente dagli utenti in fase di registrazione. La password deve seguire degli standard, ovvero avere almeno: 
+        \begin{itemize}
+            \item 8 caratteri;
+            \item una lettera maiuscola; 
+            \item una lettera minuscola; 
+            \item un simbolo;
+            \item un numero.
+        \end{itemize}
+        \elemento{rnf:2.2} mantenere privati i dati degli utenti ed evitare attacchi di rete tipo "sniffing" o "man in the middle";
+        \elemento{rnf:2.3} applicare politiche sull'origine dei dati;
+        \elemento{rnf:2.4} assicurare che non possano essere effettuati attacchi XSS;
+        \elemento{rnf:2.5} alla protezione dei server da attacchi DDOS.
     \end{listaPersonale2}
 
     \elemento[SCALABILITÀ]{rnf:3} L'applicazione deve garantire l'elaborazione di un numero crescente di utenti in modo tale da offrire tutte le sue funzionalità indipendentemente dal numero di utenti connessi(\ref{ob:13}).
@@ -44,8 +52,8 @@
     \elemento[AFFIDABILITÀ]{rnf:4} Il sito deve garantire il funzionamento delle funzionalità che ci si aspetta vengano eseguite quando viene fatta una determinata azione da parte dell'utente(\ref{ob:14}), per questo motivo:
     \begin{listaPersonale2}{}
         \elemento{rnf:4.1} un'azione non è definita completata fintanto che il server non confermi l'avvenuto successo dell'azione richiesta;
-        \elemento{rnf:4.2} tutte le eccezioni devono essere gestite con errori appropriati
-        \elemento{rnf:4.3} la piattaforma deve essere progettata in modo tale di essere resiliente in caso di fallimento di uno dei suoi componenti;
+        \elemento{rnf:4.2} tutte le eccezioni devono essere gestite con errori appropriati;
+        \elemento{rnf:4.3} la piattaforma deve essere progettata in modo tale di essere resiliente in caso di fallimento di uno dei suoi componenti.
     \end{listaPersonale2}
 
     \elemento[PRESTAZIONI]{rnf:5} Il sito dovrà presentare almeno un punteggio di 85\% durante nella valutazione delle prestazioni(\ref{ob:14}) mediante l'utilizzo dello strumento “lighthouse” di Google Chrome.
@@ -56,10 +64,10 @@
 
     \elemento[INTEROPERABILITÀ]{rnf:8} Il sistema deve poter operare con sistemi esterni(\ref{ob:5}), che prestano delle funzionalità aggiuntive nella piattaforma, non implementate direttamente dal sito. In modo specifico i sistemi esterni presenti dovranno essere:
     \begin{listaPersonale2}{}
-        \elemento{rnf:10.1} sistemi di mappe;
-        \elemento{rnf:10.2} sistemi di pagamento;
-        \elemento{rnf:10.3} sistemi di autenticazione;
-        \elemento{rnf:10.4} Google Calendar.
+        \elemento{rnf:8.1} sistemi di mappe, vale a dire Google Maps e OpenStreetMap;
+        \elemento{rnf:8.2} sistemi di pagamento, vale a dire PayPal e Stripe;
+        \elemento{rnf:8.3} sistemi di autenticazione, vale a dire Auth0; % prima questi servizi di terze parti non erano specificati, non so perché. GL
+        \elemento{rnf:8.4} Google Calendar.
     \end{listaPersonale2}
 
     \elemento[PORTABILITÀ]{rnf:9} Il sistema deve essere capace di adattarsi(\ref{ob:5}) a diversi dispositivi le cui dimensioni possono essere variabili.
