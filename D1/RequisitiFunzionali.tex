@@ -4,122 +4,121 @@
 Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistema con la motivazione della loro presenza e legame con gli obiettivi sopra citati.
 
 \begin{listaPersonale}{RF}
-	\elemento[ACCESSO E REGISTRAZIONE AL SITO]{rf:1} Il sistema deve permettere all'utente di avere 3 livelli di accesso:
+	\elemento[ACCESSO E REGISTRAZIONE AL SITO]{rf:AccessoRegistrazione} Il sistema deve permettere all'utente di avere 3 livelli di accesso:
 	\begin{itemize}
-		\item utente autenticato-standard(\ref{ob:1});
-		\item utente non autenticato (\ref{ob:1});
-		\item utente autenticato-premium (\ref{ob:6});
+		\item utente autenticato-standard(\ref{ob:Registrazione});
+		\item utente non autenticato (\ref{ob:Registrazione});
+		\item utente autenticato-premium (\ref{ob:AccountPremium});
 	\end{itemize}
-	Il sistema deve permettere all'utente di registrarsi sul sito (\ref{ob:1}) in qualsiasi momento esso voglia, seguendo le regole definite in RNF\ref{rnf:2.1}; inoltre, la piattaforma deve permettere di abbonarsi al servizio premium, con un account preesistente o durante la fase di registrazione.\\
-	A ogni modo il sistema deve rendere disponibile all'utente di utilizzare la piattaforma anche come utente non autenticato in versione demo(\ref{rf:3}) cosicché possa provare il sito prima di registrarsi.
+	Il sistema deve permettere all'utente di registrarsi sul sito (\ref{ob:Registrazione}) in qualsiasi momento esso voglia, seguendo le regole definite in RNF\ref{rnf:SicurezzaPassword}; inoltre, la piattaforma deve permettere di abbonarsi al servizio premium, con un account preesistente o durante la fase di registrazione.\\
+	A ogni modo il sistema deve rendere disponibile all'utente di utilizzare la piattaforma anche come utente non autenticato in versione demo(\ref{rf:UtenteNonAutenticato}) cosicché possa provare il sito prima di registrarsi.
 
 	\begin{listaPersonale2}{RF}
-		\elemento[METODI AUTENTICAZIONE]{rf:1.1} L'autenticazione può essere fatta con email e password o con servizi di terze parti, più nello specifico con Google. (\ref{ob:1}).
+		\elemento[METODI AUTENTICAZIONE]{rf:MetodiAutenticazione} L'autenticazione può essere fatta con email e password o con servizi di terze parti, più nello specifico con Google. (\ref{ob:Registrazione}).
 	\end{listaPersonale2}
 
-	\elemento[UTENTE AUTENTICATO-STANDARD]{rf:2} Un utente autenticato standard è un utente registrato che ha effettuato il login e che usufruisce delle funzionalità base della piattaforma.
+	\elemento[UTENTE AUTENTICATO-STANDARD]{rf:UtenteStandard} Un utente autenticato standard è un utente registrato che ha effettuato il login e che usufruisce delle funzionalità base della piattaforma.
 
 	\begin{listaPersonale2}{RF}
-		\elemento[FUNZIONALITA']{rf:2.1} Il sistema offrirà agli utenti con account autenticato-standard tutti i servizi sottoelencati, eccetto quelli descritti nella sezione utente autenticato-premium (\ref{rf:2.2}), con le limitazioni elencate in \ref{rf:2.2.2}. Inoltre sarà possibile aggiungere o modificare il proprio username da usare per un più rapido riconoscimento nei calendari condivisi.
+		\elemento[FUNZIONALITA']{rf:FunzionalitaUtente} Il sistema offrirà agli utenti con account autenticato-standard tutti i servizi sottoelencati, eccetto quelli descritti nella sezione utente autenticato-premium (\ref{rf:UtentePremium}), con le limitazioni elencate in \ref{rf:FunzionalitaUtentePremium}. Inoltre sarà possibile aggiungere o modificare il proprio username da usare per un più rapido riconoscimento nei calendari condivisi.
 
-		\elemento[UTENTE AUTENTICATO-PREMIUM]{rf:2.2} L'utente avrà la possibilità anche di accedere a un maggior numero di funzionalità della piattaforma grazie alla sottoscrizione di un abbonamento mediante un pagamento mensile(\ref{ob:6}). Inoltre il pagamento degli utenti premium contribuirà alla sostenibilità economica del sito.
+		\elemento[UTENTE AUTENTICATO-PREMIUM]{rf:UtentePremium} L'utente avrà la possibilità anche di accedere a un maggior numero di funzionalità della piattaforma grazie alla sottoscrizione di un abbonamento mediante un pagamento mensile(\ref{ob:AccountPremium}). Inoltre il pagamento degli utenti premium contribuirà alla sostenibilità economica del sito.
 
 		\begin{listaPersonale3}{RF}
-			\elemento[PAGAMENTO]{rf:2.2.1} Il sistema offrirà la possibilità all'utente di pagare l'abbonamento con un servizio di pagamento esterno. (\ref{ob:6})
+			\elemento[PAGAMENTO]{rf:PagamentoUtentePremium} Il sistema offrirà la possibilità all'utente di pagare l'abbonamento con un servizio di pagamento esterno. (\ref{ob:AccountPremium})
 
-			\elemento[FUNZIONALITA' AGGIUNTIVE(\ref{ob:6})]{rf:2.2.2} Grazie all'account premium, il sistema permetterà di accedere alle funzionalità standard e a dei servizi aggiuntivi:
+			\elemento[FUNZIONALITA' AGGIUNTIVE(\ref{ob:AccountPremium})]{rf:FunzionalitaUtentePremium} Grazie all'account premium, il sistema permetterà di accedere alle funzionalità standard e a dei servizi aggiuntivi:
 			\begin{itemize}
-				\item poter avere un numero illimitato di calendari personali in base allo loro scopo: gli utenti non premium potranno avere solo 5 calendari personali (\ref{rf:4.2}).
-				\item poter avere un numero illimitato di calendari condivisi: gli utenti standard potranno averne 3 (\ref{rf:4.1}).
+				\item poter avere un numero illimitato di calendari personali in base allo loro scopo: gli utenti non premium potranno avere solo 5 calendari personali (\ref{rf:CalendariMultipli}).
+				\item poter avere un numero illimitato di calendari condivisi: gli utenti standard potranno averne 3 (\ref{rf:InterzioneTraCalendariDiAltriUtenti}).
 			\end{itemize}
 
 		\end{listaPersonale3}
 	\end{listaPersonale2}
 
-	\elemento[UTENTE NON AUTENTICATO]{rf:3} Nel caso di un utente non autenticato (\ref{ob:1}), il sistema permetterà di effettuare l'accesso e/o registrazione nelle modalità descritte in \ref{rf:1}. Nel caso l'utente non volesse registrarsi, il sito darà la possibilità di usufruire delle funzionalità in versione demo.
+	\elemento[UTENTE NON AUTENTICATO]{rf:UtenteNonAutenticato} Nel caso di un utente non autenticato (\ref{ob:Registrazione}), il sistema permetterà di effettuare l'accesso e/o registrazione nelle modalità descritte in \ref{rf:AccessoRegistrazione}. Nel caso l'utente non volesse registrarsi, il sito darà la possibilità di usufruire delle funzionalità in versione demo.
 
 	\begin{listaPersonale2}{RF}
-		\elemento[DEMO]{rf:3.1}	L'utente non autenticato avrà la possibilità di utilizzare il sito senza che le modifiche fatte vengano salvate sui server della piattaforma; nel caso in cui l'utente si registrasse sul sito, verranno caricate e rese disponibili su più dispositivi.
+		\elemento[DEMO]{rf:DemoUtenteNonAutenticato}	L'utente non autenticato avrà la possibilità di utilizzare il sito senza che le modifiche fatte vengano salvate sui server della piattaforma; nel caso in cui l'utente si registrasse sul sito, verranno caricate e rese disponibili su più dispositivi.
 
 		\begin{listaPersonale3}{}
-			\elemento[FUNZIONALITÀ MANCANTI]{rf:3.1.1} L'utente non autenticato non avrà a disposizione diverse funzionalità tra cui \ref{rf:4}, \ref{rf:8}, \ref{rf:10}, \ref{rf:11}, \ref{rf:14} e \ref{rf:15}.
+			\elemento[FUNZIONALITÀ MANCANTI]{rf:FunzionalitaDemoUtenteNonAutenticato} L'utente non autenticato non avrà a disposizione diverse funzionalità tra cui \ref{rf:CondivisioneCalendario}, \ref{rf:SistemiTerzeParti}, \ref{rf:RiorganizzareAttivita}, \ref{rf:ResocontoGiornata}, \ref{rf:ImpostazioniAccount} e \ref{rf:RecuperoPassword}.
 		\end{listaPersonale3}
 	\end{listaPersonale2}
 
-	\elemento[CONDIVISIONE DEL CALENDARIO]{rf:4} Il sistema darà la possibilità di condividere il proprio calendario su più dispositivi (\ref{ob:8}).
+	\elemento[CONDIVISIONE DEL CALENDARIO]{rf:CondivisioneCalendario} Il sistema darà la possibilità di condividere il proprio calendario su più dispositivi (\ref{ob:CalendariMultipli}).
 
 	\begin{listaPersonale2}{RF}
-		\elemento[INTERAZIONE DI CALENDARI CON ALTRE PERSONE]{rf:4.1} Il sistema deve offrire la possibilità agli utenti autenticati d'interagire tra loro mediante la condivisione e integrazione dei loro calendari (\ref{ob:8}). Grazie alla condivisione e integrazione dei calendari tra gli utenti del sito, i clienti avranno la possibilità di programmare gli eventi in comune.
-		\elemento [CALENDARI PERSONALI] {rf:4.2} La piattaforma deve rendere possibile all’utente di avere più calendari personali (\ref{ob:8}) riguardo alle varie attività da svolgere, che si possono visualizzare ogni qualvolta si voglia. Il numero di calendari personali, reso disponibile dal sito, dipende dal tipo di account dell’utente (\ref{rf:2.2.2}).
+		\elemento[INTERAZIONE DI CALENDARI CON ALTRE PERSONE]{rf:InterzioneTraCalendariDiAltriUtenti} Il sistema deve offrire la possibilità agli utenti autenticati d'interagire tra loro mediante la condivisione e integrazione dei loro calendari (\ref{ob:CalendariMultipli}). Grazie alla condivisione e integrazione dei calendari tra gli utenti del sito, i clienti avranno la possibilità di programmare gli eventi in comune.
+		\elemento [CALENDARI PERSONALI] {rf:CalendariMultipli} La piattaforma deve rendere possibile all'utente di avere più calendari personali (\ref{ob:CalendariMultipli}) riguardo alle varie attività da svolgere, che si possono visualizzare ogni qualvolta si voglia. Il numero di calendari personali, reso disponibile dal sito, dipende dal tipo di account dell'utente (\ref{rf:FunzionalitaUtentePremium}).
 	\end{listaPersonale2}
 
-	\elemento[CREAZIONE/MODIFICA EVENTO]{rf:5} Il sistema deve dare la possibilità all'utente di aggiungere, eliminare e modificare un evento del calendario mediante l'utilizzo di un pop-up (\ref{ob:2}) e nella schermata dedicata agli eventi. Nella compilazione dell'attività, il sistema deve permettere al cliente:
+	\elemento[CREAZIONE/MODIFICA EVENTO]{rf:CreazioneModificaEvento} Il sistema deve dare la possibilità all'utente di aggiungere, eliminare e modificare un evento del calendario mediante l'utilizzo di un pop-up (\ref{ob:AggiuntaModificaEvento}) e nella schermata dedicata agli eventi. Nella compilazione dell'attività, il sistema deve permettere al cliente:
 	\begin{listaPersonale2}{}
-		\elemento{rf:5.1} d'imporre restrizioni, ovvero definire ora e giorno dell'attività da svolgere o define una scadenza,deadline;
-		\elemento{rf:5.2} impostare la priorità dell'impegno;
-		\elemento{rf:5.3} scrivere una descrizione e un titolo;
-		\elemento{rf:5.4} definire impegni di routine oppure impegni ripetuti su più giorni, chiamate "Abitudini".
-		\elemento{rf:5.5} aggiungere il luogo dove si terrà l'impegno;
-		\elemento{rf:5.6} condividere l'evento con altri utenti;
-		\elemento {rf:5.7} di poter aggiungere l'evento ad un raggruppamento di altre attività; un raggruppamento è un insieme di attività presenti nel calendario principale;
-		\elemento {rf:5.8} impostare la difficoltà, ovvero definire la complessità dell'evento da completare;
-		\elemento{rf:5.9} impostare notifiche come descritto in \ref{rf:7}.
+		\elemento{rf:RestrizioniEvento} d'imporre restrizioni, ovvero definire ora e giorno dell'attività da svolgere o define una scadenza,deadline;
+		\elemento{rf:PrioritaEvento} impostare la priorità dell'impegno;
+		\elemento{rf:DescrizioneTitoloEvento} scrivere una descrizione e un titolo;
+		\elemento{rf:RoutineEvento} definire impegni di routine oppure impegni ripetuti su più giorni, chiamate "Abitudini".
+		\elemento{rf:LuogoEvento} aggiungere il luogo dove si terrà l'impegno;
+		\elemento{rf:CondivisioneEvento} condividere l'evento con altri utenti;
+		\elemento{rf:RaggruppamentoEvento} di poter aggiungere l'evento ad un raggruppamento di altre attività; un raggruppamento è un insieme di attività presenti nel calendario principale;
+		\elemento{rf:DifficoltaEvento} impostare la difficoltà, ovvero definire la complessità dell'evento da completare;
+		\elemento{rf:NotificheEvento} impostare notifiche come descritto in \ref{rf:Notifiche}.
 	\end{listaPersonale2}
 
 
-	\elemento[INSERIMENTO IMPEGNO]{rf:6} Una volta compilato il pop-up di aggiunta impegno, il sistema deve inserire automaticamente l'impegno nel calendario (\ref{ob:3}) seguendo le restrizioni, difficoltà, priorità e gli altri campi inseriti dall'utente a tempo di compilazione dell'evento (\ref{rf:5}).
+	\elemento[INSERIMENTO IMPEGNO]{rf:InserimentoAutomaticoCalendario} Una volta compilato il pop-up di aggiunta impegno, il sistema deve inserire automaticamente l'impegno nel calendario (\ref{ob:FormattazioneAutomaticaCalendario}) seguendo le restrizioni, difficoltà, priorità e gli altri campi inseriti dall'utente a tempo di compilazione dell'evento (\ref{rf:CreazioneModificaEvento}).
 
-	\elemento[NOTIFICHE]{rf:7} Il sistema deve inviare delle notifiche per ciascun impegno (\ref{ob:4}), fornendo la possibilità di personalizzarle, infatti nel pop-up di compilazione dell'evento (\ref{rf:5}) deve essere possibile:
+	\elemento[NOTIFICHE]{rf:Notifiche} Il sistema deve inviare delle notifiche per ciascun impegno (\ref{ob:NotifichePersonalizzate}), fornendo la possibilità di personalizzarle, infatti nel pop-up di compilazione dell'evento (\ref{rf:CreazioneModificaEvento}) deve essere possibile:
 	\begin{listaPersonale2}{}
-		\elemento{rf:7.1} impostare quando ricevere tale notifica
-		\elemento{rf:7.2} definire il titolo della notifica: di default quest'ultimo sarà il titolo dell'evento.
+		\elemento{rf:ImpostazioneTimerNotifiche} impostare quando ricevere tale notifica
+		\elemento{rf:TitoloNotifiche} definire il titolo della notifica: di default quest'ultimo sarà il titolo dell'evento.
 	\end{listaPersonale2}
 
-	\elemento[INTERAZIONE CON SISTEMI DI TERZE PARTI]{rf:8} Il sito deve permettere all'utente d'interagire con sistemi di terzi parti (\ref{ob:5}), ad esempio:
+	\elemento[INTERAZIONE CON SISTEMI DI TERZE PARTI]{rf:SistemiTerzeParti} Il sito deve permettere all'utente d'interagire con sistemi di terzi parti (\ref{ob:ServiziTerzeParti}), ad esempio:
 
 	\begin{listaPersonale2}{RF}
-		\elemento[INTERAZIONE con GOOGLE CALENDAR]{rf:8.1} In quanto è un'applicazione molto diffusa tra gli utenti che utilizzano calendari, il sistema deve rendere possibile all'utente di poter interagire con eventi di Google Calendar. In particolare la piattaforma deve permettere di:
+		\elemento[INTERAZIONE con GOOGLE CALENDAR]{rf:GoogleCalendar} In quanto è un'applicazione molto diffusa tra gli utenti che utilizzano calendari, il sistema deve rendere possibile all'utente di poter interagire con eventi di Google Calendar. In particolare la piattaforma deve permettere di:
 		\begin{listaPersonale3}{}
-			\elemento{rf:8.1.1} importare ed esportare manualmente;
-			\elemento{rf:8.1.2} importare ed esportare in automatico.
+			\elemento{rf:ImportazioneEsportazioneManualmenteGoogleCalendar} importare ed esportare manualmente;
+			\elemento{rf:ImportazioneEsportazioneAutomaticamenteGoogleCalendar} importare ed esportare in automatico.
 		\end{listaPersonale3}
 
-		\elemento[INTERAZIONE CON UN SERVIZIO DI MAPPE]{rf:8.2} Il sistema darà la possibilità all'utente di aggiungere il luogo dove si svolgerà l'impegno.
+		\elemento[INTERAZIONE CON UN SERVIZIO DI MAPPE]{rf:ServizioMappe} Il sistema darà la possibilità all'utente di aggiungere il luogo dove si svolgerà l'impegno.
 	\end{listaPersonale2}
 
-	\elemento[INFORMAZIONI sull'USO del TEMPO]{rf:9} Il sito deve presentare delle infografiche e liste riguardanti l'utilizzo del tempo. L'utente, così, potrà visualizzare dei grafici esemplificativi su come viene speso il proprio tempo. (\ref{ob:12})
+	\elemento[INFORMAZIONI sull'USO del TEMPO]{rf:UsoDelTempo} Il sito deve presentare delle infografiche e liste riguardanti l'utilizzo del tempo. L'utente, così, potrà visualizzare dei grafici esemplificativi su come viene speso il proprio tempo. (\ref{ob:InfoUsoDelTempo})
 
-	\elemento[RIORGANIZZAZIONE DI ATTIVITA']{rf:10} Il sistema deve riorganizzare automaticamente il calendario in caso di ritardi (\ref{ob:3}). Sarà data la possibilità all'utente di notificare il sistema di ritardi e il sito dovrà ripianificare il calendario, sempre secondo le regole descritte nel \ref{rf:6}.
+	\elemento[RIORGANIZZAZIONE DI ATTIVITA']{rf:RiorganizzareAttivita} Il sistema deve riorganizzare automaticamente il calendario in caso di ritardi (\ref{ob:FormattazioneAutomaticaCalendario}). Sarà data la possibilità all'utente di notificare il sistema di ritardi e il sito dovrà ripianificare il calendario, sempre secondo le regole descritte nel \ref{rf:InserimentoAutomaticoCalendario}.
 
-	\elemento[RESOCONTO GIORNATA]{rf:11} Il sistema, a fine giornata, deve presentare un resoconto (\ref{ob:7}), dove l'utente potrà comunicare le attività fatte e non, in modo tale da dare la possibilità al sistema di ricalcolare eventuali modifiche in base agli impegni non conclusi sempre secondo le modalità citate in \ref{rf:6}.
+	\elemento[RESOCONTO GIORNATA]{rf:ResocontoGiornata} Il sistema, a fine giornata, deve presentare un resoconto (\ref{ob:Resoconto}), dove l'utente potrà comunicare le attività fatte e non, in modo tale da dare la possibilità al sistema di ricalcolare eventuali modifiche in base agli impegni non conclusi sempre secondo le modalità citate in \ref{rf:InserimentoAutomaticoCalendario}.
 
-	\elemento[FILTRO IMPEGNI]{rf:12} Il sito offrirà la possibilità di poter visualizzare gli impegni dato un specifico filtro(\ref{ob:10}) definito dall'utente secondo alcuni criteri:
+	\elemento[FILTRO IMPEGNI]{rf:Filtro} Il sito offrirà la possibilità di poter visualizzare gli impegni dato un specifico filtro(\ref{ob:Filtro}) definito dall'utente secondo alcuni criteri:
 	\begin{listaPersonale2}{}
-		\elemento{rf:12.1} titolo evento con corrispondenza totale o parziale;
-		\elemento{rf:12.2} data evento;
-		\elemento{rf:12.3} priorità evento;
-		\elemento{rf:12.4} persone incluse nell'evento.
+		\elemento{rf:FiltroTitolo} titolo evento con corrispondenza totale o parziale;
+		\elemento{rf:FiltroData} data evento;
+		\elemento{rf:FiltroProprieta} priorità evento;
+		\elemento{rf:FiltroPersone} persone incluse nell'evento.
 	\end{listaPersonale2}
 
-	\elemento[IMPOSTAZIONI PREDEFINITE DI UN CALENDARIO]{rf:13} Ogni calendario avrà una sezione dedicata dove l'utente potrà modificare le impostazioni predefinite del calendario(\ref{ob:8}). Queste impostazioni saranno usate per precompilare i campi dell'evento, che si sta aggiungendo. L'utente, durante la fase di aggiunta dell'evento, potrà modificare i campi precompilati(\ref{ob:2}). La sezione delle impostazioni di un calendario conterrà la possibilità di definire i valori di default per i seguenti requisiti funzionali: \hyperref[rf:5.1]{RF5.1}, \hyperref[rf:5.2]{RF5.2}, \hyperref[rf:5.3]{RF5.3}(come prefisso o suffisso), \hyperref[rf:5.5]{RF5.5}, \hyperref[rf:5.6]{RF5.6}, \hyperref[rf:7.1]{RF7.1}, \hyperref[rf:7.2]{RF7.2} e inoltre questa sezione conterrà le impostazioni per:
+	\elemento[IMPOSTAZIONI PREDEFINITE DI UN CALENDARIO]{rf:ImpostazioniPredefiniteCalendario} Ogni calendario avrà una sezione dedicata dove l'utente potrà modificare le impostazioni predefinite del calendario(\ref{ob:CalendariMultipli}). Queste impostazioni saranno usate per precompilare i campi dell'evento, che si sta aggiungendo. L'utente, durante la fase di aggiunta dell'evento, potrà modificare i campi precompilati(\ref{ob:AggiuntaModificaEvento}). La sezione delle impostazioni di un calendario conterrà la possibilità di definire i valori di default per i seguenti requisiti funzionali: \hyperref[rf:RestrizioniEvento]{RF5.1}, \hyperref[rf:PrioritaEvento]{RF5.2}, \hyperref[rf:DescrizioneTitoloEvento]{RF5.3}(come prefisso o suffisso), \hyperref[rf:LuogoEvento]{RF5.5}, \hyperref[rf:CondivisioneEvento]{RF5.6}, \hyperref[rf:ImpostazioneTimerNotifiche]{RF7.1}, \hyperref[rf:TitoloNotifiche]{RF7.2} e inoltre questa sezione conterrà le impostazioni per:
 	\begin{listaPersonale2}{}
-		\elemento{rf:13.1} modificare il nome del calendario;
-		\elemento {rf:13.2} modificare la lista degli utenti a cui è condiviso il calendario;
-		\elemento{rf:13.3} modificare il colore del calendario;
-		\elemento{rf:13.4} modificare il fuso orario utilizzato all'interno del calendario;
-		\elemento{rf:13.5} impostare le ore di sonno quotidiane; questo valore può essere modificato manualmente dall'utente dalla sezione routine (\hyperref[rf:5.4]{RF5.4}). 
+		\elemento{rf:NomePredefinitoCalendario} modificare il nome del calendario;
+		\elemento{rf:UtentiCondivisoCalendario} modificare la lista degli utenti a cui è condiviso il calendario;
+		\elemento{rf:ColoreCalendario} modificare il colore del calendario;
+		\elemento{rf:FusoOrarioCalendario} modificare il fuso orario utilizzato all'interno del calendario;
+
 	\end{listaPersonale2}
 
-	\elemento[IMPOSTAZIONI ACCOUNT]{rf:14} Il sito permetterà all'utente di modificare delle impostazioni riguardo al proprio account (\ref{ob:1}); i campi che si potranno modificare saranno:
+	\elemento[IMPOSTAZIONI ACCOUNT]{rf:ImpostazioniAccount} Il sito permetterà all'utente di modificare delle impostazioni riguardo al proprio account (\ref{ob:Registrazione}); i campi che si potranno modificare saranno:
 	\begin{listaPersonale2}{}
-		\elemento{rf:14.1} modifica password;
-		\elemento{rf:14.2} modifica username;
-		\elemento{rf:14.3} impostare preferenze e interazioni con servizi di terze parti (\ref{rf:8.1}) e (\ref{rf:8.2});
-		\elemento{rf:14.4} modifica del metodo di pagamento predefinito;
-		
-
+		\elemento{rf:ModificaPasswordAccount} modifica password;
+		\elemento{rf:ModificaUsernameAccount} modifica username;
+		\elemento{rf:PreferenzeServiziTerzePartiAccount} impostare preferenze e interazioni con servizi di terze parti (\ref{rf:ServizioMappe});
+		\elemento{rf:MetodoDiPagamantoPreferitoAccount} modifica del metodo di pagamento predefinito;
+		\elemento{rf:OreDiSonnoAccount} impostare le ore di sonno quotidiane; questo valore può essere modificato manualmente dall'utente dalla sezione routine (\hyperref[rf:RoutineEvento]{RF5.4}).
 	\end{listaPersonale2}
 
-	\elemento [RECUPERO PASSWORD] {rf:15} %è da chiedere bene se sia veramente o meno un req funzionale 
-	Il sistema rende disponibile all’ utente autenticato la possibilità di recuperare la sua password(\ref{ob:1}), fornendo alla piattaforma la propria email con cui si è registrati. Il sistema manderà un’email all'indirizzo fornito, in cui sarà presente un link che porterà ad una pagina dove si potrà reimpostare la propria password. La nuova password da inserire deve seguire le regole indicate nel RNF\ref{rnf:2.1}. %o metto RNF o lo posso anche togliere
+	\elemento [RECUPERO PASSWORD] {rf:RecuperoPassword} %è da chiedere bene se sia veramente o meno un req funzionale 
+	Il sistema rende disponibile all' utente autenticato la possibilità di recuperare la sua password(\ref{ob:Registrazione}), fornendo alla piattaforma la propria email con cui si è registrati. Il sistema manderà un'email all'indirizzo fornito, in cui sarà presente un link che porterà ad una pagina dove si potrà reimpostare la propria password. La nuova password da inserire deve seguire le regole indicate nel RNF\ref{rnf:SicurezzaPassword}. %o metto RNF o lo posso anche togliere
 \end{listaPersonale}
