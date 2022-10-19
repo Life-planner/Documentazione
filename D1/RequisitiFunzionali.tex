@@ -59,11 +59,11 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 		\elemento{rf:5.2} impostare la priorità dell'impegno;
 		\elemento{rf:5.3} scrivere una descrizione e un titolo;
 		\elemento{rf:5.4} definire impegni di routine oppure impegni ripetuti su più giorni, chiamate "Abitudini".
-		\elemento{rf:5.5} l'utente avrà la possibilità d'impostare le ore di sonno giorno per giorno oppure applicare le stesse ore per più giorni;
-		\elemento{rf:5.6} aggiungere il luogo dove si terrà l'impegno;
-		\elemento{rf:5.7} condividere l'evento con altri utenti;
-		\elemento {rf:5.8} di poter aggiungere l'evento ad un raggruppamento di altre attività; un raggruppamento è un insieme di attività presenti nel calendario principale;
-		\elemento {rf:5.9} impostare la difficoltà, ovvero definire la complessità dell'evento da completare.
+		\elemento{rf:5.5} aggiungere il luogo dove si terrà l'impegno;
+		\elemento{rf:5.6} condividere l'evento con altri utenti;
+		\elemento {rf:5.7} di poter aggiungere l'evento ad un raggruppamento di altre attività; un raggruppamento è un insieme di attività presenti nel calendario principale;
+		\elemento {rf:5.8} impostare la difficoltà, ovvero definire la complessità dell'evento da completare;
+		\elemento{rf:5.9} impostare notifiche come descritto in \ref{rf:7}.
 	\end{listaPersonale2}
 
 
@@ -101,20 +101,23 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 		\elemento{rf:12.4} persone incluse nell'evento.
 	\end{listaPersonale2}
 
-	\elemento[IMPOSTAZIONI PREDEFINITE DI UN CALENDARIO]{rf:13} Ogni calendario avrà una sezione dedicata dove l'utente potrà modificare le impostazioni predefinite del calendario(\ref{ob:8}). Queste impostazioni saranno usate per precompilare i campi dell'evento, che si sta aggiungendo. L'utente, durante la fase di aggiunta dell'evento, potrà modificare i campi precompilati(\ref{ob:2}). La sezione delle impostazioni di un calendario conterrà la possibilità di definire i valori di default per i seguenti requisiti funzionali: \ref{rf:5.1}, \ref{rf:5.2}, \ref{rf:5.3}(come prefisso o suffisso), \ref{rf:5.5}, \ref{rf:5.6}, \ref{rf:5.7}, \ref{rf:7.1}, \ref{rf:7.2} e inoltre questa sezione conterrà le impostazioni per:
+	\elemento[IMPOSTAZIONI PREDEFINITE DI UN CALENDARIO]{rf:13} Ogni calendario avrà una sezione dedicata dove l'utente potrà modificare le impostazioni predefinite del calendario(\ref{ob:8}). Queste impostazioni saranno usate per precompilare i campi dell'evento, che si sta aggiungendo. L'utente, durante la fase di aggiunta dell'evento, potrà modificare i campi precompilati(\ref{ob:2}). La sezione delle impostazioni di un calendario conterrà la possibilità di definire i valori di default per i seguenti requisiti funzionali: \hyperref[rf:5.1]{RF5.1}, \hyperref[rf:5.2]{RF5.2}, \hyperref[rf:5.3]{RF5.3}(come prefisso o suffisso), \hyperref[rf:5.5]{RF5.5}, \hyperref[rf:5.6]{RF5.6}, \hyperref[rf:7.1]{RF7.1}, \hyperref[rf:7.2]{RF7.2} e inoltre questa sezione conterrà le impostazioni per:
 	\begin{listaPersonale2}{}
 		\elemento{rf:13.1} modificare il nome del calendario;
 		\elemento {rf:13.2} modificare la lista degli utenti a cui è condiviso il calendario;
 		\elemento{rf:13.3} modificare il colore del calendario;
 		\elemento{rf:13.4} modificare il fuso orario utilizzato all'interno del calendario;
+		\elemento{rf:13.5} impostare le ore di sonno quotidiane; questo valore può essere modificato manualmente dall'utente dalla sezione routine (\hyperref[rf:5.4]{RF5.4}). 
 	\end{listaPersonale2}
 
 	\elemento[IMPOSTAZIONI ACCOUNT]{rf:14} Il sito permetterà all'utente di modificare delle impostazioni riguardo al proprio account (\ref{ob:1}); i campi che si potranno modificare saranno:
 	\begin{listaPersonale2}{}
 		\elemento{rf:14.1} modifica password;
 		\elemento{rf:14.2} modifica username;
-		\elemento{rf:14.3} impostare preferenze e interazioni con servizi di terze parti (\ref{rf:8.1}) e (\ref{rf:8.2}).
+		\elemento{rf:14.3} impostare preferenze e interazioni con servizi di terze parti (\ref{rf:8.1}) e (\ref{rf:8.2});
 		\elemento{rf:14.4} modifica del metodo di pagamento predefinito;
+		
+
 	\end{listaPersonale2}
 
 	\elemento [RECUPERO PASSWORD] {rf:15} %è da chiedere bene se sia veramente o meno un req funzionale 
