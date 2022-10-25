@@ -42,34 +42,36 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 		\elemento[DEMO]{rf:DemoUtenteNonAutenticato}	L'utente non autenticato avrà la possibilità di utilizzare il sito senza che le modifiche fatte vengano salvate sui server della piattaforma; nel caso in cui l'utente si registrasse sul sito, verranno caricate e rese disponibili su più dispositivi.
 
 		\begin{listaPersonale3}{}
-			\elemento[FUNZIONALITÀ MANCANTI]{rf:FunzionalitaDemoUtenteNonAutenticato} L'utente non autenticato non avrà a disposizione diverse funzionalità tra cui \ref{rf:CondivisioneCalendario}, \ref{rf:SistemiTerzeParti}, \ref{rf:RiorganizzareAttivita}, \ref{rf:ResocontoGiornata}, \ref{rf:ImpostazioniAccount} e \ref{rf:RecuperoPassword}.
+\elemento[FUNZIONALITÀ MANCANTI]{rf:FunzionalitaDemoUtenteNonAutenticato} L'utente non autenticato non avrà a disposizione diverse funzionalità tra cui \ref{rf:CondivisioneCalendario}, \ref{rf:InterzioneTraCalendariDiAltriUtenti}, \ref{rf:CalendariMultipli}, \ref{rf:GoogleCalendar}, \ref{rf:ResocontoGiornata}, \ref{rf:ImpostazioniAccount}, \ref{rf:RecuperoPassword}, \ref{rf:Notifiche}, \ref{rf:CondivisioneEvento}, \ref{rf:NotificheEvento}, \ref{rf:CalendarioEvento}, \ref{rf:UtentiCondivisoCalendario}.
 		\end{listaPersonale3}
 	\end{listaPersonale2}
 
-	\elemento[CONDIVISIONE DEL CALENDARIO]{rf:CondivisioneCalendario} Il sistema darà la possibilità di condividere il proprio calendario su più dispositivi (\ref{ob:CalendariMultipli}).
+\elemento[GESTIONE DI CALENDARI]{rf:CondivisioneCalendario} Il sistema darà la possibilità di condividere il proprio calendario su più dispositivi (\ref{ob:CalendariMultipli}).
 
 	\begin{listaPersonale2}{RF}
 		\elemento[INTERAZIONE DI CALENDARI CON ALTRE PERSONE]{rf:InterzioneTraCalendariDiAltriUtenti} Il sistema deve offrire la possibilità agli utenti autenticati d'interagire tra loro mediante la condivisione e integrazione dei loro calendari (\ref{ob:CalendariMultipli}). Grazie alla condivisione e integrazione dei calendari tra gli utenti del sito, i clienti avranno la possibilità di programmare gli eventi in comune.
-		\elemento [CALENDARI PERSONALI] {rf:CalendariMultipli} La piattaforma deve rendere possibile all'utente di avere più calendari personali (\ref{ob:CalendariMultipli}) riguardo alle varie attività da svolgere, che si possono visualizzare ogni qualvolta si voglia. Il numero di calendari personali, reso disponibile dal sito, dipende dal tipo di account dell'utente (\ref{rf:FunzionalitaUtentePremium}).
+\elemento [CALENDARI PERSONALI] {rf:CalendariMultipli} La piattaforma deve rendere possibile all'utente di creare e mantenere più calendari personali (\ref{ob:CalendariMultipli}) riguardo alle varie attività da svolgere, che si possono visualizzare ogni qualvolta si voglia. Il numero di calendari personali, reso disponibile dal sito, dipende dal tipo di account dell'utente (\ref{rf:FunzionalitaUtentePremium}). Durante la fase di creazione di un calendario l'utente dovra inserire solamente il titolo del calendario stesso, per personalizzare le impostazioni di un calendario si fa riferimento al \ref{rf:ImpostazioniPredefiniteCalendario}
 	\end{listaPersonale2}
 
 	\elemento[CREAZIONE/MODIFICA EVENTO]{rf:CreazioneModificaEvento} Il sistema deve dare la possibilità all'utente di aggiungere, eliminare e modificare un evento del calendario mediante l'utilizzo di un pop-up (\ref{ob:AggiuntaModificaEvento}) e nella schermata dedicata agli eventi. Nella compilazione dell'attività, il sistema deve permettere al cliente:
 	\begin{listaPersonale2}{}
-		\elemento{rf:RestrizioniEvento} d'imporre restrizioni, ovvero definire ora e giorno dell'attività da svolgere o define una scadenza,deadline;
+\elemento{rf:RestrizioniEvento} d'imporre restrizioni, ovvero definire ora e giorno dell'attività da svolgere o definire una scadenza;
 		\elemento{rf:PrioritaEvento} impostare la priorità dell'impegno;
 		\elemento{rf:DescrizioneTitoloEvento} scrivere una descrizione e un titolo;
 		\elemento{rf:RoutineEvento} definire impegni di routine oppure impegni ripetuti su più giorni, chiamate "Abitudini".
-		\elemento{rf:LuogoEvento} aggiungere il luogo dove si terrà l'impegno;
+\elemento{rf:LuogoEvento} aggiungere il luogo dove si terrà l'impegno mediante l'utilizzo di un servizio esterno di mappe(\ref{ob:ServiziTerzeParti});
 		\elemento{rf:CondivisioneEvento} condividere l'evento con altri utenti;
-		\elemento{rf:RaggruppamentoEvento} di poter aggiungere l'evento ad un raggruppamento di altre attività; un raggruppamento è un insieme di attività presenti nel calendario principale;
+\elemento{rf:RaggruppamentoEvento} di poter aggiungere l'evento a un raggruppamento di altre attività; un raggruppamento è un insieme di attività presenti nel calendario principale;
 		\elemento{rf:DifficoltaEvento} impostare la difficoltà, ovvero definire la complessità dell'evento da completare;
 		\elemento{rf:NotificheEvento} impostare notifiche come descritto in \ref{rf:Notifiche}.
+\elemento{rf:CalendarioEvento} impostare il calendario(\ref{rf:CalendariMultipli}) in cui l'evento dovrà essere inserito.
 	\end{listaPersonale2}
 
 
-	\elemento[ORGANIZZAZIONE ATTIVITA']{rf:InserimentoAutomaticoCalendario} Una volta compilato il pop-up di aggiunta impegno, il sistema deve inserire automaticamente l'impegno nel calendario (\ref{ob:FormattazioneAutomaticaCalendario}) seguendo le restrizioni, difficoltà, priorità e gli altri campi inseriti dall'utente a tempo di compilazione dell'evento (\ref{rf:CreazioneModificaEvento}).
+\elemento[ORGANIZZAZIONE ATTIVITA']{rf:InserimentoAutomaticoCalendario} Una volta compilato il pop-up di aggiunta impegno, se è stato scelto il calendario personale il sistema automaticamente troverà una posizione disponibile(\ref{ob:FormattazioneAutomaticaCalendario}) in base ai campi difficoltà, priorità e gli altri campi inseriti dall'utente a tempo di compilazione dell'evento (\ref{rf:CreazioneModificaEvento}); Nel caso in cui l'utente scegliesse il calendario principale specificando data e ora dell'evento e nel caso in cui l'evento venisse aggiunto a un calendario oltre a quello personale, verrà posizionato secondo i criteri di data, ora e durata definiti all'interno dell'evento stesso.
+
 	\begin{listaPersonale2}{RF}
-		\elemento[RESOCONTO GIORNATA]{rf:ResocontoGiornata} Il sistema, a fine giornata, deve presentare un resoconto (\ref{ob:Resoconto}), dove l'utente potrà comunicare le attività fatte e non, in modo tale da dare la possibilità al sistema di ricalcolare eventuali modifiche in base agli impegni non conclusi sempre secondo le modalità citate in \ref{rf:InserimentoAutomaticoCalendario}.
+\elemento[RESOCONTO GIORNATA]{rf:ResocontoGiornata} Il sistema presenta un resoconto (\ref{ob:Resoconto}), dove l'utente potrà comunicare le attività fatte, da eliminare e non completate, in modo tale da dare la possibilità al sistema di ricalcolare eventuali modifiche in base agli impegni non conclusi sempre secondo le modalità citate in \ref{rf:InserimentoAutomaticoCalendario}. Nel caso un evento venisse segnalato come non completato e avesse le impostazioni di data e ora scelte dall'utente (Non posizionato automaticamente dal sistema) l'evento non verrà riprogrammato.
 	\end{listaPersonale2}
 
 	\elemento[NOTIFICHE]{rf:Notifiche} Il sistema deve inviare delle notifiche per ciascun impegno (\ref{ob:NotifichePersonalizzate}), fornendo la possibilità di personalizzarle, infatti nel pop-up di compilazione dell'evento (\ref{rf:CreazioneModificaEvento}) deve essere possibile:
@@ -78,17 +80,11 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 		\elemento{rf:TitoloNotifiche} definire il titolo della notifica: di default quest'ultimo sarà il titolo dell'evento.
 	\end{listaPersonale2}
 
-	\elemento[INTERAZIONE CON SISTEMI DI TERZE PARTI]{rf:SistemiTerzeParti} Il sito deve permettere all'utente d'interagire con sistemi di terzi parti (\ref{ob:ServiziTerzeParti}), ad esempio:
-
-	\begin{listaPersonale2}{RF}
-		\elemento[INTERAZIONE con GOOGLE CALENDAR]{rf:GoogleCalendar} In quanto è un'applicazione molto diffusa tra gli utenti che utilizzano calendari, il sistema deve rendere possibile all'utente di poter interagire con eventi di Google Calendar. In particolare la piattaforma deve permettere di:
-		\begin{listaPersonale3}{}
+\elemento[INTERAZIONE con GOOGLE CALENDAR]{rf:GoogleCalendar} In quanto è un'applicazione molto diffusa tra gli utenti che utilizzano calendari, il sistema deve rendere possibile all'utente di poter interagire con eventi di Google Calendar(\ref{ob:ServiziTerzeParti}). In particolare la piattaforma deve permettere di:
+\begin{listaPersonale2}{}
 			\elemento{rf:ImportazioneEsportazioneManualmenteGoogleCalendar} importare ed esportare manualmente;
-			\elemento{rf:ImportazioneEsportazioneAutomaticamenteGoogleCalendar} importare ed esportare in automatico.
-		\end{listaPersonale3}
-
-		\elemento[INTERAZIONE CON UN SERVIZIO DI MAPPE]{rf:ServizioMappe} Il sistema darà la possibilità all'utente di aggiungere il luogo dove si svolgerà l'impegno.
-	\end{listaPersonale2}
+\elemento{rf:ImportazioneEsportazioneAutomaticamenteGoogleCalendar} importare ed esportare in automatico.
+\end{listaPersonale2}
 
 	\elemento[INFORMAZIONI sull'USO del TEMPO]{rf:UsoDelTempo} Il sito deve presentare delle infografiche e liste riguardanti l'utilizzo del tempo. L'utente, così, potrà visualizzare dei grafici esemplificativi su come viene speso il proprio tempo. (\ref{ob:InfoUsoDelTempo})
 
@@ -100,7 +96,7 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 		\elemento{rf:FiltroPersone} persone incluse nell'evento.
 	\end{listaPersonale2}
 
-	\elemento[IMPOSTAZIONI PREDEFINITE DI UN CALENDARIO]{rf:ImpostazioniPredefiniteCalendario} Ogni calendario avrà una sezione dedicata dove l'utente potrà modificare le impostazioni predefinite del calendario(\ref{ob:CalendariMultipli}). Queste impostazioni saranno usate per precompilare i campi dell'evento, che si sta aggiungendo. L'utente, durante la fase di aggiunta dell'evento, potrà modificare i campi precompilati(\ref{ob:AggiuntaModificaEvento}). La sezione delle impostazioni di un calendario conterrà la possibilità di definire i valori di default per i seguenti requisiti funzionali: \hyperref[rf:RestrizioniEvento]{RF5.1}, \hyperref[rf:PrioritaEvento]{RF5.2}, \hyperref[rf:DescrizioneTitoloEvento]{RF5.3}(come prefisso o suffisso), \hyperref[rf:LuogoEvento]{RF5.5}, \hyperref[rf:CondivisioneEvento]{RF5.6}, \hyperref[rf:DifficoltaEvento]{RF5.8}, \hyperref[rf:ImpostazioneTimerNotifiche]{RF7.1}, \hyperref[rf:TitoloNotifiche]{RF7.2} e inoltre questa sezione conterrà le impostazioni per:
+\elemento[IMPOSTAZIONI PREDEFINITE DI UN CALENDARIO]{rf:ImpostazioniPredefiniteCalendario} Ogni calendario avrà una sezione dedicata dove l'utente potrà modificare le impostazioni predefinite del calendario(\ref{ob:CalendariMultipli}). Queste impostazioni saranno usate per precompilare i campi dell'evento, che si sta aggiungendo. L'utente, durante la fase di aggiunta dell'evento, potrà modificare i campi precompilati(\ref{ob:AggiuntaModificaEvento}). La sezione delle impostazioni di un calendario conterrà la possibilità di definire i valori di default per i seguenti requisiti funzionali: \hyperref[rf:PrioritaEvento]{RF5.2}, \hyperref[rf:DescrizioneTitoloEvento]{RF5.3}(come prefisso o suffisso), \hyperref[rf:LuogoEvento]{RF5.5}, \hyperref[rf:DifficoltaEvento]{RF5.8}, \hyperref[rf:ImpostazioneTimerNotifiche]{RF7.1}, \hyperref[rf:TitoloNotifiche]{RF7.2} e inoltre questa sezione conterrà le impostazioni per:
 	\begin{listaPersonale2}{}
 		\elemento{rf:NomePredefinitoCalendario} modificare il nome del calendario;
 		\elemento{rf:UtentiCondivisoCalendario} modificare la lista degli utenti a cui è condiviso il calendario;
@@ -113,7 +109,7 @@ Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistem
 	\begin{listaPersonale2}{}
 		\elemento{rf:ModificaPasswordAccount} modifica password;
 		\elemento{rf:ModificaUsernameAccount} modifica username;
-		\elemento{rf:PreferenzeServiziTerzePartiAccount} impostare preferenze e interazioni con servizi di terze parti (\ref{rf:ServizioMappe});
+\elemento{rf:PreferenzeServiziTerzePartiAccount} impostare preferenze e interazioni con servizi di terze parti (\hyperref[rf:LuogoEvento]{RF5.5});
 		\elemento{rf:MetodoDiPagamantoPreferitoAccount} modifica del metodo di pagamento predefinito;
 		\elemento{rf:OreDiSonnoAccount} impostare le ore di sonno quotidiane; questo valore può essere modificato manualmente dall'utente dalla sezione routine (\hyperref[rf:RoutineEvento]{RF5.4}).
 	\end{listaPersonale2}
