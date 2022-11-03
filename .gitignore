@@ -25,3 +25,5 @@
 **/*.synctex(busy)
 **/*.run.xml
 **/*.bkp
+./.vscode/
+./.vscode/*.*

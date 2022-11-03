@@ -2,15 +2,15 @@
 \label{sec:RequisitiNonFunzionali}
 
 \begin{listaPersonale}{RNF}
-      \elemento[PRIVACY]{rnf:Privacy} L'applicazione deve essere progettata e realizzata in ottemperanza del Regolamento per la protezione dei dati (GDPR) dell'Unione Europa entrata in vigore nel 2016(\ref{ob:SicurezzaPrivacyCookie}). In specifico il sito dovrà adempiere:
-\begin{listaPersonale2}[RNF]{}
+      \elemento[PRIVACY]{rnf:Privacy} L'applicazione deve essere progettata e realizzata in ottemperanza del Regolamento per la protezione dei dati (GDPR) dell'Unione Europa entrata in vigore nel 2016 (\ref{ob:SicurezzaPrivacyCookie}). In specifico il sito dovrà adempiere:
+      \begin{listaPersonale2}[RNF]{}
             \elemento{rnf:TrattamentoLecitoPrivacy} \href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e1898-1-1}{Capo 2, Articolo 6} trattamento lecito dei dati personali; poiché i dati personali sono necessari per il legittimo interesse di utilizzo del sito, il consenso sarà richiesto solo per alcune funzionalità (Es. \ref{rf:CondivisioneCalendario}). In caso il consenso non venisse dato l'utente non potrà avere accesso ad alcune funzionalità della piattaforma.
-\begin{listaPersonale3}[RNF]{}
+            \begin{listaPersonale3}[RNF]{}
                   \elemento{rnf:ObblighiDiLeggePrivacy} In caso di un utente premium il sistema richiederà ulteriori dati, tra cui quelli di fatturazione, i quali saranno obbligatori per adempiere agli obblighi di legge.
             \end{listaPersonale3}
 
             \elemento{rnf:InformativaFinalitaPrivacy} Creare un'informativa sulle finalità e modalità dei trattamenti: il contenuto dell'informativa dovrà presentare le istruzioni date nel \href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e2261-1-1}{Capo 3, Sezione 2, Articolo 13} del GDPR, ovvero:
-\begin{listaPersonale3}[RNF]{}
+            \begin{listaPersonale3}[RNF]{}
                   \elemento{rnf:CategoriaDatiInformativaPrivacy} categoria di dati raccolti;
                   \elemento{rnf:FinalitaInformativaPrivacy} finalità del trattamento;
                   \elemento{rnf:PeriodoConservazioneInformativaPrivacy} periodo di conservazione;
@@ -19,7 +19,7 @@
             \elemento{rnf:PresentazionePrivacy} a dei requisiti di presentazione, ovvero l'informativa deve essere chiara, concisa, facilmente accessibile e comprensibile;
 
             \elemento{rnf:DirittiPrivacy} al riconoscimento di alcuni diritti, ovvero:
-\begin{listaPersonale3}[RNF]{}
+            \begin{listaPersonale3}[RNF]{}
                   \elemento{rnf:DirittoAccessoDatiPrivacy} diritto di accesso ai dati da parte dell'utente (\href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e2520-1-1}{Capo 3, Sezione 2, Articolo 15});
                   \elemento{rnf:DirittoRettificaPrivacy} diritto di rettifica (\href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e2606-1-1}{Cap 3, Sezione 3, Articolo 16});
                   \elemento{rnf:DirittoOblioPrivacy} diritto all'oblio/cancellazione (\href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e2613-1-1}{Cap 3, Sezione 3, Articolo 17});
@@ -32,7 +32,7 @@
 
 
       \elemento[SICUREZZA]{rnf:Sicurezza} Il sito di rete deve essere progettato e realizzato per garantire la sicurezza dei dati (\ref{ob:SicurezzaPrivacyCookie}) adottando pratiche e metodologie nella fase di trasmissione di dati tramite rete Internet, ad esempio il sito dovrà provvedere a:
-\begin{listaPersonale2}[RNF]{}
+      \begin{listaPersonale2}[RNF]{}
             \elemento{rnf:SicurezzaPassword} avere, come primo livello di sicurezza, una password ed email decisa obbligatoriamente dagli utenti in fase di registrazione. La password deve seguire degli standard, ovvero avere almeno:
             \begin{itemize}
                   \item 8 caratteri;
@@ -47,32 +47,32 @@
             \elemento{rnf:DDOSSicurezza} alla protezione dei server da attacchi DDOS.
       \end{listaPersonale2}
 
-      \elemento[SCALABILITÀ]{rnf:Scalabilita} L'applicazione deve garantire l'elaborazione di un numero crescente di utenti in modo tale da offrire tutte le sue funzionalità indipendentemente dal numero di utenti connessi(\ref{ob:Scalabilita}).
+      \elemento[SCALABILITÀ]{rnf:Scalabilita} L'applicazione deve garantire l'elaborazione di un numero crescente di utenti in modo tale da offrire tutte le sue funzionalità indipendentemente dal numero di utenti connessi (\ref{ob:Scalabilita}).
 
-      \elemento[AFFIDABILITÀ]{rnf:Affidabilita} Il sito deve garantire il funzionamento delle funzionalità che ci si aspetta vengano eseguite quando viene fatta una determinata azione da parte dell'utente(\ref{ob:Caratteristiche}), per questo motivo:
-\begin{listaPersonale2}[RNF]{}
+      \elemento[AFFIDABILITÀ]{rnf:Affidabilita} Il sito deve garantire il funzionamento delle funzionalità che ci si aspetta vengano eseguite quando viene fatta una determinata azione da parte dell'utente (\ref{ob:Caratteristiche}), per questo motivo:
+      \begin{listaPersonale2}[RNF]{}
             \elemento{rnf:ConfermaServerAffidabilita} un'azione non è definita completata fintanto che il server non confermi l'avvenuto successo dell'azione richiesta;
             \elemento{rnf:GestioneEccezioniAffidabilita} tutte le eccezioni devono essere gestite con errori appropriati;
             \elemento{rnf:ResilienteFallimentoAffidabilita} la piattaforma deve essere progettata in modo tale di essere resiliente in caso di fallimento di uno dei suoi componenti.
       \end{listaPersonale2}
 
-      \elemento[PRESTAZIONI]{rnf:Prestazioni} Il sito dovrà presentare almeno un punteggio di 85\% durante nella valutazione delle prestazioni(\ref{ob:Caratteristiche}) mediante l'utilizzo dello strumento “lighthouse” di Google Chrome.
+      \elemento[PRESTAZIONI]{rnf:Prestazioni} Il sito dovrà presentare almeno un punteggio di 85\% durante nella valutazione delle prestazioni (\ref{ob:Caratteristiche}) mediante l'utilizzo dello strumento “lighthouse” di Google Chrome.
 
-      \elemento[COMPATIBILITÀ]{rnf:Compatibilita} Il sito deve essere compatibile(\ref{ob:Caratteristiche}) con i browser Chromium based, Firefox e Safari di edizione 2022.
+      \elemento[COMPATIBILITÀ]{rnf:Compatibilita} Il sito deve essere compatibile (\ref{ob:Caratteristiche}) con i browser Chromium based, Firefox e Safari di edizione 2022.
 
       \elemento[WEB APP]{rnf:WebApp} La piattaforma dovrà rendere disponibile all'utente una web app (\ref{ob:WebApp}) per aumentare le funzionalità offerte.
 
-      \elemento[INTEROPERABILITÀ]{rnf:Interoperabilita} Il sistema deve poter operare con sistemi esterni(\ref{ob:ServiziTerzeParti}), che prestano delle funzionalità aggiuntive nella piattaforma, non implementate direttamente dal sito. In modo specifico i sistemi esterni presenti dovranno essere:
-\begin{listaPersonale2}[RNF]{}
+      \elemento[INTEROPERABILITÀ]{rnf:Interoperabilita} Il sistema deve poter operare con sistemi esterni (\ref{ob:ServiziTerzeParti}), che prestano delle funzionalità aggiuntive nella piattaforma, non implementate direttamente dal sito. In modo specifico i sistemi esterni presenti dovranno essere:
+      \begin{listaPersonale2}[RNF]{}
             \elemento{rnf:MappeInteroperabilita} sistemi di mappe, vale a dire Google Maps e OpenStreetMap;
             \elemento{rnf:PagamentoInteroperabilita} sistemi di pagamento, vale a dire PayPal e Stripe;
             \elemento{rnf:AutenticazioneInteroperabilita} sistemi di autenticazione, vale a dire Auth0; % prima questi servizi di terze parti non erano specificati, non so perché. GL
             \elemento{rnf:GoogleCalendarInteroperabilita} Google Calendar.
       \end{listaPersonale2}
 
-      \elemento[PORTABILITÀ]{rnf:Portabilita} Il sistema deve essere capace di adattarsi(\ref{ob:ServiziTerzeParti}) a diversi dispositivi le cui dimensioni possono essere variabili.
+      \elemento[PORTABILITÀ]{rnf:Portabilita} Il sistema deve essere capace di adattarsi (\ref{ob:ServiziTerzeParti}) a diversi dispositivi le cui dimensioni possono essere variabili.
 
-      \elemento[LINGUA DI SISTEMA]{rnf:Lingua} Il sito deve essere fornito in lingua italiana(\ref{ob:Caratteristiche}).
+      \elemento[LINGUA DI SISTEMA]{rnf:Lingua} Il sito deve essere fornito in lingua italiana (\ref{ob:Caratteristiche}).
 
       \elemento[COOKIE]{rnf:Cookie} Il sito fa utilizzo di cookie (\ref{ob:SicurezzaPrivacyCookie}) per memorizzare informazioni in locale dell'utente e poterlo collegare alle informazioni sui server della piattaforma.
 \end{listaPersonale}
