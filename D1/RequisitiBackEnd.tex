@@ -17,7 +17,7 @@ I sistemi esterni con cui PlanIt si dovrà interfacciare sono:
 
 \subsection*{DESCRIZIONI}
 \begin{enumerate}
-    \item Le API dei servizi di mappe Google Maps e OpenstreetMap, daranno la possibilità all'utente d'indicare la posizione esatta di dove si terrà l'impegno (\ref{rf:LuogoEvento}); tale posizione potrà essere specificata quando si compila il pop-up di compilazione impegno (\ref{rf:CreazioneModificaEvento}), oppure in un successivo momento durante la modifica dell'evento stesso (\ref{rf:CreazioneModificaEvento}).
+    \item Le API dei servizi di mappe Google Maps e OpenstreetMap, daranno la possibilità all'utente standard d'indicare la posizione esatta di dove si terrà l'impegno (\ref{rf:LuogoEvento}); tale posizione potrà essere specificata quando si compila il pop-up di compilazione impegno (\ref{rf:CreazioneModificaEvento}), oppure in un successivo momento durante la modifica dell'evento stesso (\ref{rf:CreazioneModificaEvento}).
 
     \item L'integrazione con Google Calendar (\ref{rf:GoogleCalendar}) permetterà d'importare ed esportare eventi dalla sua piattaforma.\\
           Il processo potrà avvenire mediante:
@@ -37,14 +37,14 @@ I sistemi esterni con cui PlanIt si dovrà interfacciare sono:
               \item protezione da attacchi DDOS (\ref{rnf:Sicurezza});
               \item CDN (Content Delivery Network) in modo tale da servire le pagine statiche o file statici del sito con poca latenza;
               \item DNS così da poter creare diversi sotto domini;
-              \item Certificato SSL, così da rendere sicura la connessione tra l'utente e la piattaforma (\ref{rnf:Sicurezza}).
+              \item Certificato SSL, così da rendere sicura la connessione tra l'utente non autenticato e la piattaforma (\ref{rnf:Sicurezza}).
           \end{enumerate}
 
-    \item Il sistema di archiviazione delle informazioni MongoDB dovrà gestire tutti i dati coinvolti nei processi della piattaforma, nello specifico: la memorizzazione del calendario, degli eventi, eventuali condivisioni, le informazioni di ogni utente per l'integrazione con i servizi di terze parti e le preferenze dell'utente.
+    \item Il sistema di archiviazione delle informazioni MongoDB dovrà gestire tutti i dati coinvolti nei processi della piattaforma, nello specifico: la memorizzazione del calendario, degli eventi, eventuali condivisioni, le informazioni di ogni utente standard per l'integrazione con i servizi di terze parti e le preferenze dell'utente standard.
 
     \item Il sistema di gestione della privacy e cookie Iubenda sarà utilizzato per generare una politica sulla privacy (\ref{rnf:Privacy}) che rispetterà i parametri di legge, e in caso di modifiche alle leggi in vigore informerà la piattaforma per adottare le modifiche necessarie per adempiere ai nuovi obblighi di legge. Inoltre Iubenda fornirà un' integrazione per accettare/rifiutare i cookie (\ref{rnf:Cookie}).
 
-    \item Il sistema di posta elettronica, email sarà utilizzato per inviare email informative sul sito e email relative a comunicazioni per l'utente, ovvero:
+    \item Il sistema di posta elettronica, email sarà utilizzato per inviare email informative sul sito ed email relative a comunicazioni per l'utente standard, ovvero:
           \begin{itemize}
               \item reset password (\ref{rf:RecuperoPassword});
               \item conferma creazione account (\ref{rf:AccessoRegistrazione});

@@ -4,7 +4,7 @@
 \begin{listaPersonale}{RNF}
       \elemento[PRIVACY]{rnf:Privacy} L'applicazione deve essere progettata e realizzata in ottemperanza del Regolamento per la protezione dei dati (GDPR) dell'Unione Europa entrata in vigore nel 2016 (\ref{ob:SicurezzaPrivacyCookie}). In specifico il sito dovrà adempiere:
       \begin{listaPersonale2}[RNF]{}
-            \elemento{rnf:TrattamentoLecitoPrivacy} \href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e1898-1-1}{Capo 2, Articolo 6} trattamento lecito dei dati personali; poiché i dati personali sono necessari per il legittimo interesse di utilizzo del sito, il consenso sarà richiesto solo per alcune funzionalità (Es. \ref{rf:CondivisioneCalendario}). In caso il consenso non venisse dato l'utente non potrà avere accesso ad alcune funzionalità della piattaforma.
+            \elemento{rnf:TrattamentoLecitoPrivacy} \href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e1898-1-1}{Capo 2, Articolo 6} trattamento lecito dei dati personali; poiché i dati personali sono necessari per il legittimo interesse di utilizzo del sito, il consenso sarà richiesto solo per alcune funzionalità (Es. \ref{rf:CondivisioneCalendario}). In caso il consenso non venisse dato l'utente non autenticato non potrà avere accesso ad alcune funzionalità della piattaforma.
             \begin{listaPersonale3}[RNF]{}
                   \elemento{rnf:ObblighiDiLeggePrivacy} In caso di un utente premium il sistema richiederà ulteriori dati, tra cui quelli di fatturazione, i quali saranno obbligatori per adempiere agli obblighi di legge.
             \end{listaPersonale3}
@@ -20,7 +20,7 @@
 
             \elemento{rnf:DirittiPrivacy} al riconoscimento di alcuni diritti, ovvero:
             \begin{listaPersonale3}[RNF]{}
-                  \elemento{rnf:DirittoAccessoDatiPrivacy} diritto di accesso ai dati da parte dell'utente (\href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e2520-1-1}{Capo 3, Sezione 2, Articolo 15});
+                  \elemento{rnf:DirittoAccessoDatiPrivacy} diritto di accesso ai dati da parte dell'utente standard (\href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e2520-1-1}{Capo 3, Sezione 2, Articolo 15});
                   \elemento{rnf:DirittoRettificaPrivacy} diritto di rettifica (\href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e2606-1-1}{Cap 3, Sezione 3, Articolo 16});
                   \elemento{rnf:DirittoOblioPrivacy} diritto all'oblio/cancellazione (\href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e2613-1-1}{Cap 3, Sezione 3, Articolo 17});
                   \elemento{rnf:DirittoOpposizionePrivacy} diritto di opposizione (\href{https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ITA&toc=OJ:L:2016:119:TOC#d1e2810-1-1}{Cap 3, Sezione 4, Articolo 21});
@@ -49,7 +49,7 @@
 
       \elemento[SCALABILITÀ]{rnf:Scalabilita} L'applicazione deve garantire l'elaborazione di un numero crescente di utenti in modo tale da offrire tutte le sue funzionalità indipendentemente dal numero di utenti connessi (\ref{ob:Scalabilita}).
 
-      \elemento[AFFIDABILITÀ]{rnf:Affidabilita} Il sito deve garantire il funzionamento delle funzionalità che ci si aspetta vengano eseguite quando viene fatta una determinata azione da parte dell'utente (\ref{ob:Caratteristiche}), per questo motivo:
+      \elemento[AFFIDABILITÀ]{rnf:Affidabilita} Il sito deve garantire il funzionamento delle funzionalità che ci si aspetta vengano eseguite quando viene fatta una determinata azione da parte dell'utente standard (\ref{ob:Caratteristiche}), per questo motivo:
       \begin{listaPersonale2}[RNF]{}
             \elemento{rnf:ConfermaServerAffidabilita} un'azione non è definita completata fintanto che il server non confermi l'avvenuto successo dell'azione richiesta;
             \elemento{rnf:GestioneEccezioniAffidabilita} tutte le eccezioni devono essere gestite con errori appropriati;
@@ -60,7 +60,7 @@
 
       \elemento[COMPATIBILITÀ]{rnf:Compatibilita} Il sito deve essere compatibile (\ref{ob:Caratteristiche}) con i browser Chromium based, Firefox e Safari di edizione 2022.
 
-      \elemento[WEB APP]{rnf:WebApp} La piattaforma dovrà rendere disponibile all'utente una web app (\ref{ob:WebApp}) per aumentare le funzionalità offerte.
+      \elemento[WEB APP]{rnf:WebApp} La piattaforma dovrà rendere disponibile all'utente non autenticato una web app (\ref{ob:WebApp}) per aumentare le funzionalità offerte.
 
       \elemento[INTEROPERABILITÀ]{rnf:Interoperabilita} Il sistema deve poter operare con sistemi esterni (\ref{ob:ServiziTerzeParti}), che prestano delle funzionalità aggiuntive nella piattaforma, non implementate direttamente dal sito. In modo specifico i sistemi esterni presenti dovranno essere:
       \begin{listaPersonale2}[RNF]{}
@@ -74,5 +74,5 @@
 
       \elemento[LINGUA DI SISTEMA]{rnf:Lingua} Il sito deve essere fornito in lingua italiana (\ref{ob:Caratteristiche}).
 
-      \elemento[COOKIE]{rnf:Cookie} Il sito fa utilizzo di cookie (\ref{ob:SicurezzaPrivacyCookie}) per memorizzare informazioni in locale dell'utente e poterlo collegare alle informazioni sui server della piattaforma.
+      \elemento[COOKIE]{rnf:Cookie} Il sito fa utilizzo di cookie (\ref{ob:SicurezzaPrivacyCookie}) per memorizzare informazioni in locale dell'utente standard e poterlo collegare alle informazioni sui server della piattaforma.
 \end{listaPersonale}
