@@ -1,5 +1,5 @@
 \section{Requisiti funzionali}
-\label{sec:RequisitiFunzionali}
+\label{secD1:RequisitiFunzionali}
 Nel seguente capitolo verranno presentati i requisiti funzionali (RF) del sistema con la motivazione della loro presenza e legame con gli obiettivi sopra citati.\\
 Da questo punto del documento in poi ogni riferimento a un "cliente" si riferirà a un ipotetico cliente della piattaforma.
 \begin{listaPersonale}{RF}
@@ -11,8 +11,8 @@ Da questo punto del documento in poi ogni riferimento a un "cliente" si riferir�
 	\end{enumerate}
 	Il sistema deve permettere all'utente non autenticato di registrarsi sul sito (\ref{ob:Registrazione}) in qualsiasi momento esso voglia, seguendo le regole definite in \ref{rnf:SicurezzaPassword}; inoltre, la piattaforma deve permettere di abbonarsi al servizio premium, con un account preesistente o durante la fase di registrazione.\\
 	A ogni modo il sistema deve rendere disponibile al cliente di utilizzare la piattaforma anche come utente non autenticato in versione demo (\ref{rf:UtenteNonAutenticato}) cosicché possa provare il sito prima di registrarsi.\\
-	Da questo punto del documento in poi ogni riferimento a un "utente standard" sarà usato come sinonimo per indicate un "utente autenticato standard", inoltre ogni riferimento a un "utente non autenticato" implicherà un riferimento anche a un "utente standard", in quanto essere un "utente standard" estende le funzionalità di un "utente non autenticato".\\
-	Da questo punto del documento in poi ogni riferimento a un "utente premium" sarà usato come sinonimo per indicate un "utente autenticato premium", inoltre ogni riferimento a un "utente standard" implicherà un riferimento anche a un "utente premium", in quanto essere un "utente premium" estende le funzionalità di un "utente standard".
+	Da questo punto del documento in poi ogni riferimento a un "utente standard" sarà usato come sinonimo di "utente autenticato standard", inoltre ogni riferimento a un "utente non autenticato" implicherà un riferimento anche a un "utente standard", in quanto essere un "utente standard" estende le funzionalità di un "utente non autenticato".\\
+	Da questo punto del documento in poi ogni riferimento a un "utente premium" sarà usato come sinonimo di "utente autenticato premium", inoltre ogni riferimento a un "utente standard" implicherà un riferimento anche a un "utente premium", in quanto essere un "utente premium" estende le funzionalità di un "utente standard".
 	\begin{listaPersonale2}{RF}
 		\elemento[METODI AUTENTICAZIONE]{rf:MetodiAutenticazione} L'autenticazione può essere fatta con email e password o con servizi di terze parti, più nello specifico con Google. (\ref{ob:Registrazione}).
 	\end{listaPersonale2}
@@ -47,7 +47,7 @@ Da questo punto del documento in poi ogni riferimento a un "cliente" si riferir�
 
 	\elemento[UTENTE AUTENTICATO-PREMIUM / UTENTE PREMIUM]{rf:UtentePremium} L'utente autenticato premium avrà la possibilità anche di accedere a un maggior numero di funzionalità della piattaforma grazie alla sottoscrizione di un abbonamento mediante un pagamento mensile (\ref{ob:AccountPremium}). Inoltre il pagamento degli utenti premium contribuirà alla sostenibilità economica del sito.
 	\begin{listaPersonale2}{RF}
-		\elemento[PAGAMENTO]{rf:PagamentoUtentePremium} Il sistema offrirà la possibilità all'utente autenticato premium di pagare l'abbonamento con un servizio di pagamento esterno(\ref{ob:AccountPremium}).
+		\elemento[PAGAMENTO]{rf:PagamentoUtentePremium} Il sistema offrirà la possibilità all'utente autenticato premium di pagare l'abbonamento con un servizio di pagamento esterno(\ref{ob:AccountPremium}). Inoltre il sistema deve dare la possibilità di modificare le proprie impostazioni (credenziali e scelta metodo pagamento) per il pagamento, in modo tale da mantenere le proprie informazioni sempre aggiornate.
 
 		\elemento[FUNZIONALITA' AGGIUNTIVE (\ref{ob:AccountPremium})]{rf:FunzionalitaUtentePremium} Grazie all'account premium, il sistema permetterà di accedere alle funzionalità standard e a dei servizi aggiuntivi:
 		\begin{itemize}
@@ -86,9 +86,9 @@ Da questo punto del documento in poi ogni riferimento a un "cliente" si riferir�
 		\elemento{rf:CalendarioEvento} impostare il calendario (\ref{rf:CalendariMultipli}) in cui l'evento dovrà essere inserito.
 	\end{listaPersonale2}
 
-	\elemento[ORGANIZZAZIONE ATTIVITA']{rf:InserimentoAutomaticoCalendario} Una volta compilato il pop-up di aggiunta impegno, se è stato scelto il calendario personale il sistema automaticamente troverà una posizione disponibile (\ref{ob:FormattazioneAutomaticaCalendario}) in base ai campi difficoltà, priorità e gli altri campi inseriti dall'utente non autenticato a tempo di compilazione dell'evento (\ref{rf:CreazioneModificaEvento}); Nel caso in cui l'utente non autenticato scegliesse il calendario principale specificando data e ora dell'evento. Nel caso in cui l'utente fosse un utente standard e l'evento venisse aggiunto a un calendario oltre a quello personale, verrà posizionato secondo i criteri di data, ora e durata definiti all'interno dell'evento stesso.
+	\elemento[ORGANIZZAZIONE ATTIVITA']{rf:InserimentoAutomaticoCalendario} Una volta compilato il pop-up di aggiunta impegno, se è stato scelto il calendario personale, il sistema automaticamente troverà una posizione disponibile (\ref{ob:FormattazioneAutomaticaCalendario}) in base ai campi difficoltà, priorità, data, ora e durata definiti dall'utente non autenticato a tempo di compilazione dell'evento (\ref{rf:CreazioneModificaEvento}). Nel caso in cui l'utente non autenticato specificasse data, ora e durata dell'evento, questo verrà posizionato secondo questi criteri definiti all'interno dell'evento stesso. Quando un utente standard aggiunge l'evento a un calendario diverso da quello principale, questo evento verrà posizionato secondo i criteri di data, ora e durata definiti all'interno dell'evento stesso.
 	\begin{listaPersonale2}{RF}
-		\elemento[RESOCONTO GIORNATA]{rf:ResocontoGiornata} Il sistema presenta un resoconto (\ref{ob:Resoconto}), dove l'utente standard potrà comunicare le attività fatte, da eliminare e non completate, in modo tale da dare la possibilità al sistema di ricalcolare eventuali modifiche in base agli impegni non conclusi sempre secondo le modalità citate in \ref{rf:InserimentoAutomaticoCalendario}. Nel caso un evento venisse segnalato come non completato e avesse le impostazioni di data e ora scelte dall'utente standard (Non posizionato automaticamente dal sistema) l'evento non verrà riprogrammato.
+	  \elemento[RESOCONTO GIORNATA]{rf:ResocontoGiornata} Il sistema presenta un resoconto (\ref{ob:Resoconto}) dove l'utente standard potrà comunicare le attività fatte, da eliminare e non completate, in modo tale da dare la possibilità al sistema di ricalcolare eventuali modifiche in base agli impegni non conclusi sempre secondo le modalità citate in \ref{rf:InserimentoAutomaticoCalendario}. Nel caso in cui un evento venisse segnalato come non completato e non fosse stato posizionato automaticamente dal sistema, l'evento non verrà riprogrammato.
 	\end{listaPersonale2}
 
 	\elemento[NOTIFICHE]{rf:Notifiche} Il sistema deve inviare delle notifiche per ciascun impegno (\ref{ob:NotifichePersonalizzate}), fornendo la possibilità di personalizzarle, infatti nel pop-up di compilazione dell'evento (\ref{rf:CreazioneModificaEvento}) deve essere possibile:
@@ -149,6 +149,8 @@ Da questo punto del documento in poi ogni riferimento a un "cliente" si riferir�
 		\elemento{rf:MetodoDiPagamantoPreferitoAccount} modifica del metodo di pagamento predefinito;
 
 		\elemento{rf:OreDiSonnoAccount} impostare le ore di sonno quotidiane; questo valore può essere modificato manualmente dall'utente standard dalla sezione routine (\ref{rf:RoutineEvento}).
+
+		\elemento{rf:Abbonamento} sottoscrivere un abbonamento al servizio premium come descritto in \ref{rf:UtentePremium} 
 	\end{listaPersonale2}
 
 	\elemento [RECUPERO PASSWORD] {rf:RecuperoPassword} %è da chiedere bene se sia veramente o meno un req funzionale 

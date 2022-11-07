@@ -3,5 +3,20 @@
 \usepackage[T1]{fontenc}
 
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm]{geometry}
-\usepackage{hyperref, amsmath, amssymb, graphicx, mathtools, xcolor, enumitem, verbatim, todonotes, csquotes, subcaption, fancyhdr, lastpage, cancel, xspace, float, caption}
+\usepackage{hyperref, xr, amsmath, amssymb, graphicx, mathtools, xcolor, enumitem, verbatim, todonotes, csquotes, subcaption, fancyhdr, lastpage, cancel, xspace, float, caption, prettyref}
 \usepackage[most]{tcolorbox}
+
+\externaldocument[D1-]{../D1/out/ObiettiviDelProgetto}
+\newrefformat{D1-ob}{\color{blue}D1 \ref{#1}\color{black}}
+
+\externaldocument[D1-]{../D1/out/RequisitiFunzionali}
+\newrefformat{D1-rf}{\color{blue}D1 \ref{#1}\color{black}}
+
+\externaldocument[D1-]{../D1/out/RequisitiNonFunzionali}
+\newrefformat{D1-rnf}{\color{blue}D1 \ref{#1}\color{black}}
+
+\externaldocument[D1-]{../D1/out/RequisitiFrontEnd}
+\newrefformat{D1-fe}{\color{blue}D1 \ref{#1}\color{black}}
+
+\externaldocument[D1-]{../D1/out/RequisitiBackEnd}
+\newrefformat{D1-be}{\color{blue}D1 \ref{#1}\color{black}}
