@@ -45,14 +45,14 @@ Da questo punto del documento in poi ogni riferimento a un "cliente" si riferir�
 		\elemento[FUNZIONALITA']{rf:FunzionalitaUtente} Il sistema offrirà agli utenti con account autenticato-standard tutti i servizi sottoelencati, eccetto quelli descritti nella sezione utente autenticato-premium (\ref{rf:UtentePremium}), con le limitazioni elencate in \ref{rf:FunzionalitaUtentePremium}. Inoltre sarà possibile aggiungere o modificare il proprio username da usare per un più rapido riconoscimento nei calendari condivisi.
 	\end{listaPersonale2}
 
-	\elemento[UTENTE AUTENTICATO-PREMIUM / UTENTE PREMIUM]{rf:UtentePremium} L'utente autenticato premium avrà la possibilità anche di accedere a un maggior numero di funzionalità della piattaforma grazie alla sottoscrizione di un abbonamento mediante un pagamento mensile (\ref{ob:AccountPremium}). Inoltre il pagamento degli utenti premium contribuirà alla sostenibilità economica del sito.
+	\elemento[UTENTE AUTENTICATO-PREMIUM / UTENTE PREMIUM]{rf:UtentePremium} L'utente autenticato avrà la possibilità anche di accedere a un maggior numero di funzionalità della piattaforma grazie alla sottoscrizione di un abbonamento mediante un pagamento mensile (\ref{ob:AccountPremium}) diventando un utente autenticato premium. Inoltre il pagamento degli utenti premium contribuirà alla sostenibilità economica del sito.
 	\begin{listaPersonale2}{RF}
 		\elemento[PAGAMENTO]{rf:PagamentoUtentePremium} Il sistema offrirà la possibilità all'utente autenticato premium di pagare l'abbonamento con un servizio di pagamento esterno(\ref{ob:AccountPremium}). Inoltre il sistema deve dare la possibilità di modificare le proprie impostazioni (credenziali e scelta metodo pagamento) per il pagamento, in modo tale da mantenere le proprie informazioni sempre aggiornate.
 
 		\elemento[FUNZIONALITA' AGGIUNTIVE (\ref{ob:AccountPremium})]{rf:FunzionalitaUtentePremium} Grazie all'account premium, il sistema permetterà di accedere alle funzionalità standard e a dei servizi aggiuntivi:
 		\begin{itemize}
-			\item poter avere un numero illimitato di calendari personali in base allo loro scopo: gli utenti non premium potranno avere solo 5 calendari personali (\ref{rf:CalendariMultipli}).
-			\item poter avere un numero illimitato di calendari condivisi: gli utenti standard potranno averne 3 (\ref{rf:InterzioneTraCalendariDiAltriUtenti}).
+			\item poter avere un numero illimitato di calendari personali in base allo loro scopo: gli utenti non premium potranno avere solo cinque calendari personali (\ref{rf:CalendariMultipli}).
+			\item poter avere un numero illimitato di calendari condivisi: gli utenti standard potranno averne tre (\ref{rf:InterzioneTraCalendariDiAltriUtenti}).
 		\end{itemize}
 	\end{listaPersonale2}
 
@@ -71,13 +71,11 @@ Da questo punto del documento in poi ogni riferimento a un "cliente" si riferir�
 
 		\elemento{rf:DescrizioneTitoloEvento} scrivere una descrizione e un titolo;
 
-		\elemento{rf:RoutineEvento} definire impegni di routine oppure impegni ripetuti su più giorni, chiamate "Abitudini".
+		\elemento{rf:RoutineEvento} definire impegni di routine chiamate anche "Abitudini".
 
 		\elemento{rf:LuogoEvento} aggiungere il luogo dove si terrà l'impegno mediante l'utilizzo di un servizio esterno di mappe (\ref{ob:ServiziTerzeParti});
 
 		\elemento{rf:CondivisioneEvento} condividere l'evento con altri utenti;
-
-		\elemento{rf:RaggruppamentoEvento} di poter aggiungere l'evento a un raggruppamento di altre attività; un raggruppamento è un insieme di attività presenti nel calendario principale;
 
 		\elemento{rf:DifficoltaEvento} impostare la difficoltà, ovvero definire la complessità dell'evento da completare;
 
@@ -88,7 +86,7 @@ Da questo punto del documento in poi ogni riferimento a un "cliente" si riferir�
 
 	\elemento[ORGANIZZAZIONE ATTIVITA']{rf:InserimentoAutomaticoCalendario} Una volta compilato il pop-up di aggiunta impegno, se è stato scelto il calendario personale, il sistema automaticamente troverà una posizione disponibile (\ref{ob:FormattazioneAutomaticaCalendario}) in base ai campi difficoltà, priorità, data, ora e durata definiti dall'utente non autenticato a tempo di compilazione dell'evento (\ref{rf:CreazioneModificaEvento}). Nel caso in cui l'utente non autenticato specificasse data, ora e durata dell'evento, questo verrà posizionato secondo questi criteri definiti all'interno dell'evento stesso. Quando un utente standard aggiunge l'evento a un calendario diverso da quello principale, questo evento verrà posizionato secondo i criteri di data, ora e durata definiti all'interno dell'evento stesso.
 	\begin{listaPersonale2}{RF}
-	  \elemento[RESOCONTO GIORNATA]{rf:ResocontoGiornata} Il sistema presenta un resoconto (\ref{ob:Resoconto}) dove l'utente standard potrà comunicare le attività fatte, da eliminare e non completate, in modo tale da dare la possibilità al sistema di ricalcolare eventuali modifiche in base agli impegni non conclusi sempre secondo le modalità citate in \ref{rf:InserimentoAutomaticoCalendario}. Nel caso in cui un evento venisse segnalato come non completato e non fosse stato posizionato automaticamente dal sistema, l'evento non verrà riprogrammato.
+		\elemento[RESOCONTO GIORNATA]{rf:ResocontoGiornata} Il sistema presenta un resoconto (\ref{ob:Resoconto}) dove l'utente standard potrà comunicare le attività fatte, da eliminare e non completate, in modo tale da dare la possibilità al sistema di ricalcolare eventuali modifiche in base agli impegni non conclusi sempre secondo le modalità citate in \ref{rf:InserimentoAutomaticoCalendario}. Nel caso in cui un evento venisse segnalato come non completato e non fosse stato posizionato automaticamente dal sistema, l'evento non verrà riprogrammato.
 	\end{listaPersonale2}
 
 	\elemento[NOTIFICHE]{rf:Notifiche} Il sistema deve inviare delle notifiche per ciascun impegno (\ref{ob:NotifichePersonalizzate}), fornendo la possibilità di personalizzarle, infatti nel pop-up di compilazione dell'evento (\ref{rf:CreazioneModificaEvento}) deve essere possibile:
@@ -100,9 +98,9 @@ Da questo punto del documento in poi ogni riferimento a un "cliente" si riferir�
 
 	\elemento[INTERAZIONE con GOOGLE CALENDAR]{rf:GoogleCalendar} In quanto è un'applicazione molto diffusa tra gli utenti che utilizzano calendari, il sistema deve rendere possibile all'utente standard di poter interagire con eventi di Google Calendar (\ref{ob:ServiziTerzeParti}). In particolare la piattaforma deve permettere di:
 	\begin{listaPersonale2}[RF]{}
-		\elemento{rf:ImportazioneEsportazioneManualmenteGoogleCalendar} importare ed esportare manualmente;
+		\elemento{rf:ImportazioneEsportazioneManualmenteGoogleCalendar} importare ed esportare manualmente degli eventi;
 
-		\elemento{rf:ImportazioneEsportazioneAutomaticamenteGoogleCalendar} importare ed esportare in automatico.
+		\elemento{rf:ImportazioneEsportazioneAutomaticamenteGoogleCalendar} sincronizzazione automatica degli eventi.
 	\end{listaPersonale2}
 
 	\elemento[INFORMAZIONI sull'USO del TEMPO]{rf:UsoDelTempo} Il sito deve presentare delle infografiche e liste riguardanti l'utilizzo del tempo. L'utente non autenticato, così, potrà visualizzare dei grafici esemplificativi su come viene speso il proprio tempo. (\ref{ob:InfoUsoDelTempo})
@@ -150,7 +148,7 @@ Da questo punto del documento in poi ogni riferimento a un "cliente" si riferir�
 
 		\elemento{rf:OreDiSonnoAccount} impostare le ore di sonno quotidiane; questo valore può essere modificato manualmente dall'utente standard dalla sezione routine (\ref{rf:RoutineEvento}).
 
-		\elemento{rf:Abbonamento} sottoscrivere un abbonamento al servizio premium come descritto in \ref{rf:UtentePremium} 
+		\elemento{rf:Abbonamento} sottoscrivere un abbonamento al servizio premium come descritto in \ref{rf:UtentePremium}
 	\end{listaPersonale2}
 
 	\elemento [RECUPERO PASSWORD] {rf:RecuperoPassword} %è da chiedere bene se sia veramente o meno un req funzionale 
