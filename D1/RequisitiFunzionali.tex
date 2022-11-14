@@ -56,7 +56,7 @@ Da questo punto del documento in poi ogni riferimento a un "cliente" si riferir�
 		\end{itemize}
 	\end{listaPersonale2}
 
-	\elemento[GESTIONE DI CALENDARI]{rf:CondivisioneCalendario} Il sistema darà la possibilità di visualizzare i propri calendari personali e quelli condivisi (\ref{ob:CalendariMultipli}).
+	\elemento[GESTIONE DI CALENDARI]{rf:CondivisioneCalendario} Il sistema darà la possibilità di visualizzare i propri calendari personali e quelli condivisi (\ref{ob:CalendariMultipli}), anche secondo dei filtri definiti dall'utente autenticato standard.
 	\begin{listaPersonale2}{RF}
 		\elemento[INTERAZIONE DI CALENDARI CON ALTRE PERSONE]{rf:InterzioneTraCalendariDiAltriUtenti} Il sistema deve offrire la possibilità agli utenti autenticati d'interagire tra loro mediante la condivisione e integrazione dei loro calendari (\ref{ob:CalendariMultipli}). Grazie alla condivisione e integrazione dei calendari tra gli utenti del sito, i clienti avranno la possibilità di programmare gli eventi in comune.
 
@@ -112,9 +112,8 @@ Da questo punto del documento in poi ogni riferimento a un "cliente" si riferir�
 		\elemento{rf:FiltroData} data evento;
 
 		\elemento{rf:FiltroProprieta} priorità evento;
-
-		\elemento{rf:FiltroPersone} persone incluse nell'evento.
 	\end{listaPersonale2}
+	Inoltre l'utente autenticato standard avrà la possibilità di filtrare gli eventi in base alle persone incluse nell'evento.
 
 	\elemento[IMPOSTAZIONI PREDEFINITE DI UN CALENDARIO]{rf:ImpostazioniPredefiniteCalendario} Ogni calendario avrà una sezione dedicata dove l'utente non autenticato potrà modificare le impostazioni predefinite del calendario (\ref{ob:CalendariMultipli}). Queste impostazioni saranno usate per precompilare i campi dell'evento, che si sta aggiungendo. L'utente non autenticato, durante la fase di aggiunta dell'evento, potrà modificare i campi precompilati (\ref{ob:AggiuntaModificaEvento}). La sezione delle impostazioni di un calendario conterrà la possibilità di definire i valori di default per i seguenti requisiti funzionali (rispettando \ref{rf:FunzionalitaDemoUtenteNonAutenticato}):
 	\begin{itemize}
