@@ -240,10 +240,10 @@ In questa sezione vengono definiti i componenti.
     \elemento[Interfaccia Auth0]{aci:Auth0}
 
     \textbf{Motivazione:}\\
-    Il sistema deve permettere all'utente di autenticarsi con l'uso di credenziali o con accesso mediante software esterni quali Google (\prettyref{D1-rf:MetodiAutenticazione}), per questo motivo è stato definito questo componente.
+    Il sistema deve permettere all'utente di autenticarsi con l'uso di credenziali o con accesso mediante software esterni quali Google (\prettyref{D1-rf:MetodiAutenticazione}), per questo motivo è stato definito questo componente. Inoltre, questo componente gestisce anche il recupero della password.
 
     \textbf{Spiegazione:}\\
-    Il componente deve gestire il reindirizzamento dell'utente sulla pagina di accesso provvista da Auth0. Ad accesso avvenuto deve fare accedere l'utente alla piattaforma
+    Il componente deve gestire il reindirizzamento dell'utente sulla pagina di accesso provvista da Auth0. Ad accesso avvenuto deve fare accedere l'utente alla piattaforma. Inoltre, questa interfaccia gestisce la richiesta da parte dell'utente non autenticato del recupero password, inviando una richiesta ad Auth0 dell'invio dell'email di recupero. Dopo tale richiesta, Auth0 gestirà completamente la procedura di recupero password.
 
 
     \elemento[Interfaccia Iubenda]{aci:Iubenda}
@@ -302,6 +302,22 @@ In questa sezione vengono definiti i componenti.
 
 
 \subsection{DIAGRAMMA DEI COMPONENTI}
+
+\begin{center}
+    \includegraphics[width=1\textwidth,height=0.4\textheight]{img/Diagrammi/Componenti/Diagramma_dei_componenti.png}
+\end{center}
+\begin{center}
+    \includegraphics[width=1\textwidth,height=0.4\textheight]{img/Diagrammi/Componenti/P1_Diagramma_dei_componenti.png}
+\end{center}
+\begin{center}
+    \includegraphics[width=1\textwidth,height=0.4\textheight]{img/Diagrammi/Componenti/P2_Diagramma_dei_componenti.png}
+\end{center}
+\begin{center}
+    \includegraphics[width=1\textwidth,height=0.4\textheight]{img/Diagrammi/Componenti/P3_Diagramma_dei_componenti.png}
+\end{center}
+\begin{center}
+    \includegraphics[width=1\textwidth,height=0.4\textheight]{img/Diagrammi/Componenti/P4_Diagramma_dei_componenti.png}
+\end{center}
 
 \begin{listaPersonale}[]{}
     \elemento[Gestione creazione o modifica evento]{}
@@ -956,7 +972,7 @@ In questa sezione vengono definiti i componenti.
 
     \elemento[Interfaccia Auth0]{}
 
-    \textbf{Descrizione:} Il componente deve gestire il reindirizzamento dell'utente sulla pagina di accesso provvista da Auth0.
+    \textbf{Descrizione:} Il componente deve gestire il reindirizzamento dell'utente sulla pagina di accesso provvista da Auth0. 
 
     \textbf{Interfaccia richiesta - dati utente:} sono i dati utente (email) ricevute da Auth0 a accesso avvenuto con successo.
 
@@ -965,6 +981,10 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia richiesta - richiesta autenticazione:} rappresenta la richiesta da parte di gestione account di reindirizzamento alla pagina di Auth0.
 
     \textbf{Interfaccia fornita - dati utente:} passa al componente gestione account i dati dell'utente (email).
+
+    \textbf{Interfaccia richiesta - richiesta recupero password:} riceve, da parte dell'utente non autenticato, la richiesta di recupero della password.
+
+    \textbf{Interfaccia fornita - richiesta invio email di recupero:} dopo aver ricevuto la richiesta di recupero della password, invia ad Auth0 la richiesta di invio dell'email di recupero. Da questo punto in poi, Auth0 gestirà completamente la procedura di recupero della password.
 
 
     \elemento[Cloudflare]{}

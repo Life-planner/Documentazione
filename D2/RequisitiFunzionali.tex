@@ -60,47 +60,6 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     \end{enumerate}
 
 
-
-
-
-
-    \newpage
-    \elemento[Use case “Sottoscrizione all'account premium” (\prettyref{D1-rf:PagamentoUtentePremium})]{uc:SottoscrizioneAccountPremium}
-
-    \begin{center}
-        \includegraphics[width=0.7\textwidth]{img/Diagrammi/UseCases/UtentePremium.png}
-    \end{center}
-
-    \textbf{Descrizione:}
-
-    \textbf{Titolo:} sottoscrizione all'account premium.
-
-    \textbf{Riassunto:} \\
-    Questo use case descrive come avviene la sottoscrizione all'account premium mediante un abbonamento a pagamento.
-
-    \textbf{Descrizione:}
-    \begin{enumerate}
-        \item L'utente autenticato standard, nella sezione “impostazioni account”, preme il tasto il campo: “Abbonarsi”.
-        \item Una volta selezionato questo campo, l'utente autenticato standard dovrà scegliere tra due possibili metodi di pagamento predefiniti: Stripe o PayPal.
-        \item Dopo aver scelto uno dei metodi di pagamento, l'utente autenticato standard verrà indirizzato nella pagina del metodo di pagamento selezionato, dove dovrà inserire le proprie credenziali riguardanti il suo account del sistema esterno di pagamento. \ref{uc:ExceptionCredenzialiSistemaDiPagamento}
-        \item Una volta che l'utente autenticato standard avrà inserito queste credenziali, l'utente autenticato standard avrà aggiunto correttamente al suo account il metodo di pagamento dell'abbonamento.
-        \item L'abbonamento all'account premium, a questo punto, partirà automaticamente con un costo mensile di 15 euro. Ogni mese il pagamento verrà fatto in maniera automatica mediante il metodo di pagamento inserito \ref{uc:ExceptionPagamentoNonValido}, che può essere modificato in “Impostazioni Account”. L'account premium può essere disabilitato, in ogni momento, da “Impostazioni Account” premendo sul tasto “Disattiva”, che appare al posto del tasto “Abbonarsi” solo nel caso in cui si ha l'abbonamento all'account premium.
-    \end{enumerate}
-
-    \todo{Forse dovremmo fare un requisito funzionale per disabilitare account premium?!}
-
-    \textbf{Exceptions:}
-    \begin{enumerate}[label=\textbf{[exception \arabic{enumii}]}, ref= \textbf{[exception \arabic{enumii}]}]
-        \elemento{uc:ExceptionCredenzialiSistemaDiPagamento} L'inserimento delle credenziali andrà avanti finché l'utente non inserirà delle credenziali corrette del sistema esterno del metodo di pagamento scelto. Infatti l'utente autenticato standard va avanti con la procedura della sottoscrizione solo una volta che ha inserito delle credenziali corrette.
-        \elemento{uc:ExceptionPagamentoNonValido} In caso il saldo dell'utente presso la piattaforma di pagamento selezionata non sia sufficiente per coprire il costo dell'abbonamento, l'abbonamento stesso si interromperà e tutte le funzioni premium a esso collegate non verranno più rese disponibili fino al prossimo pagamento.
-    \end{enumerate}
-    \todo{Qua c'è un problema non possiamo mettere la sottoscrizione dalle impostazioni Account sennò dopo dobbiamo andare a modificare in realtà impostazioni account e il suo state diagram}
-
-
-
-
-
-
     \newpage
     \elemento[Use case “Gestione di calendari” (\prettyref{D1-rf:CondivisioneCalendario})]{uc:GestioneCalendari}
 
@@ -127,10 +86,8 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
     \textbf{Extension:}
     \begin{enumerate}[label=\textbf{[extension \arabic{enumii}]}, ref= \textbf{[extension \arabic{enumii}]}]
-        \elemento{uc:ExtensionVisualizzazioneCalendariCondivisi} L'utente autenticato standard può visualizzare quali siano i calendari condivisi anche osservando una piccola immagine stilizzata di persone alla destra del nome dei calendari condivisi.
+        \elemento{uc:ExtensionVisualizzazioneCalendariCondivisi} L'utente autenticato standard può visualizzare quali siano i calendari condivisi anche osservando una piccola immagine stilizzata di persone alla destra del nome dei calendari condivisi (\prettyref{D1-fe:SchermataPrincipaleCalendario})
     \end{enumerate}
-    \todo{Non ho capito l'extension}
-
 
 
 
@@ -169,7 +126,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     \textbf{Descrizioni:}
     \begin{enumerate}
         \item Dopo la compilazione dell'evento da aggiungere, l'utente non autenticato visualizza tale evento in un blocco nella schermata Calendario.
-        \item Nel caso in cui l'utente non autenticato, in fase di compilazione dell'evento da aggiungere, non avesse definito data, ora e durata di tale attività, il sistema inserisce autonomamente e automaticamente l'impegno nel calendario secondo i seguenti criteri, i quali l'utente non autenticato può aver definito nella compilazione dell'evento: \todo{[exception 1] Non esiste, a cosa si fa riferimento?}
+        \item Nel caso in cui l'utente non autenticato, in fase di compilazione dell'evento da aggiungere, non avesse definito data, ora e durata di tale attività, il sistema inserisce autonomamente e automaticamente l'impegno nel calendario secondo i seguenti criteri, i quali l'utente non autenticato può aver definito nella compilazione dell'evento:
               \begin{itemize}
                   \item difficoltà dell' evento, ovvero quanto è complesso l'evento per completarlo;
                   \item priorità;
@@ -179,14 +136,14 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
               \begin{itemize}
                   \item titolo;
                   \item colore dell'evento: da questa informazione l'utente non autenticato può comprendere a quale calendario o raggruppamento appartiene l'evento; infatti il colore dell'evento corrisponde al colore del calendario a cui l''evento appartiene (ricordiamo che nel caso di utente non autenticato l'unico colore presente sarà quello del calendario “principale”, in quanto non avrà possibilità di creare altri calendari”).
-                  \item se appartiene l'evento appartiene a un raggruppamento, visualizza una denominazione sopra il titolo dell'evento che indica il raggruppamento, che è un insieme di attività del calendario principale. \todo{Ci sono ancora i raggruppamenti?}
               \end{itemize}
         \item L'utente non autenticato premendo sull'evento fa apparire un pop-up dove può visualizzare tutte le informazioni di tale evento, ovvero tutte quelle sopra descritte e:
               \begin{itemize}
                   \item descrizione dell'evento;
                   \item se l'evento è un'abitudine;
-                  \item difficoltà dell'evento;
-                        \todo{difficolta, calendario di apaprtenenza se hai piu calendari con lo stesso colore}
+                  \item difficoltà dell'evento;ù
+                  \item nome del calendario di appartenenza
+                        \todo{difficolta, calendario di apprtenenza se hai piu calendari con lo stesso colore, AGGIUNTO}
               \end{itemize}
         \item Nel caso di un utente autenticato standard, nel pop-up di visualizzazione di informazioni aggiuntive riguardo un evento saranno presenti altri campi, ovvero:
               \begin{itemize}
@@ -284,36 +241,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
 
-    \newpage
-    \elemento[Use case “interazione con Google Calendar” (\prettyref{D1-rf:GoogleCalendar})]{uc:GoogleCalendar}
-
-
-    \begin{center}
-        \includegraphics[width=0.8\textwidth]{img/Diagrammi/UseCases/GoogleCalendar.png}
-    \end{center}
-
-    \textbf{Descrizione:}
-
-    \textbf{Titolo:} interazione con Google Calendar.
-
-    \textbf{Riassunto:} \\
-    Questo use case descrive come il sistema permetta all'utente autenticato standard l'utilizzo di Google Calendar tramite la piattaforma. Infatti, in quanto Google Calendar è un'applicazione molto diffusa, il sistema permette l'integrazione con questa applicazione.
-
-    \textbf{Descrizione:}
-    \begin{enumerate}
-        \item L'utente autenticato standard potrà decidere se connettere il proprio account Google Calendar al proprio account. Ciò avverrà tramite un'apposita finestra di dialogo dove l'utente autenticato standard farà l'accesso al proprio account Google e concederà alla piattaforma i permessi per interagire con il calendario \ref{uc:ExceptionInterruzioneSincronizzazione}. Una volta concessa l'autorizzazione si potrà scegliere quale calendario sincronizzare, se sincronizzare gli eventi da e/o verso Google Calendar.
-        \item In alternativa nella sezione “importa/esporta” della piattaforma si potrà trovare un modo per esportare \ref{uc:ExceptionErroreDownload} su file il proprio calendario e un modo per poter caricare un file \ref{uc:ExceptionErroreUpload} per importare un calendario preesistente sulla piattaforma \ref{uc:ExceptionFileNonValidoOCorrotto}.
-    \end{enumerate}
-
-    \textbf{Exceptions:}
-    \begin{enumerate}[label=\textbf{[exception \arabic{enumii}]}, ref= \textbf{[exception \arabic{enumii}]}]
-        \elemento{uc:ExceptionInterruzioneSincronizzazione} Nel caso in cui l'utente autenticato standard decidesse d'interrompere la procedura di autenticazione/gestione consensi l'attività d'importazione/esportazione non andrà a termine.
-        \elemento{uc:ExceptionErroreUpload} Nel caso l'utente autenticato standard non finisse di caricare il file, il calendario da file caricato non potrà essere caricato sulla piattaforma in quanto mancherebbero informazioni.
-        \elemento{uc:ExceptionErroreDownload} Se dopo aver richiesto alla piattaforma di esportare il proprio calendario su file si chiude la piattaforma prima d'iniziare il download del file, lo scaricamento del file non avverrà.
-        \elemento{uc:ExceptionFileNonValidoOCorrotto} Nel caso il file caricato non sia valido oppure corrotto, verrà mostrato un messaggio di errore chiedendo di caricare un file diverso.
-    \end{enumerate}
-
-    \todo{Forse bisogna cambiare l'importazione esportazione automatica in sincronizzazione nel Diagramma}
+    
 
 
 
@@ -395,7 +323,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
     \newpage
-    \todo{Creazione? Eliminazione?}
+    \todo{Creazione? Eliminazione? L'eliminazione dovremmo sistemarla ovunque}
     \elemento[Use case “Creazione e modifica di un calendario” (\prettyref{D1-rf:ImpostazioniPredefiniteCalendario})]{ud:CreazioneModificaCalendario}
 
 
@@ -429,7 +357,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
                   \item creazione e modifica di più calendari personali;
                   \item impostazioni aggiuntive per i calendari;
                   \item campi precompilati aggiuntivi nella compilazione dell'evento.
-                        \todo{Quindi un Utente demo non ha i campi precompilati?}
+                        \todo{Quindi un Utente demo non ha i campi precompilati? Sì li ha ben, sopra li ho definiti, questi sono "aggiuntivi"}
               \end{itemize}
         \item Nella sezione “Eventi”, selezionando “Crea Calendario” l'utente autenticato standard apre la schermata di creazione di un calendario.
         \item In questa schermata, l'utente può andare a definire delle impostazioni riguardanti al calendario che sta creando, ovvero:
@@ -437,7 +365,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
                   \item tutti i campi già presenti per la modifica del calendario principale per un utente non autenticato;
                   \item persone a cui sarà condiviso il calendario;
               \end{itemize}
-        \item L'utente \todo{Utente?} può anche definire dei valori di default dei seguenti campi presenti nella compilazione dell'evento da aggiungere: \ref{ud:ExceptionCampiPrecompilatiCalendario}
+        \item L'utente autenticato standard può anche definire dei valori di default dei seguenti campi presenti nella compilazione dell'evento da aggiungere: \ref{ud:ExceptionCampiPrecompilatiCalendario}
               \begin{itemize}
                   \item tutti i campi già presenti per la definizione di valori di default nella compilazione di un evento da parte dell'utente non autenticato;
                   \item luogo dove si terrà;
@@ -445,9 +373,9 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
                   \item titolo della notifica dell'evento.
               \end{itemize}
         \item L'utente autenticato standard, così, può creare il calendario premendo il tasto “Salva” che si trova in fonda alla schermata. L'utente può annullare l'azione premendo il tasto “Annulla” che trova sempre in fondo alla schermata di “Crea Calendario”.
-        \item Tutti campi sopra citati, presenti nella schermata “Crea Calendario”, sono presenti anche nella sezione “Impostazioni predefinite di un calendario” per un utente autenticato standard, dove l'utente autenticato standard può sempre andare a modificare questi campi secondo le proprie preferenze. L'utente autenticato standard deve selezionare il calendario, di cui vuole modificare le impostazioni, dalla lista dei propri calendari, presente nella parte sinistra di questa schermata.
+        \item Tutti campi sopra citati, presenti nella schermata “Crea Calendario”, sono presenti anche nella sezione “Impostazioni predefinite di un calendario” per un utente autenticato standard, dove l'utente autenticato standard può sempre andare a modificare questi campi secondo le proprie preferenze. 
     \end{enumerate}
-    \todo{Non e' troppo dettagliato?}
+    \todo{(L'utente autenticato standard deve selezionare il calendario, di cui vuole modificare le impostazioni, dalla lista dei propri calendari, presente nella parte sinistra di questa schermata.)Non e' troppo dettagliato? Si credo che si possa togliere, l'unica cosa è che forse questa cosa della selezione di un calendario andrebbe nella componente}
 
     \textbf{Exceptions:}
     \begin{enumerate}[label=\textbf{[exception \arabic{enumii}]}, ref= \textbf{[exception \arabic{enumii}]}]
@@ -471,6 +399,39 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
         \includegraphics[width=1\textwidth]{img/Diagrammi/DS/DS_ImpostazioneAccount.png}
     \end{center}
 
+    \newpage
+    \elemento[Use case “Sottoscrizione all'account premium” (\prettyref{D1-rf:PagamentoUtentePremium})]{uc:SottoscrizioneAccountPremium}
+
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{img/Diagrammi/UseCases/UtentePremium.png}
+    \end{center}
+
+    \textbf{Descrizione:}
+
+    \textbf{Titolo:} sottoscrizione all'account premium.
+
+    \textbf{Riassunto:} \\
+    Questo use case descrive come avviene la sottoscrizione all'account premium mediante un abbonamento a pagamento.
+    Questo use case è una specifica dell'use case "Impostazioni Account" in quanto la procedura di sottoscrizione all'account premium richiede una maggiore dettagliatezza e, per questo motivo, si è deciso di fare un use case a parte.
+
+    \textbf{Descrizione:}
+    \begin{enumerate}
+        \item L'utente autenticato standard, nella sezione “impostazioni account”, preme il tasto il campo: “Abbonarsi”.
+        \item Una volta selezionato questo campo, l'utente autenticato standard dovrà scegliere tra due possibili metodi di pagamento predefiniti: Stripe o PayPal.
+        \item Dopo aver scelto uno dei metodi di pagamento, l'utente autenticato standard verrà indirizzato nella pagina del metodo di pagamento selezionato, dove dovrà inserire le proprie credenziali riguardanti il suo account del sistema esterno di pagamento. \ref{uc:ExceptionCredenzialiSistemaDiPagamento}
+        \item Una volta che l'utente autenticato standard avrà inserito queste credenziali, l'utente autenticato standard avrà aggiunto correttamente al suo account il metodo di pagamento dell'abbonamento.
+        \item L'abbonamento all'account premium, a questo punto, partirà automaticamente con un costo mensile di 15 euro. Ogni mese il pagamento verrà fatto in maniera automatica mediante il metodo di pagamento inserito \ref{uc:ExceptionPagamentoNonValido}, che può essere modificato in “Impostazioni Account”. L'account premium può essere disabilitato, in ogni momento, da “Impostazioni Account” premendo sul tasto “Disattiva”, che appare al posto del tasto “Abbonarsi” solo nel caso in cui si ha l'abbonamento all'account premium.
+    \end{enumerate}
+
+    \todo{Forse dovremmo fare un requisito funzionale per disabilitare account premium?! Si dovremmo metterlo, ma a quel punto dovremmo fare anche un use case + descrizione}
+
+    \textbf{Exceptions:}
+    \begin{enumerate}[label=\textbf{[exception \arabic{enumii}]}, ref= \textbf{[exception \arabic{enumii}]}]
+        \elemento{uc:ExceptionCredenzialiSistemaDiPagamento} L'inserimento delle credenziali andrà avanti finché l'utente non inserirà delle credenziali corrette del sistema esterno del metodo di pagamento scelto. Infatti l'utente autenticato standard va avanti con la procedura della sottoscrizione solo una volta che ha inserito delle credenziali corrette.
+        \elemento{uc:ExceptionPagamentoNonValido} In caso il saldo dell'utente presso la piattaforma di pagamento selezionata non sia sufficiente per coprire il costo dell'abbonamento, l'abbonamento stesso si interromperà e tutte le funzioni premium a esso collegate non verranno più rese disponibili fino al prossimo pagamento.
+    \end{enumerate}
+    \todo{Qua c'è un problema non possiamo mettere la sottoscrizione dalle impostazioni Account sennò dopo dobbiamo andare a modificare in realtà impostazioni account e il suo state diagram. Qua in realtà ne avevamo anche parlato con il prof che ha detto che va bene, andiamo a specificare che questo use case è una specifica di impostazioni account.}
+
 
 
 
@@ -486,5 +447,38 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     \begin{center}
         \includegraphics[width=0.7\textwidth]{img/Diagrammi/DS/DS_RecuperoPassword.png}
     \end{center}
+
+    \newpage
+    \elemento[Use case “interazione con Google Calendar” (\prettyref{D1-rf:GoogleCalendar})]{uc:GoogleCalendar}
+
+
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{img/Diagrammi/UseCases/GoogleCalendar.png}
+    \end{center}
+
+    \textbf{Descrizione:}
+
+    \textbf{Titolo:} interazione con Google Calendar.
+
+    \textbf{Riassunto:} \\
+    Questo use case descrive come il sistema permetta all'utente autenticato standard l'utilizzo di Google Calendar tramite la piattaforma. Infatti, in quanto Google Calendar è un'applicazione molto diffusa, il sistema permette l'integrazione con questa applicazione. \\ 
+    Questo use case è una specifica dell'use case "Impostazioni Account" in quanto la procedura di interazione con Google Calendar richiede una maggiore dettagliatezza e, per questo motivo, si è deciso di fare un use case a parte.
+    
+
+    \textbf{Descrizione:}
+    \begin{enumerate}
+        \item L'utente autenticato standard potrà decidere se connettere il proprio account Google Calendar al proprio account. Ciò avverrà tramite un'apposita finestra di dialogo dove l'utente autenticato standard farà l'accesso al proprio account Google e concederà alla piattaforma i permessi per interagire con il calendario \ref{uc:ExceptionInterruzioneSincronizzazione}. Una volta concessa l'autorizzazione si potrà scegliere quale calendario sincronizzare, se sincronizzare gli eventi da e/o verso Google Calendar.
+        \item In alternativa nella sezione “importa/esporta” della piattaforma si potrà trovare un modo per esportare \ref{uc:ExceptionErroreDownload} su file il proprio calendario e un modo per poter caricare un file \ref{uc:ExceptionErroreUpload} per importare un calendario preesistente sulla piattaforma \ref{uc:ExceptionFileNonValidoOCorrotto}.
+    \end{enumerate}
+
+    \textbf{Exceptions:}
+    \begin{enumerate}[label=\textbf{[exception \arabic{enumii}]}, ref= \textbf{[exception \arabic{enumii}]}]
+        \elemento{uc:ExceptionInterruzioneSincronizzazione} Nel caso in cui l'utente autenticato standard decidesse d'interrompere la procedura di autenticazione/gestione consensi l'attività d'importazione/esportazione non andrà a termine.
+        \elemento{uc:ExceptionErroreUpload} Nel caso l'utente autenticato standard non finisse di caricare il file, il calendario da file caricato non potrà essere caricato sulla piattaforma in quanto mancherebbero informazioni.
+        \elemento{uc:ExceptionErroreDownload} Se dopo aver richiesto alla piattaforma di esportare il proprio calendario su file si chiude la piattaforma prima d'iniziare il download del file, lo scaricamento del file non avverrà.
+        \elemento{uc:ExceptionFileNonValidoOCorrotto} Nel caso il file caricato non sia valido oppure corrotto, verrà mostrato un messaggio di errore chiedendo di caricare un file diverso.
+    \end{enumerate}
+
+    \todo{Forse bisogna cambiare l'importazione esportazione automatica in sincronizzazione nel Diagramma, mi sembra tutto a posto.}
 
 \end{listaPersonale}
