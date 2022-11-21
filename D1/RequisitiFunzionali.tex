@@ -115,24 +115,26 @@ Da questo punto del documento in poi ogni riferimento a un "cliente" si riferir�
 	\end{listaPersonale2}
 	Inoltre l'utente autenticato standard avrà la possibilità di filtrare gli eventi in base alle persone incluse nell'evento.
 
-	\elemento[IMPOSTAZIONI PREDEFINITE DI UN CALENDARIO]{rf:ImpostazioniPredefiniteCalendario} Ogni calendario avrà una sezione dedicata dove l'utente non autenticato potrà modificare le impostazioni predefinite del calendario (\ref{ob:CalendariMultipli}). Queste impostazioni saranno usate per precompilare i campi dell'evento, che si sta aggiungendo. L'utente non autenticato, durante la fase di aggiunta dell'evento, potrà modificare i campi precompilati (\ref{ob:AggiuntaModificaEvento}). La sezione delle impostazioni di un calendario conterrà la possibilità di definire i valori di default per i seguenti requisiti funzionali (rispettando \ref{rf:FunzionalitaDemoUtenteNonAutenticato}):
+	\elemento[IMPOSTAZIONI PREDEFINITE DI UN CALENDARIO]{rf:ImpostazioniPredefiniteCalendario} Ogni calendario avrà una sezione dedicata dove l'utente standard potrà modificare le impostazioni predefinite del calendario (\ref{ob:CalendariMultipli}). Queste impostazioni saranno usate per precompilare i campi dell'evento, che si sta aggiungendo. L'utente standard, durante la fase di aggiunta dell'evento, potrà modificare i campi precompilati (\ref{ob:AggiuntaModificaEvento}). Anche l'utente non autenticato ha questa sezione, ma solo per il calendario principale, in quando non ha la possibilità di creare più calendari personali. Ovviamente, le "impostazioni predefinite di un calendario" ha delle limitazioni per l'utente non autenticato rispettando \ref{rf:FunzionalitaDemoUtenteNonAutenticato}.  La sezione delle impostazioni di un calendario conterrà la possibilità di definire i valori di default per i seguenti requisiti funzionali:
 	\begin{itemize}
 		\item \ref{rf:PrioritaEvento}: Priorità impegno;
-		\item \ref{rf:DescrizioneTitoloEvento}: Descrizione e titolo(come prefisso o suffisso);
-		\item \ref{rf:LuogoEvento}: Luogo evento;
+		\item \ref{rf:DescrizioneTitoloEvento}: Descrizione e titolo%(come prefisso o suffisso);
+		\item \ref{rf:LuogoEvento}: Luogo evento (presente solo per l'utente standard);
 		\item \ref{rf:DifficoltaEvento}: Difficoltà evento;
-		\item \ref{rf:ImpostazioneTimerNotifiche}: Impostazione timer ricezione notifica;
-		\item \ref{rf:TitoloNotifiche}: Titolo notifica;
+		\item \ref{rf:ImpostazioneTimerNotifiche}: Impostazione timer ricezione notifica (presente solo per l'utente standard);
+		\item \ref{rf:TitoloNotifiche}: Titolo notifica (presente solo per l'utente standard);
 	\end{itemize}
 	e inoltre questa sezione conterrà le impostazioni per:
 	\begin{listaPersonale2}[RF]{}
 		\elemento{rf:NomePredefinitoCalendario} modificare il nome del calendario;
 
-		\elemento{rf:UtentiCondivisoCalendario} modificare la lista degli utenti a cui è condiviso il calendario;
+		\elemento{rf:UtentiCondivisoCalendario} modificare la lista degli utenti a cui è condiviso il calendario (presente solo per l'utente standard);
 
 		\elemento{rf:ColoreCalendario} modificare il colore del calendario;
 
 		\elemento{rf:FusoOrarioCalendario} modificare il fuso orario utilizzato all'interno del calendario;
+
+		\elemento {rf:EliminazioneCalendario} eliminare il calendario (presente solo per l'utente standard);
 	\end{listaPersonale2}
 
 	\elemento[IMPOSTAZIONI ACCOUNT]{rf:ImpostazioniAccount} Il sito permetterà all'utente standard di modificare delle impostazioni riguardo al proprio account (\ref{ob:Registrazione}); i campi che si potranno modificare saranno:

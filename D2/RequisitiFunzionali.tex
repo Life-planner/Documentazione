@@ -4,63 +4,68 @@
 Nel presente capitolo vengono riportati i requisiti funzionali del sistema utilizzando il linguaggio naturale e Use Case Diagram (UC) scritti in UML.
 
 \begin{listaPersonale}[UC]{}
-
     \elemento[Use case “Accesso e registrazione” (\prettyref{D1-rf:AccessoRegistrazione})]{uc:AccessoRegistrazioneAccount}
 
     \begin{center}
         \includegraphics[width=0.7\textwidth]{img/Diagrammi/UseCases/AccessoRegistrazione.png}
     \end{center}
+    In quanto le azioni di "Login" e "Registrazione" presentano molte procedure in comune, dato dal fatto, soprattutto, dalla partecipazione comune di Auth0, che gestisce sia il login che la registrazione, abbiamo deciso di fare un State Machine Diagram con swimlanes che inglobi entrambi gli use case di "Login" e "Registrazione", anziché andare a fare due State Machine Diagram distinti, i quali avrebbero avuto molte ridondanze. \\ Lo State Machine Diagram prende in considerazione tutte le possibili procedure che l'utente non autenticato  possa intraprendere a seconda delle sue scelte. Proprio queste scelte sono stato il motivo per cui abbiamo deciso di usare uno State Machine Diagram a discapito di una descrizione in italiano, nella quale non sarebbe potuto essere possibile andare a specificare la possibilità di scelta.
 
     \textbf{Diagramma:}
     \begin{center}
-        \includegraphics[width=0.7\textwidth]{img/Diagrammi/DS/DS_AccessoRegistrazione.png}
+        \includegraphics[width=1\textwidth, height = 0.4\textheight]{img/Diagrammi/DS/DS_AccessoRegistrazione.png}
     \end{center}
 
 
     \newpage
-    \elemento[Use case “Funzionalità di ciascuna tipologia di account” (\prettyref{D1-rf:UtenteNonAutenticato}, \prettyref{D1-rf:UtenteStandard}, \prettyref{D1-rf:UtentePremium})]{uc:TipiAccount}
+    \elemento[“Funzionalità di ciascuna tipologia di account” (\prettyref{D1-rf:UtenteNonAutenticato}, \prettyref{D1-rf:UtenteStandard}, \prettyref{D1-rf:UtentePremium})]{uc:TipiAccount}
 
 
     \begin{center}
-        \includegraphics[width=0.4\textwidth]{img/Diagrammi/UseCases/FunzionalitaUtenti.png}
+        \includegraphics[width=0.6\textwidth, height = 0.5\textheight]{img/Diagrammi/UseCases/FunzionalitaUtenti.png}
     \end{center}
+    \begin{listaPersonale2} [UC] {}
+        \elemento [Titolo: Use case funzionalità utente non autenticato(\prettyref{D1-rf:UtenteNonAutenticato})] {uc:UtenteNonAutenticato}
+        \textbf{Riassunto:} \\
+        Questo use case presenta a livello generale quali sono le funzionalità presenti per l'utente non autenticato. Tutte le funzionalità presentate nella descrizione sono descritte in maggiore dettaglio nei prossimi use case, che entreranno più nello specifico per ciascuna funzionalità.
 
-    \textbf{Descrizione:}
+        \textbf{Descrizione:}
+        L'utente non autenticato, grazie alla modalità demo del sito potrà accedere seguenti funzionalità:
+        \begin{itemize}
+            \item aggiunta e modifica di un evento;
+            \item organizzare attività;
+            \item modificare impostazioni del calendario principale;
+            \item ottenere informazioni sull'uso del tempo;
+            \item filtrare gli impegni.
+        \end{itemize}
 
-    \textbf{Titolo:} Funzionalità di ciascuna tipologia di account
-
-    \textbf{Riassunto:} \\
-    Questo use case presenta a livello generale quali sono le funzionalità presenti per ciascuna tipologia di account. Tutte le funzionalità presentate nella descrizione sono descritte in maggiore dettaglio nei prossimi use case, che entreranno più nello specifico per ciascuna funzionalità.
-
-    \textbf{Descrizione:}
-    \begin{enumerate}
-        \item L'utente non autenticato, grazie alla modalità demo del sito potrà accedere seguenti funzionalità:
-              \begin{itemize}
-                  \item aggiunta e modifica di un evento;
-                  \item organizzare attività;
-                  \item modificare impostazioni del calendario principale;
-                  \item ottenere informazioni sull'uso del tempo;
-                  \item filtrare gli impegni.
-              \end{itemize}
-        \item L'utente autenticato standard oltre alle funzionalità di un utente demo potrà accedere alle seguenti funzionalità:
-              \begin{itemize}
-                  \item creare calendari;
-                  \item interazione con sistemi di terze parti;
-                  \item impostare notifiche;
-                  \item modificare impostazioni predefinite di un calendario oltre a quello personale;
-                  \item recuperare password;
-                  \item ottenere resoconto giornata;
-                  \item modificare le impostazioni dell'account.
-              \end{itemize}
-        \item L'utente autenticato premium oltre alle funzionalità di un utente autenticato standard potrà accedere alle seguenti funzionalità:
-              \begin{itemize}
-                  \item sottoscrizione all'account premium, mediante un pagamento mensile.
-              \end{itemize}
-        \item Specifichiamo che tutti gli use case validi per l'utente non autenticato, lo sono anche per quello autenticato standard e premium. Allo stesso modo gli use case per l'utente autenticato standard sono validi anche per l'utente autenticato premium.
-    \end{enumerate}
-
-
+        \elemento [Titolo: Use case funzionalità utente autenticato standard (\prettyref{D1-rf:UtenteStandard})] {uc:UtenteAutenticatoStandard}
+        \textbf{Riassunto:} \\
+        Questo use case presenta a livello generale quali sono le funzionalità presenti per l'utente autenticato standard. Tutte le funzionalità presentate nella descrizione sono descritte in maggiore dettaglio nei prossimi use case, che entreranno più nello specifico per ciascuna funzionalità. \\
+        \textbf{Descrizione:}
+        L'utente autenticato standard oltre alle funzionalità di un utente demo potrà accedere alle seguenti funzionalità:
+        \begin{itemize}
+            \item creare calendari;
+            \item interazione con sistemi di terze parti;
+            \item impostare notifiche;
+            \item modificare impostazioni predefinite di un calendario oltre a quello personale;
+            \item recuperare password;
+            \item ottenere resoconto giornata;
+            \item modificare le impostazioni dell'account.
+        \end{itemize}
+        \elemento[Titolo: Use case funzionalità utente autenticato premium (\prettyref{D1-rf:UtentePremium})] {uc:UtenteAutenticatoPremium} 
+        \textbf{Riassunto:} \\
+        Questo use case presenta a livello generale quali sono le funzionalità presenti per l'utente autenticato premium. Tutte le funzionalità presentate nella descrizione sono descritte in maggiore dettaglio nei prossimi use case, che entreranno più nello specifico per ciascuna funzionalità. \\
+        \textbf{Descrizione:} \\
+        L'utente autenticato premium oltre alle funzionalità di un utente autenticato standard potrà accedere alla seguente funzionalità:
+        \begin{itemize}
+            \item sottoscrizione all'account premium, mediante un pagamento mensile.
+        \end{itemize}
+        \todo{Non capisco perché il riferimento all'utente premium è sbagliato e non è RF4}
+    \end{listaPersonale2}
+    Specifichiamo che tutti gli use case validi per l'utente non autenticato, lo sono anche per quello autenticato standard e premium. Allo stesso modo gli use case per l'utente autenticato standard sono validi anche per l'utente autenticato premium.
     \newpage
+
     \elemento[Use case “Gestione di calendari” (\prettyref{D1-rf:CondivisioneCalendario})]{uc:GestioneCalendari}
 
 
@@ -96,13 +101,14 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     \elemento[Use case “Creazione/modifica evento” (\prettyref{D1-rf:CreazioneModificaEvento})]{uc:CreazioneModificaEvento}
 
     \begin{center}
-        \includegraphics[width=0.7\textwidth]{img/Diagrammi/UseCases/CreazioneModificaEvento.png}
+        \includegraphics[width=0.85\textwidth, height = 0.5\textheight]{img/Diagrammi/UseCases/CreazioneModificaEvento.png}
     \end{center}
-
+    Per andare a descrivere questo use case si è deciso di utilizzare un Activity Diagram con swimlanes, in quanto in questo use case sono presenti delle fork, join e anche delle scelte che possono essere effettuate dall'utente non autenticato o autenticato standard. Inoltre, non si è diviso l'Activate Diagram in due parti, a seconda della tipologia di account, in quanto se ci fossero due diagrammi, questi avrebbero molto ridondanze. Infatti, come si può notare dall'Use Case Diagram, l'utente autenticato standard presenta le stesse funzionalità di quello non autenticato, avendo anche delle funzionalità aggiuntive.
+    \newpage
 
     \textbf{Diagramma:}
     \begin{center}
-        \includegraphics[width=0.7\textwidth]{img/Diagrammi/DS/DS_CreazioneModificaEvento.png}
+        \includegraphics[width=1.1\textwidth, height = 0.4\textheight]{img/Diagrammi/DS/DS_CreazioneModificaEvento.png}
     \end{center}
 
 
@@ -324,6 +330,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
     \newpage
     \todo{Creazione? Eliminazione? L'eliminazione dovremmo sistemarla ovunque}
+    
     \elemento[Use case “Creazione e modifica di un calendario” (\prettyref{D1-rf:ImpostazioniPredefiniteCalendario})]{ud:CreazioneModificaCalendario}
 
 
@@ -390,50 +397,81 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     \elemento[Use case “Impostazioni account” (\prettyref{D1-rf:ImpostazioniAccount})]{uc:ImpostazioniAccount}
 
     \begin{center}
-        \includegraphics[width=0.7\textwidth]{img/Diagrammi/UseCases/ImpostazioniAccount.png}
+        \includegraphics[width=0.75\textwidth, height = 0.35\textheight]{img/Diagrammi/UseCases/ImpostazioniAccount.png}
     \end{center}
-
-
+    Per andare a descrivere questo use case si è deciso di utilizzare uno State Machine Diagram con swimlanes a discapito della descrizione in italiano, in quanto in questo use case sono presenti delle scelte che possono essere effettuate dall'utente autenticato standard o autenticato autenticato premium. Inoltre, non si è diviso l'Activate Diagram in due parti, a seconda della tipologia di account, in quanto se ci fossero due diagrammi, questi avrebbero molto ridondanze. Infatti, come si può notare dall'Use Case Diagram, l'utente autenticato premium presenta le stesse funzionalità di quello autenticato premium, avendo anche delle funzionalità aggiuntive.
+    Infine, in quanto gli use case "interagire con Google Calendar" e "sottoscrivere abbonamento" presentano delle procedure da analizzare più dettagliatamente, si è deciso di fare dei sotto use case a parte, che entrano molto di più nel merito della funzionalità.
+    \newpage
     \textbf{Diagramma:}
     \begin{center}
-        \includegraphics[width=1\textwidth]{img/Diagrammi/DS/DS_ImpostazioneAccount.png}
+        \includegraphics[width=1.1\textwidth]{img/Diagrammi/DS/DS_ImpostazioneAccount.png}
     \end{center}
+    \begin{listaPersonale2}[UC] {}
+        \elemento[Use case “Sottoscrizione all'account premium” (\prettyref{D1-rf:PagamentoUtentePremium})]{uc:SottoscrizioneAccountPremium}
 
-    \newpage
-    \elemento[Use case “Sottoscrizione all'account premium” (\prettyref{D1-rf:PagamentoUtentePremium})]{uc:SottoscrizioneAccountPremium}
+        \begin{center}
+            \includegraphics[width=0.7\textwidth]{img/Diagrammi/UseCases/UtentePremium.png}
+        \end{center}
 
-    \begin{center}
-        \includegraphics[width=0.7\textwidth]{img/Diagrammi/UseCases/UtentePremium.png}
-    \end{center}
+        \textbf{Descrizione:}
 
-    \textbf{Descrizione:}
+        \textbf{Titolo:} sottoscrizione all'account premium.
 
-    \textbf{Titolo:} sottoscrizione all'account premium.
+        \textbf{Riassunto:} \\
+        Questo use case descrive come avviene la sottoscrizione all'account premium mediante un abbonamento a pagamento.
+        Questo use case è una specifica dell'use case "Impostazioni Account" in quanto la procedura di sottoscrizione all'account premium richiede una maggiore dettagliatezza e, per questo motivo, si è deciso di fare un use case a parte.
 
-    \textbf{Riassunto:} \\
-    Questo use case descrive come avviene la sottoscrizione all'account premium mediante un abbonamento a pagamento.
-    Questo use case è una specifica dell'use case "Impostazioni Account" in quanto la procedura di sottoscrizione all'account premium richiede una maggiore dettagliatezza e, per questo motivo, si è deciso di fare un use case a parte.
+        \textbf{Descrizione:}
+        \begin{enumerate}
+            \item L'utente autenticato standard, nella sezione “impostazioni account”, preme il tasto il campo: “Abbonarsi”.
+            \item Una volta selezionato questo campo, l'utente autenticato standard dovrà scegliere tra due possibili metodi di pagamento predefiniti: Stripe o PayPal.
+            \item Dopo aver scelto uno dei metodi di pagamento, l'utente autenticato standard verrà indirizzato nella pagina del metodo di pagamento selezionato, dove dovrà inserire le proprie credenziali riguardanti il suo account del sistema esterno di pagamento. \ref{uc:ExceptionCredenzialiSistemaDiPagamento}
+            \item Una volta che l'utente autenticato standard avrà inserito queste credenziali, l'utente autenticato standard avrà aggiunto correttamente al suo account il metodo di pagamento dell'abbonamento.
+            \item L'abbonamento all'account premium, a questo punto, partirà automaticamente con un costo mensile di 15 euro. Ogni mese il pagamento verrà fatto in maniera automatica mediante il metodo di pagamento inserito \ref{uc:ExceptionPagamentoNonValido}, che può essere modificato in “Impostazioni Account”. L'account premium può essere disabilitato, in ogni momento, da “Impostazioni Account” premendo sul tasto “Disattiva”, che appare al posto del tasto “Abbonarsi” solo nel caso in cui si ha l'abbonamento all'account premium.
+        \end{enumerate}
 
-    \textbf{Descrizione:}
-    \begin{enumerate}
-        \item L'utente autenticato standard, nella sezione “impostazioni account”, preme il tasto il campo: “Abbonarsi”.
-        \item Una volta selezionato questo campo, l'utente autenticato standard dovrà scegliere tra due possibili metodi di pagamento predefiniti: Stripe o PayPal.
-        \item Dopo aver scelto uno dei metodi di pagamento, l'utente autenticato standard verrà indirizzato nella pagina del metodo di pagamento selezionato, dove dovrà inserire le proprie credenziali riguardanti il suo account del sistema esterno di pagamento. \ref{uc:ExceptionCredenzialiSistemaDiPagamento}
-        \item Una volta che l'utente autenticato standard avrà inserito queste credenziali, l'utente autenticato standard avrà aggiunto correttamente al suo account il metodo di pagamento dell'abbonamento.
-        \item L'abbonamento all'account premium, a questo punto, partirà automaticamente con un costo mensile di 15 euro. Ogni mese il pagamento verrà fatto in maniera automatica mediante il metodo di pagamento inserito \ref{uc:ExceptionPagamentoNonValido}, che può essere modificato in “Impostazioni Account”. L'account premium può essere disabilitato, in ogni momento, da “Impostazioni Account” premendo sul tasto “Disattiva”, che appare al posto del tasto “Abbonarsi” solo nel caso in cui si ha l'abbonamento all'account premium.
-    \end{enumerate}
+        \todo{Forse dovremmo fare un requisito funzionale per disabilitare account premium?! Si dovremmo metterlo, ma a quel punto dovremmo fare anche un use case + descrizione}
 
-    \todo{Forse dovremmo fare un requisito funzionale per disabilitare account premium?! Si dovremmo metterlo, ma a quel punto dovremmo fare anche un use case + descrizione}
-
-    \textbf{Exceptions:}
-    \begin{enumerate}[label=\textbf{[exception \arabic{enumii}]}, ref= \textbf{[exception \arabic{enumii}]}]
-        \elemento{uc:ExceptionCredenzialiSistemaDiPagamento} L'inserimento delle credenziali andrà avanti finché l'utente non inserirà delle credenziali corrette del sistema esterno del metodo di pagamento scelto. Infatti l'utente autenticato standard va avanti con la procedura della sottoscrizione solo una volta che ha inserito delle credenziali corrette.
-        \elemento{uc:ExceptionPagamentoNonValido} In caso il saldo dell'utente presso la piattaforma di pagamento selezionata non sia sufficiente per coprire il costo dell'abbonamento, l'abbonamento stesso si interromperà e tutte le funzioni premium a esso collegate non verranno più rese disponibili fino al prossimo pagamento.
-    \end{enumerate}
-    \todo{Qua c'è un problema non possiamo mettere la sottoscrizione dalle impostazioni Account sennò dopo dobbiamo andare a modificare in realtà impostazioni account e il suo state diagram. Qua in realtà ne avevamo anche parlato con il prof che ha detto che va bene, andiamo a specificare che questo use case è una specifica di impostazioni account.}
-
+        \textbf{Exceptions:}
+        \begin{enumerate}[label=\textbf{[exception \arabic{enumiii}]}, ref= \textbf{[exception \arabic{enumiii}]}]
+            \elemento{uc:ExceptionCredenzialiSistemaDiPagamento} L'inserimento delle credenziali andrà avanti finché l'utente non inserirà delle credenziali corrette del sistema esterno del metodo di pagamento scelto. Infatti l'utente autenticato standard va avanti con la procedura della sottoscrizione solo una volta che ha inserito delle credenziali corrette.
+            \elemento{uc:ExceptionPagamentoNonValido} In caso il saldo dell'utente presso la piattaforma di pagamento selezionata non sia sufficiente per coprire il costo dell'abbonamento, l'abbonamento stesso si interromperà e tutte le funzioni premium a esso collegate non verranno più rese disponibili fino al prossimo pagamento.
+        \end{enumerate}
+        \todo{Qua c'è un problema non possiamo mettere la sottoscrizione dalle impostazioni Account sennò dopo dobbiamo andare a modificare in realtà impostazioni account e il suo state diagram. Qua in realtà ne avevamo anche parlato con il prof che ha detto che va bene, andiamo a specificare che questo use case è una specifica di impostazioni account.}
 
 
+        \elemento[Use case “interagire con Google Calendar” (\prettyref{D1-rf:GoogleCalendar})]{uc:GoogleCalendar}
+
+
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{img/Diagrammi/UseCases/GoogleCalendar.png}
+        \end{center}
+
+        \textbf{Descrizione:}
+
+        \textbf{Titolo:} interagire con Google Calendar.
+
+        \textbf{Riassunto:} \\
+        Questo use case descrive come il sistema permetta all'utente autenticato standard l'utilizzo di Google Calendar tramite la piattaforma. Infatti, in quanto Google Calendar è un'applicazione molto diffusa, il sistema permette l'integrazione con questa applicazione. \\ 
+        Questo use case è una specifica dell'use case "Impostazioni Account" in quanto la procedura di interazione con Google Calendar richiede una maggiore dettagliatezza e, per questo motivo, si è deciso di fare un use case a parte.
+        
+
+        \textbf{Descrizione:}
+        \begin{enumerate}
+            \item L'utente autenticato standard potrà decidere se connettere il proprio account Google Calendar al proprio account. Ciò avverrà tramite un'apposita finestra di dialogo dove l'utente autenticato standard farà l'accesso al proprio account Google e concederà alla piattaforma i permessi per interagire con il calendario \ref{uc:ExceptionInterruzioneSincronizzazione}. Una volta concessa l'autorizzazione si potrà scegliere quale calendario sincronizzare, se sincronizzare gli eventi da e/o verso Google Calendar.
+            \item In alternativa nella sezione “importa/esporta” della piattaforma si potrà trovare un modo per esportare \ref{uc:ExceptionErroreDownload} su file il proprio calendario e un modo per poter caricare un file \ref{uc:ExceptionErroreUpload} per importare un calendario preesistente sulla piattaforma \ref{uc:ExceptionFileNonValidoOCorrotto}.
+        \end{enumerate}
+
+        \textbf{Exceptions:}
+        \begin{enumerate}[label=\textbf{[exception \arabic{enumiii}]}, ref= \textbf{[exception \arabic{enumiii}]}]
+            \elemento{uc:ExceptionInterruzioneSincronizzazione} Nel caso in cui l'utente autenticato standard decidesse d'interrompere la procedura di autenticazione/gestione consensi l'attività d'importazione/esportazione non andrà a termine.
+            \elemento{uc:ExceptionErroreUpload} Nel caso l'utente autenticato standard non finisse di caricare il file, il calendario da file caricato non potrà essere caricato sulla piattaforma in quanto mancherebbero informazioni.
+            \elemento{uc:ExceptionErroreDownload} Se dopo aver richiesto alla piattaforma di esportare il proprio calendario su file si chiude la piattaforma prima d'iniziare il download del file, lo scaricamento del file non avverrà.
+            \elemento{uc:ExceptionFileNonValidoOCorrotto} Nel caso il file caricato non sia valido oppure corrotto, verrà mostrato un messaggio di errore chiedendo di caricare un file diverso.
+        \end{enumerate}
+
+        \todo{Forse bisogna cambiare l'importazione esportazione automatica in sincronizzazione nel Diagramma, mi sembra tutto a posto.}
+    \end{listaPersonale2}
 
     \newpage
     \elemento[Use case “Recupero password” (\prettyref{D1-rf:RecuperoPassword})]{uc:RecuperoPassword}
@@ -441,44 +479,11 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     \begin{center}
         \includegraphics[width=0.7\textwidth]{img/Diagrammi/UseCases/RecuperoPassword.png}
     \end{center}
-
+    Per descrivere questo use case, si è deciso di utilizzare un Sequence Diagram a discapito di una descrizione in italiano, per poter evidenziare meglio la procedura che deve essere effettuata per il recupero e reset della password.
 
     \textbf{Diagramma:}
     \begin{center}
         \includegraphics[width=0.7\textwidth]{img/Diagrammi/DS/DS_RecuperoPassword.png}
     \end{center}
-
-    \newpage
-    \elemento[Use case “interazione con Google Calendar” (\prettyref{D1-rf:GoogleCalendar})]{uc:GoogleCalendar}
-
-
-    \begin{center}
-        \includegraphics[width=0.8\textwidth]{img/Diagrammi/UseCases/GoogleCalendar.png}
-    \end{center}
-
-    \textbf{Descrizione:}
-
-    \textbf{Titolo:} interazione con Google Calendar.
-
-    \textbf{Riassunto:} \\
-    Questo use case descrive come il sistema permetta all'utente autenticato standard l'utilizzo di Google Calendar tramite la piattaforma. Infatti, in quanto Google Calendar è un'applicazione molto diffusa, il sistema permette l'integrazione con questa applicazione. \\ 
-    Questo use case è una specifica dell'use case "Impostazioni Account" in quanto la procedura di interazione con Google Calendar richiede una maggiore dettagliatezza e, per questo motivo, si è deciso di fare un use case a parte.
-    
-
-    \textbf{Descrizione:}
-    \begin{enumerate}
-        \item L'utente autenticato standard potrà decidere se connettere il proprio account Google Calendar al proprio account. Ciò avverrà tramite un'apposita finestra di dialogo dove l'utente autenticato standard farà l'accesso al proprio account Google e concederà alla piattaforma i permessi per interagire con il calendario \ref{uc:ExceptionInterruzioneSincronizzazione}. Una volta concessa l'autorizzazione si potrà scegliere quale calendario sincronizzare, se sincronizzare gli eventi da e/o verso Google Calendar.
-        \item In alternativa nella sezione “importa/esporta” della piattaforma si potrà trovare un modo per esportare \ref{uc:ExceptionErroreDownload} su file il proprio calendario e un modo per poter caricare un file \ref{uc:ExceptionErroreUpload} per importare un calendario preesistente sulla piattaforma \ref{uc:ExceptionFileNonValidoOCorrotto}.
-    \end{enumerate}
-
-    \textbf{Exceptions:}
-    \begin{enumerate}[label=\textbf{[exception \arabic{enumii}]}, ref= \textbf{[exception \arabic{enumii}]}]
-        \elemento{uc:ExceptionInterruzioneSincronizzazione} Nel caso in cui l'utente autenticato standard decidesse d'interrompere la procedura di autenticazione/gestione consensi l'attività d'importazione/esportazione non andrà a termine.
-        \elemento{uc:ExceptionErroreUpload} Nel caso l'utente autenticato standard non finisse di caricare il file, il calendario da file caricato non potrà essere caricato sulla piattaforma in quanto mancherebbero informazioni.
-        \elemento{uc:ExceptionErroreDownload} Se dopo aver richiesto alla piattaforma di esportare il proprio calendario su file si chiude la piattaforma prima d'iniziare il download del file, lo scaricamento del file non avverrà.
-        \elemento{uc:ExceptionFileNonValidoOCorrotto} Nel caso il file caricato non sia valido oppure corrotto, verrà mostrato un messaggio di errore chiedendo di caricare un file diverso.
-    \end{enumerate}
-
-    \todo{Forse bisogna cambiare l'importazione esportazione automatica in sincronizzazione nel Diagramma, mi sembra tutto a posto.}
 
 \end{listaPersonale}

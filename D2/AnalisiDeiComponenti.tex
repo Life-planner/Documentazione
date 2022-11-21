@@ -256,7 +256,7 @@ In questa sezione vengono definiti i componenti.
 
     \todo{Nel documenti originale manca il 4.1.30, errore?}
 
-    \elemento[Interfaccia Cloudflare]{aci:ClaudFlare}
+    \elemento[Interfaccia Cloudflare]{aci:CloudFlare}
     \textbf{Motivazione:}\\
     Il componente deve prevenire attacchi DDOS e filtrare il traffico delle richieste al sistema per rispettare \prettyref{D1-rnf:DDOSSicurezza}.
 
@@ -304,23 +304,29 @@ In questa sezione vengono definiti i componenti.
 \subsection{DIAGRAMMA DEI COMPONENTI}
 
 \begin{center}
+    
     \includegraphics[width=1\textwidth,height=0.4\textheight]{img/Diagrammi/Componenti/Diagramma_dei_componenti.png}
+    Questa figura mostra tutto il diagramma dei componenti del sito PlanIt.
 \end{center}
 \begin{center}
-    \includegraphics[width=1\textwidth,height=0.4\textheight]{img/Diagrammi/Componenti/P1_Diagramma_dei_componenti.png}
+    \includegraphics[width=1\textwidth,height=0.3\textheight]{img/Diagrammi/Componenti/P1_Diagramma_dei_componenti.png}
+    Questa figura mostra tutto il quarto in alto a sinistra del diagramma dei componenti del sito PlanIt.
 \end{center}
 \begin{center}
-    \includegraphics[width=1\textwidth,height=0.4\textheight]{img/Diagrammi/Componenti/P2_Diagramma_dei_componenti.png}
+    \includegraphics[width=1\textwidth,height=0.3\textheight]{img/Diagrammi/Componenti/P2_Diagramma_dei_componenti.png}
+    Questa figura mostra tutto il quarto in alto a destra del diagramma dei componenti del sito PlanIt.
 \end{center}
 \begin{center}
     \includegraphics[width=1\textwidth,height=0.4\textheight]{img/Diagrammi/Componenti/P3_Diagramma_dei_componenti.png}
+    Questa figura mostra tutto il quarto in basso a destra del diagramma dei componenti del sito PlanIt.
 \end{center}
 \begin{center}
     \includegraphics[width=1\textwidth,height=0.4\textheight]{img/Diagrammi/Componenti/P4_Diagramma_dei_componenti.png}
+    Questa figura mostra tutto il quarto in basso a sinistra del diagramma dei componenti del sito PlanIt.
 \end{center}
-
-\begin{listaPersonale}[]{}
-    \elemento[Gestione creazione o modifica evento]{}
+\newpage
+\begin{listaPersonale}[DCI]{}
+    \elemento[Gestione creazione o modifica evento]{dci:GestioneCreazioneModificaEvento}
 
     \textbf{Descrizione:} gestisce l'intera procedura che l'utente autenticato segue per creare o modificare un evento. Dopo che l'utente ha definito i campi, questo componente crea o modifica l'evento secondo i campi definiti.  Il componente fornisce una pagina dove l'utente autenticato può definire questi campi.
 
@@ -392,7 +398,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia richiesta - dati tipologia account:} Il componente “Gestione creazione o modifica evento” riceve i dati tipologia account, per poter presentare all'utente interessato i campi di creazione o modifica a lui disponibili.
 
 
-    \elemento[Gestione notifiche]{}
+    \elemento[Gestione notifiche]{dci:GestioneNotifiche}
 
     \textbf{Descrizione:} gestione notifiche gestisce la funzionalità di creazione o modifica della notifica di un evento, dopo che l'utente ha definito dei campi d'impostazione della notifica.
 
@@ -407,7 +413,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia fornita - impostazioni notifica:} Il componente, dopo la creazione della notifica, fornisce le impostazioni notifica al componente “Gestione creazione o modifica evento”, in modo tale che anche l'evento creato possa avere le impostazioni della notifica creata.
 
 
-    \elemento[Interfaccia sistema di mappe]{}
+    \elemento[Interfaccia sistema di mappe]{dci:InterfacciaMappe}
 
     \textbf{Descrizione:} il componente gestisce la funzionalità data all'utente standard di interagire con un sistema esterno di mappe per definire il luogo dove avviene l'evento, gestendo l'intera procedura, ovvero invio del luogo al sistema esterno di mappe e ricezione delle coordinate di questo.
 
@@ -420,7 +426,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia fornita - coordinate luogo:} Il componente “Interfaccia mappe”, ottenendo le coordinate luogo dal sistema mappe esterno, invia l'indirizzo del luogo a “Gestione creazione o modifica evento” o a “Gestione creazione e modifica calendario”, in modo tale che l'evento e calendario creato o modificato abbia anche le coordinate del luogo dove si terrà l'evento.
 
 
-    \elemento[Gestione condivisione]{}
+    \elemento[Gestione condivisione]{dci:GestioneCondivisione}
 
 
     \textbf{Descrizione:} il componente “Gestione condivisione” gestisce la condivisione di eventi e calendari, ovvero fa in modo di creare la condivisione di eventi e calendari tra utenti sovrintendono l'intera procedura di condivisione fino alla ricevuta dell'esito di condivisione.
@@ -434,7 +440,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia fornita - esito condivisione:} Il componente “Gestione condivisione” invia l'esito della condivisione a “Gestione creazione o modifica evento” o a “Gestione creazione e modifica calendario” in modo tale che l'evento o il calendario creato possa contenere l'informazione sulla buona riuscita o meno della condivisione.
 
 
-    \elemento[Gestione campi precompilati]{}
+    \elemento[Gestione campi precompilati]{dci:GestioneCampiPrecompilati}
 
     \textbf{Descrizione:}  “Gestione campi precompilati” è fornire i campi precompilati di creazione o modifica evento di un specifico calendario, i quali sono definiti nelle “Impostazioni predefinite di un calendario”.
 
@@ -454,7 +460,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia fornita - lista valori campi precompilati:} Dopo aver ottenuto i dati calendario, il componente “Gestione campi precompilati” invia a “Gestione creazione o modifica calendario” la lista con i valori dei campi precompilati usati nella creazione o modifica di un evento appartenente ad un calendario.
 
 
-    \elemento[Gestione creazione e modifica calendario]{}
+    \elemento[Gestione creazione e modifica calendario]{dci:GestioneCreazioneModificaCalendario}
 
     \textbf{Descrizione:} il componente gestisce la creazione e modifica di calendari da parte dell'utente autenticato standard. Nello specifico, questo componente gestisce l'intera procedura di questa funzionalità, creando o modificando un calendario secondo dei campi definiti dall'utente non autenticato.
 
@@ -493,7 +499,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia richiesta - esito condivisione:} Dopo che la condivisione è stata processata, “Gestione creazione o modifica calendario” riceve l'esito della condivisione, che può esser stata accettata o meno dall'utente a cui abbiamo inviato la condivisione.
 
 
-    \elemento[Gestione Dashboard]{}
+    \elemento[Gestione Dashboard]{dci:GestioneDashBoard}
 
     \textbf{Descrizione:} il componente “Dashboard” permette all'utente autenticato di ottenere delle informazioni sull'uso del tempo,  mostrando dati sulle attività dell'utente non autenticato in base ad alcuni periodi di tempo.
 
@@ -513,7 +519,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia fornita - dati eventi della settimana:} “Gestione Dashboard” fornisce  “Gestione eventi settimanali” i dati degli eventi settimanali, ovvero gli eventi settimanali con le loro rispettive informazioni. I dati eventi settimanali vengono filtrati dai dati eventi, presi, come descritto precedentemente, da “Gestione chiamate MongoDB”.
 
 
-    \elemento[Gestione eventi settimanali]{}
+    \elemento[Gestione eventi settimanali]{dci:GestioneEventiSettimanali}
 
     \textbf{Descrizione:} il componente “Gestione attività settimanali” fa in modo di fornire delle informazioni sulle attività settimanali all'utente non autenticato mostrando un grafico a barre.
 
@@ -528,7 +534,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia richiesta - deselezione attività:} Il componente, una volta che ha ricevuto la selezione di un'attività, può ricevere anche la deselezione di quest'ultimo, facendo tornare il grafico a barre al suo stato originale con nessuna attività evidenziata.
 
 
-    \elemento[Gestione eventi giornalieri]{}
+    \elemento[Gestione eventi giornalieri]{dci:GestioneEventiGiornalieri}
 
     \textbf{Descrizione:} il componente “Gestione attività giornaliere” mostra un grafico a torta e una lista delle attività giornaliere, gestisce la sincronizzazione tra i due grafici e l'interazione dell'utente non autenticato con la lista delle attività giornaliere.
 
@@ -545,7 +551,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia richiesta - dati eventi giornalieri:} “Gestione eventi giornalieri”, dopo aver fatto la richiesta degli eventi della settimana, ottiene da “Gestione Dashboard” i dati eventi della giornata.
 
 
-    \elemento[Gestione impostazioni account]{}
+    \elemento[Gestione impostazioni account]{dci:GestioneImpostazioniAccount}
 
     \textbf{Descrizione:} Il componente “Gestione impostazioni account” permette all'utente autenticato di modificare e salvare le modifiche fatte ad un account di un utente autenticato standard.
 
@@ -586,7 +592,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia richiesta - dati account:} Il componente, dopo aver richiesto i dati account, riceve, da “Gestione account” i dati account, ovvero tipologia di abbonamento, sistema di mappe predefinito, username, sistema di pagamento predefinito, informazioni riguardanti al pagamento tramite paypal, informazioni riguardanti al pagamento tramite stripe, numero di ore sonno e le impostazioni della integrazione con Google calendar. Tutti questi dati account servono al componente “Gestione impostazioni account” per mostrare all'utente autenticato standard le impostazioni del proprio account.
 
 
-    \elemento[Gestione modifica password]{}
+    \elemento[Gestione modifica password]{dci:GestioneModificaPassword}
 
     \textbf{Descrizione:} il componente “Gestione modifica password” implementa la funzionalità modifica della password per un utente autenticato standard.
 
@@ -599,7 +605,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia fornita - modifica la password:} Dopo aver ricevuto la nuova password, il componente “Gestione modifica password” invia la nuova password a “Interfaccia management API Auth0”.
 
 
-    \elemento[Interfaccia API Auth0]{}
+    \elemento[Interfaccia API Auth0]{dci:InterfacciaAPIAuth0}
 
     \textbf{Descrizione:} il componente, dopo aver valutato che la nuova password rispetti i criteri minimi di sicurezza, aggiorna la password nel database credenziali presente in Auth0 tramite le rest API di Auth0 management.
 
@@ -608,7 +614,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia fornita - invio password:} Il componente, dopo aver valutato la validità della nuova password, invierà ad Auth0 la nuova password tramite le rest API di Auth0 management.
 
 
-    \elemento[Gestione utilizzo Google Calendar]{}
+    \elemento[Gestione utilizzo Google Calendar]{dci:GestioneUtilizzoGoogleCalendar}
 
     \textbf{Descrizione:} il componente “Gestione utilizzo Google Calendar” implementa la funzionalità di interazione tra la piattaforma PlanIt e l'applicazione Google Calendar.
 
@@ -631,7 +637,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia fornita - richiesta import/export:}  Nel caso in cui l'utente autenticato standard avesse deciso di integrare Google Calendar mediante l'integrazione manuale, “Gestione utilizzo Google Calendar” invierà una richiesta di import/export di file calendari o eventi a “Gestione import/export attraverso file”.
 
 
-    \elemento[Gestione import/export attraverso file]{}
+    \elemento[Gestione import/export attraverso file]{dci:GestioneImport/ExportFile}
 
     \textbf{Descrizione:} il componente “Gestione import/export attraverso file” gestisce l'interazione manuale di Google Calendar. Ovvero, il componente fornisce il file di esportazione del proprio calendario o di un evento: i quali possono essere caricati direttamente su Google Calendar. Allo stesso modo, questo componente può gestire file calendari ed eventi ricevuti da Google Calendar.
 
@@ -646,7 +652,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia richiesta - richiesta import/export:} “Gestione import/export attraverso file” riceve una richiesta di import/export da parte di “Gestione impostazioni account” ogni volta che l'utente autenticato standard decidesse di interagire mediante file con Google Calendar. Quando il componente “Gestione import/export” riceve tale richiesta, comincia a gestire la procedura di integrazione mediante file.
 
 
-    \elemento[Gestione sincronizzazione]{}
+    \elemento[Gestione sincronizzazione]{dci:GestioneSincronizzazione}
 
     \textbf{Descrizione:}   Il componente “Gestione sincronizzazione” gestisce la sincronizzazione di Google Calendar con PlanIt.
 
@@ -657,7 +663,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia fornita - authorization token:} Una volta che l'autorizzazione dell'account Google avverrà con successo, “Gestione sincronizzazione” invierà un token di autorizzazione a “Gestione utilizzo Google Calendar” che, così, potrà inviare a “Gestione impostazioni account” l'informazione dell'integrazione con Google Calendar per mantenere attiva la sincronizzazione.
 
 
-    \elemento[Gestione visualizzazione calendari ed eventi]{}
+    \elemento[Gestione visualizzazione calendari ed eventi]{dci:GestioneVisualizzazioneEventiCalendari}
 
     \textbf{Descrizione:} questa componente gestisce la visualizzazione di calendari ed eventi nella pagina “Calendario”, secondo dei criteri definiti dall'utente non autenticato.
 
@@ -702,7 +708,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia richiesta - dati tipologia account:} Il componente “Gestione visualizzazione calendari ed eventi” riceve i dati tipologia account, per poter presentare all'utente l'interazione con le componenti a lui disponibili.
 
 
-    \elemento[Gestione filtri calendari]{}
+    \elemento[Gestione filtri calendari]{dci:GestioneFiltriCalendari}
 
     \textbf{Descrizione:} Il componente mostra la lista dei calendari e permette all'utente autenticato standard di filtrare questi calendari, in modo tale che nella pagina di “Calendario” siano presenti solo gli eventi dei calendari che si preferisce.
 
@@ -716,7 +722,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia richiesta - richiesta filtro calendari:} “Gestione filtri calendari” inizia la sua procedura di mostrare la lista di calendari dell'utente autenticato standard dandogli la possibilità di andare a filtrarli, solo una volta ricevuta la richiesta di filtro calendari da parte di “Gestione visualizzazione calendari ed eventi”.
 
 
-    \elemento[Gestione filtri impegni]{}
+    \elemento[Gestione filtri impegni]{dci:GestioneFiltriImpegni}
 
     \textbf{Descrizione:} Il componente “Gestione filtro impegni” permette all'utente non autenticato di visualizzare degli eventi secondo dei criteri da lui definiti.
 
@@ -746,7 +752,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia richiesta - dati tipologia account:} Il componente "Gestione filtro impegni” riceve i dati tipologia account, per poter presentare all'utente i filtri a lui disponibili.
 
 
-    \elemento[Gestione attività]{}
+    \elemento[Gestione attività]{dci:GestioneAttivita}
 
     \textbf{Descrizione:} permette all'utente autenticato standard di visualizzare un resoconto delle attività programmate per quella giornata avendo la possibilità di comunicare al sistema il completamento o meno delle attività, oppure anche l'eliminazione di tale evento.
 
@@ -765,7 +771,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia fornita - modifica evento:} In quanto “Gestione Attività” potrebbe ricevere una modifica di un evento, la modifica di tale evento deve essere inviata a “Gestione visualizzazione calendari ed eventi”, in modo tale che si possa salvare con successo tale modifica dell'evento. Infatti, “Gestione visualizzazione calendari ed eventi” provvederà all'invio di tale modifica a “Gestione chiamate MongoDB”.
 
 
-    \elemento[Gestione mostra informazioni evento]{}
+    \elemento[Gestione mostra informazioni evento]{dci:GestioneMostraInfoEvento}
 
     \textbf{Descrizione:} mostra le informazioni di un evento, presente in un calendario, definito dall'utente non autenticato.
 
@@ -789,7 +795,7 @@ In questa sezione vengono definiti i componenti.
     \end{itemize}
 
 
-    \elemento[Gestione Homepage]{}
+    \elemento[Gestione Homepage]{dci:GestioneHomepage}
 
     \textbf{Descrizione:} il componente gestisce la scelta tra entrare nel sito autenticandosi o utilizzando la modalità demo.
 
@@ -808,7 +814,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia richiesta - richiesta modalità demo:} Questo componente potrebbe ricevere dal cliente che sta entrando nel sito, la volontà di accedervi da non autenticato sfruttando la modalità demo del sito. Una volta che l'Homepage riceve tale richiesta, provvede all'accesso dell'utente non autenticato alla modalità demo del sito.
 
 
-    \elemento[Gestione metodo di pagamento]{}
+    \elemento[Gestione metodo di pagamento]{dci:GestioneMetodoDiPagamento}
 
     \textbf{Descrizione:} Il componente deve gestire la procedura con il quale l'utente può cambiare metodo di pagamento utilizzato per l'acconto mensile del costo del piano premium.
 
@@ -829,7 +835,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia fornita - Stripe payment:}  il componente gestione metodo di pagamento fornisce l'interfaccia Stripe la richiesta di effettuare un pagamento relativa al piano selezionato dall'utente.
 
 
-    \elemento[Gestione abbonamento]{}
+    \elemento[Gestione abbonamento]{dci:GestioneAbbonamento}
 
     \textbf{Descrizione:} Il componente permette all'utente di passare ad un account premium con la sottoscrizione al relativo abbonamento o permette all'utente di terminare il piano premium rinunciando ai vantaggi da esso forniti.
 
@@ -848,7 +854,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia richiesta - abbonamento account:} riceve dal componente gestione account i dati relativi all'abbonamento dell'account del utente.
 
 
-    \elemento[Interfaccia PayPal]{}
+    \elemento[Interfaccia PayPal]{dci:InterfacciaPayPal}
 
     \textbf{Descrizione:} Questo componente permette l'acquisto dell'abbonamento utilizzando il servizio esterno di pagamenti di PayPal.
 
@@ -861,7 +867,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia richiesta - informazioni pagamento:} sono i dati riguardati al pagamento avvenuto forniti da PayPal.
 
 
-    \elemento[Interfaccia Stripe]{}
+    \elemento[Interfaccia Stripe]{dci:InterfacciaStripe}
 
     \textbf{Descrizione:} Il sito deve dare la possibilità all'utente di effettuare l'acquista dell'abbonamento utilizzando il servizio esterno di pagamenti di Stripe.
 
@@ -874,7 +880,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia richiesta - informazioni pagamento:} sono i dati riguardati al pagamento avvenuto forniti da Stripe.
 
 
-    \elemento[Gestione chiamate MongoDB]{}
+    \elemento[Gestione chiamate MongoDB]{dci:GestioneMongoDB}
 
     \textbf{Descrizione:} Il componente deve permettere di fare chiamate per leggere i dati dal database esterno MongoDB in modo ottimizzato e resistente ai fallimenti.
 
@@ -939,7 +945,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia richiesta - modifica evento:} Il componente riceve una richiesta di modifica di un evento da parte del componente gestione modifica e creazione eventi con i relativi dati da modificare dell'evento.
 
 
-    \elemento[Gestione account]{}
+    \elemento[Gestione account]{dci:GestioneAccount}
 
     \textbf{Descrizione:}  Il componente deve gestire la procedura di richiesta di autenticazione.
 
@@ -970,7 +976,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia richiesta - richiesta sistema di mappe predefinito:} Il componente riceva da parte del componente di gestione mappe la richiesta di quale sistema di mappe abbia come predefinito un account.
 
 
-    \elemento[Interfaccia Auth0]{}
+    \elemento[Interfaccia Auth0]{dci:InterfacciaAuth0}
 
     \textbf{Descrizione:} Il componente deve gestire il reindirizzamento dell'utente sulla pagina di accesso provvista da Auth0. 
 
@@ -987,7 +993,7 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia fornita - richiesta invio email di recupero:} dopo aver ricevuto la richiesta di recupero della password, invia ad Auth0 la richiesta di invio dell'email di recupero. Da questo punto in poi, Auth0 gestirà completamente la procedura di recupero della password.
 
 
-    \elemento[Cloudflare]{}
+    \elemento[Interfaccia Cloudflare]{dci:Cloudflare}
 
     \textbf{Descrizione:} Il componente deve analizzare tutto il traffico proveniente dall'esterno che richiede il sistema e filtrarlo bloccando il traffico a tutti gli attori malevoli.
 
