@@ -465,39 +465,60 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
             \item L'abbonamento all'account premium, a questo punto, partirà automaticamente con un costo mensile di 15 euro. Ogni mese il pagamento verrà fatto in maniera automatica mediante il metodo di pagamento inserito \ref{uc:ExceptionPagamentoNonValido}, che può essere modificato in “Impostazioni Account”. 
             \item L'account premium può essere disabilitato, in ogni momento, da “Impostazioni Account” premendo sul tasto "Modifica metodo di pagamento": una volta premuto questo tasto, invece che andare a scegliere un nuovo metodo di pagamento per l'abbonamento, non si deve andare a definire nessuna scelta premendo subito il tasto "Avanti", così automaticamente il sistema, in assenza di scelta del metodo di pagamento, annullerà l'abbonamento a fine del periodo di sottoscrizione (ovvero quando finisce il mese di sottoscrizione).
         \end{enumerate}
-
+        
+        \begin{comment}
         \todo{Forse dovremmo fare un requisito funzionale per disabilitare account premium?! Si dovremmo metterlo, ma a quel punto dovremmo fare anche un use case + descrizione}
+        \end{comment}
 
         \textbf{Exceptions:}
         \begin{enumerate}[label=\textbf{[exception \arabic{enumiii}]}, ref= \textbf{[exception \arabic{enumiii}]}]
             \elemento{uc:ExceptionCredenzialiSistemaDiPagamento} L'inserimento delle credenziali andrà avanti finché l'utente non inserirà delle credenziali corrette del sistema esterno del metodo di pagamento scelto. Infatti l'utente autenticato standard va avanti con la procedura della sottoscrizione solo una volta che ha inserito delle credenziali corrette.
             \elemento{uc:ExceptionPagamentoNonValido} In caso il saldo dell'utente presso la piattaforma di pagamento selezionata non sia sufficiente per coprire il costo dell'abbonamento, l'abbonamento stesso si interromperà e tutte le funzioni premium a esso collegate non verranno più rese disponibili fino al prossimo pagamento.
         \end{enumerate}
+        
+        \begin{comment}
         \todo{Qua c'è un problema non possiamo mettere la sottoscrizione dalle impostazioni Account sennò dopo dobbiamo andare a modificare in realtà impostazioni account e il suo state diagram. Qua in realtà ne avevamo anche parlato con il prof che ha detto che va bene, andiamo a specificare che questo use case è una specifica di impostazioni account.}
+        \end{comment}
 
 
-        \elemento[Use case “interagire con Google Calendar” (\prettyref{D1-rf:GoogleCalendar})]{uc:GoogleCalendar}
+        \elemento[“Interagire con Google Calendar” (\prettyref{D1-rf:GoogleCalendar})]{uc:GoogleCalendar}
 
 
         \begin{center}
-            \includegraphics[width=0.8\textwidth]{img/Diagrammi/UseCases/GoogleCalendar.png}
+            \includegraphics[width=1\textwidth]{img/Diagrammi/UseCases/GoogleCalendar.png}
         \end{center}
 
-
-        \textbf{Titolo:} interagire con Google Calendar.
+        \begin{listaPersonale3} [UD]{}
+        \elemento[Use case "interagire con Google Calendar-sincronizzazione con Google Calendar"]{uc:GoogleCalendarSincronizzazione}   
+        \textbf{Titolo:} interagire con Google Calendar - sincronizzazione con Google Calendar\\
 
         \textbf{Riassunto:} \\
-        Questo use case descrive come il sistema permetta all'utente autenticato standard l'utilizzo di Google Calendar tramite la piattaforma. Infatti, in quanto Google Calendar è un'applicazione molto diffusa, il sistema permette l'integrazione con questa applicazione. \\ 
-        Questo use case è una specifica dell'use case "Impostazioni Account" in quanto la procedura di interazione con Google Calendar richiede una maggiore dettagliatezza e, per questo motivo, si è deciso di fare un use case a parte.
-        
+        Questo use case descrive come il sistema permetta all'utente autenticato standard l'utilizzo di Google Calendar tramite la piattaforma, andando a delineare come avviene il processo di sincronizzazione di eventi o calendari con Google Calendar. 
+        Questo use case è una specifica dell'use case "Impostazioni Account" in quanto la procedura di interazione (integrazione) con Google Calendar richiede una maggiore dettagliatezza, poichè possono essere individuate due diverse procedure di interazione. Quindi, si è deciso di fare un use case a parte che andasse a descrivere la sincronizzazione con tale applicazione con maggiore precisione.
+        \newpage
 
-        \textbf{Descrizione:}
+        \textbf{Descrizione:} \\
         \begin{enumerate}
-            \item Da "Impostazioni Account" nella sezione "Interazione con Google Calendar" l'utente può andare ad interagire con Google Calendar. Premendo su "Interazione con Google Calendar" viene data la scelta all'utente o di sincronizzare il suo account di PlanIt con Google Calendar o di importare o esportare calendari o eventi via file.
-            \item L'utente autenticato standard potrà decidere se connettere il proprio account Google Calendar al proprio account. Premendo su "Sincronizza con Google Calendar" inizia la procedura di connessione del proprio account di PlanIt con Google Calendar. Infatti tramite un'apposita finestra di dialogo, l'utente autenticato standard farà l'accesso al proprio account Google e concederà alla piattaforma i permessi per interagire con il calendario di Google Calendar \ref{uc:ExceptionInterruzioneSincronizzazione}. Una volta concessa l'autorizzazione si potrà scegliere quale calendario sincronizzare, se sincronizzare gli eventi da e/o verso Google Calendar.
-            \item In alternativa nella sezione “importa/esporta” della piattaforma si potrà trovare un casella dove si può caricare un file di calendario o evento Google Calendar che si vuole importare \ref{uc:ExceptionErroreUpload} su PlanIt e un tasto, che premendolo fornisce il file di calendario \ref{uc:ExceptionErroreDownload} con cui si può esportare il proprio calendario di PlanIt su Google Calendar. \ref{uc:ExceptionFileNonValidoOCorrotto}.
+            \item Da "Impostazioni Account" nella sezione "Interazione con Google Calendar" l'utente può scegliere come interagire con Google Calendar. Infatti, nella sezione "Interazione con Google Calendar" sono presenti le procedure con cui può avvenire l'integrazione di Google Calendar su PlanIt. In questa sezione viene data la possibilità all'utente di sincronizzare il suo account di PlanIt con Google Calendar.
+            \item L'utente autenticato standard potrà iniziare la procedura di sincronizzazione tra il proprio account PlanIt e Google Calendar andando a premere la scelta "Sincronizza con Google Calendar". Infatti tramite un'apposita finestra di dialogo, l'utente autenticato standard farà l'accesso al proprio account Google e concederà alla piattaforma i permessi per interagire con il calendario di Google Calendar \ref{uc:ExceptionInterruzioneSincronizzazione}. 
+            \item Una volta concessa l'autorizzazione si potrà scegliere quale calendario sincronizzare, se sincronizzare gli eventi da e/o verso (importare e/o esportare con) Google Calendar. 
+            \item Una volta che l'utente selezionerà gli eventi o calendari da sincronizzare con Google Calendar e salvato le modifiche effettuate premendo il tasto "salva", avviene automaticamente l'importazione e/o l'esportazione di eventi e calendari con Google Calendar secondo le scelte fatte. Una volta che modificheremo tali eventi o calendari da PlanIt, questi si aggiorneranno anche su Google Calendar e/o viceversa.
         \end{enumerate}
+            
+        \elemento[Use case "interagire con Google Calendar-import/export di file"]{uc:GoogleCalendarImportExport}
 
+        \textbf{Titolo: } interagire con Google Calendar - import/export di file\\
+        \textbf{Riassunto: } Questo use case descrive come il sistema permetta all'utente autenticato standard l'utilizzo di Google Calendar tramite la piattaforma, andando a delineare come avviene il processo di import/export di file di eventi o calendari da e/o verso Google Calendar. \\
+        Questo use case è una specifica dell'use case "Impostazioni Account" in quanto la procedura di interazione con Google Calendar richiede una maggiore dettagliatezza, poichè possono essere individuate due diverse procedure di interazione (integrazione); una di queste è già stata delineata sopra, ovvero la sincronizzazione con Google Calendar. Quindi, si è deciso di fare un use case a parte che andasse a descrivere la procedura di import/export di file con tale applicazione con maggiore precisione.
+        \textbf{Descrizione: }
+            \begin{enumerate}
+            \item L'utilizzo di import/export di file di eventi o calendari presenta un'alternativa dall'utilizzo della sincronizzazione con Google Calendar per andare ad interagire con quest'ultima piattaforma, soprattutto quando l'utente autenticato standard non vuole fornire dati sensibili riguardo al suo account Google, o non l'ha.
+            \item Nella sezione “importa/esporta” della sezione "Interazione con Google Calendar" si può trovare un casella "import" dove si può inserire un file di calendario o evento Google Calendar che si vuole importare \ref{uc:ExceptionErroreUpload} su PlanIt. Ovviamente, il file di "import" deve essere prima scaricato prima dalla piattaforma Google Calendar.
+            \item Una volta che il file inserito ha finito il suo caricamento, premendo il tasto "Applica", il file calendario o evento inserito verrà applicato (integrato) nella nostra piattaforma, ovvero viene caricato su PlanIt e quindi sarà presente anche in quest'ultima piattaforma.  
+            \item Nella sezione "importa/esporta" è presente anche un tasto "export", che premendolo, avvia il download del file di calendario o evento\ref{uc:ExceptionErroreDownload} che si può inserire su Google Calendar, in modo tale di esportare tale evento o calendario anche su quest'ultimo applicativo. \ref{uc:ExceptionFileNonValidoOCorrotto}. Ovviamente, dopo che si è ottenuto il file di export, questo deve essere inserito su Google Calendar da parte dell'utente autenticato standard.
+        \end{enumerate}
+        \end{listaPersonale3}
+        \newpage
         \textbf{Exceptions:}
         \begin{enumerate}[label=\textbf{[exception \arabic{enumiii}]}, ref= \textbf{[exception \arabic{enumiii}]}]
             \elemento{uc:ExceptionInterruzioneSincronizzazione} Nel caso in cui l'utente autenticato standard decidesse d'interrompere la procedura di autenticazione/gestione consensi l'attività d'importazione/esportazione non andrà a termine.
@@ -507,6 +528,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
         \end{enumerate}
 
         \todo{Forse bisogna cambiare l'importazione esportazione automatica in sincronizzazione nel Diagramma, mi sembra tutto a posto.}
+    
     \end{listaPersonale2}
 
     \newpage
