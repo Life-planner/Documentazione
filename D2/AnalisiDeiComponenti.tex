@@ -11,23 +11,23 @@ In questa sezione vengono definiti i componenti.
     \elemento[Gestione creazione o modifica evento]{aci:creazioneModificaEvento}
 
     \textbf{Motivazione:}\\
-    È stato considerato il \prettyref{D1-rf:CreazioneModificaEvento} e \todo{RF2.2.1 non esiste} ed il mock-up della schermata “Eventi” in \prettyref{D1-fe:SchermataCreaModificaEvento}.
-    È stato quindi definito il componente “Gestione creazione o modifica evento” allo scopo di gestire la parte di front-end della funzionalità di creazione o modifica evento per un utente non autenticato e autenticazione. \\
+    È stato considerato il \prettyref{D1-rf:CreazioneModificaEvento} e \prettyref{D1-rf:FunzionalitaDemoUtenteNonAutenticato} ed il mock-up della schermata “Eventi” in \prettyref{D1-fe:SchermataCreaModificaEvento}.
+    È stato quindi definito il componente “Gestione creazione o modifica evento” allo scopo di gestire la parte di front-end della funzionalità di creazione o modifica evento per un utente non autenticato e autenticato. \\
     \textbf{Spiegazione:}\\
-    Il componente gestisce l'intera procedura che l'utente non autenticato segue per creare o modificare un evento. Dopo che l'utente ha definito i campi, questo componente gestisce la creazione o modifica dell'evento secondo i campi definiti. Inoltre, questo componente gestisce la creazione o modifica evento anche per utenti autenticati, i quali possono definire dei campi aggiuntivi rispetto agli utenti non autenticati; questo componente fa in modo di fornire questi campi aggiunti agli utenti autenticati standard.
+    Il componente gestisce l'intera procedura che l'utente non autenticato segue per creare o modificare un evento. Dopo che l'utente ha definito i campi, questo componente gestisce la creazione o modifica dell'evento secondo i campi definiti. Inoltre, questo componente gestisce la creazione o modifica evento anche per utenti autenticati, i quali possono definire dei campi aggiuntivi rispetto agli utenti non autenticati; questo componente fa in modo di fornire questi campi aggiunti agli utenti autenticati standard (e quindi anche premium).
 
 
     \elemento[Gestione notifiche]{aci:gestioneNotifiche}
 
     \textbf{Motivazione:}\\
-    Per il \prettyref{D1-rf:Notifiche} e \todo{RF6.9 inserimento calendario?}, il sistema deve permettere all'utente autenticato di creare, secondo delle impostazioni scelte dall'utente autenticato, le notifiche per gli eventi del suo calendario. Il componente “Gestione notifiche” fa in modo che questa funzionalità venga implementata. \\
+    Per il \prettyref{D1-rf:Notifiche} e \prettyref{D1-rf:NotificheEvento}, il sistema deve permettere all'utente autenticato di creare, secondo delle impostazioni scelte dall'utente autenticato, le notifiche per gli eventi del suo calendario. Il componente “Gestione notifiche” fa in modo che questa funzionalità venga implementata. \\
     \textbf{Spiegazione:} \\Il componente gestisce la funzionalità di creazione o modifica della notifica di un evento, dopo che l'utente ha definito i campi d'impostazione della notifica.
 
 
-    \elemento[Interfaccia sistema di mappe]{aci:interfaciaMappe}
+    \elemento[Interfaccia mappe]{aci:interfaciaMappe}
 
     \textbf{Motivazione:}\\
-    Dato il \todo{RF6.6 si intende \prettyref{D1-rf:LuogoEvento}?}, il sistema deve permettere agli utenti standard di inserire il luogo dove avviene l'evento mediante l'utilizzo di un sistema di mappe esterno, per questo motivo è stato definito il componente “Interfaccia sistema di mappe”. \\
+    Dato il \prettyref{D1-rf:LuogoEvento}, il sistema deve permettere agli utenti standard di inserire il luogo dove avviene l'evento mediante l'utilizzo di un sistema di mappe esterno, per questo motivo è stato definito il componente “Interfaccia sistema di mappe”. \\
     \textbf{Spiegazione:} \\Il componente gestisce la funzionalità data all'utente standard di interagire con un sistema esterno di mappe per definire il luogo dove avviene l'evento, gestendo l'intera procedura, dall' invio del luogo al sistema esterno di mappe alla ricezione delle coordinate di questo.
 
 
@@ -234,7 +234,7 @@ In questa sezione vengono definiti i componenti.
     Il sistema deve gestire la richiesta di autenticazione (\prettyref{D1-rf:AccessoRegistrazione}) e salvare i dati account dell'utente autenticato (\prettyref{D1-rf:ImpostazioniAccount}), per questo motivo è stato definito questo componente.\\
 
     \textbf{Spiegazione:}\\
-    Il componente deve gestire la procedura di richiesta di autenticazione. Quando avvenuta, deve richiedere al database esterno i dati aggiuntivi del relativo utente quali: tipologia di abbonamento, sistema di mappe predefinito, username, sistema di pagamento predefinito, informazioni riguardanti al pagamento tramite PayPal, informazioni riguardanti al pagamento tramite Stripe, numero di ore sonno e le impostazioni della integrazione con Google Calendar. Tali dati devono essere forniti ai vari componenti che ne necessitano l'uso
+    Il componente deve gestire la procedura di richiesta di autenticazione. Quando avvenuta, deve richiedere al database esterno i dati aggiuntivi del relativo utente, quali: tipologia di abbonamento, sistema di mappe predefinito, username, sistema di pagamento predefinito, informazioni riguardanti al pagamento tramite PayPal, informazioni riguardanti al pagamento tramite Stripe, numero di ore sonno e le impostazioni della integrazione con Google Calendar. Tali dati devono essere forniti ai vari componenti che ne necessitano l'uso.
 
 
     \elemento[Interfaccia Auth0]{aci:Auth0}
@@ -243,18 +243,16 @@ In questa sezione vengono definiti i componenti.
     Il sistema deve permettere all'utente di autenticarsi con l'uso di credenziali o con accesso mediante software esterni quali Google (\prettyref{D1-rf:MetodiAutenticazione}), per questo motivo è stato definito questo componente. Inoltre, questo componente gestisce anche il recupero della password.\\
 
     \textbf{Spiegazione:}\\
-    Il componente deve gestire il reindirizzamento dell'utente sulla pagina di accesso provvista da Auth0. Ad accesso avvenuto deve fare accedere l'utente alla piattaforma. Inoltre, questa interfaccia gestisce la richiesta da parte dell'utente non autenticato del recupero password, inviando una richiesta ad Auth0 dell'invio dell'email di recupero. Dopo tale richiesta, Auth0 gestirà completamente la procedura di recupero password.
+    Il componente deve gestire il reindirizzamento dell'utente sulla pagina di accesso provvista da Auth0. Ad accesso avvenuto, il componente deve fare accedere l'utente alla piattaforma. Inoltre, questa interfaccia gestisce la richiesta da parte dell'utente non autenticato del recupero password, inviando una richiesta ad Auth0 dell'invio dell'email di recupero. Dopo tale richiesta, Auth0 gestirà completamente la procedura di recupero e reset password.
 
 
     \elemento[Interfaccia Iubenda]{aci:Iubenda}
 
     \textbf{Motivazione:}\\
-    Il sistema deve visualizzare ad un utente che visita il sistema l'informativa sull'utilizzo dei cookie e sulle relative policy (\prettyref{D1-rnf:Privacy} e \prettyref{D1-rnf:Cookie}), quindi è stato definito questo componente.\\
+    Il sistema deve far visualizzare ad un utente che visita il sistema, l'informativa sull'utilizzo dei cookie e sulle relative policy (\prettyref{D1-rnf:Privacy} e \prettyref{D1-rnf:Cookie}), quindi è stato definito questo componente.\\
 
     \textbf{Spiegazione:}\\
-    Il componente deve mostrare il banner che presenta all'utente la scelta sul autorizzare l'utilizzo dei cookie da parte del sistema e salvare la risposta dell'utente, inoltre nello stesso banner deve presentare il link alla pagina di descrizione delle policy del sistema.
-
-    \todo{Nel documenti originale manca il 4.1.30, errore?}
+    Il componente deve mostrare il banner che permette all'utente di autorizzare l'utilizzo dei cookie da parte del sistema e, quindi, salvare la risposta dell'utente a tale autorizzazione. Inoltre, nello stesso banner, deve essere presente il link alla pagina di descrizione delle policy del sistema.
 
     \elemento[Interfaccia Cloudflare]{aci:CloudFlare}
     \textbf{Motivazione:}\\
