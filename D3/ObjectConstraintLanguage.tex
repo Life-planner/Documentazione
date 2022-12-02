@@ -1,2 +1,192 @@
 \section{Object Constraint Language}
 \label{secD3:ObjectConstraintLanguage}
+
+\begin{listaPersonale}[OCL]{}
+    \elemento[Utenti]{ocl:Utenti}
+    \begin{lstlisting}
+CONTEXT Utente_Non_Autenticato::Autenticazione() : 
+POST : UserId <> "" AND Email <> "" AND Username <> ""
+    \end{lstlisting}
+    \begin{lstlisting}
+CONTEXT Utente_Autenticato : 
+INV : UserId <> "" AND Email <> "" AND Username <> ""
+    \end{lstlisting}
+    \begin{lstlisting}
+CONTEXT Utente::Logout() : 
+PRE :  UserId <> "" AND Email <> "" AND Username <> ""
+--CONTEXT Utente::Logout() : 
+POST : UserId  = "" AND Email  = "" AND Username  = ""
+    \end{lstlisting}
+    \todo{da chiedere}
+
+
+
+    \elemento[Auth0]{ocl:Auth0}
+    \begin{lstlisting}
+CONTEXT Interfaccia_Auth0::RedirectToAutenticationPage() :
+POST : Utente_Autenticato.UserId = AUserId AND Utente_Autenticato.Email = AEmail AND Utente_Autenticato.Username = AUsername
+    \end{lstlisting}
+
+
+
+
+    \elemento[Impostazioni Utente]{ocl:ImpostazioniUtente}
+    \begin{lstlisting}
+CONTEXT ImpostazioniUtente:
+INV : (SistemaMappe = "OSM" OR SistemaMappe = "GM") AND OreSonno >= 0 
+-- AND Utente_Autenticato.UserId <> "" AND Utente_Autenticato.Email <> "" AND Utente_Autenticato.Username <> ""
+-- AND Premium = Abbonamento.Abbonato
+
+CONTEXT ImpostazioniUtente::CambiaUsername(NUsername):
+PRE : NUsername <> ""
+POST : Utente_Autenticato.Username = NUsername
+
+CONTEXT ImpostazioniUtente::CambiaNumeroOreSonno(Nore):
+PRE : NOre >= 0 AND NOre <> self.OreSonno
+POST : self.OreSonno = NOre
+
+--CONTEXT ImpostazioniUtente::EliminaAccount():
+
+CONTEXT ImpostazioniUtente::GetSistemaMappe():
+POST : return = SistemaMappe 
+-- Da chiedere
+
+CONTEXT ImpostazioniUtente::CambiaSistemaMappe(NSistemaMappe):
+PRE : (NSistemaMappe = "OSM" AND self.SistemaMappe = "GM") OR (NSistemaMappe = "GM" AND self.SistemaMappe = "OSM")
+POST : self.SistemaMappe = NSistemaMappe
+    \end{lstlisting}
+    \todo{da chiedere}
+
+
+
+
+    \elemento[Gestione Modifica Password]{ocl:GestioneModificaPassword}
+    \begin{lstlisting}
+CONTEXT GestioneModificaPassword :
+INV : NuovaPassword <> ""
+
+CONTEXT GestioneModificaPassword::ControlloValidiaPassword(NPassword) :
+PRE : NPassword.exists(carattere | carattere = [a, ..., z]) AND NPassword.exists(carattere | carattere = [A, ..., Z]) AND NPassword.exists(carattere | carattere = [0, ..., 9]) AND NPassword.exists(carattere | carattere = [!, #, $, %, &, *])
+
+-- CONTEXT GestioneModificaPassword::SetPassword(NPassword) :
+-- PRE : NPassword <> ""
+-- POST : self.NuovaPassword = NPassword
+
+
+CONTEXT GestioneModificaPassword::ControlloSetPassword(NPassword) :
+PRE : NuovaPassword <> "" AND self.ControlloValidiaPassword(NPassword)
+POST : self.NuovaPassword = NPassword
+    \end{lstlisting}
+
+
+
+
+    \elemento[Auth0 management API]{ocl:Auth0ManagementAPI}
+    \begin{lstlisting}
+CONTEXT Auth0ManagementAPI :
+INV : EndPoint <> "" AND AuthorizationToken <> ""
+
+CONTEXT Auth0ManagementAPI::CambiaPassword(UserId, NuovaPassword) :
+PRE : UserId <> "" AND GestioneModificaPassword.ControlloValidiaPassword(NuovaPassword)
+    \end{lstlisting}
+
+
+
+
+    \elemento[Abbonamento]{ocl:Abbonamento}
+    \begin{lstlisting}
+CONTEXT Abbonamento::SottoscrizioneAbbonamento() :
+PRE : Abbonato = false
+POST : Abbonato = true
+
+CONTEXT Abbonamento::CancellazioneAbbonamento() :
+PRE : Abbonato = true
+POST : Abbonato = false
+    \end{lstlisting}
+
+
+
+
+    \elemento[GoogleCalendar]{ocl:GoogleCalendar}
+    \begin{lstlisting}
+CONTEXT Abbonamento::CambiaTipologiaInterazione() :
+POST : sincronizzazione = NOT sincronizzazione@pre 
+    \end{lstlisting}
+
+    \elemento[Visualizzazione calendari ed eventi]{ocl:VisualizzazioneCalendariEventi}
+    \begin{lstlisting}
+CONTEXT VisualizzazioneCalendariEventi :
+INV 
+
+CONTEXT VisualizzazioneCalendariEventi::CambiaIntervalloVistaUtenti(NIntervallo) :
+POST : IntervalloVistaEventi = NIntervallo
+    \end{lstlisting}
+    \begin{lstlisting}
+    \end{lstlisting}
+    \begin{lstlisting}
+    \end{lstlisting}
+    \begin{lstlisting}
+    \end{lstlisting}
+
+
+
+
+    \elemento[Privacy]{ocl:Privacy}
+    \begin{lstlisting}
+CONTEXT VisualizzazioneCalendariEventi :
+INV 
+    \end{lstlisting}
+
+
+
+
+    \elemento[Calendario]{ocl:Calendario}
+    \begin{lstlisting}
+CONTEXT Calendario :
+INV : IdCalendario <> "" AND Nome <> "" AND Proprietario <> Null
+
+CONTEXT Calendario::Crea(Principale)
+POST : Proprietario = UserId
+
+CONTEXT Calendario::Salva(NNome, NFuso, NColore)
+POST : Nome = NNome AND Fuso = NFuso AND NColore = Colore 
+    \end{lstlisting}
+
+
+
+
+    \elemento[Impostazioni Predefinite Eventi]{ocl:ImpostazioniPredefiniteEventi}
+    \begin{lstlisting}
+    \end{lstlisting}
+
+
+
+
+    \elemento[Gestione Condivisione]{ocl:GestioneCondivisione}
+    \begin{lstlisting}
+    \end{lstlisting}
+
+
+
+
+    \elemento[Evento]{ocl:Evento}
+    \begin{lstlisting}
+CONTEXT Evento :
+INV : IdEvento <> "" AND Nome <> "" AND Proprietario <> Null AND Titolo <> ""
+
+CONTEXT Evento::Crea(NTitolo)
+PRE : Ntitolo <> ""
+POST : Proprietario = UserId AND Titolo = NTitolo
+
+CONTEXT Evento::Salva(NTitolo, NDescrizione, NPriorita, NDifficolta, NLuogo)
+PRE : Ntitolo <> ""
+POST : Titolo = NTitolo AND Descrizione = NDescrizione AND Priorita = NPriorita AND Difficolta = NDifficolta AND Luogo = NLuogo AND 
+    \end{lstlisting}
+
+
+
+
+
+
+
+\end{listaPersonale}

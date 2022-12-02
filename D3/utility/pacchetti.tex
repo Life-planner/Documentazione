@@ -4,7 +4,7 @@
 
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm]{geometry}\usepackage{nameref,zref-xr}
 %\usepackage{xr-hyper}
-\usepackage{hyperref, amsmath, amssymb, graphicx, mathtools, xcolor, enumitem, verbatim, todonotes, csquotes, subcaption, fancyhdr, lastpage, cancel, xspace, float, caption, prettyref, tabularx, colortbl, color, soul}
+\usepackage{hyperref, amsmath, amssymb, graphicx, mathtools, xcolor, enumitem, verbatim, todonotes, csquotes, subcaption, fancyhdr, lastpage, cancel, xspace, float, caption, prettyref, tabularx, colortbl, color, soul, listings}
 \usepackage[most]{tcolorbox}
 
 \zxrsetup{toltxlabel} % allows to use the \ref command as usual
@@ -53,3 +53,53 @@
 %\externaldocument[D2-]{../D2/out/RequisitiNonFunzionali}[D2.pdf]
 \zexternaldocument*[D2-]{../D2/out/RequisitiNonFunzionali}
 \newrefformat{D2-rnfd2}{\color{cyan}D2 \ref{#1}\color{black}}
+
+
+
+
+\definecolor{eclipseBlue}{RGB}{42,0.0,255}
+\definecolor{eclipseGreen}{RGB}{63,127,95}
+
+\lstdefinelanguage{OCL}{
+    morekeywords = [0]{context, inv, pre, post, includes, and, or, xor, self, CONTEXT, INV, PRE, POST, INCLUDES, AND, OR, XOR},
+    otherkeywords = { :, ::, ->, >, =, <, <>, ==, -, +},
+    comment=[l]{--},
+    sensitive=false,
+    morecomment=[l]{--},
+    morestring=[b]",
+}
+
+\lstdefinestyle{stile}{
+    language=OCL,
+    aboveskip=3mm,
+    belowskip=5mm,
+    frame=single,
+    backgroundcolor=\color{yellow},
+    tabsize=2,
+    showstringspaces=true,
+    columns=fixed,
+    basicstyle=\small\ttfamily,
+    numbers=none,
+    identifierstyle=\color{black},
+    keywordstyle=\color{red},
+    stringstyle=\color{black},
+    commentstyle=\color{eclipseGreen},
+    breaklines=true,
+    breakatwhitespace=true
+}
+
+\lstset {
+    language=OCL,
+    style=stile
+}
+\lstset {
+    basicstyle=\small\ttfamily,
+    morekeywords= {context, inv, pre, post, includes, and, or, xor, self, CONTEXT, INV, PRE, POST, INCLUDES, AND, OR, XOR},
+    otherkeywords = { :, ::, ->, >, =, <, <>, ==},
+    morestring=[b]",
+    morecomment=[f][\color{green}][0]{--},
+    stringstyle=\color{black},
+    identifierstyle=\color{eclipseBlue},
+    keywordstyle=\color{red},
+    commentstyle=\color{eclipseGreen}
+}
