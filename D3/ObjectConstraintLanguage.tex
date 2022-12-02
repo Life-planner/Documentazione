@@ -6,14 +6,21 @@ In questo capitolo è descritta in modo formale la logica prevista nell'ambito d
 
 \begin{listaPersonale}[OCL]{}
     \elemento[Utenti]{ocl:Utenti}
+    Nella classe “Utente\_Non\_Autenticato” (DLC1.1) è presente il metodo “Autenticazione()”, la cui esecuzione comporta l’inizializzazione degli attributi UserId, Email e Username, a dei valori non vuoti; infatti grazie a questo metodo l’ utente non autenticato diventa utente autenticato. \\
+    Questa condizione è espressa in OCL attraverso una postcondizione con questo codice:
     \begin{lstlisting}
 CONTEXT Utente_Non_Autenticato::Autenticazione() : 
 POST : UserId <> "" AND Email <> "" AND Username <> ""
     \end{lstlisting}
+    Dopo il metodo “Autenticazione()”, ci sono tre condizioni che si verificano per ogni “Utente\_Autenticato”: UserId, Email e Username non devono essere vuoti. \\ Questa condizione è espressa in OCL, attraverso un invariante con questo codice:
     \begin{lstlisting}
 CONTEXT Utente_Autenticato : 
 INV : UserId <> "" AND Email <> "" AND Username <> ""
     \end{lstlisting}
+    Nella classe “Utente\_Autenticato” (DCL1.1) è presente il metodo “Logout()”, la cui esecuzione avviene se e solo se l’UserId, l’Username e l’Email non sono vuoti, ovviamente questo avviene sempre per ogni utente autenticato, in quanto gli utenti autenticati non potrebbero essere definiti tali con gli attributi, sopra citati, vuoti. \\ 
+    Dopo l’esecuzione del Logout(), ci sono tre condizioni che si verificano: UserId, Email e Username sono vuoti, in quanto l’utente autenticato è uscito dal sito e non più attivo su esso. \\ 
+    Queste precondizioni e postcondizioni sono rappresentati con il seguente codice OCL:
+    \todo{Non so quanto senso abbia mettere postcondizione per il logout}
     \begin{lstlisting}
 CONTEXT Utente::Logout() : 
 PRE :  UserId <> "" AND Email <> "" AND Username <> ""
@@ -25,6 +32,8 @@ POST : UserId  = "" AND Email  = "" AND Username  = ""
 
 
     \elemento[Auth0]{ocl:Auth0}
+    Nella classe “Interfaccia\_Auth0” (DLC1.2) è presente il metodo “RedirectToAutenticationPage()”, la cui esecuzione restituisce i valori "AUserId", "AUsername" e "AEmail" che vengono attribuiti ai rispettivi attributi presenti in “Utente\_Autenticato”. \\
+    Questa condizione è espressa in OCL attraverso una postcondizione con questo codice: 
     \begin{lstlisting}
 CONTEXT Interfaccia_Auth0::RedirectToAutenticationPage() :
 POST : Utente_Autenticato.UserId = AUserId AND Utente_Autenticato.Email = AEmail AND Utente_Autenticato.Username = AUsername
@@ -34,26 +43,40 @@ POST : Utente_Autenticato.UserId = AUserId AND Utente_Autenticato.Email = AEmail
 
 
     \elemento[Impostazioni Utente]{ocl:ImpostazioniUtente}
+    Nella classe “ImpostazioniUtente” (DCL1.3) ci sono delle condizioni che devono essere sempre vere. Infatti l’attributo “SistemaMappe” deve essere uguale alla stringa “OSM”, che si riferisce al sistema esterno di mappe OpenStreeMap, o alla stringa “GM”, Google Maps. Infatti il sistema di mappe deve essere per forza scelto fra un di questi due. \\ 
+    Queste condizioni sono espresse in OCL attraverso la seguente espressione:
     \begin{lstlisting}
 CONTEXT ImpostazioniUtente:
 INV : (SistemaMappe = "OSM" OR SistemaMappe = "GM") AND OreSonno >= 0 
 -- AND Utente_Autenticato.UserId <> "" AND Utente_Autenticato.Email <> "" AND Utente_Autenticato.Username <> ""
 -- AND Premium = Abbonamento.Abbonato
-
+    \end{lstlisting}
+    Inoltre, in questa classe, è presente anche il metodo “CambiaUsername(NUsername)” per cui devono esserci delle condizioni che devono essere verificate prima dell’esecuzione. Infatti il nuovo username, NUsername, con cui si vuole modificare l’username presente, non deve essere una stringa vuota. \\ 
+    Questa condizione è espressa in OCL attraverso la seguente precondizione:
+    \begin{lstlisting}
 CONTEXT ImpostazioniUtente::CambiaUsername(NUsername):
 PRE : NUsername <> ""
 POST : Utente_Autenticato.Username = NUsername
-
+    \end{lstlisting}
+    Nella classe “ImpostazioneUtente” (DCL1.3) per il metodo “CambiaNumeroOreSonno (Nore)” c’è una precondizione che deve essere verificata, prima dell’esecuzione del metodo, ovvero che NOre, le nuove ore che stiamo inserendo con numero di ore di sonno, deve essere maggiore e uguale a 0 e diverso dalle ore di sonno già inserite in “ImpostazioniUtente”, quindi in OCL abbiamo:
+    \begin{lstlisting} 
 CONTEXT ImpostazioniUtente::CambiaNumeroOreSonno(Nore):
 PRE : NOre >= 0 AND NOre <> self.OreSonno
 POST : self.OreSonno = NOre
-
+     
 --CONTEXT ImpostazioniUtente::EliminaAccount():
-
+    \end{lstlisting}
+    In seguito, in questa classe è presente il metodo “GetSistemaMappe()” per cui si verifica una postcondizione, ovvero che la stringa che viene restituita da questa funzione, che indica il metodo di sistema di mappe scelto dall’utente autenticato, deve essere uguale all’attributo “SistemaMappe” presente in “ImpostazioniUtente”. \\ Questa postcondizione è espressa dal seguente codice OCL:
+    \begin{lstlisting}
 CONTEXT ImpostazioniUtente::GetSistemaMappe():
 POST : return = SistemaMappe 
 -- Da chiedere
+    \end{lstlisting}
+    Infine, nella classe “ImpostazioniUtente” (DCL1.3) per il metodo \\ "CambiaSistemaMappe(NSistemaMappe)" c’è una precondizione che deve essere verificata, prima dell’esecuzione del metodo, ovvero che il nuovo sistema di mappe scelto dall’Utente, NSistemaMappe, e il sistema di mappe presente ora in “ImpostazioniUtente” deve essere uguale a “OSM” (stringa che si riferisce a OpenStreetMap) o “GM” (Google Maps).
+    Dopo, l’esecuzione del metodo si verifica una postcondizione; infatti dopo la modifica del sistema di mappe, il sistema di mappe presente nell’attributo in “SistemaMappe” è uguale al sistema di mappe nuovo, NSistemaMappe, che è stato usato come parametro nel metodo “CambiaSistemaMappe(NSistemaMappe).\\
+    Queste condizioni nel contesto, “CambiaSistemaMappe(NSistemaMappe), sono espresse con il seguente codice OCL:
 
+    \begin{lstlisting}
 CONTEXT ImpostazioniUtente::CambiaSistemaMappe(NSistemaMappe):
 PRE : (NSistemaMappe = "OSM" AND self.SistemaMappe = "GM") OR (NSistemaMappe = "GM" AND self.SistemaMappe = "OSM")
 POST : self.SistemaMappe = NSistemaMappe
@@ -64,18 +87,26 @@ POST : self.SistemaMappe = NSistemaMappe
 
 
     \elemento[Gestione Modifica Password]{ocl:GestioneModificaPassword}
+    Nella classe “GestioneModificaPassword” (DCL1.3.1) c’è una condizione che deve essere sempre verificata, ovvero che l’attributo “NuovaPassword” non deve essere vuoto. \\
+    Per questo motivo, è stato fatto il seguente codice OCL per esprimere la seguente condizione:
     \begin{lstlisting}
 CONTEXT GestioneModificaPassword :
 INV : NuovaPassword <> ""
-
+    \end{lstlisting}
+    Inoltre, in questa classe è presente il metodo “ControlloValiditaPassword(NPassword) il quale,dopo aver eseguito, ritorna un booleano. Il valore di questo dipende dal fatto se la nuova password inserita, NuovaPassword, segua o meno gli standard già presentati in D2-RNF2 (anche D1-RNF2.1). 
+    \begin{lstlisting}
 CONTEXT GestioneModificaPassword::ControlloValidiaPassword(NPassword) :
-PRE : NPassword.exists(carattere | carattere = [a, ..., z]) AND NPassword.exists(carattere | carattere = [A, ..., Z]) AND NPassword.exists(carattere | carattere = [0, ..., 9]) AND NPassword.exists(carattere | carattere = [!, #, $, %, &, *])
+POST : NPassword.exists(carattere | carattere = [a, ..., z]) AND NPassword.exists(carattere | carattere = [A, ..., Z]) AND NPassword.exists(carattere | carattere = [0, ..., 9]) AND NPassword.exists(carattere | carattere = [!, #, \$, \%, \&, \*]) 
+    \end{lstlisting}
 
+    \begin{lstlisting}
 -- CONTEXT GestioneModificaPassword::SetPassword(NPassword) :
 -- PRE : NPassword <> ""
 -- POST : self.NuovaPassword = NPassword
-
-
+    \end{lstlisting}
+    Dopo l’esecuzione del metodo “ControlloSetPassword(NPassword)”, nella classe “GestioneModificaPassword” si verifica una condizione, più specificamente una postcondizione, visto che avviene dopo l’esecuzione del metodo sopra citato. Infatti l’attributo “nuovaPassword” ha il valore di Npassword, parametro, meglio dire password, utilizzato per modificare la password di un utente autenticato.\\
+    Questa condizione è espressa con il seguente codice OCL:
+    \begin{lstlisting}
 CONTEXT GestioneModificaPassword::ControlloSetPassword(NPassword) :
 PRE : NuovaPassword <> "" AND self.ControlloValidiaPassword(NPassword)
 POST : self.NuovaPassword = NPassword
@@ -85,10 +116,14 @@ POST : self.NuovaPassword = NPassword
 
 
     \elemento[Auth0 management API]{ocl:Auth0ManagementAPI}
+    Nella classe “Auth0 management API” (DCL1.3.1) c’è una condizione che deve essere sempre verificata, ovvero che l’attributo “EndPoint”, stringa che indica l’URL di Auth0 a cui posso accedere per modificare la password, e “AuthorizationToken”, token dato da Auth0 agli utenti autenticati per accedere alle API di Auth0, non devono essere vuoti. \\ 
+    Questa invariante è espressa da OCL mediante la seguente espressione OCL:
     \begin{lstlisting}
 CONTEXT Auth0ManagementAPI :
 INV : EndPoint <> "" AND AuthorizationToken <> ""
-
+    \end{lstlisting}
+    Inoltre, in questa classe è presente il metodo “CambiaPassword(UserId, NuovaPassword)”, il quale, per eseguire, deve essere verificata una precondizione, ovvero che UserId, Id dell’utente autenticato che sta cambiando la password, non deve essere vuota. Inoltre, il metodo “ControlloValiditàPassword(Nuovapassword)” della classe “GestioneModificaPassword”, mi deve aver restituito un valore “true”.\\ Questa precondizione è specificata dal seguente codice OCL:
+    \begin{lstlisting}
 CONTEXT Auth0ManagementAPI::CambiaPassword(UserId, NuovaPassword) :
 PRE : UserId <> "" AND GestioneModificaPassword.ControlloValidiaPassword(NuovaPassword)
     \end{lstlisting}
@@ -97,11 +132,16 @@ PRE : UserId <> "" AND GestioneModificaPassword.ControlloValidiaPassword(NuovaPa
 
 
     \elemento[Abbonamento]{ocl:Abbonamento}
+    Nella classe “Abbonamento”, è presente il metodo “SottoscrizioneAbbonamento()”. Affinché possa avvenire la sottoscrizione all’abbonamento deve essere verificata una precondizione, ovvero che l’attributo “Abbonato”, presente in questa classe, sia uguale a “false”. Dopo l’esecuzione di tale metodo si verifica una postcondizione: l’attributo “Abbonato” è uguale a “true”.\\
+    Questa pre e post-condizione sono espressi in OCL con il seguente codice:
     \begin{lstlisting}
 CONTEXT Abbonamento::SottoscrizioneAbbonamento() :
 PRE : Abbonato = false
 POST : Abbonato = true
-
+    \end{lstlisting}
+    Inoltre, nella classe “Abbonamento”, è presente anche il metodo “CancellazioneAbbonamento()”. Affinché possa avvenire la camcellazione all’abbonamento deve essere verificata una precondizione, ovvero che l’attributo “Abbonato”, presente in questa classe, sia uguale a "true". Dopo l’esecuzione di tale metodo si verifica una postcondizione: l’attributo “Abbonato” è uguale a “false”; infatti l'abbonamento viene annullato.\\
+    Questa pre e post-condizione sono espressi in OCL con il seguente codice:
+    \begin{lstlisting}
 CONTEXT Abbonamento::CancellazioneAbbonamento() :
 PRE : Abbonato = true
 POST : Abbonato = false
@@ -111,16 +151,22 @@ POST : Abbonato = false
 
 
     \elemento[GoogleCalendar]{ocl:GoogleCalendar}
+    Nella classe “Google Calendar” c’è il metodo “CambiaTipologiaInterazione()”. La sua esecuzione modifica il valore dell’attributo booleano “sincronizzazione” che diventa l’inverso del valore precedente all’esecuzione del metodo.\\
+Tale postcondizione è rappresentata dal codice OCL:
     \begin{lstlisting}
 CONTEXT Abbonamento::CambiaTipologiaInterazione() :
 POST : sincronizzazione = NOT sincronizzazione@pre 
     \end{lstlisting}
 
     \elemento[Visualizzazione calendari ed eventi]{ocl:VisualizzazioneCalendariEventi}
+
     \begin{lstlisting}
 CONTEXT VisualizzazioneCalendariEventi :
 INV 
-
+    \end{lstlisting}
+    Nella classe “Visualizzazione Calendario”, con l’esecuzione del metodo “CambiaIntervalloVistaUtenti(NIntervallo)” si ha che l’attributo di questa classe “IntervalloVistaUtenti” è uguale al parametro “NIntervallo” utilizzato nel metodo sopra citato. \\ 
+    Questa postcondizione è espressa con il seguente codice OCL:
+    \begin{lstlisting}
 CONTEXT VisualizzazioneCalendariEventi::CambiaIntervalloVistaUtenti(NIntervallo) :
 POST : IntervalloVistaEventi = NIntervallo
     \end{lstlisting}
@@ -144,13 +190,21 @@ INV
 
 
     \elemento[Calendario]{ocl:Calendario}
+    Nella classe “Calendario” deve essere verificata sempre una condizione, ossia che l’IdCalendario, Id che identifica univocamente un calendario nel database MongoDB, e il suo nome non devono essere stringhe vuote. Inoltre, anche il proprietario di tale calendario deve essere diverso da “Null”.\\
+    Queste invarianti presentati, sono espressi dal seguente codice OCL:
     \begin{lstlisting}
 CONTEXT Calendario :
 INV : IdCalendario <> "" AND Nome <> "" AND Proprietario <> Null
-
+    \end{lstlisting}
+    Inoltre, in questa classe è presente un metodo “Crea(Principale)” (il parametro e attributo “Principale” serve ad indicare se stiamo andando a modificare il calendario principale o uno degli altri calendari di un utente) che, con la sua esecuzione, fa in modo che l’attributo “Proprietario” della classe “Calendario” sia uguale ad “UserId”, Id dell’utente che ha creato tale calendario.\\
+    Questa postcondizione è presenta dall’OCL:
+    \begin{lstlisting}
 CONTEXT Calendario::Crea(Principale)
 POST : Proprietario = UserId
-
+    \end{lstlisting}
+    Infine, con il metodo “Salva(NNome,NFuso,NColore) andiamo a modificare i seguenti attributi della classe “Calendario”: “Nome”, “Fuso”, “Colore”. Infatti questi attributi ottengono il valore dei nuovi attributi assegnati con il metodo salva, ovvero NNome, NFuso e NColore. \\
+    Questa postcondizione è espressa in OCL nel seguente modo:
+    \begin{lstlisting}
 CONTEXT Calendario::Salva(NNome, NFuso, NColore)
 POST : Nome = NNome AND Fuso = NFuso AND NColore = Colore 
     \end{lstlisting}
@@ -173,14 +227,23 @@ POST : Nome = NNome AND Fuso = NFuso AND NColore = Colore
 
 
     \elemento[Evento]{ocl:Evento}
+    Nella classe “Evento”, ci sono delle condizioni che devono essere sempre verificate, ovvero che l’ “IdEvento”, Id che identifica univocamente un evento un calendario nel database MongoDB, e il “Titolo” non devono essere vuoti; inoltre, anche il proprietario, ovvero l’utente autenticato che sta creando l’evento, deve essere diverso da “Null”, dunque in OCL si ha:
     \begin{lstlisting}
 CONTEXT Evento :
 INV : IdEvento <> "" AND Nome <> "" AND Proprietario <> Null AND Titolo <> ""
-
+    \end{lstlisting}
+    In questa classe, è presente il metodo “Crea(NTitolo). Affinchè quest’ultimo possa eseguire, “NTitolo”, ovvero il titolo che si vuole attribuire all’evento che si sta creando, deve essere diverso dalla stringa vuota. Infine, dopo l’esecuzione di questo metodo, l’attributo “Proprietario” deve essere uguale ad UserId, Id dell’utente autenticato che sta creando l’evento, e “Titolo” a “NTitolo”, il titolo scelto per l’evento. \\
+    Tali condizioni sono presentati dal seguente codice OCL:
+    \begin{lstlisting}
 CONTEXT Evento::Crea(NTitolo)
 PRE : Ntitolo <> ""
 POST : Proprietario = UserId AND Titolo = NTitolo
+    \end{lstlisting}
+    Infine, in questa classe è presente il metodo “Salva(NTitolo , NDescrizione , NPriorita , NDifficolta , NLuogo)”. Per questo metodo, per eseguire, si deve verificare, come condizione, che il titolo inserito per l’Evento da salvare sia diverso dalla stringa vuota. \\
+    Dopo l’esecuzione del metodo, gli attributi dell’oggetto “Evento” saranno uguali ai parametri inseri in tale metodo “Salva”. \\
+    Queste condizioni sono rappresentante dal seguente codice OCL:
 
+    \begin{lstlisting}
 CONTEXT Evento::Salva(NTitolo, NDescrizione, NPriorita, NDifficolta, NLuogo)
 PRE : Ntitolo <> ""
 POST : Titolo = NTitolo AND Descrizione = NDescrizione AND Priorita = NPriorita AND Difficolta = NDifficolta AND Luogo = NLuogo AND 
