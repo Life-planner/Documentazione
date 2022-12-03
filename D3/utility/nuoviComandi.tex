@@ -19,4 +19,11 @@
 
 \captionsetup[figure]{labelformat=empty}
 
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
 \newcommand{\inlinecode}[1]{\colorbox{veryLightGray}{\lstinline$#1$}}

@@ -8,7 +8,7 @@ Nella seguente parte della sezione vengono presentati gli attori e i sistemi est
 
 \subsection{Utenti e sistemi esterni}
 
-\begin{listaPersonale}[ACO]{}
+\begin{listaPersonale}{ACO}
     \subsubsection*{Utenti}
     \elemento[Utente non autenticato:]{aco:UtenteNonAutenticato}
     Identificato nel \prettyref{D1-rf:UtenteNonAutenticato}, identifica un utente non ancora autenticato o che ha deciso di non registrarsi alla piattaforma. Le funzionalità che vengono date a questo tipo di utenti sono descritte nel \prettyref{D1-rf:DemoUtenteNonAutenticato} e \prettyref{D1-rf:AccessoRegistrazione}.
@@ -56,8 +56,9 @@ Nella seguente parte della sezione vengono presentati gli attori e i sistemi est
 
 
 \subsection{Diagramma di contesto}
+\label{secD2:DiagrammaContesto}
 
-\begin{listaPersonale}[DCO]{}
+\begin{listaPersonale}{DCO}
     \elemento[Utente non autenticato]{dco:UtenteNonAutenticato}
     L'utente non autenticato può eseguire l'autenticazione o la registrazione sulla piattaforma, come descritto in \prettyref{D1-rf:AccessoRegistrazione}. Se decide di fare la registrazione, l'utente verrà indirizzato nella pagina di registrazione. Se decide di eseguire l'autenticazione e questa avviene con successo, l'utente diventa un utente autenticato standard (\prettyref{D1-rf:UtenteStandard}) o premium (\prettyref{D1-rf:UtentePremium}) in base alla tipologia di account. Nel caso un utente decidesse di non autenticarsi, come descritto nel \prettyref{D1-rf:UtenteNonAutenticato} e \prettyref{D1-rf:DemoUtenteNonAutenticato}, l'utente non autenticato avrà accesso a una versione demo della piattaforma. Nella versione demo, l'utente non autenticato potrà creare e modificare eventi come descritto in \prettyref{D1-rf:CreazioneModificaEvento} fatta eccezione per le funzionalità citate in \prettyref{D1-rf:FunzionalitaDemoUtenteNonAutenticato}, inoltre un utente non autenticato potrà modificare le impostazioni del calendario principale come descritto in \prettyref{D1-rf:ImpostazioniPredefiniteCalendario}, con le eccezioni citate in \prettyref{D1-rf:FunzionalitaDemoUtenteNonAutenticato}. Un utente non autenticato potrà anche visualizzare gli impegni definendo un specifico filtro secondo le modalità e criteri presenti in \prettyref{D1-rf:Filtro}. L'utente non autenticato avrà anche la possibilità di avere un inserimento automatico degli eventi nel caso in cui non avesse definito l'ora, la data e la durata dell'attività come descritto in \prettyref{D1-rf:InserimentoAutomaticoCalendario}. Infine, potrà visualizzare delle infografiche sull'uso del tempo, come descritto \prettyref{D1-rf:UsoDelTempo}.
 
@@ -93,7 +94,8 @@ Nella seguente parte della sezione vengono presentati gli attori e i sistemi est
     Per rispettare il \prettyref{D1-rf:AccessoRegistrazione}, MongoDB salva nel suo database l’oggetto contenente i dati utente, restituito da Auth0 in fase di registrazione, che verrà convalidato ogni volta che l’utente accederà al sito mediante Auth0. Nel database saranno presenti anche le impostazioni dell’account, che possono essere modificate direttamente dall’utente come scritto in \prettyref{D1-rf:ImpostazioniAccount}.  La modifica delle impostazioni dell’account porta ad un modifica del rispettivo record del database. Per soddisfare il \prettyref{D1-rf:PagamentoUtentePremium}, bisogna memorizzare nel database di MongoDB i dettagli dell’account PayPal o Stripe, in base alla scelta del metodo di pagamento fatta in precedenza, per effettuare il pagamento ricorrente in automatico. In seguito, per rispettare il \prettyref{D1-rf:CondivisioneCalendario} e \prettyref{D1-rf:ImpostazioniPredefiniteCalendario}, i calendari sono salvati su MongoDB, in modo tale che gli eventi riferiti ad un specifico calendario possano riferirsi direttamente al calendario presente nel database. Inoltre nel database, sono presenti anche le impostazioni del calendario, definite in tempo di creazione, che possono essere modificate come scritto in \prettyref{D1-rf:ImpostazioniPredefiniteCalendario}; la modifica del calnedario potrebbe portare anche ad un'eliminazione di quest'ultimo. La modifica delle impostazioni del calendario porta ad una modifica o eliminazione del record del calendario in modo tale da evitare problemi di inconsistenza dei dati. Inoltre MongoDB, rispettando il \prettyref{D1-rf:CreazioneModificaEvento}, salverà nel suo database gli eventi, quando questi verranno creati; il record dell’evento, presente nel database, viene modificato nel caso in cui l’utente andasse a modificare tale evento, in modo tale di evitare problemi di inconsistenza dei dati. Nel database MongoDB saranno presenti anche le impostazioni notifiche definite dall’utente in tempo di creazione/modifica evento (\prettyref{D1-rf:CreazioneModificaEvento}) oppure in tempo di creazione/modifica calendario \prettyref{D1-rf:ImpostazioniPredefiniteCalendario}. Nel caso in cui l’utente volesse andare ad utilizzare Google Calendar con la sincronizzazione automatica con PlanIt, nel database MongoDB si deve salvare il token di accesso Google salvato al momento del collegamento. In questo modo verrà rispettato il \prettyref{D1-rf:GoogleCalendar}. Tutti questi dati presenti su MongoDB, ovviamente, saranno resi disponibili dal database in fase di lettura ogni volta che la nostra piattaforma ne avrà bisogno.
 
     \begin{center}
-        \includegraphics[width=1\textwidth]{img/Diagrammi/Contesto/DiagrammaContesto.png}
+        \includegraphics[width=1\textwidth]{img/Diagrammi/Contesto/DiagrammaContesto.png}\\
+        \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/Contesto/DiagrammaContesto.png}{Immagine diagramma del contesto}}
         Si prega di zoomare a piacere in modo tale di poter leggere bene le varie parti del diagramma
     \end{center}
 

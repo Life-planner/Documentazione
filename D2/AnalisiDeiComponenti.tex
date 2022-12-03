@@ -3,10 +3,10 @@
 
 Nel presente capitolo viene presentata l'architettura in termini di componenti (ACI) interni al sistema definiti sulla base dei requisiti analizzati nei precedenti documenti. Viene poi adottato l'uso di Component Diagram per rappresentare l'interconnessione tra i vari componenti, identificando quindi le interfacce tra questi e verso sistemi esterni.
 
-\subsection{DEFINIZIONE DEI COMPONENTI}
+\subsection{Definizione dei compoenenti}
 In questa sezione vengono definiti i componenti.
 
-\begin{listaPersonale}[ACI]{}
+\begin{listaPersonale}{ACI}
 
     \elemento[Gestione creazione o modifica evento]{aci:creazioneModificaEvento}
 
@@ -299,31 +299,36 @@ In questa sezione vengono definiti i componenti.
 
 
 
-\subsection{DIAGRAMMA DEI COMPONENTI}
+\subsection{Diagramma dei compoenenti}
+\label{secD2:DiagrammaComponenti}
 
 \begin{center}
-    
-    \includegraphics[width=1\textwidth,height=0.4\textheight]{img/Diagrammi/Componenti/Diagramma_dei_componenti.png}
+    \includegraphics[width=1\textwidth,height=0.4\textheight]{img/Diagrammi/Componenti/Diagramma_dei_componenti.png}\\
+    \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/Componenti/Diagramma_dei_componenti.png}{Immagine diagramma dei componenti}}
     Questa figura mostra tutto il diagramma dei componenti del sito PlanIt.
 \end{center}
 \begin{center}
-    \includegraphics[width=1\textwidth,height=0.3\textheight]{img/Diagrammi/Componenti/P1_Diagramma_dei_componenti.png}
+    \includegraphics[width=1\textwidth,height=0.3\textheight]{img/Diagrammi/Componenti/P1_Diagramma_dei_componenti.png}\\
+    \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/Componenti/P1_Diagramma_dei_componenti.png}{Immagine diagramma dei componenti P1}}
     Questa figura mostra tutto il quarto in alto a sinistra del diagramma dei componenti del sito PlanIt.
 \end{center}
 \begin{center}
-    \includegraphics[width=1\textwidth,height=0.3\textheight]{img/Diagrammi/Componenti/P2_Diagramma_dei_componenti.png}
+    \includegraphics[width=1\textwidth,height=0.3\textheight]{img/Diagrammi/Componenti/P2_Diagramma_dei_componenti.png}\\
+    \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/Componenti/P2_Diagramma_dei_componenti.png}{Immagine diagramma dei componenti P2}}
     Questa figura mostra tutto il quarto in alto a destra del diagramma dei componenti del sito PlanIt.
 \end{center}
 \begin{center}
-    \includegraphics[width=1\textwidth,height=0.45\textheight]{img/Diagrammi/Componenti/P3_Diagramma_dei_componenti.png}
+    \includegraphics[width=1\textwidth,height=0.45\textheight]{img/Diagrammi/Componenti/P3_Diagramma_dei_componenti.png}\\
+    \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/Componenti/P3_Diagramma_dei_componenti.png}{Immagine diagramma dei componenti P3}}
     Questa figura mostra tutto il quarto in basso a destra del diagramma dei componenti del sito PlanIt.
 \end{center}
 \begin{center}
-    \includegraphics[width=1\textwidth,height=0.45\textheight]{img/Diagrammi/Componenti/P4_Diagramma_dei_componenti.png}
+    \includegraphics[width=1\textwidth,height=0.45\textheight]{img/Diagrammi/Componenti/P4_Diagramma_dei_componenti.png}\\
+    \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/Componenti/P4_Diagramma_dei_componenti.png}{Immagine diagramma dei componenti P4}}
     Questa figura mostra tutto il quarto in basso a sinistra del diagramma dei componenti del sito PlanIt.
 \end{center}
 \newpage
-\begin{listaPersonale}[DCI]{}
+\begin{listaPersonale}{DCI}
     \elemento[Gestione creazione o modifica evento]{dci:GestioneCreazioneModificaEvento}
 
     \textbf{Descrizione:} gestisce l'intera procedura che l'utente autenticato segue per creare o modificare un evento. Dopo che l'utente ha definito i campi, questo componente crea o modifica l'evento secondo i campi definiti.  Il componente fornisce una pagina dove l'utente autenticato può definire questi campi.
@@ -990,7 +995,7 @@ In questa sezione vengono definiti i componenti.
 
     \elemento[Interfaccia Auth0]{dci:InterfacciaAuth0}
 
-    \textbf{Descrizione:} Il componente deve gestire il reindirizzamento dell'utente sulla pagina di accesso provvista da Auth0. 
+    \textbf{Descrizione:} Il componente deve gestire il reindirizzamento dell'utente sulla pagina di accesso provvista da Auth0.
 
     \textbf{Interfaccia richiesta - dati utente:} sono i dati utente (email) ricevute da Auth0 a accesso avvenuto con successo.
 
