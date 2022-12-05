@@ -88,7 +88,7 @@ POST : self.SistemaMappe = NSistemaMappe
     Inoltre, in questa classe è presente il metodo “ControlloValiditaPassword(NPassword) il quale,dopo aver eseguito, ritorna un booleano. Il valore di questo dipende dal fatto se la nuova password inserita, NuovaPassword, segua o meno gli standard già presentati in D2-RNF2 (anche D1-RNF2.1).
     \begin{lstlisting}
         CONTEXT GestioneModificaPassword::ControlloValiditaPassword(NPassword) :
-        POST : return = NPassword.size() >= 8 AND NPassword.exists(carattere | carattere = [a, ..., z]) AND NPassword.exists(carattere | carattere = [A, ..., Z]) AND NPassword.exists(carattere | carattere = [0, ..., 9]) AND NPassword.exists(carattere | carattere = [!, #, $, %, &, *])
+        POST : return = NPassword.size() >= 8 AND NPassword.exists(carattere | carattere = [a, ..., z]) AND NPassword.exists(carattere | carattere = [A, ..., Z]) AND NPassword.exists(carattere | carattere = [0, ..., 9]) AND NPassword.exists(carattere | carattere = [!, #, \$, \%, \&, \*])
     \end{lstlisting}
 
     Dopo l'esecuzione del metodo “ControlloSetPassword(NPassword)”, nella classe “GestioneModificaPassword” si verifica una condizione, più specificamente una postcondizione, visto che avviene dopo l'esecuzione del metodo sopra citato. Infatti l'attributo “nuovaPassword” ha il valore di Npassword, parametro, meglio dire password, utilizzato per modificare la password di un utente autenticato.\\
@@ -204,6 +204,9 @@ POST : Titolo = NTitolo AND Descrizione = NDescrizione AND Priorita = NPriorita 
 
 
     \elemento[Gestione Chiamate MongoDB]{ocl:GestioneMongoDB}
+    Nella classe “Gestione Chiamate MongoDB” ci sono delle condizioni che devono essere sempre verificate; infatti l’attributo “Link”, attributo in cui è salvato l’URL del database MongoDB con cui interagisce questa classe, e la “Password”, necessaria per poter accedere e interagire sempre con il database MongoDB, non devono essere fuori. Infatti, se lo fossero, la classe “Gestione Chiamate MongoDB” non potrebbe gestire le chiamate tra MongoDB e l’applicativo.\\
+    Queste condizioni sono presentate con del codice OCL nel seguente modo:
+
     \begin{lstlisting}
 CONTEXT GestioneChiamateMongoDB :
 INV : Link <> "" AND Password <> "" 
@@ -213,6 +216,9 @@ INV : Link <> "" AND Password <> ""
 
 
     \elemento[Tipo Data]{ocl:TipoData}
+    Nella classe “Tipo\_Data” sono presenti delle condizioni che devono essere verificate, ovvero che gli attributi “Ora”, “Minuti”, “Giorno” e “Mese” devono avere dei valori che siano coerenti agli intervalli temporali imposti dalla convenzione sul tempo.\\
+    Tali condizione sono presentati dal seguente codice OCL:
+
     \begin{lstlisting}
 CONTEXT Tipo_Data:
 INV : Ora >= 0 AND Ora <= 23 AND
@@ -225,6 +231,9 @@ Mese >= 1 AND Mese <= 12
 
 
     \elemento[Tipo Luogo]{ocl:TipoLuogo}
+    Anche nella classe “Tipo\_Luogo” sono presenti dei requisiti che devono essere sempre rispettati. Gli attributi “Latitudine” e “Longitudine” non devono essere delle stringhe vuote.\\
+    Queste condizioni sono descritte in OCL nel seguente modo:
+
     \begin{lstlisting}
 CONTEXT Tipo_Luogo:
 INV : Latitudine <> "" AND Longitudine <> "" 
@@ -234,6 +243,9 @@ INV : Latitudine <> "" AND Longitudine <> ""
 
 
     \elemento[Tipo Fuso Orario]{ocl:TipoFusoOrario}
+    In questa classe, ci sono delle condizioni che devono essere sempre rispettate, ovvero che l’attributo “GMToffset” abbia un valore che sia coerente con l’intervallo di valori che può assumere l’offset di un fuso orario rispetto a Greenwich secondo le convenzioni poste.\\
+    Dunque, è stato fatto questo codice OCL:
+
     \begin{lstlisting}
 CONTEXT Tipo_Fuso_Orario:
 INV : GMToffset >= -12 AND GMToffset <= 12 
@@ -243,6 +255,8 @@ INV : GMToffset >= -12 AND GMToffset <= 12
 
 
     \elemento[Tipo Calendario Filtrato]{ocl:TipoCalendarioFiltrato}
+    Anche la classe “Tipo\_Calendario\_Filtrato” presenta delle condizioni che devono essere sempre verificate, cioè che l’attributo “Calendari”, che contiene un calendario dell’utente autenticato, deve essere diverso da “Null”. Infatti questo tipo di dato è utilizzato per andare a filtrare i calendari posseduti da un utente autenticato, dunque per forza deve essere diverso da “Null”. \\
+    Queste condizioni sono presentate dal seguente codice OCL:
     \begin{lstlisting}
 CONTEXT Tipo_Calendario_Filtrato
 INV: Calendari <> Null
@@ -252,10 +266,18 @@ INV: Calendari <> Null
 
 
     \elemento[Tipo Link Richiesta]{ocl:TipoLinkRichiesta}
+    La classe “Tipo\_Link\_Richiesta” ha dei requisiti riguardo a dei suoi attributi che devono essere sempre rispettati. Infatti, questo tipo di dato, utilizzato per fare le richieste di condivisione di eventi o calendari, non può avere entrambe le stringhe “IdCalendario”, id utlizzato per identificare univocamente un calendario, “IdEvento”, id che identifica univocamente un Evento, vuote. Inoltre anche “Account” deve avere un valore diverso da “Null”. Questo è necessario, perché un oggetto di tipo “Tipo\_Link\_Richiesta” viene istanziato se e solo se si vuole condividere effettivamente un calendario o evento che si creando o modificando appartenente ad un utente autenticato avente, ovviamente, un account.\\
+    Queste condizioni sono rappresentate dall’OCL:
+
     \begin{lstlisting}
 CONTEXT Tipo_Link_Richiesta:
 INV : (IdCalendario <> "" AND IdEvento = "") OR (IdCalendario = "" AND IdEvento <> "") AND Account <> Null
+    \end{lstlisting}
+    Inoltre, in questa classe, nel contesto del metodo “creaRichiesta (IdCalendario, IdEvento, Account) ci sono delle precondizioni che devono essere rispettate prima di una sua esecuzione. Infatti, prima dell’esecuzione del metodo, devono essere rispettate le condizioni già citate nelle invarianti, ma che stavolta sono imposte sui parametri di questa funzione. Si noti che i parametri della funzione sono diversi dagli attributi, prima dell’esecuzione di questa funzione.
+    Infine, dopo l’esecuzione di questo metodo, abbiamo delle postcondizioni. Infatti, dopo che avviene questa funzione, che può essere intesa come un vero e proprio costruttore di un oggetto di questo tipo di dato, gli attributi di un oggetto di questa classe hanno assumono i valori inseriti come parametri per il metodo “creaRichiesta”. \\
+    Queste postcondizioni e precondizioni sono espresse nel seguente codice OCL:
 
+    \begin{lstlisting}
 CONTEXT Tipo_Link_Richiesta::creaRichiesta(IdCalendario, IdEvento, Account)
 PRE : (IdCalendario <> "" AND IdEvento = "") OR (IdCalendario = "" AND IdEvento <> "") AND Account <> Null
 POST : self.IdCalendario = IdCalendario AND self.IdEvento = IdEvento AND  self.Account = Account  
@@ -265,6 +287,9 @@ POST : self.IdCalendario = IdCalendario AND self.IdEvento = IdEvento AND  self.A
 
 
     \elemento[Gestione Luoghi]{ocl:GestioneLuoghi}
+    Questa classe ha delle precondizioni che devono essere rispettate per l’esecuzione del metodo “ConvertIndirizzoToCordinate(indirizzo)”, ovvero che l’indirizzo che deve essere convertito in delle coordinate geografiche deve essere diverso da una stringa vuota.\\
+    Questa precondizione è espressa nel codice OCL:
+
     \begin{lstlisting}
 Context GestioneLuuoghi::ConvertIndirizzoToCordinate (indirizzo):
 PRE : indirizzo <> ""
@@ -274,6 +299,8 @@ PRE : indirizzo <> ""
 
 
     \elemento[Google Maps API]{ocl:GoogleMapsAPI}
+    La classe “Google Maps API” ha delle invarianti che devono essere sempre verificate, ovvero che l’ “EndPoint”, URL con cui si accede alle API di Google Maps, e ApiToken, che è il “token” con cui possiamo accedere alle API di Google  Maps, non devono essere stringhe vuote.\\
+    Queste invarianti sono descritte con questo codice OCL: 
     \begin{lstlisting}
 CONTEXT GoogleMapsAPI :
 INV : Endpoint <> "" AND ApiToken <> ""
@@ -283,6 +310,8 @@ INV : Endpoint <> "" AND ApiToken <> ""
 
 
     \elemento[OpenStreatMap API]{ocl:OpenStreatMapAPI}
+    La classe “OpenStreetMap API” ha un’ invariante che deve essere sempre verificata, ovvero che l’ “EndPoint”, URL con cui si accede alle API di OpenStreetMap, non deve essere una stringa vuota. \\
+    Questa invariante è descritta in OCL: 
     \begin{lstlisting}
 CONTEXT OpenStreetMapAPI :
 INV : Endpoint <> ""
@@ -292,6 +321,9 @@ INV : Endpoint <> ""
 
 
     \elemento[Impostazioni Ripetizione Base]{ocl:ImpostazioniRipetizioneBase}
+    La classe “ImpostazioniRipetizioneBase” ha delle invarianti che devono essere sempre rispettate, ovvero che “NumeroRipetizioni” dell’evento, di cui stiamo impostando le ripetizioni, deve essere maggiore o uguale a 1 e che la durata di tale evento sia maggiore o uguale a 0. \\
+    Queste invarianti sono presentate dal seguente codice OCL:
+
     \begin{lstlisting}
 CONTEXT ImpostazioniRipetizioneBase:
 INV : NumeroRipetizioni >= 1 AND Durata >= 0
@@ -301,6 +333,9 @@ INV : NumeroRipetizioni >= 1 AND Durata >= 0
 
 
     \elemento[Giornata]{ocl:Giornata}
+    La classe “Giornata”, utilizzata per indicare il giorno in cui avviene un evento ripetuto, ha un’invariante; questa riguarda l’attributo “GiornoDellaSettimana”, che ovviamente, deve assumere il valore di un giorno della settimana esistente.\\
+    Questa invariante è descritta dal seguente OCL:
+
     \begin{lstlisting}
 CONTEXT Giornata:
 INV : GiornoDellaSettimana = "L" OR
@@ -316,6 +351,8 @@ GiornoDellaSettimana = "D"
 
 
     \elemento[Evento Ripetuto]{ocl:EventoRipetuto}
+    La classe “Evento Ripetuto” ha un’invariante che riguarda l’attributo “DurateIntervallo”, ovvero periodo di tempo per cui deve essere valido tale evento ripetuto. Infatti “DurataIntervallo” deve avere un valore di periodo temporale che sia valido, ovvero o durata di un giorno, o mese, o settimana o anno. \\
+    Questo è il codice OCL che descrive questa invariante:
     \begin{lstlisting}
 CONTEXT EventoRipetuto:
 INV : DurataIntervallo = "Giorno" OR DurataIntervallo = "Settimana" OR DurataIntervallo = "Mese" OR 
@@ -326,6 +363,9 @@ DurataIntervallo = "Anno"
 
 
     \elemento[Evento Singolo]{ocl:EventoSingolo}
+    La classe “Evento Singolo”, che indica un evento che è valido solo per un giorno di cui indichiamo la data e la sua durata, ha delle condizioni che devono essere sempre rispettate. L’attributo “Durata” di un oggetto, istanza di questa classe, deve avere un valore maggiore o uguale a 0 e la “Data” deve essere diversa da “Null”. \\
+    Per questo motivo è stato scritto questo codice OCL:
+
     \begin{lstlisting}
 CONTEXT EventoSingolo:
 INV : Durata >= 0 AND Data <> Null
@@ -335,6 +375,8 @@ INV : Durata >= 0 AND Data <> Null
 
 
     \elemento[Sistema Di Pagamento]{ocl:SistemaPagamento}
+    Questa classe presenta delle invarianti che devono essere sempre verificate. “TipoPagamento” deve assumere un valore che sia uguale a “PayPal” o “Stripe”, che sono i sistemi di pagamento messi a disposizione dall’applicativo per il pagamento dell’abbonamento. \\
+    Questa condizione è rappresentata dal seguente codice OCL:
     \begin{lstlisting}
 CONTEXT SistemaDiPagamento :
 INV : TipoPagamento = "PayPal" OR TipoPagamento = "Stripe"
@@ -347,10 +389,15 @@ POST : TipoPagamento = NSistema
 
 
     \elemento[Stripe API]{ocl:StripeAPI}
+    La classe “Stripe API” ha delle condizioni che devono essere sempre verificate; infatti l’attributo “ProductId”, Id che indica il prodotto abbonamento che si sta acquistando e che sarà presente nella lista di abbonamenti del proprio account di Stripe, una volta che la sottoscrizione all’account premium sarà effettuata, e l’ “EndPoint”, URL delle API di Stripe con cui l’applicativo va ad interagire, non devono essere delle stringhe vuote.
+    Dunque, in codice OCL abbiamo:
     \begin{lstlisting}
 CONTEXT StripeAPI :
 INV : ProductId <> "" AND EndPoint <> ""
-
+    \end{lstlisting}
+    Infine, in questa classe, nel contesto del metodo "PagaSubscription()" sono preesente delle postcondizioni. Infatti "UserPaymentToken", token che indica l'user dell'account Stripe con cui si va a pagare l'abbonamento, e "PaymentId", Id che identifica univocamente il prodotto, in questo caso l'abbonamento, che si sta acquistando, non devono essere delle stringhe vuote: se lo fossero l'acquisto dell'abbonamento non potrebbe concludersi con successo.\\
+    Queste postcondizioni sono espresse nel seguente codice OCL:
+    \begin{lstlisting}
 CONTEXT StripeAPI::PagaSubscription() :
 POST : UserPaymentToken <> "" AND PaymentId <> ""
     \end{lstlisting}
@@ -359,10 +406,14 @@ POST : UserPaymentToken <> "" AND PaymentId <> ""
 
 
     \elemento[PayPal API]{ocl:PayPalAPI}
+    Nella classe, "PayPal API", come avviene nella classe "Stripe API" (\ref{ocl:StripeAPI}), gli attributi "EndPoint" e "ProductId" non possono essere delle stringhe vuote, dunque esprimiamo queste invarianti nel seguente codice OCL:
     \begin{lstlisting}
 CONTEXT PayPalAPI :
 INV : ProductId <> "" AND EndPoint <> ""
-
+    \end{lstlisting}
+    Inoltre, in questa classe, nel contesto del metodo “PagaSubscrition()” è presente una postcondizione. Infatti, dopo l’esecuzione di questo metodo, gli attributi “PayPalEmail”, “PayPalUserName” e “SubscriptionId”, che corrispondono alle credenziali PayPal dell’utente autenticato, che decide di pagare l’abbonamento con questo metodo, non sono delle stringhe vuote. \\
+    Questa postcondizione è espressa in OCL nel seguente modo:
+    \begin{lstlisting}
 CONTEXT PayPalAPI::PagaSubscription() :
 POST : PayPalEmail <> "" AND PayPalUserName <> "" AND SubscriptionId <> ""
     \end{lstlisting}
@@ -371,11 +422,18 @@ POST : PayPalEmail <> "" AND PayPalUserName <> "" AND SubscriptionId <> ""
 
 
     \elemento[Abbonamento]{ocl:Abbonamento}
+    In questa classe, nel contesto del metodo “SottoscrizioneAbbonamento()”, ci sono delle condizioni che devono essere rispettate prima dell’esecuzione del metodo. Infatti, per sottoscrivere un abbonamento, l’attributo “Abbonato” deve essere uguale a false.\\
+    Inoltre, ovviamente, dopo l’esecuzione del metodo “Abbonato” diventa uguale a true, in quanto si è sottoscritto l’abbonamento.\\
+    Questa precondizione e postcondizione sono presentate nel seguente modo con il codice OCL:
+
     \begin{lstlisting}
 CONTEXT Abbonamento::SottoscrizioneAbbonamento() :
 PRE Abbonato = false
 POST Abbonato = true
-
+    \end{lstlisting}
+    Nella classe "Abbonamento", nel contesto del metodo "CancellazioneAbbonamento()" sono presenti le stesse pre e post-condizioni presentate per "SottoscrizioneAbbonamento()", ma, ovviamente, invertite. Infatti con questa funzione si fa esattamente il procedimento inverso.
+    Queste condizioni sono espresse in OCL nel seguente modo;
+    \begin{lstlisting}
 CONTEXT Abbonamento::CancellazioneAbbonamento() :
 PRE Abbonato = true
 POST Abbonato = false
@@ -396,6 +454,9 @@ POST : sincronizzazione = NOT sincronizzazione@pre
 
 
     \elemento[Gestione Import/Export]{ocl:GestioneImportExport}
+    Nella classe “Gestione Import/Export” ci sono delle condizioni che devono essere sempre verificate, infatti l’attributo “Sincronizzazione”, booleano che indica se stiamo usando  o meno la sincronizzazione come metodo di interazione con Google Calendar, deve essere uguale a “false”. Infatti l’interazione con Google Calendar o è fatta mediante import/export di file o mediante la sincronizzazione automatica, non si possono fare entrambe contemporaneamente.\\
+    Questa invariante è presenta in OCL nel seguente modo:
+
     \begin{lstlisting}
 CONTEXT GestioneImportExport :
 INV : Sincronizzazione = false
@@ -404,7 +465,11 @@ INV : Sincronizzazione = false
 
 
 
-    \elemento[Gestione Sincronizzazione]{ocl:GestioneSincronizzazione}
+    \elemento[Gestione Sincronizzazione]
+    {ocl:GestioneSincronizzazione}
+    Nella classe "Gestione Sincronizzazione" sono presente delle condizioni che devono essere sempre rispettate. Infatti, contrariamente dalla classe "Gestione Import/Export", l'attributo "Sincronizzazione" deve essere uguale a "true"; questo indica che stiamo utilizzando la sincronizzazione come metodo di integrazione di Google Calendar con PlanIt.
+    Inoltre, anche "authorizationToken", token necessario per poter accedere ad un account Google e, quindi, necessario per poter interagire con l'account Google Calendar di un utente, non deve essere una stringa vuota.\\
+    Queste inviarianti presentate sono descritte da questo codice OCL: 
     \begin{lstlisting}
 CONTEXT GestioneSincronizzazione :
 INV : Sincronizzazione = true AND authorizationToken <> ""
@@ -414,6 +479,9 @@ INV : Sincronizzazione = true AND authorizationToken <> ""
 
 
     \elemento[Google Calendar API]{ocl:GoogleCalendarAPI}
+    In questa classe, è presente un’invariante che deve essere sempre valida; infatti l’attributo “EndPoint”, URL delle API di Google Calendar, non deve essere una stringa vuota, cosa necessaria per poter interagire mediante sincronizzazione con l’applicativo Google Calendar.\\
+    Questa condizione è espressa nel seguente codice OCL:
+
     \begin{lstlisting}
 CONTEXT GoogleCalendar :
 INV : Endpoint <> ""
@@ -423,19 +491,34 @@ INV : Endpoint <> ""
 
 
     \elemento[Iubenda]{ocl:Iubenda}
+    La classe “Iubenda” ha delle condizioni che devono essere sempre rispettate. Infatti l’attrivuto “CookieBannerCode”, codice che mi serve per accedere al banner di cookie di Iubenda, e le “PoliticheDiPrivacy”, stringa che contiene le politiche di privacy ottenute da Iubenda, non devono essere delle stringhe vuote.\\
+    Queste invarianti sono descritte dal seguente codice OCL:
+
     \begin{lstlisting}
 CONTEXT Iubenda :
 INV CookieBannerCode <> "" AND PoliticheDiPrivacy <> ""
-
+    \end{lstlisting}
+    Inoltre, in questa classe nel contesto del metodo “AccettaCookie(NomeCookie)”, sono presenti delle postcondizioni. Infatti nel caso venisse accettato un cookie, questo viene aggiunto alla lista di cookie contenuto in “CookieAccettati”; per questo motivo il size di questo array aumenta di uno, rispetto al suo size prima dell’esecuzione del metodo. E, ovviamente, dopo aver accettato il cookie, questo sarà presente nell’array “CookieAccettati”. \\
+    Queste postcondizioni sono descritte in OCL nel seguente modo:
+    \begin{lstlisting}
 CONTEXT Iubenda::AccettaCookie(NomeCookie) :
 POST : CookieAccettati.size() = CookieAccettati.size()@pre +1 AND CookieAcettati -> exists(c | c.Nome = NomeCookie)
-
+    \end{lstlisting}
+    Nel contesto del metodo RifiutaCookie(NomeCookie), sono presenti delle postcondizioni. Infatti, in quanto tale “NomeCookie” viene rifiutato dall’utente, questo non viene aggiunto dall’array di cookie “CookieAccettati”, dunque la dimensione di questa lista rimane la stessa e tale cookie non è presente in questa lista.\\
+    Queste postocondizioni sono descritte in OCL:
+    \begin{lstlisting}
 CONTEXT Iubenda::RifiutaCookie(NomeCookie) :
 POST : CookieAccettati.size() = CookieAccettati.size()@pre AND NOT (CookieAcettati -> exists(c | c.Nome = NomeCookie))
-
+    \end{lstlisting}
+    In questa classe, nel contesto del metodo “AccettaTuttiCookies()”, l’array di “CookieAccettati” viene inizializzata ottenendo tutti i cookie presenti in “ListaCookie”, di conseguenza ha anche la sua stessa dimensione. \\
+    Tutto ciò sono delle postcondizioni del metodo “AccettaTuttiCookies()” che vengono descritte con il seguente codice OCL:
+    \begin{lstlisting}
 CONTEXT Iubenda::AccettaTuttiCookies() :
 POST : CookieAccettati.size() = ListaCookie.size() AND ListaCookies -> forAll (lc | CookieAccettati -> exists(c | c.Nome = lc.Nome))
-
+    \end{lstlisting}
+    Infine, sempre nella classe “Iubenda” ma nel contesto del metodo “RifiutaTuttiCookies”, come condizione dopo l’esecuzione di tale metodo, possiamo dire di avere un stato opposto descritto dopo l’esecuzione del metodo “AccettaTuttiCookies()”. Infatti con questo metodo si vanno a rifiutare tutti i cookie presenti in “ListaCookies”, dunque l’array “CookieAccettati” avrà una dimensione pari a zero.\\
+    Questa postcondizione è descritta dal seguente codice OCL:
+    \begin{lstlisting}
 CONTEXT Iubenda::RifiutaTuttiCookies() :
 POST : CookieAccettati.size() = 0
     \end{lstlisting}
@@ -444,14 +527,25 @@ POST : CookieAccettati.size() = 0
 
 
     \elemento[Tipo Cookie]{ocl:TipoCookie}
+    Nella classe “Tipo\_Cookie”, che serve per contenere un cookie che è stato accettato dall’utente, deve essere sempre valida una condizione, ovvero che l’attributo “Nome”, stringa che contiene il nome, per l’appunto, del cookie accettato, non deve essere una stringa vuota.\\   
+    Questa invariante è descritta dal seguente codice OCL:
     \begin{lstlisting}
 CONTEXT Tipo_Cookies :
 INV : Nome <> "" 
-
+    \end{lstlisting}
+    In questa classe, nel contesto del metodo “CreaCookie(Nome, Scadenza, Chiave, Valore)” sono presenti del pre- e postcondizioni. Infatti, prima dell’esecuzione del metodo, il “Nome” del cookie, di cui stiamo andando a creare un oggetto di tipo “Tipo\_Cookie”, deve essere contenuto nell’array dei “CookieAccettati” presente nella classe Iubenda.\\
+    Dopo l’esecuzione di questo metodo “CreaCookie”, tale oggetto di tipo “Tipo\_Cookie” viene restituito alla classe “Homepage”, dunque sarà presente nell’ array “Cookie” presente nell’ 
+    “Homepage”.\\
+    Questa pre- e post-condizione sono presentate nel seguente codice OCL:
+    \begin{lstlisting}
 CONTEXT Tipo_Cookie::CreaCookie(Nome, Scadenza, Chiave, Valore):
 PRE Iubenda.CookieAccettati -> exists(c | c.nome=Nome)
 POST  Homepage.Cookie -> exists(c | c.nome=Nome AND c.Scadenza =  Scadenza AND c.Chiave = Chiave AND c.Valore = Valore) 
+    \end{lstlisting}
+    Infine, nel classe “Tipo\_Cookie”, nel contesto del metodo “CancellaCookie” è presente una postcondizione. Infatti, avendo un cookie contenuto in oggetto di tipo “Tipo\_Cookie”, questo cookie può essere rifiutato ogni volta che sia vuole mediante questo metodo. Dopo l’esecuzione di questo metodo, il cookie rifiutato verrà eliminato dalla lista cookie presente nell’attributo “Cookie” della classe “Homepage”.\\
+    Questa postcondizione è descritta in OCL nel seguente modo:
 
+    \begin{lstlisting}
 CONTEXT Tipo_Cookie::CancellaCookie(Nome)
 POST : NOT ( Homepage.Cookie -> exists (c | c.Nome = Nome))
     \end{lstlisting}
