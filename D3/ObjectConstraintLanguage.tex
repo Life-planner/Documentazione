@@ -255,11 +255,11 @@ INV : GMToffset >= -12 AND GMToffset <= 12
 
 
     \elemento[Tipo Calendario Filtrato]{ocl:TipoCalendarioFiltrato}
-    Anche la classe “Tipo\_Calendario\_Filtrato” presenta delle condizioni che devono essere sempre verificate, cioè che l’attributo “Calendari”, che contiene un calendario dell’utente autenticato, deve essere diverso da “Null”. Infatti questo tipo di dato è utilizzato per andare a filtrare i calendari posseduti da un utente autenticato, dunque per forza deve essere diverso da “Null”. \\
+    Anche la classe “Tipo\_Calendario\_Filtrato” presenta delle condizioni che devono essere sempre verificate, cioè che l’attributo “CalendarioFiltrato”, che contiene un calendario dell’utente autenticato, deve essere diverso da “Null”. Infatti questo tipo di dato è utilizzato per andare a filtrare i calendari posseduti da un utente autenticato, dunque per forza deve essere diverso da “Null”. \\
     Queste condizioni sono presentate dal seguente codice OCL:
     \begin{lstlisting}
 CONTEXT Tipo_Calendario_Filtrato
-INV: Calendari <> Null
+INV: CalendarioFiltato <> Null
     \end{lstlisting}
 
 
