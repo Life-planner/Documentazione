@@ -7,15 +7,15 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     \elemento[Use case “Accesso e registrazione” (\prettyref{D1-rf:AccessoRegistrazione})]{uc:AccessoRegistrazioneAccount}
 
     \begin{center}
-        \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/UseCases/AccessoRegistrazione.png}{Immagine use case Accesso e registrazione}}
-        \includegraphics[width=0.7\textwidth]{img/Diagrammi/UseCases/AccessoRegistrazione.png}
+        \includesvg[width=0.7\textwidth]{img/Diagrammi/svg/UseCases/AccessoRegistrazione.svg}
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/AccessoRegistrazione.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/AccessoRegistrazione.svg}{SVG} use case Accesso e registrazione}
     \end{center}
     In quanto le azioni di "Login" e "Registrazione" presentano molte procedure in comune, poichè c'è la partecipazione in comune di Auth0, che gestisce sia il login che la registrazione, abbiamo deciso di fare un State Machine Diagram con swimlanes che ingloba entrambi gli use case di "Login" e "Registrazione", anziché andare a fare due State Machine Diagram distinti, i quali avrebbero avuto molte ridondanze. \\ Lo State Machine Diagram prende in considerazione tutte le possibili procedure che l'utente non autenticato  può intraprendere a seconda delle sue scelte. Proprio queste scelte sono stato il motivo per cui abbiamo deciso di usare uno State Machine Diagram a discapito di una descrizione in italiano, in cui non è possibile andare a specificare la possibilità di scelta.
 
     \textbf{Diagramma:}
     \begin{center}
-        \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/DS/DS_AccessoRegistrazione.png}{Immagine diagramma Accesso e registrazione}}
-        \includegraphics[width=1\textwidth, height = 0.4\textheight]{img/Diagrammi/DS/DS_AccessoRegistrazione.png}
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/DS/DS_AccessoRegistrazione.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/DS/DS_AccessoRegistrazione.svg}{SVG} diagramma Accesso e registrazione}
+        \includesvg[width=1\textwidth, height = 0.4\textheight]{img/Diagrammi/svg/DS/DS_AccessoRegistrazione.svg}
     \end{center}
 
 
@@ -23,8 +23,8 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     \elemento[“Funzionalità di ciascuna tipologia di account” (\prettyref{D1-rf:UtenteNonAutenticato}, \prettyref{D1-rf:UtenteStandard}, \prettyref{D1-rf:UtentePremium})]{uc:TipiAccount}
 
     \begin{center}
-        \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/UseCases/FunzionalitaUtenti.png}{Immagine use case funzionalità utenti}}
-        \includegraphics[width=0.6\textwidth, height = 0.5\textheight]{img/Diagrammi/UseCases/FunzionalitaUtenti.png}
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/FunzionalitaUtenti.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/FunzionalitaUtenti.svg}{SVG} use case funzionalità utenti}
+        \includesvg[width=0.6\textwidth, height = 0.5\textheight]{img/Diagrammi/svg/UseCases/FunzionalitaUtenti.svg}
     \end{center}
     \begin{listaPersonale2} [UC] {}
         \elemento [Titolo: Use case funzionalità utente non autenticato(\prettyref{D1-rf:UtenteNonAutenticato})] {uc:UtenteNonAutenticato}
@@ -71,8 +71,8 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     \elemento[Use case “Gestione di calendari” (\prettyref{D1-rf:CondivisioneCalendario})]{uc:GestioneCalendari}
 
     \begin{center}
-        \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/UseCases/CondivisioneCalendario.png}{Immagine use case condivisione calendario}}
-        \includegraphics[width=0.7\textwidth]{img/Diagrammi/UseCases/CondivisioneCalendario.png}
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/CondivisioneCalendario.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/CondivisioneCalendario.svg}{SVG} use case condivisione calendario}
+        \includesvg[width=0.7\textwidth]{img/Diagrammi/svg/UseCases/CondivisioneCalendario.svg}
     \end{center}
 
     \textbf{Titolo:} gestione di calendari
@@ -102,16 +102,16 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     \elemento[Use case “Creazione/modifica evento” (\prettyref{D1-rf:CreazioneModificaEvento})]{uc:CreazioneModificaEvento}
 
     \begin{center}
-        \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/UseCases/CreazioneModificaEvento.png}{Immagine use case creazione/modifica evento}}
-        \includegraphics[width=0.85\textwidth, height = 0.5\textheight]{img/Diagrammi/UseCases/CreazioneModificaEvento.png}
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/CreazioneModificaEvento.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/CreazioneModificaEvento.svg}{SVG} use case creazione/modifica evento}
+        \includesvg[width=0.85\textwidth, height = 0.5\textheight]{img/Diagrammi/svg/UseCases/CreazioneModificaEvento.svg}
     \end{center}
     Per andare a descrivere questo use case si è deciso di utilizzare un Activity Diagram con swimlanes, in quanto, in questo use case, sono presenti delle fork, join e anche delle scelte che possono essere effettuate da parte dell'utente non autenticato o autenticato standard. Inoltre, non si è diviso l'Activate Diagram in due parti, a seconda della tipologia di account, in quanto se ci fossero due diagrammi, questi avrebbero molto ridondanze. Infatti, come si può notare dall'Use Case Diagram, l'utente autenticato standard presenta le stesse funzionalità di quello non autenticato, avendo anche delle funzionalità aggiuntive.
 
 
     \textbf{Diagramma:}
     \begin{center}
-        \includegraphics[width=1.1\textwidth, height = 0.4\textheight]{img/Diagrammi/DS/DS_CreazioneModificaEvento.png}
-        \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/DS/DS_CreazioneModificaEvento.png}{Immagine diagramma creazione/modifica evento}}
+        \includesvg[width=1.1\textwidth, height = 0.4\textheight]{img/Diagrammi/svg/DS/DS_CreazioneModificaEvento.svg}
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/DS/DS_CreazioneModificaEvento.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/DS/DS_CreazioneModificaEvento.svg}{SVG} diagramma creazione/modifica evento}
         Si prega di zoomare a piacere in modo tale di poter leggere bene le varie parti del diagramma
     \end{center}
 
@@ -124,8 +124,8 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
     \begin{center}
-        \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/UseCases/InserimentoAutomaticoCalendario.png}{Immagine use case organizzazione attivita}}
-        \includegraphics[width=0.7\textwidth]{img/Diagrammi/UseCases/InserimentoAutomaticoCalendario.png}
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/InserimentoAutomaticoCalendario.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/InserimentoAutomaticoCalendario.svg}{SVG} use case organizzazione attivita}
+        \includesvg[width=0.7\textwidth]{img/Diagrammi/svg/UseCases/InserimentoAutomaticoCalendario.svg}
     \end{center}
 
     \begin{listaPersonale2} [UC] {}
@@ -193,8 +193,8 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
     \begin{center}
-        \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/UseCases/ResocontoGiornata.png}{Immagine use case resoconto giornata}}
-        \includegraphics[width=0.7\textwidth]{img/Diagrammi/UseCases/ResocontoGiornata.png}
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/ResocontoGiornata.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/ResocontoGiornata.svg}{SVG} use case resoconto giornata}
+        \includesvg[width=0.7\textwidth]{img/Diagrammi/svg/UseCases/ResocontoGiornata.svg}
     \end{center}
 
     \textbf{Riassunto:} \\
@@ -240,8 +240,8 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
     \begin{center}
-        \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/UseCases/Notifiche.png}{Immagine use case notifiche}}
-        \includegraphics[width=0.7\textwidth]{img/Diagrammi/UseCases/Notifiche.png}
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/Notifiche.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/Notifiche.svg}{SVG} use case notifiche}
+        \includesvg[width=0.7\textwidth]{img/Diagrammi/svg/UseCases/Notifiche.svg}
     \end{center}
 
     \textbf{Titolo:} impostazione delle notifiche per evento
@@ -279,8 +279,8 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
     \begin{center}
-        \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/UseCases/UsoDelTempo.png}{Immagine use case uso del tempo}}
-        \includegraphics[width=0.7\textwidth]{img/Diagrammi/UseCases/UsoDelTempo.png}
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/UsoDelTempo.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/UsoDelTempo.svg}{SVG} use case uso del tempo}
+        \includesvg[width=0.7\textwidth]{img/Diagrammi/svg/UseCases/UsoDelTempo.svg}
     \end{center}
 
     \textbf{Titolo:} informazioni sull'uso del tempo
@@ -314,8 +314,8 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
     \begin{center}
-        \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/UseCases/Filtro.png}{Immagine use case filtro impegni}}
-        \includegraphics[width=0.7\textwidth]{img/Diagrammi/UseCases/Filtro.png}
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/Filtro.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/Filtro.svg}{SVG} use case filtro impegni}
+        \includesvg[width=0.7\textwidth]{img/Diagrammi/svg/UseCases/Filtro.svg}
     \end{center}
     \begin{listaPersonale2}[UC] {}
         \elemento[Use case "Filtrare impegni"] {uc:FiltroImpegniNonAutenticato}
@@ -361,8 +361,8 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
     \elemento[“Creazione o modifica di un calendario” (\prettyref{D1-rf:ImpostazioniPredefiniteCalendario})]{ud:CreazioneModificaCalendario}
     \begin{center}
-        \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/UseCases/ImpostazioniPredefiniteCalendario.png}{Immagine use case creazione o modifica di un calendario}}
-        \includegraphics[width=1\textwidth]{img/Diagrammi/UseCases/ImpostazioniPredefiniteCalendario.png}
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/ImpostazioniPredefiniteCalendario.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/ImpostazioniPredefiniteCalendario.svg}{SVG} use case creazione o modifica di un calendario}
+        \includesvg[width=1\textwidth]{img/Diagrammi/svg/UseCases/ImpostazioniPredefiniteCalendario.svg}
     \end{center}
 
 
@@ -452,8 +452,8 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     \elemento[Use case “Impostazioni account” (\prettyref{D1-rf:ImpostazioniAccount})]{uc:ImpostazioniAccount}
 
     \begin{center}
-        \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/UseCases/ImpostazioniAccount.png}{Immagine use case impostazioni account}}
-        \includegraphics[width=0.75\textwidth, height = 0.35\textheight]{img/Diagrammi/UseCases/ImpostazioniAccount.png}\\
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/ImpostazioniAccount.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/ImpostazioniAccount.svg}{SVG} use case impostazioni account}
+        \includesvg[width=0.75\textwidth, height = 0.35\textheight]{img/Diagrammi/svg/UseCases/ImpostazioniAccount.svg}\\
         Si prega di zoomare a piacere per di poter leggere bene le varie parti dell'use case
     \end{center}
     Per andare a descrivere questo use case si è deciso di utilizzare uno State Machine Diagram con swimlanes a discapito della descrizione in italiano, in quanto in questo use case sono presenti delle scelte che possono essere effettuate dall'utente autenticato standard o autenticato premium. Inoltre, non si è diviso l'Activate Diagram in due parti, a seconda della tipologia di account, in quanto se ci fossero due diagrammi, questi avrebbero molto ridondanze. Infatti, come si può notare dall'Use Case Diagram, l'utente autenticato premium presenta le stesse funzionalità di quello autenticato premium, quest'ultimo ha anche delle funzionalità aggiuntive. Al posto, quindi di fare due diagrammi, si è preferito farne uno che presente il controllo per poter sapere se l'utente autenticato in questione è o standard o premium in modo tale da fornire le giuste funzionalità.
@@ -461,8 +461,8 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
     \textbf{Diagramma:}
     \begin{center}
-        \includegraphics[width=1\textwidth]{img/Diagrammi/DS/DS_ImpostazioneAccount.png}\\
-        \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/DS/DS_ImpostazioneAccount.png}{Immagine diagramma impostazioni account}}
+        \includesvg[width=1\textwidth]{img/Diagrammi/svg/DS/DS_ImpostazioneAccount.svg}\\
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/DS/DS_ImpostazioneAccount.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/DS/DS_ImpostazioneAccount.svg}{SVG} diagramma impostazioni account}
         Si prega di zoomare a piacere per poter leggere bene le varie parti del diagramma
     \end{center}
 
@@ -472,8 +472,8 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
         \elemento[Use case “Sottoscrizione all'account premium” (\prettyref{D1-rf:PagamentoUtentePremium})]{uc:SottoscrizioneAccountPremium}
 
         \begin{center}
-            \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/UseCases/UtentePremium.png}{Immagine use case sottoscrizione account premium}}
-            \includegraphics[width=0.7\textwidth]{img/Diagrammi/UseCases/UtentePremium.png}
+            \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/UtentePremium.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/UtentePremium.svg}{SVG} use case sottoscrizione account premium}
+            \includesvg[width=0.7\textwidth]{img/Diagrammi/svg/UseCases/UtentePremium.svg}
         \end{center}
 
 
@@ -512,8 +512,8 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
         \elemento[“Interagire con Google Calendar” (\prettyref{D1-rf:GoogleCalendar})]{uc:GoogleCalendar}
 
         \begin{center}
-            \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/UseCases/GoogleCalendar.png}{Immagine use case Google Calendar}}
-            \includegraphics[width=1\textwidth]{img/Diagrammi/UseCases/GoogleCalendar.png}
+            \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/GoogleCalendar.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/GoogleCalendar.svg}{SVG} use case Google Calendar}
+            \includesvg[width=1\textwidth]{img/Diagrammi/svg/UseCases/GoogleCalendar.svg}
         \end{center}
 
         \begin{listaPersonale3} [UD]{}
@@ -563,15 +563,15 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     \elemento[Use case “Recupero password” (\prettyref{D1-rf:RecuperoPassword})]{uc:RecuperoPassword}
 
     \begin{center}
-        \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/UseCases/RecuperoPassword.png}{Immagine use case recupero password}}
-        \includegraphics[width=0.7\textwidth]{img/Diagrammi/UseCases/RecuperoPassword.png}
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/RecuperoPassword.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/RecuperoPassword.svg}{SVG} use case recupero password}
+        \includesvg[width=0.7\textwidth]{img/Diagrammi/svg/UseCases/RecuperoPassword.svg}
     \end{center}
     Per descrivere questo use case, si è deciso di utilizzare un Sequence Diagram a discapito di una descrizione in italiano, per poter evidenziare meglio la procedura che deve essere effettuata per il recupero e reset della password.
 
     \textbf{Diagramma:}
     \begin{center}
-        \blfootnote{\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/DS/DS_RecuperoPassword.png}{Immagine diagramma recupero password}}
-        \includegraphics[width=0.7\textwidth]{img/Diagrammi/DS/DS_RecuperoPassword.png}
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/DS/DS_RecuperoPassword.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/DS/DS_RecuperoPassword.svg}{SVG} diagramma recupero password}
+        \includesvg[width=0.7\textwidth]{img/Diagrammi/svg/DS/DS_RecuperoPassword.svg}
     \end{center}
 
 \end{listaPersonale}
