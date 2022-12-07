@@ -359,7 +359,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     \newpage
     \todo{Creazione? Eliminazione? L'eliminazione dovremmo sistemarla ovunque}
 
-    \elemento[“Creazione o modifica di un calendario” (\prettyref{D1-rf:ImpostazioniPredefiniteCalendario})]{ud:CreazioneModificaCalendario}
+    \elemento[“Creazione o modifica di un calendario” (\prettyref{D1-rf:ImpostazioniPredefiniteCalendario})]{uc:CreazioneModificaCalendario}
     \begin{center}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/ImpostazioniPredefiniteCalendario.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/ImpostazioniPredefiniteCalendario.svg}{SVG} use case creazione o modifica di un calendario}
         \includesvg[width=1\textwidth]{img/Diagrammi/svg/UseCases/ImpostazioniPredefiniteCalendario.svg}
@@ -368,7 +368,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
     \begin{listaPersonale2}[UC] {}
         \newpage
-        \elemento[Use case "Modifica del calendario principale"] {ud:ModificaCalendarioNonAutenticato}
+        \elemento[Use case "Modifica del calendario principale"] {uc:ModificaCalendarioNonAutenticato}
             \textbf{Titolo: } modifica del calendario principale \\
             \textbf{Riassunto:} \\
             Questo use case descrive come l'utente non autenticato può andare a modificare impostazioni del calendario principale; si ricordi, che l'utente non autenticato non può avere altri calendari oltre a quello principale, per questo motivo può andare a modificare solo le impostazioni di questo. \\
@@ -381,11 +381,11 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
             L'utente non autenticato, dopo aver modificato i campi secondo le sue preferenze, salva le modifiche fatte premendo il tasto “Salva” in fondo alla schermata di “Impostazioni predefinite di calendario”. Invece, premendo il tasto “Annulla”, le modifiche fatte non verranno salvate.
 
             \newpage
-        \elemento[Use case "Definizione di campi precompilati di un evento del calendario principale"] {ud:DefinizioneCampiCalendarioPrincipale}
+        \elemento[Use case "Definizione di campi precompilati di un evento del calendario principale"] {uc:DefinizioneCampiCalendarioPrincipale}
             \textbf{Titolo: } definizione di campi precompilati di un evento del calendario principale. \\
             \textbf{Riassunto: } \\ l'utente non autenticato, nella schermata "Impostazioni predefinite di calendario", può anche andare a definire dei valori con cui precompilare alcuni campi, presenti in fase di creazione di un evento da aggiungere al calendario principale. \\
             \textbf{Descrizione: } \\
-            L'utente non autenticato può definire dei valori di default dei seguenti campi, presenti nella compilazione di un evento da aggiungere al calendario principale: \ref{ud:ExceptionCampiPrecompilatiCalendario}:
+            L'utente non autenticato può definire dei valori di default dei seguenti campi, presenti nella compilazione di un evento da aggiungere al calendario principale: \ref{uc:ExceptionCampiPrecompilatiCalendario}:
             \begin{itemize}
                 \item priorità. E' presente una casella "priorità": l'utente non autenticato una volta selezionata tale casella, può andare a definire il valore di default della priorità.
                 \item descrizione e titolo. Sono presenti le caselle descrizione e titolo: l'utente non autenticato, selezionando una alla volta le rispettive caselle, può scrivere il titolo e la descrizione di default.
@@ -394,7 +394,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
             L'utente non autenticato salva le modifiche fatte premendo il tasto “Salva” in fondo alla schermata di “Impostazioni predefinite di calendario”. Invece, premendo il tasto “Annulla”, le modifiche fatte non verranno salvate.
 
             \newpage
-        \elemento[Use case "creazione o modifica di un calendario personale"] {ud:CreazioneModificaCalendarioAutenticato}
+        \elemento[Use case "creazione o modifica di un calendario personale"] {uc:CreazioneModificaCalendarioAutenticato}
             \textbf{Titolo: } Creazione o modifica di un calendario personale. \\
             \textbf{Riassunto: } \\  Questo use case descrive la possibilità dell'utente autenticato standard, di poter andare a creare o modificare un proprio calendario. Si può vedere dall'use case che è presente una "generalizzazione" che indica il fatto che l'utente autenticato standard eredita dall'utente non autenticato le sue funzionalità di modifica di un calendario. Il calendario che si vuole modificare, in questo caso, può anche non essere quello principale, in quanto l'utente autenticato standard può creare più calendari personali. Quindi questo use case ha l'obiettivo di mostrare quali funzionalità aggiuntive abbia l'utente autenticato standard nella creazione o modifica di una calendario rispetto all'utente non autenticato. \\
             \textbf{Descrizione: }
@@ -407,7 +407,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
                       \end{itemize}
                 \item Nella schermata di "Crea Calendario", sezione a cui accede l'utente autenticato standard quando vuole andare a creare un nuovo calendario personale, o nella schermata "Impostazioni predefinite di calendario", sezione a cui accede l'utente autenticato standard per andare a modificare le impostazioni di un proprio calendario, l'utente autenticato standard può andare a definire delle impostazioni riguardanti al calendario che sta creando o modificando, ovvero:
                       \begin{itemize}
-                          \item tutti i campi già presenti per la modifica del calendario principale per un utente non autenticato (\ref{ud:ModificaCalendarioNonAutenticato});
+                          \item tutti i campi già presenti per la modifica del calendario principale per un utente non autenticato (\ref{uc:ModificaCalendarioNonAutenticato});
                           \item persone a cui è condiviso il calendario. Si ricordi che il calendario principale non può essere condiviso, se non per alcuni eventi che lo formano. E' presente una casella che può essere selezionata per andare a scrivere al suo interno l'username degli utenti autenticati standard, a cui vogliamo condividere tale calendario.
                                 Dopo aver definito gli username, premendo invio, questa modifica verrà presa in considerazione per la creazione o modifica del calendario, una volta che l'utente autenticato standard premerà il tasto "salva" sotto citato.
                           \item il nome del calendario che si sta creando o modificando. E' presente una casella "nome calendario": l'utente autenticato standard una volta selezionata tale casella, può andare a scrivere il nome del calendario, che verrà utilizzato nel caso in cui, alla fine della procedura di creazione o modifica, l'utente autenticato standard premerà il tasto "salva" sotto citato.
@@ -417,14 +417,14 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
             \end{enumerate}
 
             \newpage
-        \elemento[Use case "Definizione di campi precompilati di un evento di un calendario personale"] {ud:DefinizioneCampiCalendarioPersonale}
+        \elemento[Use case "Definizione di campi precompilati di un evento di un calendario personale"] {uc:DefinizioneCampiCalendarioPersonale}
             \textbf{Titolo: } definizione di campi precompilati di un evento di un calendario personale. \\
             \textbf{Riassunto: } \\ L'utente autenticato standard, nelle "Impostazioni predefinite di calendario" o nella schermata "Crea calendario", può anche andare a definire dei valori con cui precompilare alcuni campi, presenti in fase di creazione di un evento da aggiungere al calendario a cui appartiene tale evento. L'utente autenticato standard eredita dall'utente non autenticato i campi che quest'ultimo può definire, ma ha degli ulteriori campi in quanto, come già scritto, ha delle funzionalità in più in fase di creazione di un evento. \\
             \textbf{Descrizione: } \\
             \begin {enumerate}
-        \item L'utente autenticato standard, trovandosi nelle "Impostazioni predefinite di calendario" o nella schermata "Crea calendario", può definire i seguenti valori con cui verranno precompilati i corrispettivi campi in fase di creazione di un evento, appartenente al calendario di cui si stanno definendo le impostazioni: \ref{ud:ExceptionCampiPrecompilatiCalendario}
+        \item L'utente autenticato standard, trovandosi nelle "Impostazioni predefinite di calendario" o nella schermata "Crea calendario", può definire i seguenti valori con cui verranno precompilati i corrispettivi campi in fase di creazione di un evento, appartenente al calendario di cui si stanno definendo le impostazioni: \ref{uc:ExceptionCampiPrecompilatiCalendario}
               \begin{itemize}
-                  \item tutti i campi già presenti per la definizione di valori di default nella compilazione di un evento da parte dell'utente non autenticato (\ref{ud:DefinizioneCampiCalendarioPrincipale});
+                  \item tutti i campi già presenti per la definizione di valori di default nella compilazione di un evento da parte dell'utente non autenticato (\ref{uc:DefinizioneCampiCalendarioPrincipale});
                   \item luogo dove si terrà l'evento;
                   \item quando ricevere la notifica dell'evento;
                   \item titolo della notifica dell'evento.
@@ -433,7 +433,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
               \end{enumerate}
               \textbf{Exceptions:}
               \begin{enumerate}[label=\textbf{[exception \arabic{enumiii}]}, ref= \textbf{[exception \arabic{enumiii}]}]
-                  \elemento{ud:ExceptionCampiPrecompilatiCalendario} Nel caso in cui l'utente non modificasse uno o più campi, nella compilazione per l'aggiunta di un evento l'utente non visualizzerà precompilati i campi non modificati nelle “Impostazioni predefinite di un calendario”.
+                  \elemento{uc:ExceptionCampiPrecompilatiCalendario} Nel caso in cui l'utente non modificasse uno o più campi, nella compilazione per l'aggiunta di un evento l'utente non visualizzerà precompilati i campi non modificati nelle “Impostazioni predefinite di un calendario”.
               \end{enumerate}
 
 
@@ -516,7 +516,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
             \includesvg[width=1\textwidth]{img/Diagrammi/svg/UseCases/GoogleCalendar.svg}
         \end{center}
 
-        \begin{listaPersonale3} [UD]{}
+        \begin{listaPersonale3} [UC]{}
             \elemento[Use case "interagire con Google Calendar-sincronizzazione con Google Calendar"]{uc:GoogleCalendarSincronizzazione}
             \textbf{Titolo:} interagire con Google Calendar - sincronizzazione con Google Calendar\\
 

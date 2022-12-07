@@ -87,8 +87,8 @@ POST : self.SistemaMappe = NSistemaMappe
     \todo{non c'e piu l'invariante}
     Inoltre, in questa classe è presente il metodo “ControlloValiditaPassword(NPassword) il quale,dopo aver eseguito, ritorna un booleano. Il valore di questo dipende dal fatto se la nuova password inserita, NuovaPassword, segua o meno gli standard già presentati in D2-RNF2 (anche D1-RNF2.1).
     \begin{lstlisting}
-        CONTEXT GestioneModificaPassword::ControlloValiditaPassword(NPassword) :
-        POST : return = NPassword.size() >= 8 AND NPassword.exists(carattere | carattere = [a, ..., z]) AND NPassword.exists(carattere | carattere = [A, ..., Z]) AND NPassword.exists(carattere | carattere = [0, ..., 9]) AND NPassword.exists(carattere | carattere = [!, #, \$, \%, \&, \*])
+CONTEXT GestioneModificaPassword::ControlloValiditaPassword(NPassword) :
+POST : return = NPassword.size() >= 8 AND NPassword.exists(carattere | carattere = [a, ..., z]) AND NPassword.exists(carattere | carattere = [A, ..., Z]) AND NPassword.exists(carattere | carattere = [0, ..., 9]) AND NPassword.exists(carattere | carattere = [!, #, \$, \%, \&, \*])
     \end{lstlisting}
 
     Dopo l'esecuzione del metodo “ControlloSetPassword(NPassword)”, nella classe “GestioneModificaPassword” si verifica una condizione, più specificamente una postcondizione, visto che avviene dopo l'esecuzione del metodo sopra citato. Infatti l'attributo “nuovaPassword” ha il valore di Npassword, parametro, meglio dire password, utilizzato per modificare la password di un utente autenticato.\\
@@ -146,7 +146,7 @@ INV : IntervalloVistaEventi = "Giorno" OR IntervalloVistaEventi = "Settimana" OR
     Nella classe “Visualizzazione Calendario”, con l'esecuzione del metodo “CambiaIntervalloVistaUtenti(NIntervallo)” si ha che l'attributo di questa classe “IntervalloVistaUtenti” è uguale al parametro “NIntervallo” utilizzato nel metodo sopra citato. \\
     Questa postcondizione è espressa con il seguente codice OCL:
     \begin{lstlisting}
-CONTEXT VisualizzazioneCalendariEventi::CambiaIntervalloVistaUtenti(NIntervallo) :
+CONTEXT VisualizzazioneCalendariEventi:: CambiaIntervalloVistaUtenti(NIntervallo) :
 PRE : NIntervallo = "Giorno" OR NIntervallo = "Settimana" OR NIntervallo = "Mese"
 POST : IntervalloVistaEventi = NIntervallo
     \end{lstlisting}
