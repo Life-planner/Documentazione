@@ -22,7 +22,7 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
 
     \elemento[Interfaccia Auth0]{dcl:Auth0}
     Il diagramma di componenti presentato nel documento D2 presenta un componente chiamato allo stesso modo, ovvero sempre "Interfaccia Auth0" (\prettyref{D2-aci:Auth0}). Questa classe rappresenta il meccanismo di autenticazione degli utenti attraverso il sistema esterno presente anche nel diagramma di contesto, ovvero Auth0. Questa classe si interfaccia con questo sistema esterno di autenticazione, che gestirà completamente la procedura di autenticazione. Il software di PlanIt memorizzerà solo l'"Email", "UserId" e "Username", valori restituiti dall'autenticazione; questi valori sono salvati nella classe, presentata precedentemente, “UtenteAutenticato”, istanziandola. Infatti un utente autenticato non può esser istanziato se non dopo aver effettuato l'autenticazione. \\
-    Questa classe fa partire la procedura di autenticazione per un “Utente” una volta che si invoca la funzione “AccessoWebApp()”, presente nella classe “GestioneHomepage”, descritta in \ref{dcl:Homepage}, o si invoca la funzione “Autenticazione()” presente nella classe “UtenteNonAutenticato” (\ref{dcl:TipologieUtenti}). Ricordiamo, che per autenticazione si intende o registrazione o login, a seconda se l' “Utente” abbia o meno un suo account su PlanIt.
+    Questa classe fa partire la procedura di autenticazione per un “Utente” una volta che si invoca la funzione “AccessoWebApp()”, presente nella classe “GestioneHomepage”, descritta in \ref{dcl:Homepage}, o si invoca la funzione “Autenticazione()” presente nella classe “UtenteNonAutenticato” (\ref{dcl:TipologieUtenti}). Ricordiamo, che per autenticazione si intende o registrazione o login, a seconda se l' “Utente” abbia o meno un suo account su PlanIt. Infine, tutti gli attributi presenti in questa classe,sono delle URL necessarie per l'accesso alla pagina di autenticazione di Auth0.
 
 
     \begin{center}
@@ -50,7 +50,8 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
 
         \elemento[Gestione modifica password e Auth0 management API]{dcl:ModificaPasswordAuth0API}
         Analizzando il diagramma di componenti si nota la presenza di “Gestione modifica password” e “Interfaccia management API Auth0”, per questo motivo sono state fatte queste classi con gli stessi nomi. Il loro scopo è gestire il modifica password, azione che può essere fatta dalle impostazioni account, e il reset password, azione che si può fare nel caso in cui si volesse recuperare e cambiare la password quando si è dimenticata, partendo dalla pagina di autenticazione di PlanIt. La nuova password inserita viene controllata in “GestioneModificapassword” mediante la funzione "ControlloValiditaPassword", in modo tale che la password segui le regole delineate in \prettyref{D1-rnf:SicurezzaPassword}. Una volta che la nuova password passa il controllo, viene inviata ad Auth0 grazie alla funzione “CambiaPassword(UserId, nuovaPassword) presente in “Auth0ManagementAPI”.
-
+        Infine, è da notare che inizialmente "Abbonato" è inizializzato a "false", in quanto quando un utente si registra al sito, è sempre un utente autenticato standard e non può registrarsi fin da subito come utente autenticato premium.
+        \todo{cambiare foto togliendo ControlloSetPassword}
 
         \begin{center}
             \includesvg[width=0.55\textwidth,height=0.40\textheight]{img/svg/DCL/Gestione_modificaPassword.svg}
@@ -59,9 +60,9 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
 
 
 
-        \elemento[Abbonamento]{dcl:Abbonamento}
-        Il diagramma di contesto analizzato nel documento D2 presenta un terzo attore che è stato già citato in \ref{dcl:TipologieUtenti}, ovvero l'utente autenticato premium. Quest'ultimo usufruisce di un abbonamento al sito, accedendo alla versione premium della piattaforma. Per questo motivo è stata fatta la classe “Abbonamento”, il cui scopo è gestire la sottoscrizione e cancellazione dell'abbonamento. Inoltre, grazie a questa classe, è possibile sapere se un utente autenticato sia standard (attributo "Abbonato" = false) o premium (Abbonato = true). \\
-        Infine, come si può notare, è presente una composition tra “Impostazioni Utente” e “Abbonamento” il cui scopo è indicare che la classe “contenuta”, “Abbonamento”, esiste solo con la classe “contenitrice”, “Impostazioni Utente”; infatti la classe “Abbonamento” ha senso ed esiste solo se l'utente ha le “Impostazioni Utente”, ovvero è autenticato.
+        \elemento[Gestione Abbonamento]{dcl:Abbonamento}
+        Il diagramma di contesto analizzato nel documento D2 presenta un terzo attore che è stato già citato in \ref{dcl:TipologieUtenti}, ovvero l'utente autenticato premium. Quest'ultimo usufruisce di un abbonamento al sito, accedendo alla versione premium della piattaforma. Per questo motivo è stata fatta la classe “GestioneAbbonamento”, il cui scopo è gestire la sottoscrizione e cancellazione dell'abbonamento. Inoltre, grazie a questa classe, è possibile sapere se un utente autenticato sia standard (attributo "Abbonato" = false) o premium (Abbonato = true). \\
+        Infine, come si può notare, è presente una composition tra “GestioneImpostazioniUtente” e “GestioneAbbonamento” il cui scopo è indicare che la classe “contenuta”, “GestioneAbbonamento”, esiste solo con la classe “contenitrice”, “GestioneImpostazioniUtente”; infatti la classe “GestioneAbbonamento” ha senso ed esiste solo se l'utente ha le “GestioneImpostazioniUtente”, ovvero è autenticato.
 
 
         \begin{center}
@@ -94,7 +95,7 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
 
         \begin{center}
             \includesvg[width=1\textwidth,height=1\textheight]{img/svg/DCL/Gestione_pagamento.svg}
-            \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/DCL/Gestione_pagamento.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/DCL/Gestione_pagamento.svg}{SVG} nome file}
+            \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/DCL/Gestione_pagamento.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/DCL/Gestione_pagamento.svg}{SVG} Diagramma delle classi "Gestione Sistema di Pagamento"}
         \end{center}
 
     \end{listaPersonale2}
