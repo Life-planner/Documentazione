@@ -237,7 +237,7 @@ POST : Titolo = NTitolo AND Descrizione = NDescrizione AND Priorita = NPriorita 
         \includesvg[width=0.50\textwidth, height=0.40\textheight]{img/svg/OCL/ChiamateMongoDB.svg}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/OCL/ChiamateMongoDB.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/OCL/ChiamateMongoDB.svg}{SVG} Diagramma delle classi "Gestione Chiamate MongoDB"}
     \end{center}
-    Nella classe “Gestione Chiamate MongoDB” (già presentata in \ref{dcl:MongoDB}) ci sono delle condizioni che devono essere sempre verificate; infatti l’attributo “Link”, attributo in cui è salvato l’URL del database MongoDB con cui interagisce questa classe, e la “Password”, necessaria per poter accedere e interagire sempre con il database MongoDB, non devono essere vuoti. Infatti, se lo fossero, la classe “Gestione Chiamate MongoDB” non potrebbe gestire le chiamate tra MongoDB e l’applicativo.\\
+    Nella classe “Gestione Chiamate MongoDB” (già presentata in \ref{dcl:MongoDB}) ci sono delle condizioni che devono essere sempre verificate; infatti l'attributo “Link”, attributo in cui è salvato l'URL del database MongoDB con cui interagisce questa classe, e la “Password”, necessaria per poter accedere e interagire sempre con il database MongoDB, non devono essere vuoti. Infatti, se lo fossero, la classe “Gestione Chiamate MongoDB” non potrebbe gestire le chiamate tra MongoDB e l'applicativo.\\
     Queste condizioni sono presentate con del codice OCL nel seguente modo:
 
     \begin{lstlisting}
@@ -288,7 +288,7 @@ INV : Latitudine <> "" AND Longitudine <> ""
         \includesvg[width=0.40\textwidth, height=0.30\textheight]{img/svg/OCL/Tipo_Fuso_Orario.svg}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/svg/OCL/Tipo_Fuso_Orario.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/OCL/Tipo_Fuso_Orario.svg}{SVG} Diagramma delle classi "Tipo Fuso Orario"}
     \end{center}
-    In questa classe (già mostrata in \ref{dcl:FusoOrario}), ci sono delle condizioni che devono essere sempre rispettate, ovvero che l’attributo “GMToffset” abbia un valore che sia coerente con l’intervallo di valori che può assumere l’offset di un fuso orario rispetto a Greenwich secondo le convenzioni poste nella realtà.\\
+    In questa classe (già mostrata in \ref{dcl:FusoOrario}), ci sono delle condizioni che devono essere sempre rispettate, ovvero che l'attributo “GMToffset” abbia un valore che sia coerente con l'intervallo di valori che può assumere l'offset di un fuso orario rispetto a Greenwich secondo le convenzioni poste nella realtà.\\
     Dunque, è stato fatto questo codice OCL:
 
     \begin{lstlisting}
@@ -304,7 +304,7 @@ INV : GMToffset >= -12 AND GMToffset <= 12
         \includesvg[width=0.40\textwidth, height=0.30\textheight]{img/svg/OCL/Tipo_Calendario_Filtrato.svg}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/OCL/Tipo_Calendario_Filtrato.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/OCL/Tipo_Calendario_Filtrato.svg}{SVG} Diagramma delle classi "Tipo Calendario Filtrato"}
     \end{center}
-    Anche la classe “Tipo\_Calendario\_Filtrato” (già mostrata in \ref{dcl:CalendarioFiltrato}) presenta delle condizioni che devono essere sempre verificate, cioè che l’attributo “CalendarioFiltrato”, che contiene un calendario dell’utente autenticato, deve essere diverso da “Null”. Infatti questo tipo di dato è utilizzato per andare a filtrare i calendari posseduti da un utente autenticato, dunque per forza deve essere diverso da “Null”. \\
+    Anche la classe “Tipo\_Calendario\_Filtrato” (già mostrata in \ref{dcl:CalendarioFiltrato}) presenta delle condizioni che devono essere sempre verificate, cioè che l'attributo “CalendarioFiltrato”, che contiene un calendario dell'utente autenticato, deve essere diverso da “Null”. Infatti questo tipo di dato è utilizzato per andare a filtrare i calendari posseduti da un utente autenticato, dunque per forza deve essere diverso da “Null”. \\
     Queste condizioni sono presentate dal seguente codice OCL:
     \begin{lstlisting}
 CONTEXT Tipo_Calendario_Filtrato
@@ -320,14 +320,14 @@ INV: CalendarioFiltato <> Null
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/OCL/Tipo_Link_Richiesta.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/OCL/Tipo_Link_Richiesta.svg}{SVG} Diagramma delle classi "Tipo Link Richiesta"}
     \end{center}
     La classe “Tipo\_Link\_Richiesta” (di cui abbiamo discusso in \ref{dcl:TipoLinkRichiesta}) ha dei requisiti riguardo a dei suoi attributi che devono essere sempre rispettati. Infatti, questo tipo di dato, utilizzato per fare le richieste di condivisione di eventi o calendari, non può avere entrambe le stringhe “IdCalendario”, id utlizzato per identificare univocamente un calendario, “IdEvento”, id che identifica univocamente un Evento, vuote. Inoltre anche “Account” deve avere un valore diverso da “Null”. \\ Questo è necessario, perché un oggetto di tipo “Tipo\_Link\_Richiesta” viene istanziato se e solo se si vuole condividere effettivamente un calendario o evento che si creando o modificando appartenente ad un utente autenticato avente, ovviamente, un account.\\
-    Queste condizioni sono rappresentate dall’OCL:
+    Queste condizioni sono rappresentate dall'OCL:
 
     \begin{lstlisting}
 CONTEXT Tipo_Link_Richiesta:
 INV : (IdCalendario <> "" AND IdEvento = "") OR (IdCalendario = "" AND IdEvento <> "") AND Account <> Null
     \end{lstlisting}
-    Inoltre, in questa classe, nel contesto del metodo “creaRichiesta (IdCalendario, IdEvento, Account) ci sono delle precondizioni che devono essere rispettate prima di una sua esecuzione. Infatti, prima dell’esecuzione del metodo, devono essere rispettate le condizioni già citate nelle invarianti, ma che stavolta sono imposte sui parametri di questa funzione. Si noti che i parametri della funzione sono diversi dagli attributi, prima dell’esecuzione di questa funzione.\\
-    Infine, dopo l’esecuzione di questo metodo, abbiamo delle postcondizioni. Infatti, dopo che si esegue questa funzione, che può essere intesa come un vero e proprio costruttore di un oggetto di questo tipo di dato, gli attributi di un oggetto di questa classe assumono i valori inseriti come parametri nel metodo “creaRichiesta”. \\
+    Inoltre, in questa classe, nel contesto del metodo “creaRichiesta (IdCalendario, IdEvento, Account) ci sono delle precondizioni che devono essere rispettate prima di una sua esecuzione. Infatti, prima dell'esecuzione del metodo, devono essere rispettate le condizioni già citate nelle invarianti, ma che stavolta sono imposte sui parametri di questa funzione. Si noti che i parametri della funzione sono diversi dagli attributi, prima dell'esecuzione di questa funzione.\\
+    Infine, dopo l'esecuzione di questo metodo, abbiamo delle postcondizioni. Infatti, dopo che si esegue questa funzione, che può essere intesa come un vero e proprio costruttore di un oggetto di questo tipo di dato, gli attributi di un oggetto di questa classe assumono i valori inseriti come parametri nel metodo “creaRichiesta”. \\
     Queste postcondizioni e precondizioni sono espresse nel seguente codice OCL:
 
     \begin{lstlisting}
@@ -344,7 +344,7 @@ POST : self.IdCalendario = IdCalendario AND self.IdEvento = IdEvento AND  self.A
         \includesvg[width=0.55\textwidth, height=0.45\textheight]{img/svg/OCL/GestioneLuoghi.svg}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/OCL/GestioneLuoghi.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/OCL/GestioneLuoghi.svg}{SVG} Diagramma delle classi "Gestione Luoghi"}
     \end{center}
-    Questa classe (di cui abbiamo già discusso in \ref{dcl:GestioneLuoghi}) ha delle precondizioni che devono essere rispettate per l’esecuzione del metodo “ConvertIndirizzoToCordinate(indirizzo)”, ovvero che l’indirizzo, che deve essere convertito in delle coordinate geografiche, deve essere diverso, ovviamente, da una stringa vuota.\\
+    Questa classe (di cui abbiamo già discusso in \ref{dcl:GestioneLuoghi}) ha delle precondizioni che devono essere rispettate per l'esecuzione del metodo “ConvertIndirizzoToCordinate(indirizzo)”, ovvero che l'indirizzo, che deve essere convertito in delle coordinate geografiche, deve essere diverso, ovviamente, da una stringa vuota.\\
     Questa precondizione è espressa nel codice OCL:
 
     \begin{lstlisting}
@@ -360,7 +360,7 @@ PRE : indirizzo <> ""
         \includesvg[width=0.40\textwidth, height=0.30\textheight]{img/svg/OCL/GoogleCalendarAPI.svg}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/OCL/GoogleCalendarAPI.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/OCL/GoogleCalendarAPI.svg}{SVG} Diagramma delle classi "Interfaccia Google Maps API"}
     \end{center}
-    La classe “InterfacciaGoogleMapsAPI” (di cui abbiamo discusso in \ref{dcl:GestioneLuoghi}) ha delle invarianti che devono essere sempre verificate, ovvero che non devono essere delle stringhe vuote l’ “EndPoint”, URL con cui si accede alle API di Google Maps, e ApiToken, che è il “token” dell'account Google dell'utente autenticato che ha deciso di usare Google Maps come sistema esterno, "token" che ci permette di accedere alle API di Google Maps.\\
+    La classe “InterfacciaGoogleMapsAPI” (di cui abbiamo discusso in \ref{dcl:GestioneLuoghi}) ha delle invarianti che devono essere sempre verificate, ovvero che non devono essere delle stringhe vuote l' “EndPoint”, URL con cui si accede alle API di Google Maps, e ApiToken, che è il “token” dell'account Google dell'utente autenticato che ha deciso di usare Google Maps come sistema esterno, "token" che ci permette di accedere alle API di Google Maps.\\
     Queste invarianti sono descritte con questo codice OCL:
     \begin{lstlisting}
 CONTEXT InterfacciaGoogleMapsAPI :
@@ -375,7 +375,7 @@ INV : Endpoint <> "" AND ApiToken <> ""
         \includesvg[width=0.40\textwidth, height=0.30\textheight]{img/svg/OCL/OpenStreetMapAPI.svg}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/OCL/OpenStreetMapAPI.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/OCL/OpenStreetMapAPI.svg}{SVG} Diagramma delle classi "Interfaccia OpenSteetMap API"}
     \end{center}
-    La classe “InterfacciaOpenStreetMapAPI” (di cui abbiamo discusso in \ref{dcl:GestioneLuoghi}) ha un’ invariante che deve essere sempre verificata, ovvero che l’ “EndPoint”, URL con cui si accede alle API di OpenStreetMap, non deve essere una stringa vuota. A differenza di Google Maps, OpenStreetMap non richiede un account nel suo applicativo, e quindi neanche un token, per accedere alle sue API e servizi; per questo motivo non è presente nessun attributo di nome "token".\\
+    La classe “InterfacciaOpenStreetMapAPI” (di cui abbiamo discusso in \ref{dcl:GestioneLuoghi}) ha un' invariante che deve essere sempre verificata, ovvero che l' “EndPoint”, URL con cui si accede alle API di OpenStreetMap, non deve essere una stringa vuota. A differenza di Google Maps, OpenStreetMap non richiede un account nel suo applicativo, e quindi neanche un token, per accedere alle sue API e servizi; per questo motivo non è presente nessun attributo di nome "token".\\
     Questa invariante è descritta in OCL:
     \begin{lstlisting}
 CONTEXT InterfacciaOpenStreetMapAPI :
@@ -391,7 +391,7 @@ INV : Endpoint <> ""
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/OCL/RipetizioneBase.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/OCL/RipetizioneBase.svg}{SVG} Diagramma delle classi "Gestione Impostazioni Ripetizioni Base"}
     \end{center}
     La classe “GestioneImpostazioniRipetizioneBase” (già presentata in
-    \ref{dcl:CreazioneModificaEvento}) ha delle invarianti che devono essere sempre rispettate, ovvero che “NumeroRipetizioni” dell’evento, di cui stiamo impostando le ripetizioni, deve essere maggiore o uguale a 1 e che la durata di tale evento sia maggiore o uguale a 0. Infatti, non avrebbe senso l'esistenza di un evento ripetuto, senza che questo fosse presente almeno in un giorno con un durata non nulla.\\
+    \ref{dcl:CreazioneModificaEvento}) ha delle invarianti che devono essere sempre rispettate, ovvero che “NumeroRipetizioni” dell'evento, di cui stiamo impostando le ripetizioni, deve essere maggiore o uguale a 1 e che la durata di tale evento sia maggiore o uguale a 0. Infatti, non avrebbe senso l'esistenza di un evento ripetuto, senza che questo fosse presente almeno in un giorno con un durata non nulla.\\
     Queste invarianti sono presentate dal seguente codice OCL:
 
     \begin{lstlisting}
@@ -407,7 +407,7 @@ INV : NumeroRipetizioni >= 1 AND Durata >= 0
         \includesvg[width=0.40\textwidth, height=0.30\textheight]{img/svg/OCL/Giornata.svg}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/OCL/Giornata.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/OCL/Giornata.svg}{SVG} Diagramma delle classi "Gestione Giornata"}
     \end{center}
-    La classe “GestioneGiornata” (già presentata in \ref{dcl:CreazioneModificaEvento}), utilizzata per indicare il giorno in cui avviene un evento ripetuto, ha un’invariante; questa riguarda l’attributo “GiornoDellaSettimana”, che ovviamente, deve assumere il valore di un giorno della settimana esistente.\\
+    La classe “GestioneGiornata” (già presentata in \ref{dcl:CreazioneModificaEvento}), utilizzata per indicare il giorno in cui avviene un evento ripetuto, ha un'invariante; questa riguarda l'attributo “GiornoDellaSettimana”, che ovviamente, deve assumere il valore di un giorno della settimana esistente.\\
     Questa invariante è descritta dal seguente OCL:
 
     \begin{lstlisting}
@@ -429,7 +429,7 @@ GiornoDellaSettimana = "D"
         \includesvg[width=0.45\textwidth, height=0.35\textheight]{img/svg/OCL/EventoRipetuto.svg}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/OCL/EventoRipetuto.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/OCL/EventoRipetuto.svg}{SVG} Diagramma delle classi "Evento Ripetuto"}
     \end{center}
-    La classe “EventoRipetuto” (già presentata in \ref{dcl:CreazioneModificaEvento}) ha un’invariante che riguarda l’attributo “DurateIntervallo”, ovvero periodo di tempo per cui deve essere valido tale evento ripetuto. Infatti “DurataIntervallo” deve avere un valore di periodo temporale che sia valido, ovvero o durata di un giorno, o mese, o settimana o anno. \\
+    La classe “EventoRipetuto” (già presentata in \ref{dcl:CreazioneModificaEvento}) ha un'invariante che riguarda l'attributo “DurateIntervallo”, ovvero periodo di tempo per cui deve essere valido tale evento ripetuto. Infatti “DurataIntervallo” deve avere un valore di periodo temporale che sia valido, ovvero o durata di un giorno, o mese, o settimana o anno. \\
     Questo è il codice OCL che descrive questa invariante:
     \begin{lstlisting}
 CONTEXT EventoRipetuto:
@@ -445,7 +445,7 @@ DurataIntervallo = "Anno"
         \includesvg[width=0.40\textwidth, height=0.30\textheight]{img/svg/OCL/EventoSingolo.svg}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/OCL/EventoSingolo.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/OCL/EventoSingolo.svg}{SVG} Diagramma delle classi "Evento Singolo"}
     \end{center}
-    La classe “EventoSingolo” (già mostrata in \ref{dcl:CreazioneModificaEvento}), che indica un evento che è valido solo per un giorno di cui indichiamo la data e la sua durata, ha delle condizioni che devono essere sempre rispettate. L’attributo “Durata” di un oggetto, istanza di questa classe, deve avere un valore maggiore o uguale a 0 e la “Data” deve essere diversa da “Null”, sennò tale oggetto non avrebbe nessun motivo di esistere. \\
+    La classe “EventoSingolo” (già mostrata in \ref{dcl:CreazioneModificaEvento}), che indica un evento che è valido solo per un giorno di cui indichiamo la data e la sua durata, ha delle condizioni che devono essere sempre rispettate. L'attributo “Durata” di un oggetto, istanza di questa classe, deve avere un valore maggiore o uguale a 0 e la “Data” deve essere diversa da “Null”, sennò tale oggetto non avrebbe nessun motivo di esistere. \\
     Per questo motivo è stato scritto questo codice OCL:
 
     \begin{lstlisting}
@@ -461,7 +461,7 @@ INV : Durata >= 0 AND Data <> Null
         \includesvg[width=0.55\textwidth, height=0.45\textheight]{img/svg/OCL/SistemaDiPagamento.svg}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/OCL/SistemaDiPagamento.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/OCL/SistemaDiPagamento.svg}{SVG} Diagramma delle classi "Gestione Sistema di Pagamento"}
     \end{center}
-    Questa classe (già mostrata in \ref{dcl:SistemaPagamento}) presenta delle invarianti che devono essere sempre verificate. “TipoPagamento” deve assumere un valore che sia uguale a “PayPal” o “Stripe”, che sono i sistemi di pagamento messi a disposizione dall’applicativo per il pagamento dell’abbonamento. \\
+    Questa classe (già mostrata in \ref{dcl:SistemaPagamento}) presenta delle invarianti che devono essere sempre verificate. “TipoPagamento” deve assumere un valore che sia uguale a “PayPal” o “Stripe”, che sono i sistemi di pagamento messi a disposizione dall'applicativo per il pagamento dell'abbonamento. \\
     Questa condizione è rappresentata dal seguente codice OCL:
     \begin{lstlisting}
 CONTEXT GestioneSistemaDiPagamento :
@@ -481,7 +481,7 @@ POST : TipoPagamento = NSistema
         \includesvg[width=0.85\textwidth, height=0.75\textheight]{img/svg/OCL/StripeAPI.svg}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/OCL/StripeAPI.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/OCL/StripeAPI.svg}{SVG} Diagramma delle classi "Gestione Stripe API"}
     \end{center}
-    La classe “GestioneStripeAPI” (già mostrata in \ref{dcl:SistemaPagamento}) ha delle condizioni che devono essere sempre verificate; infatti l’attributo “ProductId”, Id che indica il prodotto abbonamento che si sta acquistando e che sarà presente nella lista di abbonamenti del proprio account di Stripe, una volta che la sottoscrizione all’account premium sarà effettuata, e l’ “EndPoint”, URL delle API di Stripe con cui l’applicativo va ad interagire, non devono essere delle stringhe vuote. Se lo fossero sarebbe impossibile portare a termine una procedura di pagamento dell'abbonamento alla versione premium di PlanIt. \\
+    La classe “GestioneStripeAPI” (già mostrata in \ref{dcl:SistemaPagamento}) ha delle condizioni che devono essere sempre verificate; infatti l'attributo “ProductId”, Id che indica il prodotto abbonamento che si sta acquistando e che sarà presente nella lista di abbonamenti del proprio account di Stripe, una volta che la sottoscrizione all'account premium sarà effettuata, e l' “EndPoint”, URL delle API di Stripe con cui l'applicativo va ad interagire, non devono essere delle stringhe vuote. Se lo fossero sarebbe impossibile portare a termine una procedura di pagamento dell'abbonamento alla versione premium di PlanIt. \\
     Dunque, in codice OCL abbiamo:
     \begin{lstlisting}
 CONTEXT GestioneStripeAPI :
@@ -507,7 +507,7 @@ POST : InterfacciaSistemaDiPagamentoPayPal.UserPaymentToken <> "" AND Interfacci
 CONTEXT PayPalAPI :
 INV : ProductId <> "" AND EndPoint <> ""
     \end{lstlisting}
-    Inoltre, in questa classe, nel contesto del metodo “PagaSubscrition()” è presente una postcondizione. Infatti, dopo l’esecuzione di questo metodo, gli attributi “PayPalEmail”, “PayPalUserName” e “SubscriptionId”, che corrispondono alle credenziali PayPal dell’utente autenticato, che decide di pagare l’abbonamento con questo metodo, non sono delle stringhe vuote: se lo fossero l'acquisto dell'abbonamento non potrebbe essersi concluso con successo e non sarebbe neanche possibile il rinnovo automatico mensile dell'abbonamento, in quanto l'applicativo PlanIt non avrebbe delle credenziali di pagamento. Si sottolinea che questi attributi sono restituiti alla classe "GestioneSistemaDiPagamentoPayPal" che provvederà al pagamento mensile automatico dell'abbonamento nel caso si fosse effettuata la sottoscrizione a questo.\\
+    Inoltre, in questa classe, nel contesto del metodo “PagaSubscrition()” è presente una postcondizione. Infatti, dopo l'esecuzione di questo metodo, gli attributi “PayPalEmail”, “PayPalUserName” e “SubscriptionId”, che corrispondono alle credenziali PayPal dell'utente autenticato, che decide di pagare l'abbonamento con questo metodo, non sono delle stringhe vuote: se lo fossero l'acquisto dell'abbonamento non potrebbe essersi concluso con successo e non sarebbe neanche possibile il rinnovo automatico mensile dell'abbonamento, in quanto l'applicativo PlanIt non avrebbe delle credenziali di pagamento. Si sottolinea che questi attributi sono restituiti alla classe "GestioneSistemaDiPagamentoPayPal" che provvederà al pagamento mensile automatico dell'abbonamento nel caso si fosse effettuata la sottoscrizione a questo.\\
     Questa postcondizione è espressa in OCL nel seguente modo:
     \begin{lstlisting}
 CONTEXT PayPalAPI::PagaSubscription() :
@@ -538,7 +538,7 @@ POST : sincronizzazione = NOT sincronizzazione@pre
         \includesvg[width=0.40\textwidth, height=0.30\textheight]{img/svg/OCL/Import_Export.svg}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/OCL/Import_Export.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/OCL/Import_Export.svg}{SVG} Diagramma delle classi "Gestione Import/Export"}
     \end{center}
-    Nella classe “Gestione Import/Export” (di cui ne abbiamo parlato in parte in \ref{dcl:GoogleCalendar}) ci sono delle condizioni che devono essere sempre verificate, infatti l’attributo “Sincronizzazione”, booleano che indica se stiamo usando  o meno la sincronizzazione come metodo di interazione con Google Calendar, deve essere uguale a “false”. Infatti l’interazione con Google Calendar o è fatta mediante import/export di file o mediante la sincronizzazione automatica, non si possono fare entrambe contemporaneamente.\\
+    Nella classe “Gestione Import/Export” (di cui ne abbiamo parlato in parte in \ref{dcl:GoogleCalendar}) ci sono delle condizioni che devono essere sempre verificate, infatti l'attributo “Sincronizzazione”, booleano che indica se stiamo usando  o meno la sincronizzazione come metodo di interazione con Google Calendar, deve essere uguale a “false”. Infatti l'interazione con Google Calendar o è fatta mediante import/export di file o mediante la sincronizzazione automatica, non si possono fare entrambe contemporaneamente.\\
     Questa invariante è presenta in OCL nel seguente modo:
 
     \begin{lstlisting}
@@ -571,7 +571,7 @@ INV : Sincronizzazione = true AND authorizationToken <> ""
             \includesvg[width=0.40\textwidth, height=0.30\textheight]{img/svg/OCL/GoogleCalendarAPI.svg}
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/OCL/GoogleCalendarAPI.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/OCL/GoogleCalendarAPI.svg}{SVG} Diagramma delle classi "Interfaccia Google Calendar API"}
         \end{center}
-        In questa classe (già mostrata in \ref{dcl:GoogleCalendar}), è presente un’invariante che deve essere sempre valida; infatti l’attributo “EndPoint”, URL delle API di Google Calendar, non deve essere una stringa vuota, cosa necessaria per poter interagire mediante sincronizzazione con l’applicativo Google Calendar.\\
+        In questa classe (già mostrata in \ref{dcl:GoogleCalendar}), è presente un'invariante che deve essere sempre valida; infatti l'attributo “EndPoint”, URL delle API di Google Calendar, non deve essere una stringa vuota, cosa necessaria per poter interagire mediante sincronizzazione con l'applicativo Google Calendar.\\
         Questa condizione è espressa nel seguente codice OCL:
 
         \begin{lstlisting}
@@ -587,32 +587,32 @@ INV : Endpoint <> ""
             \includesvg[width=0.45\textwidth, height=0.35\textheight]{img/svg/OCL/Iubenda.svg}
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/OCL/Iubenda.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/OCL/Iubenda.svg}{SVG} Diagramma delle classi "Interfaccia Iubenda"}
         \end{center}
-        La classe “InterfacciaIubenda” (già presentata in \ref{dcl:Homepage}) ha delle condizioni che devono essere sempre rispettate. Infatti l’attributo “CookieBannerCode”, codice che mi serve per accedere al banner di cookie di Iubenda, e le “PoliticheDiPrivacy”, stringa che contiene le politiche di privacy ottenute da Iubenda, non devono essere delle stringhe vuote.\\
+        La classe “InterfacciaIubenda” (già presentata in \ref{dcl:Homepage}) ha delle condizioni che devono essere sempre rispettate. Infatti l'attributo “CookieBannerCode”, codice che mi serve per accedere al banner di cookie di Iubenda, e le “PoliticheDiPrivacy”, stringa che contiene le politiche di privacy ottenute da Iubenda, non devono essere delle stringhe vuote.\\
         Queste invarianti sono descritte dal seguente codice OCL:
 
         \begin{lstlisting}
 CONTEXT InterfacciaIubenda :
 INV CookieBannerCode <> "" AND PoliticheDiPrivacy <> ""
     \end{lstlisting}
-        Inoltre, in questa classe nel contesto del metodo “AccettaCookie(NomeCookie)”, sono presenti delle postcondizioni. Infatti nel caso venisse accettato un cookie, questo viene aggiunto alla lista di cookie contenuto in “CookieAccettati”; per questo motivo il size di questo array aumenta di uno, rispetto al suo size prima dell’esecuzione del metodo. E, ovviamente, dopo aver accettato il cookie, questo sarà presente nell’array “CookieAccettati”. \\
+        Inoltre, in questa classe nel contesto del metodo “AccettaCookie(NomeCookie)”, sono presenti delle postcondizioni. Infatti nel caso venisse accettato un cookie, questo viene aggiunto alla lista di cookie contenuto in “CookieAccettati”; per questo motivo il size di questo array aumenta di uno, rispetto al suo size prima dell'esecuzione del metodo. E, ovviamente, dopo aver accettato il cookie, questo sarà presente nell'array “CookieAccettati”. \\
         Queste postcondizioni sono descritte in OCL nel seguente modo:
         \begin{lstlisting}
 CONTEXT InterfacciaIubenda::AccettaCookie(NomeCookie) :
 POST : CookieAccettati.size() = CookieAccettati.size()@pre +1 AND CookieAcettati -> exists(c | c.Nome = NomeCookie)
     \end{lstlisting}
-        Nel contesto del metodo RifiutaCookie(NomeCookie), sono presenti delle postcondizioni. Infatti, in quanto tale “NomeCookie” viene rifiutato dall’utente, questo non viene aggiunto dall’array di cookie “CookieAccettati”, dunque la dimensione di questa lista rimane la stessa e tale cookie non è presente in questa lista.\\
+        Nel contesto del metodo RifiutaCookie(NomeCookie), sono presenti delle postcondizioni. Infatti, in quanto tale “NomeCookie” viene rifiutato dall'utente, questo non viene aggiunto dall'array di cookie “CookieAccettati”, dunque la dimensione di questa lista rimane la stessa e tale cookie non è presente in questa lista.\\
         Queste postcondizioni sono descritte in OCL:
         \begin{lstlisting}
 CONTEXT InterfacciaIubenda::RifiutaCookie(NomeCookie) :
 POST : CookieAccettati.size() = CookieAccettati.size()@pre AND NOT (CookieAcettati -> exists(c | c.Nome = NomeCookie))
     \end{lstlisting}
-        In questa classe, nel contesto del metodo “AccettaTuttiCookies()”, l’array di “CookieAccettati” viene inizializzata ottenendo tutti i cookie presenti in “ListaCookie”, di conseguenza ha anche la sua stessa dimensione. \\
+        In questa classe, nel contesto del metodo “AccettaTuttiCookies()”, l'array di “CookieAccettati” viene inizializzata ottenendo tutti i cookie presenti in “ListaCookie”, di conseguenza ha anche la sua stessa dimensione. \\
         Tutto queste sono delle postcondizioni del metodo “AccettaTuttiCookies()” che vengono descritte con il seguente codice OCL:
         \begin{lstlisting}
 CONTEXT InterfacciaIubenda::AccettaTuttiCookies() :
 POST : CookieAccettati.size() = ListaCookie.size() AND ListaCookies -> forAll (lc | CookieAccettati -> exists(c | c.Nome = lc.Nome))
     \end{lstlisting}
-        Infine, sempre nella classe “InterfacciaIubenda” ma nel contesto del metodo “RifiutaTuttiCookies”, come condizione dopo l’esecuzione di tale metodo, possiamo dire di avere un stato opposto descritto dopo l’esecuzione del metodo “AccettaTuttiCookies()”. Infatti con questo metodo si vanno a rifiutare tutti i cookie presenti in “ListaCookies”, dunque l’array “CookieAccettati” avrà una dimensione pari a zero.\\
+        Infine, sempre nella classe “InterfacciaIubenda” ma nel contesto del metodo “RifiutaTuttiCookies”, come condizione dopo l'esecuzione di tale metodo, possiamo dire di avere un stato opposto descritto dopo l'esecuzione del metodo “AccettaTuttiCookies()”. Infatti con questo metodo si vanno a rifiutare tutti i cookie presenti in “ListaCookies”, dunque l'array “CookieAccettati” avrà una dimensione pari a zero.\\
         Questa postcondizione è descritta dal seguente codice OCL:
         \begin{lstlisting}
 CONTEXT InterfacciaIubenda::RifiutaTuttiCookies() :
@@ -627,21 +627,21 @@ POST : CookieAccettati.size() = 0
             \includesvg[width=0.80\textwidth, height=0.70\textheight]{img/svg/OCL/Tipo_Cookie.svg}
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/OCL/Tipo_Cookie.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/OCL/Tipo_Cookie.svg}{SVG} Diagramma delle classi "Tipo Cookie"}
         \end{center}
-        Nella classe “Tipo\_Cookie” (già presentata in \ref{dcl:Homepage}), che serve per contenere un cookie che è stato accettato dall’utente, deve essere sempre valida una condizione, ovvero che l’attributo “Nome”, stringa che contiene il nome, per l’appunto, del cookie accettato, non deve essere una stringa vuota.\\
+        Nella classe “Tipo\_Cookie” (già presentata in \ref{dcl:Homepage}), che serve per contenere un cookie che è stato accettato dall'utente, deve essere sempre valida una condizione, ovvero che l'attributo “Nome”, stringa che contiene il nome, per l'appunto, del cookie accettato, non deve essere una stringa vuota.\\
         Questa invariante è descritta dal seguente codice OCL:
         \begin{lstlisting}
 CONTEXT Tipo_Cookies :
 INV : Nome <> "" 
     \end{lstlisting}
-        In questa classe, nel contesto del metodo “CreaCookie(Nome, Scadenza, Chiave, Valore)” sono presenti del pre- e postcondizioni. Infatti, prima dell’esecuzione del metodo, il “Nome” del cookie, di cui stiamo andando a creare un oggetto di tipo “Tipo\_Cookie”, deve essere contenuto nell’array dei “CookieAccettati” presente nella classe "InterfacciaIubenda".\\
-        Dopo l’esecuzione di questo metodo “CreaCookie”, tale oggetto di tipo “Tipo\_Cookie” viene restituito alla classe “GestioneHomepage”, dunque sarà presente nell’ array “Cookie” presente in “GestioneHomepage”.\\
+        In questa classe, nel contesto del metodo “CreaCookie(Nome, Scadenza, Chiave, Valore)” sono presenti del pre- e postcondizioni. Infatti, prima dell'esecuzione del metodo, il “Nome” del cookie, di cui stiamo andando a creare un oggetto di tipo “Tipo\_Cookie”, deve essere contenuto nell'array dei “CookieAccettati” presente nella classe "InterfacciaIubenda".\\
+        Dopo l'esecuzione di questo metodo “CreaCookie”, tale oggetto di tipo “Tipo\_Cookie” viene restituito alla classe “GestioneHomepage”, dunque sarà presente nell' array “Cookie” presente in “GestioneHomepage”.\\
         Questa pre- e post-condizione sono presentate nel seguente codice OCL:
         \begin{lstlisting}
 CONTEXT Tipo_Cookie::CreaCookie(Nome, Scadenza, Chiave, Valore):
 PRE InterfacciaIubenda.CookieAccettati -> exists(c | c.nome=Nome)
 POST  GestioneHomepage.Cookie -> exists(c | c.nome=Nome AND c.Scadenza =  Scadenza AND c.Chiave = Chiave AND c.Valore = Valore) 
     \end{lstlisting}
-        Infine, nel classe “Tipo\_Cookie”, nel contesto del metodo “CancellaCookie(Nome)” è presente una postcondizione. Infatti, avendo un cookie contenuto in un oggetto di tipo “Tipo\_Cookie”, questo cookie può essere rifiutato ogni volta che sia vuole mediante questo metodo. Dopo l’esecuzione di questo metodo, il cookie rifiutato verrà eliminato dalla lista cookie presente nell’attributo “Cookie” della classe “GestioneHomepage”.\\
+        Infine, nel classe “Tipo\_Cookie”, nel contesto del metodo “CancellaCookie(Nome)” è presente una postcondizione. Infatti, avendo un cookie contenuto in un oggetto di tipo “Tipo\_Cookie”, questo cookie può essere rifiutato ogni volta che sia vuole mediante questo metodo. Dopo l'esecuzione di questo metodo, il cookie rifiutato verrà eliminato dalla lista cookie presente nell'attributo “Cookie” della classe “GestioneHomepage”.\\
         Questa postcondizione è descritta in OCL nel seguente modo:
 
         \begin{lstlisting}
