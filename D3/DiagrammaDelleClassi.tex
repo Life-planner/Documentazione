@@ -8,10 +8,11 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
 
     \elemento[Tipologie di utenti]{dcl:TipologieUtenti}
     Analizzando il diagramma di contesto realizzato per il progetto PlanIt si nota la presenza di tre attori: “utente autenticato standard”, “utente non autenticato” e “utente autenticato premium”, per questo motivo sono state delineate tre classi, ovvero “Utente”, “UtenteAutenticato”, “UtenteNonAutenticato”.\\
-    Si è deciso di fare la classe “Utente” in modo tale di unire le due tipologie di utenti, “UtenteAutenticato” e “UtenteNonAutenticato”, che si legano a “Utente” con delle generalizzazioni. L'unica funzionalità che ha “Utente” è il GoHomepage()” che non è altro che l'azione che riporta l' “Utente” nell' Homepage del PlanIt; le funzionalità, che possono essere fatte nella pagina Homepage, verranno descritte nella presentazione della classe “Gestione Homepage” \ref{dcl:Homepage}.\\
-    L' “UtenteNonAutenticato” è colui che utilizza il sito in versione demo; che, come abbiamo già descritto in precedenza nel D1 e D2, ha la possibilità di usare il sito con delle limitazioni sulle funzionalità. Queste funzionalità sono presenti in “GestioneSalvataggioDatiInLocale”: l'importanza di questa classe è anche quella di salvare in locale le modifiche effettuate dall' “UtenteNonAutenticato”, infatti nel caso in cui questo decidesse di autenticarsi nel sito, le modifiche effettuate nella versione demo verranno trasferite e salvate nel suo account di “UtenteAutenticato”.\\
+    Si è deciso di fare la classe “Utente” in modo tale di unire le due tipologie di utenti, “UtenteAutenticato” e “UtenteNonAutenticato”, che si legano a “Utente” con delle generalizzazioni. L'unica funzionalità che ha “Utente” è il GoHomepage()” che non è altro che l'azione che riporta l' “Utente” nell' Homepage del PlanIt; le funzionalità, che possono essere fatte nella pagina Homepage, verranno descritte nella presentazione della classe “Gestione Homepage” \ref{dcl:Homepage}. E, inoltre, la classe "Utente" è associata anche a "InterfacciaAuth0" (\ref{dcl:Auth0}), classe che gestisce l'autenticazione. Questa classe viene descritta nel paragrafo successivo.
+    L' “UtenteNonAutenticato” è colui che utilizza il sito in versione demo; che, come abbiamo già descritto in precedenza nel D1 e D2, ha la possibilità di usare il sito con delle limitazioni sulle funzionalità. Queste funzionalità sono presenti in “GestioneSalvataggioDatiInLocale”: l'importanza di questa classe è anche quella di salvare in locale le modifiche effettuate dall' “UtenteNonAutenticato”, infatti nel caso in cui questo decidesse di autenticarsi nel sito, grazie alla classe "InterfacciaAuth0" il cui legame lo eredita da "Utente, le modifiche effettuate nella versione demo verranno trasferite e salvate nel suo account di “UtenteAutenticato”. E' da sottolineare, che le modifiche fatte in locale verranno trasferite nel suo account di "UtenteAutenticato" solo nel caso in cui l' "UtenteNonAutenticato" si fosse registrato e quindi avesse creato un account "UtenteAutenticato" nuovo. Invece, nel caso in cui accedesse ad un account "UtenteAutenticato" già creato, non avviene il trasferimento dei dati dal locale, perché questi potrebbero creare dei conflitti rispetto ai dati già inseriti nel suo account "UtenteAutenticato".
     L' “UtenteAutenticato” è colui che accede al sito autenticandosi, ottenendo tutte le funzionalità del sito, però avendo delle limitazioni rispetto all' utente autenticato che si abbona al sito \prettyref{D1-rf:FunzionalitaUtentePremium}. La gestione della sottoscrizione al sito e il passaggio all'account utente autenticato premium è gestito da “GestioneImpostazioniAccount” (\ref{dcl:ImpostazioniAccount}), che verrà presentato successivamente.\\
-    La gestione dell'autenticazione viene gestita dalla classe “InterfacciaAuth0”(\ref{dcl:Auth0}), a cui la classe "UtenteAutenticato" è legata mediante un'associazione. Questa classe viene descritta nel paragrafo successivo. Gli unici attributi che ha “UtenteAutenticato” sono i suoi dati più importanti, ovvero: “UserID”, “Email” e “Username”. Questi attributi, ottenuti da Interfaccia di Auth0 dopo l'autenticazione, insieme ad altre impostazioni dell'account, sono salvate nel database MongoDB. Per questo motivo, “UtentiAutenticato” è legato con “GestioneChiamateMongoDB”(\ref{dcl:MongoDB}) che verrà descritto in seguito.
+    Questa classe viene descritta nel paragrafo successivo. Gli unici attributi che ha “UtenteAutenticato” sono i suoi dati più importanti, ovvero: “UserID”, “Email” e “Username”. Questi attributi, ottenuti da "InterfacciaAuth0" (classe la cui associazione eredita da "Utente") dopo l'autenticazione, insieme ad altre impostazioni dell'account, sono salvate nel database MongoDB. Per questo motivo, “UtentiAutenticato” è legato con “GestioneChiamateMongoDB”(\ref{dcl:MongoDB}) che verrà descritto in seguito.
+
 
     \begin{center}
         \includesvg[width=1\textwidth, height=1\textheight]{img/svg/DCL/Tipologie_Utenti.svg}
@@ -22,7 +23,7 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
 
     \elemento[Interfaccia Auth0]{dcl:Auth0}
     Il diagramma di componenti presentato nel documento D2 presenta un componente chiamato allo stesso modo, ovvero sempre "Interfaccia Auth0" (\prettyref{D2-aci:Auth0}). Questa classe rappresenta il meccanismo di autenticazione degli utenti attraverso il sistema esterno presente anche nel diagramma di contesto, ovvero Auth0. Questa classe si interfaccia con questo sistema esterno di autenticazione, che gestirà completamente la procedura di autenticazione. Il software di PlanIt memorizzerà solo l'"Email", "UserId" e "Username", valori restituiti dall'autenticazione; questi valori sono salvati nella classe, presentata precedentemente, “UtenteAutenticato”, istanziandola. Infatti un utente autenticato non può esser istanziato se non dopo aver effettuato l'autenticazione. \\
-    Questa classe fa partire la procedura di autenticazione per un “Utente” una volta che si invoca la funzione “AccessoWebApp()”, presente nella classe “GestioneHomepage”, descritta in \ref{dcl:Homepage}, o si invoca la funzione “Autenticazione()” presente nella classe “UtenteNonAutenticato” (\ref{dcl:TipologieUtenti}). Ricordiamo, che per autenticazione si intende o registrazione o login, a seconda se l' “Utente” abbia o meno un suo account su PlanIt. Infine, tutti gli attributi presenti in questa classe,sono delle URL necessarie per l'accesso alla pagina di autenticazione di Auth0.
+    Questa classe fa partire la procedura di autenticazione per un “Utente” una volta che si invoca la funzione “AccessoWebApp()”, presente nella classe “GestioneHomepage”, descritta in \ref{dcl:Homepage}, o si invoca la funzione “AutenticazioneECaricamento()” presente nella classe “UtenteNonAutenticato” (\ref{dcl:TipologieUtenti}). Ricordiamo, che per autenticazione si intende o registrazione o login, a seconda se l' “Utente” abbia o meno un suo account su PlanIt. Infine, tutti gli attributi presenti in questa classe,sono delle URL necessarie per l'accesso alla pagina di autenticazione di Auth0.
 
 
     \begin{center}
@@ -57,7 +58,7 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
             \includesvg[width=0.55\textwidth,height=0.40\textheight]{img/svg/DCL/Gestione_modificaPassword.svg}
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/DCL/Gestione_modificaPassword.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/DCL/Gestione_modificaPassword.svg}{SVG} Diagramma delle classe "Gestione modifica password e Auth0 management API"}
         \end{center}
-
+        \newpage
 
 
         \elemento[Gestione Abbonamento]{dcl:Abbonamento}
@@ -66,7 +67,7 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
 
 
         \begin{center}
-            \includesvg[width=0.85\textwidth,height=0.80\textheight]{img/svg/DCL/Abbonamento.svg}
+            \includesvg[width=0.95\textwidth,height=0.85\textheight]{img/svg/DCL/Abbonamento.svg}
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/DCL/Abbonamento.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/DCL/Abbonamento.svg}{SVG} Diagramma delle classi "Abbonamento"}
         \end{center}
 
@@ -80,7 +81,7 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
 
 
         \begin{center}
-            \includesvg[width=0.75\textwidth,height=0.65\textheight]{img/svg/DCL/GestioneGoogleCalendar.svg}
+            \includesvg[width=0.60\textwidth,height=0.50\textheight]{img/svg/DCL/GestioneGoogleCalendar.svg}
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/DCL/GestioneGoogleCalendar.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/DCL/GestioneGoogleCalendar.svg}{SVG} Diagramma delle classi "Gestione Google Calendar"}
         \end{center}
         \newpage
@@ -185,10 +186,10 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
 
 
         \begin{center}
-            \includesvg[width=1\textwidth,height=1\textheight]{img/svg/DCL/GestioneLuoghi.svg}
+            \includesvg[width=0.60\textwidth,height=0.50\textheight]{img/svg/DCL/GestioneLuoghi.svg}
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/DCL/GestioneLuoghi.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/DCL/GestioneLuoghi.svg}{SVG} Diagramma delle classi "Gestione luoghi"}
         \end{center}
-        \newpage
+        
 
 
 
@@ -205,7 +206,7 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
 
 
     \end{listaPersonale2}
-
+    \newpage
 
     \elemento[Interfaccia Cloudflare]{dcl:CloudFlare}
 
@@ -311,11 +312,13 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
     \newpage
     \elemento[Diagramma delle classi complessivo] {dcl:DiagrammaComplessivo}
         Riportiamo di seguito il diagramma complessivo, con tutte le classi sopra descritte.\\
-        Il primo grafico riportato mostra tutto il diagramma delle classi comprendendo sia i tipi di dati e anche classi che sono scollegate tra loro.
-        Il secondo grafico riportato mostra la maggior parte delle classi che abbiamo collegato tra loro.\\
-        ll terzo grafico riportato mostra le classi che gestiscono l' "Homepage".\\
-        ll quarto grafico riportato mostra le classi che gestiscono l' interfaccia di Iubenda.\\
-        Il quinto grafico riportato mostra dei tipi di dati usati nella classi
+        \begin{itemize}
+        \item Il primo grafico riportato mostra tutto il diagramma delle classi comprendendo sia i tipi di dati e anche classi che sono scollegate tra loro.\\
+        \item Il secondo grafico riportato mostra la maggior parte delle classi che abbiamo collegato tra loro.\\
+        \item ll terzo grafico riportato mostra le classi che gestiscono l' "Homepage".\\
+        \item ll quarto grafico riportato mostra le classi che gestiscono l' interfaccia di Iubenda.\\
+        \item Il quinto grafico riportato mostra dei tipi di dati usati nella classi
+        \end{itemize}
         \begin{center}
             \includesvg[width=1\textwidth,height=1\textheight]{img/svg/DCL/GraficoComplessivo/GraficoTotale.svg}
             Diagramma delle classi, grafico totale

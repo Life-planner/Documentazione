@@ -68,24 +68,24 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
     \newpage
-    \elemento[Use case “Gestione di calendari” (\prettyref{D1-rf:CondivisioneCalendario})]{uc:GestioneCalendari}
+    \elemento[Use case “Filtrare calendari” (\prettyref{D1-rf:CondivisioneCalendario})]{uc:GestioneCalendari}
 
     \begin{center}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/CondivisioneCalendario.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/CondivisioneCalendario.svg}{SVG} use case condivisione calendario}
         \includesvg[width=0.7\textwidth]{img/Diagrammi/svg/UseCases/CondivisioneCalendario.svg}
     \end{center}
 
-    \textbf{Titolo:} gestione di calendari
+    \textbf{Titolo:} filtrare calendari
 
     \textbf{Riassunto:} \\
-    Questo use descrive come l'utente autenticato standard può visualizzare e gestire i calendari personali e quelli condivisi.
+    Questo use descrive come l'utente autenticato standard può filtrare i calendari personali e condivisi, ovvero decidere  quali eventi, appartenenti a determinati calendari, far apparire nella schermata "Calendario". 
 
     \textbf{Descrizione:}
     \begin{enumerate}
-        \item Dalla sezione "Calendari", l'utente può visualizzare e gestire i suoi calendari personali e i calendari condivisi con altre persone.
-        \item L'utente autenticato standard, da questa sezione, può selezionare quali calendari far apparire nella schermata “Calendario” in modo tale da osservare quali siano gli eventi presenti in un calendario specifico.
-        \item Aprendo la sottosezione del calendario “Principale”, l'utente visualizza tutti i suoi calendari personali riguardo alle varie attività da svolgere. Il numero di calendari personali dipende dal tipo di account dell'utente autenticato: l'utente autenticato standard può avere al massimo cinque calendari personali, invece l'utente autenticato premium può averne un numero illimitato.
-        \item Sotto il calendario “Principale”, sono presenti tutti i calendari condivisi (\ref{uc:ExtensionVisualizzazioneCalendariCondivisi}). Il numero di calendari condivisi che può avere un utente autenticato dipende dalla tipologia di account: l'utente autenticato standard può avere al massimo tre calendari condivisi, invece l'utente autenticato premium può averne un numero illimitato.
+        \item Dalla sezione "Calendari", l'utente può visualizzare e filtrare i suoi calendari personali e i calendari condivisi con altre persone.
+        \item L'utente autenticato standard, da questa sezione, può selezionare (filtrare) quali calendari far apparire nella schermata “Calendario” in modo tale da osservare quali siano gli eventi presenti in un calendario specifico.
+        \item Il numero di calendari personali, che possono essere presenti in questa schermata, dipende dal tipo di account dell'utente autenticato: l'utente autenticato standard può avere al massimo cinque calendari personali, invece l'utente autenticato premium può averne un numero illimitato.
+        \item Sotto il calendario “Principale” nella lista, sono presenti tutti i calendari condivisi (\ref{uc:ExtensionVisualizzazioneCalendariCondivisi}). Il numero di calendari condivisi, che può avere un utente autenticato dipende dalla tipologia di account: l'utente autenticato standard può avere al massimo tre calendari condivisi, invece l'utente autenticato premium può averne un numero illimitato.
     \end{enumerate}
 
 
@@ -152,7 +152,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
             \item L'utente non autenticato premendo sull'evento fa apparire un pop-up dove può visualizzare tutte le informazioni di tale evento, ovvero tutte quelle sopra descritte e:
                   \begin{itemize}
                       \item descrizione dell'evento;
-                      \item se l'evento è un'abitudine;
+                      \item se l'evento è un evento ripetuto;
                       \item difficoltà dell'evento;
                       \item nome del calendario di appartenenza
                   \end{itemize}

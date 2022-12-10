@@ -15,163 +15,168 @@ Nel presente capitolo vengono riportati alcuni mockup relativi alle schermate de
 \end{itemize}
 
 \begin{listaPersonale}{FE}
-	\elemento[LOGIN NELLA PIATTAFORMA]{fe:Login} In questa \href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=82%3A74&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{schermata}, il cliente già registrato mediante email e password, deve inserire le credenziali da lui scelte per accedere al sito. \\
-	Invece, coloro che hanno fatto accesso grazie all'utilizzo di servizi di terze parti, devono proseguire la loro autenticazione premendo il tasto corrispondente al servizio esterno da loro utilizzato per registrarsi (\ref{rf:MetodiAutenticazione}).
-	Se il cliente non si è ancora registrato sul sito deve premere “Registrati” oppure proseguire l'autenticazione con il servizio di terze parti offerto, ovvero Google.
+\elemento[LOGIN NELLA PIATTAFORMA]{fe:Login} In questa \href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=82%3A74&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{schermata}, il cliente già registrato mediante email e password, deve inserire le credenziali da lui scelte per accedere al sito. \\
+Invece, coloro che hanno fatto accesso grazie all'utilizzo di servizi di terze parti, devono proseguire la loro autenticazione premendo il tasto corrispondente al servizio esterno da loro utilizzato per registrarsi (\ref{rf:MetodiAutenticazione}).
+Se il cliente non si è ancora registrato sul sito deve premere “Registrati” oppure proseguire l'autenticazione con il servizio di terze parti offerto, ovvero Google.
+\begin{figure}[H]
+	\centering
+	\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=82%3A74&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Login.png}}
+	\caption{Figura 1: schermata quando si apre il sito PlanIt}
+\end{figure}
+
+\pagebreak%quasi quasi metterei un pagebreak per ciascuna schermata così per renderlo più ordinato
+
+\elemento[SCHERMATA PRINCIPALE]{fe:SchermataPrincipale} Questa \href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=25%3A82&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{schermata} è la schermata principale della piattaforma PlanIt. Il cliente, dopo aver fatto l'accesso al sito oppure proseguito con la modalità demo, giungerà a questa pagina, dove potrà guardare gli eventi posti nella settimana. L'utente non autenticato ha la possibilità, dal menù al di sopra del calendario, di spostarsi di data sia in mesi che in settimane, visualizzare il calendario per settimana, mese e anno e accedere agli altri calendari personali e a quelli condivisi (\ref{rf:InterzioneTraCalendariDiAltriUtenti}). Infine è presente anche il bottone "+” con cui si accede al pop-up di compilazione/aggiunta evento (\ref{rf:CreazioneModificaEvento}).
+\begin{figure}[H]
+	\centering
+	\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=25%3A82&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Calendar/Calendar.png}}
+\end{figure}
+
+\begin{listaPersonale2}{FE}
+	\elemento[SCHERMATA PRINCIPALE-CALENDARI]{fe:SchermataPrincipaleCalendario} Grazie alla sezione \href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=25%3A82&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{"Calendari"} l'utente standard aprirà una sezione da dove può gestire i propri calendari e i calendari condivisi di altre persone (\ref{rf:InterzioneTraCalendariDiAltriUtenti}). I calendari condivisi da altri utenti sono indicati con una piccola immagine stereotipata di persone, alla destra del loro nome.
+\end{listaPersonale2}
+\begin{figure}[H]
+	\centering
+	\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=25%3A82&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.9\textwidth,height=0.33\textheight]{img/FrontEnd/Calendar/CalendarCondivisi.png}}
+\end{figure}
+
+\pagebreak
+\elemento[DASHBOARD]{fe:Dashboard} L'utente non autenticato, nella \href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=84%3A178&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{dashboard}, può osservare le informazioni principali riguardo al proprio calendario, le sezioni presenti sono: "Attività svolte questa settimana", "Situazione scadenza attività" e "Attività svolte oggi" con "Grafico attività svolte".
+\begin{figure}[H]
+	\centering
+	\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=84%3A178&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Dashboard/Dashboard.png}}
+\end{figure}
+
+
+\begin{listaPersonale2}{FE}
+	\elemento[ATTIVITA' SVOLTE QUESTA SETTIMANA]{fe:AttivitaSettimanaDashboard} Nella sezione “Attività svolte questa settimana” viene mostrato un grafico a barre delle varie attività svolte per ogni giorno della settimana (\ref{rf:UsoDelTempo}); l'altezza delle barre corrisponde al quantitativo di ore dedicate a quell'attività.
 	\begin{figure}[H]
 		\centering
-		\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=82%3A74&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Login.png}}
-		\caption{Figura 1: schermata quando si apre il sito PlanIt}
+		\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=84%3A178&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.6\textwidth,height=0.18\textheight]{img/FrontEnd/Dashboard/graficoBarre.png}}
+		\caption{Figura 3.1: come appare il grafico quando si preme una delle attività della mia legenda}
+	\end{figure}
+	\pagebreak
+	\elemento[SITUAZIONE SCADENZA ATTIVITA']{fe:ScadenzeAttivitaDashboard}
+	Nella sezione “Situazione scadenze attività” è presente in basso una heatmap riguardo al tempo che deve essere dedicato ogni giorno per rispettare le varie deadline (\ref{rf:UsoDelTempo}). La legenda sopra la heatmap mostra che più si è tendenti al colore rosso, più ore si devono  impiegare nello specifico periodo di tempo.
+	\begin{figure}[H]
+		\centering
+		\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=84%3A178&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.45\textwidth,height=0.18\textheight]{img/FrontEnd/Dashboard/heatMap.png}}
 	\end{figure}
 
-	\pagebreak%quasi quasi metterei un pagebreak per ciascuna schermata così per renderlo più ordinato
+	\elemento[ATTIVITA' SVOLTE OGGI e GRAFICO ATTIVITA' SVOLTE]{fe:AttivitaGiornoEGraficoDashboard} Nella sezione “Attività svolte oggi” è presente una lista delle attività della giornata, da cui si possono ottenere anche le varie sotto attività.
+	La sezione “Attività svolte oggi” è sincronizzata con il grafico a torta presente nel “Grafico attività svolte” (\ref{rf:UsoDelTempo}). Il grafico presenta le attività selezionate in “Attività svolte oggi” con una dimensione proporzionata al tempo da spendere.
 
-	\elemento[SCHERMATA PRINCIPALE]{fe:SchermataPrincipale} Questa \href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=25%3A82&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{schermata} è la schermata principale della piattaforma PlanIt. Il cliente, dopo aver fatto l'accesso al sito oppure proseguito con la modalità demo, giungerà a questa pagina, dove potrà guardare gli eventi posti nella settimana. L'utente non autenticato ha la possibilità, dal menù al di sopra del calendario, di spostarsi di data sia in mesi che in settimane, visualizzare il calendario per settimana, mese e anno e accedere agli altri calendari personali e a quelli condivisi (\ref{rf:InterzioneTraCalendariDiAltriUtenti}). Infine è presente anche il bottone "+” con cui si accede al pop-up di compilazione/aggiunta evento (\ref{rf:CreazioneModificaEvento}).
 	\begin{figure}[H]
 		\centering
-		\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=25%3A82&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Calendar/Calendar.png}}
+		\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=84%3A178&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.72\textwidth,height=0.2\textheight]{img/FrontEnd/Dashboard/selezionatoAttività.png}}
+		\caption{Figura 3.3.1: schermata che appare quando si mette il puntatore sopra una dei calendari della lista}
 	\end{figure}
 
-	\begin{listaPersonale2}{FE}
-		\elemento[SCHERMATA PRINCIPALE-CALENDARI]{fe:SchermataPrincipaleCalendario} Grazie alla sezione \href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=25%3A82&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{"Calendari"} l'utente standard aprirà una sezione da dove può gestire i propri calendari e i calendari condivisi di altre persone (\ref{rf:InterzioneTraCalendariDiAltriUtenti}). I calendari condivisi da altri utenti sono indicati con una piccola immagine stereotipata di persone, alla destra del loro nome.
-	\end{listaPersonale2}
 	\begin{figure}[H]
 		\centering
-		\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=25%3A82&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.9\textwidth,height=0.33\textheight]{img/FrontEnd/Calendar/CalendarCondivisi.png}}
+		\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=84%3A178&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.72\textwidth,height=0.2\textheight]{img/FrontEnd/Dashboard/Dashboard3.png}}
+		\caption{Figura 3.3.2: schermata quando si seleziona una delle attività della lista}
+	\end{figure}
+
+\end{listaPersonale2}
+\pagebreak
+\elemento[SCHERMATA ATTIVITA']{fe:SchermataAttivita} Nella \href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=159%3A277&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{schermata attività} è presente una tabella delle attività della giornata con le varie informazioni, ovvero: titolo, descrizione, priorità, durata (\ref{rf:CreazioneModificaEvento}), posizione (\ref{rf:LuogoEvento}) e difficoltà. Inoltre ci sono dei tasti con cui si può segnalare il non completamento (\ref{rf:ResocontoGiornata}), eliminare (\ref{rf:CreazioneModificaEvento}) l'attività e, infine, un tasto per indicare di averla completata. A fine giornata di default tutti gli impegni sono posti come completati; per modificare tale opzione deve intervenire l'utente standard.
+\begin{figure}[H]
+	\centering
+	\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=159%3A277&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Attivita/Attivita.png}}
+	\caption {Figura 4: le spunte verdi indicano il completamento dell'evento; l'orologio giallo indica il ritardo nel compiere l'evento; il cestino l'eliminazione dell'evento}
+\end{figure}
+\pagebreak
+\elemento[SCHERMATA EVENTI]{fe:SchermataEventi} Nella \href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A290&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{schermata eventi} sono presenti tutti i comandi che riguardano la compilazione ed eliminazione di eventi (\ref{rf:CreazioneModificaEvento}), calendari (\ref{rf:CalendariMultipli}) ed eventi ripetuti (\ref{rf:NotificheEvento}).
+Nella sezione sottostante, è presente una lista dei vari calendari, eventi ed eventi ripetuti, che selezionati una alla volta aprono i rispettivi form di modifica, dove sono presenti tutti i campi citati in (\ref{rf:CreazioneModificaEvento}) per l'aggiunta e modifica d'impegni ed eventi ripetuti, che non sono altro che eventi che si ripetono su più giorni, e (\ref{rf:ImpostazioniPredefiniteCalendario}) per la modifica e aggiunta di calendari. Mediante un'azione di "drag and drop" è possibile spostare l'elemento selezionato da una posizione all'altra della lista.
+%qua dipende dalla formattazione andrebbe un clearpage
+\begin{figure}[H]
+	\centering
+	\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A290&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Eventi/SottoAttività.png}}
+	\caption{Figura 5: schermata quando si apre la sezione "Eventi"}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A290&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Eventi/Calendario/CreaCalendario.png}}
+	\caption{Figura 5: schermata quando si seleziona uno dei comandi o un'attività della lista}
+\end{figure}
+\begin{listaPersonale2}{FE}
+
+	\elemento[SCHERMATA CREA/MODIFICA EVENTO]{fe:SchermataCreaModificaEvento}
+	\begin{figure}[h!]
+		\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A290&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.48\textwidth,height=0.35\textheight]{img/FrontEnd/Eventi/Evento/CreaEvento.png}}
+		\centering
+		\includegraphics[width=0.48\textwidth,height=0.35\textheight]{img/FrontEnd/Eventi/Evento/ModificaEvento.png}
+	\end{figure}
+
+
+	\elemento[SCHERMATA CREA/MODIFICA EVENTO RIPETUTO]{fe:SchermataCreaModificaEvento}
+	\begin{figure}[h!]
+		\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A290&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.48\textwidth,height=0.35\textheight]{img/FrontEnd/Eventi/EventoRipetuto/CreaEventoRipetuto.png}}
+		\centering
+		\includegraphics[width=0.48\textwidth,height=0.35\textheight]{img/FrontEnd/Eventi/EventoRipetuto/ModificaEventoRipetuto.png}
 	\end{figure}
 
 	\pagebreak
-	\elemento[DASHBOARD]{fe:Dashboard} L'utente non autenticato, nella \href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=84%3A178&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{dashboard}, può osservare le informazioni principali riguardo al proprio calendario, le sezioni presenti sono: "Attività svolte questa settimana", "Situazione scadenza attività" e "Attività svolte oggi" con "Grafico attività svolte".
-	\begin{figure}[H]
+
+	\elemento[SCHERMATA CREA/MODIFICA CALENDARIO]{fe:SchermataCreaModificaCalendario}
+	\begin{figure}[h!]
+		\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A290&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.49\textwidth,height=0.35\textheight]{img/FrontEnd/Eventi/Calendario/CreaCalendario1.png}}
 		\centering
-		\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=84%3A178&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Dashboard/Dashboard.png}}
+		\includegraphics[width=0.49\textwidth,height=0.35\textheight]{img/FrontEnd/Eventi/Calendario/ModificaCalendario.png}
+	\end{figure}
+
+\end{listaPersonale2}
+\pagebreak
+\begin{comment}
+\elemento[SCHERMATA ABITUDINI]{fe:SchermataAbitudini} Nella schermata \href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A399&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{"Abitudini"} l'utente può visualizzare la lista delle abitudini del proprio calendario. Inoltre, nella sezione di destra, si può aprire un form per la modifica, aggiunta ed eliminazione (\ref{rf:CreazioneModificaEvento}) di un'abitudine (\ref{rf:RoutineEvento}) selezionando una di quest'ultime.
+\begin{figure}[H]
+	\centering
+	\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A399&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Abitudini/Abitudini.png}}
+	\caption{Figura 6: schermata quando si apre la sezione "Abitudini"}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A399&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Abitudini/CreaAbitudiniMain.png}}
+	\caption{Figura 6: schermata quando si seleziona uno dei comandi o un'abitudine della lista}
+\end{figure}
+
+\begin{listaPersonale2}{FE}
+
+	\elemento[SCHERMATA CREA ABITUDINI E IMPOSTAZIONI AVANZATE]{fe:CreaAbitudiniEImpostazioniAvanzate}
+	\begin{figure}[h!]
+		\centering
+		\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A399&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.49\textwidth,height=0.35\textheight]{img/FrontEnd/Abitudini/Crea/CreaAbitudine.png}}
+		\centering
+		\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A399&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.49\textwidth,height=0.35\textheight]{img/FrontEnd/Abitudini/Crea/CreaAbitudineAvv.png}}
+	\end{figure}
+
+	\elemento[SCHERMATA MODIFICA ABITUDINI E IMPOSTAZIONI AVANZATE]{fe:ModificaAbitudiniEImpostazioniAvanzate}
+	\begin{figure}[h!]
+		\centering
+		\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A399&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.49\textwidth,height=0.35\textheight]{img/FrontEnd/Abitudini/Modifica/ModificaAbitudine.png}}
+		\centering
+		\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A399&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.49\textwidth,height=0.35\textheight]{img/FrontEnd/Abitudini/Modifica/ModificaAbitudineAvv.png}}
 	\end{figure}
 
 
-	\begin{listaPersonale2}{FE}
-		\elemento[ATTIVITA' SVOLTE QUESTA SETTIMANA]{fe:AttivitaSettimanaDashboard} Nella sezione “Attività svolte questa settimana” viene mostrato un grafico a barre delle varie attività svolte per ogni giorno della settimana (\ref{rf:UsoDelTempo}); l'altezza delle barre corrisponde al quantitativo di ore dedicate a quell'attività.
-		\begin{figure}[H]
-			\centering
-			\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=84%3A178&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.6\textwidth,height=0.18\textheight]{img/FrontEnd/Dashboard/graficoBarre.png}}
-			\caption{Figura 3.1: come appare il grafico quando si preme una delle attività della mia legenda}
-		\end{figure}
-		\pagebreak
-		\elemento[SITUAZIONE SCADENZA ATTIVITA']{fe:ScadenzeAttivitaDashboard}
-		Nella sezione “Situazione scadenze attività” è presente in basso una heatmap riguardo al tempo che deve essere dedicato ogni giorno per rispettare le varie deadline (\ref{rf:UsoDelTempo}). La legenda sopra la heatmap mostra che più si è tendenti al colore rosso, più ore si devono  impiegare nello specifico periodo di tempo.
-		\begin{figure}[H]
-			\centering
-			\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=84%3A178&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.45\textwidth,height=0.18\textheight]{img/FrontEnd/Dashboard/heatMap.png}}
-		\end{figure}
-
-		\elemento[ATTIVITA' SVOLTE OGGI e GRAFICO ATTIVITA' SVOLTE]{fe:AttivitaGiornoEGraficoDashboard} Nella sezione “Attività svolte oggi” è presente una lista delle attività della giornata, da cui si possono ottenere anche le varie sotto attività.
-			La sezione “Attività svolte oggi” è sincronizzata con il grafico a torta presente nel “Grafico attività svolte” (\ref{rf:UsoDelTempo}). Il grafico presenta le attività selezionate in “Attività svolte oggi” con una dimensione proporzionata al tempo da spendere.
-
-			\begin{figure}[H]
-				\centering
-				\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=84%3A178&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.72\textwidth,height=0.2\textheight]{img/FrontEnd/Dashboard/selezionatoAttività.png}}
-				\caption{Figura 3.3.1: schermata che appare quando si mette il puntatore sopra una delle raggruppamenti della lista}
-			\end{figure}
-
-			\begin{figure}[H]
-				\centering
-				\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=84%3A178&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.72\textwidth,height=0.2\textheight]{img/FrontEnd/Dashboard/Dashboard3.png}}
-				\caption{Figura 3.3.2: schermata quando si seleziona una delle attività della lista}
-			\end{figure}
-
-	\end{listaPersonale2}
-	\pagebreak
-	\elemento[SCHERMATA ATTIVITA']{fe:SchermataAttivita} Nella \href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=159%3A277&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{schermata attività} è presente una tabella delle attività della giornata con le varie informazioni, ovvero: titolo, descrizione, priorità, durata (\ref{rf:CreazioneModificaEvento}), posizione (\ref{rf:LuogoEvento}) e difficoltà. Inoltre ci sono dei tasti con cui si può segnalare il non completamento (\ref{rf:ResocontoGiornata}), eliminare (\ref{rf:CreazioneModificaEvento}) l'attività e, infine, un tasto per indicare di averla completata. A fine giornata di default tutti gli impegni sono posti come completati; per modificare tale opzione deve intervenire l'utente standard.
-		\begin{figure}[H]
-			\centering
-			\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=159%3A277&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Attivita/Attivita.png}}
-			\caption {Figura 4: le spunte verdi indicano il completamento dell'evento; l'orologio giallo indica il ritardo nel compiere l'evento; il cestino l'eliminazione dell'evento}
-		\end{figure}
-		\pagebreak
-	\elemento[SCHERMATA EVENTI]{fe:SchermataEventi} Nella \href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A290&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{schermata eventi} sono presenti tutti i comandi che riguardano la compilazione ed eliminazione di eventi (\ref{rf:CreazioneModificaEvento}), calendari (\ref{rf:CalendariMultipli}) e raggruppamenti (\ref{rf:NotificheEvento}).
-		Nella sezione sottostante, è presente una lista dei vari calendari, eventi e raggruppamenti, che selezionati una alla volta aprono i rispettivi form di modifica, dove sono presenti tutti i campi citati in (\ref{rf:CreazioneModificaEvento}) per l'aggiunta e modifica d'impegni e raggruppamenti e (\ref{rf:ImpostazioniPredefiniteCalendario}) per la modifica e aggiunta di calendari. Mediante un'azione di "drag and drop" è possibile spostare l'elemento selezionato da una posizione all'altra della lista.
-		%qua dipende dalla formattazione andrebbe un clearpage
-		\begin{figure}[H]
-			\centering
-			\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A290&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Eventi/SottoAttività.png}}
-			\caption{Figura 5: schermata quando si apre la sezione "Eventi"}
-		\end{figure}
-		\begin{figure}[H]
-			\centering
-			\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A290&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Eventi/Calendario/CreaCalendario.png}}
-			\caption{Figura 5: schermata quando si seleziona uno dei comandi o un'attività della lista}
-		\end{figure}
-		\begin{listaPersonale2}{FE}
-
-			\elemento[SCHERMATA CREA/MODIFICA EVENTO]{fe:SchermataCreaModificaEvento}
-			\begin{figure}[h!]
-				\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A290&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.48\textwidth,height=0.35\textheight]{img/FrontEnd/Eventi/Evento/CreaEvento.png}}
-				\centering
-				\includegraphics[width=0.48\textwidth,height=0.35\textheight]{img/FrontEnd/Eventi/Evento/ModificaEvento.png}
-			\end{figure}
-
-
-			\elemento[SCHERMATA CREA/MODIFICA RAGGRUPPAMENTO]{fe:SchermataCreaModificaRaggruppamento}
-				\begin{figure}[h!]
-					\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A290&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.48\textwidth,height=0.35\textheight]{img/FrontEnd/Eventi/Raggruppamento/CreaRaggruppamento.png}}
-					\centering
-					\includegraphics[width=0.48\textwidth,height=0.35\textheight]{img/FrontEnd/Eventi/Raggruppamento/ModificaRaggruppamento.png}
-				\end{figure}
-
-				\pagebreak
-
-			\elemento[SCHERMATA CREA/MODIFICA CALENDARIO]{fe:SchermataCreaModificaCalendario}
-				\begin{figure}[h!]
-					\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A290&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.49\textwidth,height=0.35\textheight]{img/FrontEnd/Eventi/Calendario/CreaCalendario1.png}}
-					\centering
-					\includegraphics[width=0.49\textwidth,height=0.35\textheight]{img/FrontEnd/Eventi/Calendario/ModificaCalendario.png}
-				\end{figure}
-
-		\end{listaPersonale2}
-		\pagebreak
-	\elemento[SCHERMATA ABITUDINI]{fe:SchermataAbitudini} Nella schermata \href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A399&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{"Abitudini"} l'utente può visualizzare la lista delle abitudini del proprio calendario. Inoltre, nella sezione di destra, si può aprire un form per la modifica, aggiunta ed eliminazione (\ref{rf:CreazioneModificaEvento}) di un'abitudine (\ref{rf:RoutineEvento}) selezionando una di quest'ultime.
-		\begin{figure}[H]
-			\centering
-			\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A399&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Abitudini/Abitudini.png}}
-			\caption{Figura 6: schermata quando si apre la sezione "Abitudini"}
-		\end{figure}
-
-		\begin{figure}[H]
-			\centering
-			\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A399&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Abitudini/CreaAbitudiniMain.png}}
-			\caption{Figura 6: schermata quando si seleziona uno dei comandi o un'abitudine della lista}
-		\end{figure}
-
-		\begin{listaPersonale2}{FE}
-
-			\elemento[SCHERMATA CREA ABITUDINI E IMPOSTAZIONI AVANZATE]{fe:CreaAbitudiniEImpostazioniAvanzate}
-			\begin{figure}[h!]
-				\centering
-				\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A399&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.49\textwidth,height=0.35\textheight]{img/FrontEnd/Abitudini/Crea/CreaAbitudine.png}}
-				\centering
-				\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A399&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.49\textwidth,height=0.35\textheight]{img/FrontEnd/Abitudini/Crea/CreaAbitudineAvv.png}}
-			\end{figure}
-
-			\elemento[SCHERMATA MODIFICA ABITUDINI E IMPOSTAZIONI AVANZATE]{fe:ModificaAbitudiniEImpostazioniAvanzate}
-			\begin{figure}[h!]
-				\centering
-				\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A399&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.49\textwidth,height=0.35\textheight]{img/FrontEnd/Abitudini/Modifica/ModificaAbitudine.png}}
-				\centering
-				\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A399&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=0.49\textwidth,height=0.35\textheight]{img/FrontEnd/Abitudini/Modifica/ModificaAbitudineAvv.png}}
-			\end{figure}
-
-		\end{listaPersonale2}
-		\pagebreak
-	\elemento[SCHERMATA ROUTINE]{fe:SchermataRoutine} Nella schermata \href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A531&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{“Routine”} l'utente non autenticato ha possibilità di visualizzare e gestire tutte le proprie routine, ovvero le attività che ripete tutti i giorni (\ref{rf:LuogoEvento}), come dormire e mangiare. L'utente non autenticato ha la possibilità di definire quante ore e quando avere queste attività di routine. Si possono aggiungere le attività di routine da "Blocchi di attività" mediante un'azione di "drag and drop" nella tabella settimanale.
-		\begin{figure}[H]
-			\centering
-			\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A531&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Routine/Routine.png}}
-			\caption{Figura 7: schermata quando si apre la sezione "Routine"}
-		\end{figure}
-		\begin{figure}[H]
-			\centering
-			\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=453%3A1711&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Routine/RoutineRiempito.png}}
-			\caption{Figura 7.1: schermata quando si riempe il calendario settimanale con le routine mediante l'azione di "drag and drop"}
-		\end{figure}
+\end{listaPersonale2}
+\pagebreak
+\end{comment}
+\begin{comment}
+\elemento[SCHERMATA ROUTINE]{fe:SchermataRoutine} Nella schermata \href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A531&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{“Routine”} l'utente non autenticato ha possibilità di visualizzare e gestire tutte le proprie routine, ovvero le attività che ripete tutti i giorni (\ref{rf:LuogoEvento}), come dormire e mangiare. L'utente non autenticato ha la possibilità di definire quante ore e quando avere queste attività di routine. Si possono aggiungere le attività di routine da "Blocchi di attività" mediante un'azione di "drag and drop" nella tabella settimanale.
+\begin{figure}[H]
+	\centering
+	\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=160%3A531&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Routine/Routine.png}}
+	\caption{Figura 7: schermata quando si apre la sezione "Routine"}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\href{https://www.figma.com/proto/cO66hx25OizBABGtWp8XlT/Planify?node-id=453%3A1711&scaling=scale-down&page-id=0%3A1&starting-point-node-id=25%3A82}{\includegraphics[width=1\textwidth]{img/FrontEnd/Routine/RoutineRiempito.png}}
+	\caption{Figura 7.1: schermata quando si riempe il calendario settimanale con le routine mediante l'azione di "drag and drop"}
+\end{figure}
+\end{comment}
 
 
 \end{listaPersonale}

@@ -452,7 +452,7 @@ DurataIntervallo = "Anno"
 CONTEXT EventoSingolo:
 INV : Durata >= 0 AND Data <> Null
     \end{lstlisting}
-
+    \newpage
 
 
 
@@ -487,7 +487,7 @@ POST : TipoPagamento = NSistema
 CONTEXT GestioneStripeAPI :
 INV : ProductId <> "" AND EndPoint <> ""
     \end{lstlisting}
-    Infine, in questa classe, nel contesto del metodo "PagaSubscription()" sono presenti delle postcondizioni. Infatti "UserPaymentToken", token che indica l'user dell'account Stripe con cui si ha pagato l'abbonamento, e "PaymentId", Id che identifica univocamente il prodotto, in questo caso l'abbonamento, che si è acquistato, non devono essere delle stringhe vuote: se lo fossero l'acquisto dell'abbonamento non potrebbe essersi concluso con successo e non sarebbe neanche possibile il rinnovo automatico mensile dell'abbonamento, in quanto l'applicativo PlanIt non avrebbe delle credenziali di pagamento. Si sottolinea che questi attributi sono restituiti alla classe "GestioneSistemaDiPagamentoStripe" che provvederà al pagamento mensile automatico dell'abbonamento nel caso si fosse effettuata la sottoscrizione a questo.
+    Infine, in questa classe, nel contesto del metodo "PagaSubscription()" sono presenti delle postcondizioni. Infatti "UserPaymentToken", token che indica l'user dell'account Stripe con cui si ha pagato l'abbonamento, e "PaymentId", Id che identifica univocamente il prodotto, in questo caso l'abbonamento, che si è acquistato, non devono essere delle stringhe vuote: se lo fossero l'acquisto dell'abbonamento non potrebbe essersi concluso con successo e non sarebbe neanche possibile il rinnovo automatico mensile dell'abbonamento, in quanto l'applicativo PlanIt non avrebbe delle credenziali di pagamento. Si sottolinea che questi attributi sono restituiti dal metodo "PagaSubscription()" della classe "GestioneStripeAPI", in modo tale che la classe "GestioneSistemaDiPagamentoStripe" possa provvedere al pagamento mensile automatico dell'abbonamento nel caso si fosse effettuata la sottoscrizione a questo.
     Queste postcondizioni sono espresse nel seguente codice OCL:
     \begin{lstlisting}
 CONTEXT GestioneStripeAPI::PagaSubscription() :
@@ -507,13 +507,13 @@ POST : InterfacciaSistemaDiPagamentoPayPal.UserPaymentToken <> "" AND Interfacci
 CONTEXT PayPalAPI :
 INV : ProductId <> "" AND EndPoint <> ""
     \end{lstlisting}
-    Inoltre, in questa classe, nel contesto del metodo “PagaSubscrition()” è presente una postcondizione. Infatti, dopo l'esecuzione di questo metodo, gli attributi “PayPalEmail”, “PayPalUserName” e “SubscriptionId”, che corrispondono alle credenziali PayPal dell'utente autenticato, che decide di pagare l'abbonamento con questo metodo, non sono delle stringhe vuote: se lo fossero l'acquisto dell'abbonamento non potrebbe essersi concluso con successo e non sarebbe neanche possibile il rinnovo automatico mensile dell'abbonamento, in quanto l'applicativo PlanIt non avrebbe delle credenziali di pagamento. Si sottolinea che questi attributi sono restituiti alla classe "GestioneSistemaDiPagamentoPayPal" che provvederà al pagamento mensile automatico dell'abbonamento nel caso si fosse effettuata la sottoscrizione a questo.\\
+    Inoltre, in questa classe, nel contesto del metodo “PagaSubscrition()” è presente una postcondizione. Infatti, dopo l'esecuzione di questo metodo, gli attributi “PayPalEmail”, “PayPalUserName” e “SubscriptionId”, che corrispondono alle credenziali PayPal dell'utente autenticato, che decide di pagare l'abbonamento con questo metodo, non sono delle stringhe vuote: se lo fossero l'acquisto dell'abbonamento non potrebbe essersi concluso con successo e non sarebbe neanche possibile il rinnovo automatico mensile dell'abbonamento, in quanto l'applicativo PlanIt non avrebbe delle credenziali di pagamento. Si sottolinea che questi attributi sono restituiti dal metodo "PagaSubscription()" della classe "InterfacciaPayPalAPI", in modo tale che la classe "InterfacciaSistemaDiPagamentoPayPal" possa provvedere al pagamento mensile automatico dell'abbonamento nel caso si fosse effettuata la sottoscrizione a questo.\\
     Questa postcondizione è espressa in OCL nel seguente modo:
     \begin{lstlisting}
 CONTEXT PayPalAPI::PagaSubscription() :
 POST : GestioneSistemaDiPagamentoPayPal.PayPalEmail <> "" AND GestioneSistemaDiPagamentoPayPal.PayPalUserName <> "" AND GestioneSistemaDiPagamentoPayPal.SubscriptionId <> ""
     \end{lstlisting}
-
+    \newpage
 
 
 
@@ -545,7 +545,7 @@ POST : sincronizzazione = NOT sincronizzazione@pre
 CONTEXT GestioneImportExport :
 INV : Sincronizzazione = false
     \end{lstlisting}
-
+    \newpage
 
 
 
