@@ -4,8 +4,28 @@
 
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm]{geometry}\usepackage{nameref,zref-xr}
 %\usepackage{xr-hyper}
-\usepackage{hyperref, amsmath, amssymb, graphicx, mathtools, xcolor, enumitem, verbatim, todonotes, csquotes, subcaption, fancyhdr, lastpage, cancel, xspace, float, caption, prettyref, tabularx, colortbl, color, soul, listings}
+\usepackage{hyperref, amsmath, amssymb, graphicx, mathtools, xcolor, enumitem, verbatim, todonotes, csquotes, subcaption, fancyhdr, lastpage, cancel, xspace, float, caption, prettyref, tabularx, colortbl, color, soul, listings, tabularray}
 \usepackage[most]{tcolorbox}
 %\usepackage[inkscapeformat=png, inkscapelatex=false, inkscapearea=page]{svg}
 \usepackage[inkscapelatex=false, inkscapearea=page]{svg}
 \usepackage[bottom]{footmisc}
+
+\UseTblrLibrary{functional}
+\IgnoreSpacesOn
+\prgNewFunction \funcSum {} {
+  \intStepOneInline {2} {\arabic{rowcount}-1} {
+    \intZero \lTmpaInt
+    \intStepOneInline {2} {\arabic{colcount}-1} {
+      \intAdd \lTmpaInt {\cellGetText {##1} {####1}}
+    }
+    \cellSetText {##1} {\expWhole{\arabic{colcount}}} {\intUse\lTmpaInt}
+  }
+  \intStepOneInline {2} {\arabic{colcount}-1} {
+    \intZero \lTmpaInt
+    \intStepOneInline {2} {\arabic{rowcount}-1} {
+      \intAdd \lTmpaInt {\cellGetText {####1} {##1}}
+    }
+    \cellSetText {\expWhole{\arabic{rowcount}}} {##1} {\intUse\lTmpaInt}
+  }
+}
+\IgnoreSpacesOff

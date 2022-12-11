@@ -37,20 +37,32 @@ Spiegare brevemente in questa sezione come è stato organizzato il lavoro. Ad es
 Di seguito il carico di lavoro espresso in ore/persona per ciascun membro del gruppo. Spiegare inoltre eventuali squilibri e/o commentare in base ai ruoli dei singoli componenti.
 
 \begin{center}
+    \begin{comment}
     \begin{tabular}{|c|c|c|c|c|c|c|}
         \hline
                          & D1   & D2   & D3   & D4 & D5 & TOT   \\
         \hline
         Gabriele Lacchin & 51.5 & 81   & 21   &    &    & 153.5 \\
         \hline
-        Denis Lucietto   & 40   & 66.5 & 26.5 &    &    & 133   \\
+        Denis Lucietto   & 40   & 66.5 & 26.5 &    & 1  & 134   \\
         \hline
-        Emanuele Zini    & 49.5 & 18.5 &      &    &    & 68    \\
+        Emanuele Zini    & 49.5 & 33.5 & 31   &    &    & 114   \\
         \hline
-        Total            & 141  & 166  & 46.5 &    &    &       \\
+        Total            & 141  & 181  & 78.5 &    &    &       \\
         \hline
     \end{tabular}
+    \end{comment}
+
+    \begin{tblr}{colspec={lccccc|c},process=\funcSum}
+                         & D1     & D2     & D3     & D4     & D5     & TOT    \\
+        Gabriele Lacchin & 51     & 81     & 22     & 0      & 0      & rowsum \\
+        Denis Lucietto   & 40     & 66     & 27     & 0      & 0      & rowsum \\
+        Emanuele Zini    & 49     & 34     & 31     & 0      & 0      & rowsum \\
+        \hline
+        Total            & colsum & colsum & colsum & colsum & colsum          \\
+    \end{tblr}
 \end{center}
+
 
 
 \section{Criticità}
