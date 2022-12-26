@@ -1,2 +1,31 @@
 \section{User Flows}
 \label{secD4:UserFlows}
+
+In questa sezione del documento di sviluppo riportiamo gli “user flows” riguardanti, soprattutto, il ruolo dell'utente autenticato nel nostro sito.
+Questa figura descrive gli user flows relativi alle funzionalità che abbiamo reso disponibili in questo prototipo dell'applicativo PlanIt. Come si può notare dall'user flow, l'utente, una volta autenticato, visualizza la schermata "Calendario", schermata principale della nostra piattaforma. La procedura di autenticazione da parte dell'utente è piuttosto intricata; infatti l'utente ha la possibilità sia di accedere/registrarsi mediante proprie credenziali sia mediante un proprio account Google. Nel caso in cui si fosse registrato mediante credenziali e avesse dimenticato la propria password, l'utente ha la possibilità di fare il "reset password" per recuperare il proprio account indicando a quale indirizzo email inviare l'email di recupero. \\
+Una volta effettuato l'accesso, l'utente, divenuto utente autenticato, visualizza la schermata "Calendario" da cui:
+\begin{itemize}
+    \item può accedere alla seconda schermata implementata, ovvero "Evento";
+    \item può fare diverse funzionalità direttamente da questa schermata, come: visualizzare periodi temporali diversi nel calendario, filtrare i calendari che si visualizzano, creare eventi e calendari direttamente da questa schermata, anziché andando nella schermata "Evento", dove, però, c'è anche la possibilità di modificare quest'ultimi.
+\end{itemize}
+Si specifica che per "compilazione evento", azione presente sia quando si modifica che crea un evento, si intende la definizione di vari campi, ovvero:
+\begin{itemize}
+    \item titolo, campo da completare obbligatoriamente per far andare a buon fine la procedura di creazione o modifica evento;
+    \item data, campo da completare obbligatoriamente per far andare a buon fine la procedura di creazione o modifica evento;
+    \item priorità, campo facoltativo;
+    \item difficoltà, campo facoltativo;
+    \item calendario, ovvero calendario a cui appartiene l'evento che si sta modificando o creando. Questo è un campo da completare obbligatoriamente per far andare a buon fine la procedura di creazione o modifica evento;
+    \item notifiche, ovvero quando ricevere la notifica di tale evento.
+\end{itemize}
+Infine per "compilazione calendario", azione presente sia nella "creazione" che "modifica" calendario, sin intende la definizione di vari campi, ovvero:
+\begin{itemize}
+    \item nome del calendario, campo che deve essere definito per forza per l'esito positivo della procedura di creazione o modifica;
+    \item colore, campo che deve essere definito per forza per l'esito positivo della procedura di creazione o modifica;
+    \item fuso orario, campo facoltativo;
+    \item impostazioni predefinite degli eventi, ovvero definizione di alcuni campi con cui si vanno a precompilare gli eventi appartenenti a quel calendario. Ovviamente, nella creazione o modifica di un evento, questi campi precompilati potranno essere modificati. 
+\end{itemize}
+
+\begin{center}
+    \includesvg[width=1\textwidth, height=1\textheight]{img/svg/diagrammi/userflow.svg}
+    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/diagrammi/userflow.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/svg/diagrammi/userflow.svg}{SVG} User Flows}
+\end{center}
