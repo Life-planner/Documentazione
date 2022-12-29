@@ -1,13 +1,13 @@
 \section{FrontEnd Implementation}
 \label{secD4:FrontEndImplementation}
-Il FrontEnd (visualizzabile al link \href{https://frontend.plan-it.it} {https://frontend.plan-it.it}) implementato in questo prototipo del sito PlanIt, da noi sviluppato, fornisce le funzionalità di visualizzazione, creazione, modifica e cancellazione di calendari ed eventi all'interno dell'applicativo; gli eventi che si possono gestire sono sia singoli, ovvero che in fase di creazione o modifica vengono definiti solo per una specifica data, oppure eventi ripetuti, ovvero che vengono definiti per più giornate in fase di creazione o modifica. Inoltre, dopo il primo accesso, è presente anche l'automatica creazione di un account per l'utente che ha fatto la registrazione. L'username attribuito a tale utente autenticato, che inizialmente corrisponde alla sua email, può anche esser modificato in fase di registrazione. \\ Prima di cominciare con la descrizione più specifica di ciascuna schermata, partiamo con il dire che le pagine che costituiscono questo prototipo del sito PlanIt, sono: "Homepage", "schermata login", "schermata registrazione", "schermata recupero password", "schermata Calendario" e "schermata Eventi".
+Il FrontEnd, (visualizzabile al link \href{https://frontend.plan-it.it} {https://frontend.plan-it.it}) implementato in questo prototipo del sito PlanIt da noi sviluppato, fornisce le funzionalità di visualizzazione, creazione, modifica e cancellazione di calendari ed eventi all'interno dell'applicativo; gli eventi che si possono gestire sono sia singoli, ovvero che in fase di creazione o modifica vengono definiti solo per una specifica data, oppure eventi ripetuti, ovvero che vengono definiti per più giornate in fase di creazione o modifica. Inoltre, dopo il primo accesso, è presente anche l'automatica creazione di un account per l'utente che ha fatto la registrazione. L'username attribuito a tale utente autenticato, che inizialmente corrisponde alla sua email, può anche esser modificato in fase di registrazione. \\ Prima di cominciare con la descrizione più specifica di ciascuna schermata, partiamo con il dire che le pagine che costituiscono questo prototipo del sito PlanIt, sono: "Homepage", "schermata login", "schermata registrazione", "schermata recupero password", "schermata Calendario" e "schermata Eventi".
 \\ In particolare partiamo da come appare il sito, quando ci si accede. La prima pagina che si visualizza, è l'Homepage, visualizzabile nell'immagine sottostante. Dall' "Homepage", l'utente può solo premere il tasto "Login", che lo indirizzerà alla pagina di autenticazione fornita da Auth0. Infatti tutta la fase di registrazione, login e anche recupero password sono gestite completamente da questo sistema esterno di autenticazione che integriamo nel sito. Il bottone "Try Demo", presente nell' "Homepage", non ha nessuna funzionalità, in quanto in questo prototipo del sito, si è sviluppato solo il sito per gli utenti che si autenticano.
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Homepage_Autenticazione/Homepage.png}
     \captionof{figure}{FrontEnd - Homepage}
     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Homepage_Autenticazione/Homepage.png}{PNG} FrontEnd - Homepage}
 \end{center}
-Quindi, dopo aver premuto il bottone "login", si è indirizzati nella pagina "Login", che si può osservare qua sotto. In questa pagina, se l'utente ha già un proprio account PlanIt, può accedere usando le sue credenziali, oppure l'autenticazione può esser fatta usando anche un account Google appartenente all'utente che vuole accedere al sito PlanIt come utente autenticato. Ovviamente, nel caso si provasse a fare l'accesso mediante credenziali, ma si inserissero delle credenziali errate, il sistema notifica l'utente dell'errore che si è verificato.
+Quindi, dopo aver premuto il bottone "Login", si è indirizzati nella pagina dove avviene il login, che si può osservare qua sotto. In questa pagina, se l'utente ha già un proprio account PlanIt, può accedere usando le sue credenziali, oppure l'autenticazione può esser fatta usando anche un account Google appartenente all'utente che vuole accedere al sito PlanIt come utente autenticato. Ovviamente, nel caso si provasse a fare l'accesso mediante credenziali, ma si inserissero delle credenziali errate, il sistema notifica l'utente dell'errore che si è verificato.
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Homepage_Autenticazione/login.png}
     \captionof{figure}{FrontEnd - Login}
@@ -21,7 +21,7 @@ Quindi, dopo aver premuto il bottone "login", si è indirizzati nella pagina "Lo
 \end{center}
 
 Quando l'utente non ha un proprio account PlanIt e non vuole accedere mediante Google, può indirizzarsi alla pagina di registrazione, mediante la scritta "Registrati". Da questa schermata, l'utente può tornare indietro alla pagina di "Login" nel caso in cui avesse sbagliato, può ancora "continuare con Google" oppure, ovviamente, inserire le proprie credenziali con cui si vuole registrare. Ovviamente, le credenziali da inserire devono rispettare delle restrizioni che sono imposte e che vengono mostrate all'utente.\\
-Una volta inserite delle credenziali che soddisfano tali restrizioni, l'utente può terminare la procedura di registrazione premendo il tasto "Continua", che lo indirizza alla pagina "Calendario". Contemporaneamente, l'utente riceve anche una email per la validazione dell'email inserita per la registrazione; questa validazione è davvero importante, in quanto l'email verificata è quella che si dovrà utilizzare per il reset password.
+Una volta inserite delle credenziali che soddisfano tali restrizioni, l'utente può terminare la procedura di registrazione premendo il tasto "Continua", che lo indirizza alla pagina "Calendario". Contemporaneamente, l'utente riceve anche una email per la validazione dell'email inserita per la registrazione; questa validazione è davvero importante, in quanto l'email verificata è quella che si dovrà utilizzare in caso di reset password.
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Homepage_Autenticazione/registrazione_valida.png}
@@ -31,7 +31,7 @@ Una volta inserite delle credenziali che soddisfano tali restrizioni, l'utente p
 
 Nel caso in cui l'utente si fosse dimenticato la propria password, può schiacciare sulla scritta "Password dimenticata" dalla pagina "Login", che indirizza l'utente alla pagina d'inserimento dell'email con cui si è fatta la registrazione al sito. Il sistema automaticamente invierà un'email di recupero e reset password all'indirizzo email indicato. \\
 E' da sottolineare che questa procedura di recupero password, è disponibile solo per gli utenti che hanno deciso di registrarsi al sito mediante credenziali e non con "Google". \\
-Infine, dopo l'inserimento dell'email e averla confermata, l'utente visualizza la schermata di conferma che l'email di recupero password è stata inviata; dunque, bisogna controllare la propria casella di posta. Nel caso in cui non fosse stata ricevuta, si può richiedere l'invio di nuovo di tale email.
+Infine, dopo l'inserimento dell'email e averla confermata, l'utente visualizza la schermata di conferma che l'email di recupero password è stata inviata; dunque, bisogna controllare la propria casella di posta. Nel caso in cui non fosse stata ricevuta, si può richiedere l'invio di tale email nuovamente.
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Homepage_Autenticazione/recupero_password.png}
@@ -45,7 +45,7 @@ Infine, dopo l'inserimento dell'email e averla confermata, l'utente visualizza l
     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Homepage_Autenticazione/controlla_email.png}{PNG} FrontEnd - Controlla email}
 \end{center}
 
-Dopo aver fatto l'autenticazione, l'utente autenticato visualizza la pagina "Calendario", da cui può passare a tutte le altre pagine (ricordiamo che oltre a "Calendario" è stata sviluppata solo la pagina "Eventi" in questo protitipo), può creare un evento e calendario, possibilità visualizzabile dopo aver premuto il "+" in baso a destra, può visualizzare la lista di calendari personali, e anche quelli condivisi, dal bottone "Calendari", che apre una side-bar in cui si possono selezionare i calendari da visualizzare nella schermata "Calendario, e infine può spostarsi temporalmente nel tempo grazie ai bottono "<", con cui si va indietro, e ">", con cui si va avanti, e tornare alla data corrente mediante il bottone "Oggi". Adesso andiamo un po' più nello specifico delle cose visualizzabili e che si possono fare in questa pagina.
+Dopo aver fatto l'autenticazione, l'utente autenticato visualizza la pagina "Calendario", da cui può passare a tutte le altre pagine (ricordiamo che oltre a "Calendario" è stata sviluppata solo la pagina "Eventi" in questo protitipo), può creare un evento  e/o calendario, possibilità visualizzabile dopo aver premuto il "+" in baso a destra, può visualizzare la lista di calendari personali, e anche quelli condivisi, dal bottone "Calendari", che apre una side-bar in cui si possono selezionare i calendari da visualizzare nella schermata "Calendario, e infine può spostarsi temporalmente nel tempo di settimana in settimana grazie ai bottoni "<", con cui si va indietro, e ">", con cui si va avanti, e tornare alla data corrente mediante il bottone "Oggi". Adesso andiamo un po' più nello specifico delle cose visualizzabili e che si possono fare in questa pagina.
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Calendario/schermata_calendario.png}
@@ -53,7 +53,7 @@ Dopo aver fatto l'autenticazione, l'utente autenticato visualizza la pagina "Cal
     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Calendario/schermata_calendario.png}{PNG} FrontEnd - schermata "Calendario"}
 \end{center}
 
-Dunque, premendo il bottone "Calendari" in alto a destra, appare questa side-bar, in cui è presente una lista di tutti i calendari appartenenti all'utente. I calendari condivisi sono distinguibili grazie allo stereotipo di "persone" che si trova a fianco di tali calendari. La funzionalità di questa side-bar, oltre che far visualizzare la lista di calendari personali, è anche quella di permettere all'utente di filtrare, spuntandoli, quale calendari visualizzare, e quindi i rispettivi eventi, nel nella pagina "Calendario".
+Dunque, premendo il bottone "Calendari" in alto a destra, appare questa side-bar, mostrata nella foto sottostante, in cui è presente una lista di tutti i calendari appartenenti all'utente. I calendari condivisi sono distinguibili grazie allo stereotipo di due "persone" che si trova a fianco di tali calendari. La funzionalità di questa side-bar, oltre che far visualizzare la lista di calendari personali, è anche quella di permettere all'utente di filtrare, spuntandoli, quale calendari visualizzare, e quindi i rispettivi eventi, nella pagina "Calendario".
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Calendario/calendario_calendari.png}
@@ -69,7 +69,7 @@ Dopo, premendo il tasto "+" in basso a destra è possibile aprire un fab, dove a
     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Calendario/calendario_creazione.png}{PNG} schermata "Calendario" - Scelta creazione}
 \end{center}
 
-Il pop-up sottostante è quello di "Crea Calendario". Tutti i campi visualizzabili sono compilabili, eccetto per "Luogo", in quanto non abbiamo sviluppato la possibilità dell'utente d'indicare il luogo dove si trova l'evento. Dopo aver compilato a piacere i vari campi, ricordiamo che il nome del calendario è obbligatorio per poter creare un calendario, l'utente ha la possibilità di salvarlo, oppure anche di annullare l'azione.
+Il pop-up sottostante è quello di "Crea Calendario". Tutti i campi visualizzabili sono compilabili, eccetto per "Luogo", in quanto non abbiamo sviluppato la possibilità dell'utente d'indicare il luogo dove si tiene un evento. Dopo aver compilato a piacere i vari campi, l'utente ha la possibilità di salvarlo, oppure anche di annullare l'azione; ricordiamo che il nome del calendario è obbligatorio per poter creare un calendario e quindi far andare a buon fine il salvataggio di quest'ultimo.
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Calendario/calendario_creaCalendario.png}
@@ -77,7 +77,7 @@ Il pop-up sottostante è quello di "Crea Calendario". Tutti i campi visualizzabi
     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Calendario/calendario_creaCalendario.png}{PNG} schermata "Calendario" - Crea Calendario}
 \end{center}
 
-Invece, il pop-up sottostante è quello che si ottiene quando l'utente vuole creare un evento. Tutti i campi sono compilabili, eccetto per il campo "Luogo", come già detto per "Crea Calendario". Dopo aver compilato a piacere i vari campi, ricordiamo che il titolo dell'evento e la sua dati devono essere compilati obbligatoriamente per poter creare un evento, l'utente ha la possibilità di salvarlo, oppure anche di annullare l'azione.
+Invece, il pop-up sottostante è quello che si ottiene quando l'utente vuole creare un evento. Tutti i campi sono compilabili, eccetto per il campo "Luogo", come già detto per "Crea Calendario". Dopo aver compilato a piacere i vari campi (ricordiamo, che il titolo dell'evento e la sua data devono essere definiti obbligatoriamente per poter creare un evento) l'utente ha la possibilità di salvarlo, oppure anche di annullare l'azione.
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Calendario/calendario_creaEvento.png}
@@ -87,8 +87,8 @@ Invece, il pop-up sottostante è quello che si ottiene quando l'utente vuole cre
 
 Come già detto in precedenza, mediante i bottoni "<", ">" e "Oggi" l'utente può rispettivamente:
 \begin{itemize}
-    \item andare indietro di settimane nel calendario, si guardi la prima immagine sottostante a questa lista;
-    \item andare avanti di settimane nel calendario, si guardi la seconda immagine sottostante a questa lista;
+    \item andare indietro di una settimana alla volta nel calendario; si guardi la prima immagine sottostante a questa lista;
+    \item andare avanti di una settimana alla volta nel calendario; si guardi la seconda immagine sottostante a questa lista;
     \item tornare alla settimana presente.
 \end{itemize}
 
@@ -109,9 +109,9 @@ Dalla schermata "Calendario", come citato precedentemente, l'utente autenticato 
 
 Nel caso in cui l'utente volesse creare nuovi calendari e nuovi eventi singoli, premendo i tasti in alto a sinistra "Crea Calendario" e "Crea Evento", può visualizzare nella parte destra della schermata i rispettivi form di creazione, identici a quelli che si possono ottenere nella pagina "Calendario".
 
-Dopo, quando l'utente vuole creare un evento ripetuto, ovvero un evento che definiamo presente su più giorni, già in fase di creazione dell'evento, basta che usi il bottone "Crea Evento Ripetuto" per far apparire il form di creazione "Crea Evento Ripetuto". In questo form, tutti i form sono compilabili, eccetto per "Luogo". Ricordiamo che i campi "nome" e almeno una data su cui cade tale evento devono essere sempre presenti, per far andare a buon fine l'esito di creazione dell'evento ripetuto. L'utente, mediante le "Impostazioni avanzate" può andare a specificare maggiormente quando cadono tali eventi e in quali orari. Con l'attributo "Durata", l'utente indica per quale periodo di tempo, questo evento ripetuto vale e quindi deve essere presente nel calendario.
+Dopo, quando l'utente vuole creare un evento ripetuto, ovvero un evento che definiamo presente su più giorni, già in fase di creazione dell'evento, basta che usi il bottone "Crea Evento Ripetuto" per far apparire il form di creazione "Crea Evento Ripetuto". In questo form, tutti i campi sono compilabili, eccetto per "Luogo". Ricordiamo che i campi "nome" e, almeno, una data su cui cade tale evento devono essere sempre presenti, per far andare a buon fine la creazione dell'evento ripetuto. L'utente, mediante le "Impostazioni avanzate", può andare a specificare maggiormente quando cadono tali eventi e in quali orari. Con l'attributo "Durata", l'utente indica per quale periodo di tempo questo evento ripetuto vale e quindi deve essere presente nel calendario.
 
 L'utente, inoltre, in questa schermata "Eventi" visualizza la lista di calendari. Avendo la possibilità di esplorarli, ovvero visualizzare quali eventi ne fanno parte, può selezionare uno dei suoi eventi per aprire il form di "Modifica Evento". Questo form è uguale a quello di "Crea Evento", ovvero ha gli stessi campi, eccetto che l'utente ha la possibilità di eliminare tale evento selezionato mediante il bottone "Elimina".
 
 
-Infine, selezionando uno dei calendari della lista, si apre il form di "Modifica Calendario", che è identico a quello di "Crea Evento", eccetto per la presenza del bottono "Elimina", che l'utente può utilizzare per eliminare un proprio calendario.
+Infine, selezionando uno dei calendari della lista, si apre il form di "Modifica Calendario", che è identico a quello di "Crea Evento", eccetto per la presenza del bottone "Elimina", che l'utente può utilizzare per eliminare tale calendario.
