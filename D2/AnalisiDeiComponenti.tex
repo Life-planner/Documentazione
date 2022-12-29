@@ -373,7 +373,7 @@ In questa sezione vengono definiti i componenti.
 
     \textbf{Interfaccia richiesta - annullamento azione:} L'utente non autenticato può anche abortire la creazione o modifica evento, annullando l'azione.
 
-    \textbf{Interfaccia richiesta - lista valori precompilati:} Quando l'utente definisce il calendario in cui aggiungere l'evento interessato, il componente “Gestione creazione o modifica evento” richiede a “Gestione campi precompilati” i campi precompilati del calendario in cui aggiungiamo l'evento. I campi precompilati sono definiti nelle “Impostazioni predefinite di un calendario”.
+    \textbf{Interfaccia richiesta - lista valori precompilati:} Quando l'utente definisce il calendario in cui aggiungere l'evento interessato, il componente “Gestione creazione o modifica evento” richiede a “Gestione campi precompilati” i campi precompilati del calendario in cui aggiungiamo l'evento. I campi precompilati sono definiti nelle impostazioni predefinite del calendario.
     I campi precompilati riguardano:
     \begin{itemize}
         \item priorità;
@@ -445,7 +445,7 @@ In questa sezione vengono definiti i componenti.
 
     \elemento[Gestione campi precompilati]{dci:GestioneCampiPrecompilati}
 
-    \textbf{Descrizione:}  “Gestione campi precompilati” è fornire i campi precompilati di creazione o modifica evento di un specifico calendario, i quali sono definiti nelle “Impostazioni predefinite di un calendario”.
+    \textbf{Descrizione:}  “Gestione campi precompilati” è fornire i campi precompilati di creazione o modifica evento di un specifico calendario, i quali sono definiti nelle impostazioni del calendario.
 
     \textbf{Interfaccia richiesta - richiesta campi precompilati:} Il componente “Gestione campi precompilati” per iniziare la procedura di ottenimento e invio dei campi precompilati di un evento appartenente ad un calendario, deve ricevere una richiesta da “Gestione creazione o modifica calendario” contenente anche il calendario in cui va inserito l'evento che sta creando o modificando “Gestione creazione o modifica evento”.
 
@@ -502,8 +502,6 @@ In questa sezione vengono definiti i componenti.
     \textbf{Interfaccia richiesta - esito condivisione:} Dopo che la condivisione è stata processata, “Gestione creazione o modifica calendario” riceve l'esito della condivisione, che può esser stata accettata o meno dall'utente a cui abbiamo inviato la condivisione.
 
     \textbf{Interfaccia richiesta - richiesta eliminazione calendario:} il componente "Gestione creazione o modifica calendario" potrebbe ricevere dall'utente la richiesta di eliminazione del calendario che si sta modificando.
-
-    \todo{qua c'è un piccola problema perché io non posso dire che sia utente autenticato standard in quanto questo componente non ha i dati utente e ricordiamoci che solo l'utente autenticato può eliminare un calendario, in quanto quello non autenticato ha solo quello principale...}
 
     \textbf{Interfaccia fornita - creazione calendario: } Una volta che l'utente ha definito i campi di creazione del calendario e "confermato l'azione", questo componente invia il calendario creato a "Gestione chiamate MongoDB".
 

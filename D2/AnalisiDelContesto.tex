@@ -1,7 +1,6 @@
 \section{Analisi del contesto}
 \label{secD2:AnalisiDelContesto}
 
-%\todo{Controllare coerenza D1-RF e testo}
 
 Nel presente capitolo viene discusso il contesto di funzionamento del sistema (ACO), fornendo una descrizione testuale e una rappresentazione grafica basata su Context Diagram (DCO).
 Nella seguente parte della sezione vengono presentati gli attori e i sistemi esterni con cui la nostra piattaforma si interfaccerà.
@@ -47,11 +46,7 @@ Nella seguente parte della sezione vengono presentati gli attori e i sistemi est
 
     \elemento[MongoDB:]{aco:MongoDB}
     Viene utilizzato come database per memorizzare le informazioni relative a utenti, calendari ed eventi.
-    %\todo{A che RF lo colleghiamo?}
-    \begin{comment}
-    \elemento[Sistema di posta elettronica:]{aco:PostaElettronica}
-    Viene utilizzato per mandare l'email di recupero della password all'utente standard, come specificato in \prettyref{D1-rf:RecuperoPassword}.
-    \end{comment}
+    
 \end{listaPersonale}
 
 
@@ -79,10 +74,6 @@ Nella seguente parte della sezione vengono presentati gli attori e i sistemi est
 
     \elemento[Iubenda]{dco:PrivacyCookie}
     Per poter rispettare il \prettyref{D1-rnf:Privacy} e il \prettyref{D1-rnf:Cookie}, Iubenda invierà un banner cookie al nostro sistema, contenente le informazioni legali in materia di privacy e di gestione/accettazione cookies; successivamente l'utente non autenticato dovrà accettare o meno determinati cookies. In base alle scelte dell'utente, il sistema potrà usare o meno determinate funzioni comunicandolo a Iubenda, che successivamente abiliterà i cookie accettati.
-    \begin{comment}
-    \elemento[Posta elettronica]{dco:PostaElettronica}
-    Per poter rispettare il \prettyref{D1-rf:RecuperoPassword}, il sistema invierà una richiesta di email di recupero password a un sistema di posta elettronica che provvederà all'invio dell' email di recupero all'utente. %\todo{da chiedere}
-    \end{comment}
 
     \elemento[Auth0:]{dco:Auth0}
     Per soddisfare il \prettyref{D1-rf:AccessoRegistrazione} e \prettyref{D1-rf:ImpostazioniAccount}, il sistema sfrutta le funzioni di autenticazione, registrazione e reset password messe a disposizione da Auth0. Il sistema fornisce la schermata di accesso, registrazione e reset password all'utente non autenticato. Per l'accesso l'utente non autenticato inserirà le proprie credenziali le quali verranno mandate ad Auth0 per la verifica. Auth0 risponde con un token di autenticazione.
