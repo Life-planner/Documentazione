@@ -28,8 +28,7 @@ INV : UserId <> "" AND Email <> "" AND Username <> ""
 CONTEXT UtenteAutenticato::GoHomepage() :
 POST : UserId  = "" AND Email  = "" AND Username  = ""
     \end{lstlisting}
-    \todo{Non so quanto senso abbia mettere postcondizione per il logout}
-    \todo{da chiedere}
+
 
 
 
@@ -281,8 +280,6 @@ INV : Latitudine <> "" AND Longitudine <> ""
     \end{lstlisting}
 
 
-    \todo{correggere da qui in poi}
-
     \elemento[Tipo Fuso Orario]{ocl:TipoFusoOrario}
     \begin{center}
         \includesvg[width=0.40\textwidth, height=0.30\textheight]{img/svg/OCL/Tipo_Fuso_Orario.svg}
@@ -491,7 +488,7 @@ INV : ProductId <> "" AND EndPoint <> ""
     Queste postcondizioni sono espresse nel seguente codice OCL:
     \begin{lstlisting}
 CONTEXT GestioneStripeAPI::PagaSubscription() :
-POST : InterfacciaSistemaDiPagamentoPayPal.UserPaymentToken <> "" AND InterfacciaSistemaDiPagamentoPayPal.PaymentId <> ""
+POST : GestioneSistemaDiPagamentoPayPal.UserPaymentToken <> "" AND GestioneSistemaDiPagamentoPayPal.PaymentId <> ""
     \end{lstlisting}
 
 
@@ -507,7 +504,7 @@ POST : InterfacciaSistemaDiPagamentoPayPal.UserPaymentToken <> "" AND Interfacci
 CONTEXT PayPalAPI :
 INV : ProductId <> "" AND EndPoint <> ""
     \end{lstlisting}
-    Inoltre, in questa classe, nel contesto del metodo “PagaSubscrition()” è presente una postcondizione. Infatti, dopo l'esecuzione di questo metodo, gli attributi “PayPalEmail”, “PayPalUserName” e “SubscriptionId”, che corrispondono alle credenziali PayPal dell'utente autenticato, che decide di pagare l'abbonamento con questo metodo, non sono delle stringhe vuote: se lo fossero l'acquisto dell'abbonamento non potrebbe essersi concluso con successo e non sarebbe neanche possibile il rinnovo automatico mensile dell'abbonamento, in quanto l'applicativo PlanIt non avrebbe delle credenziali di pagamento. Si sottolinea che questi attributi sono restituiti dal metodo "PagaSubscription()" della classe "InterfacciaPayPalAPI", in modo tale che la classe "InterfacciaSistemaDiPagamentoPayPal" possa provvedere al pagamento mensile automatico dell'abbonamento nel caso si fosse effettuata la sottoscrizione a questo.\\
+    Inoltre, in questa classe, nel contesto del metodo “PagaSubscrition()” è presente una postcondizione. Infatti, dopo l'esecuzione di questo metodo, gli attributi “PayPalEmail”, “PayPalUserName” e “SubscriptionId”, che corrispondono alle credenziali PayPal dell'utente autenticato, che decide di pagare l'abbonamento con questo metodo, non sono delle stringhe vuote: se lo fossero l'acquisto dell'abbonamento non potrebbe essersi concluso con successo e non sarebbe neanche possibile il rinnovo automatico mensile dell'abbonamento, in quanto l'applicativo PlanIt non avrebbe delle credenziali di pagamento. Si sottolinea che questi attributi sono restituiti dal metodo "PagaSubscription()" della classe "InterfacciaPayPalAPI", in modo tale che la classe "GestioneSistemaDiPagamentoPayPal" possa provvedere al pagamento mensile automatico dell'abbonamento nel caso si fosse effettuata la sottoscrizione a questo.\\
     Questa postcondizione è espressa in OCL nel seguente modo:
     \begin{lstlisting}
 CONTEXT PayPalAPI::PagaSubscription() :
@@ -548,7 +545,6 @@ INV : Sincronizzazione = false
     \newpage
 
 
-
     \elemento[Gestione Sincronizzazione]
         {ocl:GestioneSincronizzazione}
         \begin{center}
@@ -562,7 +558,6 @@ INV : Sincronizzazione = false
 CONTEXT GestioneSincronizzazione :
 INV : Sincronizzazione = true AND authorizationToken <> ""
     \end{lstlisting}
-        \newpage
 
 
 
@@ -578,7 +573,7 @@ INV : Sincronizzazione = true AND authorizationToken <> ""
 CONTEXT InterfacciaGoogleCalendarAPI :
 INV : Endpoint <> ""
     \end{lstlisting}
-
+    \newpage
 
 
 

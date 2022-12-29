@@ -52,7 +52,7 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
         \elemento[Gestione modifica password e Auth0 management API]{dcl:ModificaPasswordAuth0API}
         Analizzando il diagramma di componenti si nota la presenza di “Gestione modifica password” e “Interfaccia management API Auth0”, per questo motivo sono state fatte queste classi con gli stessi nomi. Il loro scopo è gestire il modifica password, azione che può essere fatta dalle impostazioni account, e il reset password, azione che si può fare nel caso in cui si volesse recuperare e cambiare la password quando si è dimenticata, partendo dalla pagina di autenticazione di PlanIt. La nuova password inserita viene controllata in “GestioneModificapassword” mediante la funzione "ControlloValiditaPassword", in modo tale che la password segui le regole delineate in \prettyref{D1-rnf:SicurezzaPassword}. Una volta che la nuova password passa il controllo, viene inviata ad Auth0 grazie alla funzione “CambiaPassword(UserId, nuovaPassword) presente in “Auth0ManagementAPI”.
         Infine, è da notare che inizialmente "Abbonato" è inizializzato a "false", in quanto quando un utente si registra al sito, è sempre un utente autenticato standard e non può registrarsi fin da subito come utente autenticato premium.
-        \todo{cambiare foto togliendo ControlloSetPassword}
+
 
         \begin{center}
             \includesvg[width=0.55\textwidth,height=0.40\textheight]{img/svg/DCL/Gestione_modificaPassword.svg}
@@ -158,25 +158,24 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
             \includesvg[width=1\textwidth,height=1\textheight]{img/svg/DCL/CreazioneModificaCalendario.svg}
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/DCL/CreazioneModificaCalendario.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/DCL/CreazioneModificaCalendario.svg}{SVG} Diagramma delle classi "Gestione creazione o modifica calendario"}
         \end{center}
-        \newpage
 
 
         \elemento[Gestione creazione o modifica evento]{dcl:CreazioneModificaEvento}
 
-        \todo{(ricordati di menzionare impostazioni predefinite eventi) → ottenute dal calendario, in realtà ne ho parlato nelle altre classi che sono collegate con impostazioni predefinite eventi}
 
         Analizzando il diagramma di componenti, fatto per il progetto PlanIt, si può vedere la presenza dei componenti “Gestione creazione o modifica evento” e “Gestione notifiche”, per questa ragione sono state ideate le classi “Notifica” e “Evento”. \\
         La seconda classe citata gestisce la procedura di creazione o modifica dell'evento secondo i valori scelti per i vari attributi presenti nella classe “Evento” (si veda anche \prettyref{D2-uc:CreazioneModificaEvento}). Invece, la classe “Notifica” gestisce la procedura di creazione o modifica della notifica per quel specifico evento che si sta creando o modificando, per questo motivo è presente un'associazione tra “Evento” e “Notifica”.\\
         Come si può notare è presente una “composition” tra “Evento” e “Calendario” che serve ad indicare che un evento, “oggetto contenuto”, esiste solo con l'oggetto “contenitore” “Calendario”: infatti un evento non può non essere non associato ad un calendario.\\
         Sono state definite anche le classi “EventoSingolo”, “EventoRipetuto”, “GestioneRipetizioneBase”, "GestioneRipetizioneAvanzate” e “GestioneGiornata” che hanno la funzionalità di gestire il processo di definizione temporale di quando avviene l'evento che si sta modificando o creando. Sono state individuate due classi distinte “GestioneRipetizioneBase” e “GestioneRipetizioneAvanzate”, utilizzate per gestire la definizione di un evento ripetuto, in quanto la prima classe citata viene utilizzata per sovrintendere la determinazione di un evento di cui viene definito il numero di volte in cui viene ripetuto senza indicare quali giornate, e la seconda classe, al contrario, viene utilizzata per sovrintendere la determinazione di un evento ripetuto di cui si indica anche le giornate in cui è presente. \\
-        Si specifica, che i vari set e get degli attributi presenti in “Evento”, “Notifica”, “EventoRipetuto”, EventoSingolo”, "GestioneRipetizioneBase”, “GestioneRipetizioneAvanzate” e “GestioneGiornata” non sono stati scritti, nelle liste di funzioni di tali classi, in quanto ritenute banali.
+        Si specifica, che i vari set e get degli attributi presenti in “Evento”, “Notifica”, “EventoRipetuto”, EventoSingolo”, "GestioneRipetizioneBase”, “GestioneRipetizioneAvanzate” e “GestioneGiornata” non sono stati scritti, nelle liste di funzioni di tali classi, in quanto ritenute banali. \\
+        Infine, come già scritto in \ref{dcl:CreazioneModificaCalendario}, la creazione o modifica di un evento, appartenente ad un certo calendario, è anche influenzata dalla classe "GestioneImpostazioniPredefinite", che contiene i valori con cui andare a precompilare i campi degli eventi appartenenti ad un certo calendario. Questi valori di precompilazione sono definiti in tempo di creazione o modifica di un calendario, ma, ad ogni modo, questi campi precompilati, ovviamente, possono essere modificati sia in fase di creazione che modifica di un specifico evento.
 
 
         \begin{center}
             \includesvg[width=0.90\textwidth,height=0.80\textheight]{img/svg/DCL/CreazioneModificaEvento.svg}
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/DCL/CreazioneModificaEvento.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/DCL/CreazioneModificaEvento.svg}{SVG} Gestione creazione o modifica evento}
         \end{center}
-
+        \newpage
 
 
         \elemento[Gestione Luoghi]{dcl:GestioneLuoghi}
@@ -189,7 +188,7 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
             \includesvg[width=0.60\textwidth,height=0.50\textheight]{img/svg/DCL/GestioneLuoghi.svg}
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/DCL/GestioneLuoghi.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/DCL/GestioneLuoghi.svg}{SVG} Diagramma delle classi "Gestione luoghi"}
         \end{center}
-        
+
 
 
 
@@ -223,7 +222,6 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
 
 
     \elemento[Gestione Homepage]{dcl:Homepage}
-    \todo{typo, "lisa" al posto di "lista"}
     Il diagramma dei componenti analizzato, realizzato per il progetto PlanIt, presenta le componenti “Gestione Homepage” e “Interfaccia Iubenda”, dunque sono state ideate le classi “InterfacciaIubenda”, “GestioneHomepage” e “Tipo\_Cookie”.\\
     La classe “GestioneHomepage” gestisce la procedura di scelta, effettuata da un utente che vuole entrare nel sito, di entrare nel sito in modalità demo (in questo caso c'è l'esecuzione della funzione "AccessoProvaDemo()"), accedendo da utente non autenticato, o entrare nella web app autenticandosi (c'è l'esecuzione del metodo "AccessoProvaDemo()"), ovvero registrandosi o accedendo tramite Auth0 su PlanIt. Infatti, qualora l'utente abbia deciso di accedere alla web app con l' autenticazione, verrà indirizzato alla pagina di gestione login e registrazione di Auth0 grazie all' “InterfacciaAuth0”, attraverso la funzione “RedirectToAuthentication()” presente in quest'ultima classe citata. Ad autenticazione avvenuta, l'utente, divenuto, autenticato verrà indirizzato alla web app. \\
     Dunque, questa classe gestisce l'indirizzamento dell'utente nella modalità del sito scelta. \\ “GestioneHomepage” mostra anche il banner di cookie contenente le cookie policy che possono essere accettate o meno dall'utente. Il banner di cookie, come anche le politiche di privacy, sono gestite e ottenute dalla classe “InterfacciaIubenda”, a cui “GestioneHomepage” è legata. “InterfacciaIubenda”, interfacciandosi con Iubenda, invia ad' “GestioneHomepage” il codice del banner di cookie contenente anche il link alla pagina di politiche di privacy. Una volta accettati i cookie, questi vengono salvati in "GestioneHomepage" nell'array “Cookie”, il cui tipo è “Tipo\_cookie”, dove sono presenti i cookie salvati nel browser dell' Utente.\\
@@ -285,7 +283,6 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
         \includesvg[width=0.40\textwidth,height=0.30\textheight]{img/svg/DCL/Tipo_Data.svg}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/DCL/Tipo_Data.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/DCL/Tipo_Data.svg}{SVG} Diagramma delle classi "Tipo Data"}
     \end{center}
-    \newpage
 
 
 
@@ -313,11 +310,11 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
     \elemento[Diagramma delle classi complessivo] {dcl:DiagrammaComplessivo}
         Riportiamo di seguito il diagramma complessivo, con tutte le classi sopra descritte.\\
         \begin{itemize}
-        \item Il primo grafico riportato mostra tutto il diagramma delle classi comprendendo sia i tipi di dati e anche classi che sono scollegate tra loro.\\
-        \item Il secondo grafico riportato mostra la maggior parte delle classi che abbiamo collegato tra loro.\\
-        \item ll terzo grafico riportato mostra le classi che gestiscono l' "Homepage".\\
-        \item ll quarto grafico riportato mostra le classi che gestiscono l' interfaccia di Iubenda.\\
-        \item Il quinto grafico riportato mostra dei tipi di dati usati nella classi
+            \item Il primo grafico riportato mostra tutto il diagramma delle classi comprendendo sia i tipi di dati e anche classi che sono scollegate tra loro.\\
+            \item Il secondo grafico riportato mostra la maggior parte delle classi che abbiamo collegato tra loro.\\
+            \item ll terzo grafico riportato mostra le classi che gestiscono l' "Homepage".\\
+            \item ll quarto grafico riportato mostra le classi che gestiscono l' interfaccia di Iubenda.\\
+            \item Il quinto grafico riportato mostra dei tipi di dati usati nella classi
         \end{itemize}
         \begin{center}
             \includesvg[width=1\textwidth,height=1\textheight]{img/svg/DCL/GraficoComplessivo/GraficoTotale.svg}
@@ -330,20 +327,18 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
             Secondo grafico, visuale totale
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/DCL/GraficoComplessivo/complessivo_1.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/DCL/GraficoComplessivo/complessivo_1.svg}{SVG} Secondo grafico, visuale totale}
         \end{center}
-        \newpage
         \begin{center}
             \includesvg[width=1\textwidth,height=1\textheight]{img/svg/DCL/GraficoComplessivo/AltoSx.svg}
             Secondo grafico, visuale in alto a sinistra
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/DCL/GraficoComplessivo/AltoSx.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/DCL/GraficoComplessivo/AltoSx.svg}{SVG} Secondo grafico, visuale in alto a sinistra}
         \end{center}
         \begin{center}
-            \includesvg[width=1\textwidth,height=1\textheight]{img/svg/DCL/GraficoComplessivo/AltoDx.svg}
-            Secondo grafico, visuale in alto a destra
+            \includesvg[width=0.8\textwidth,height=0.8\textheight]{img/svg/DCL/GraficoComplessivo/AltoDx.svg}
+            \\Secondo grafico, visuale in alto a destra
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/DCL/GraficoComplessivo/AltoDx.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/DCL/GraficoComplessivo/AltoDx.svg}{SVG} Secondo grafico, visuale in alto a destra}
         \end{center}
-        \newpage
         \begin{center}
-            \includesvg[width=0.95\textwidth,height=0.85\textheight]{img/svg/DCL/GraficoComplessivo/BassoSx.svg}
+            \includesvg[width=0.90\textwidth,height=0.80\textheight]{img/svg/DCL/GraficoComplessivo/BassoSx.svg}
             Secondo grafico, visuale in basso a sinistra
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/DCL/GraficoComplessivo/BassoSx.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/DCL/GraficoComplessivo/BassoSx.svg}{SVG} Secondo grafico, visuale in basso a sinistra}
         \end{center}
@@ -352,7 +347,6 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
             Secondo grafico, visuale in basso a destra
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/DCL/GraficoComplessivo/BassoDx.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/DCL/GraficoComplessivo/BassoDx.svg}{SVG} Secondo grafico, visuale in basso a destra}
         \end{center}
-        \newpage
         \begin{center}
             \includesvg[width=1\textwidth,height=1\textheight]{img/svg/DCL/GraficoComplessivo/TipiDiDati.svg}
             Terzo grafico, Tipi di dati
@@ -363,7 +357,6 @@ Riportiamo di seguito le classi individuate a partire dai diagrammi di contesto 
             Quarto grafico, Gestione Homepage
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/png/DCL/Homapage.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D3/img/svg/DCL/Homapage.svg}{SVG} Diagramma delle classi "Homepage"}
         \end{center}
-        \newpage
         \begin{center}
             \includesvg[width=0.85\textwidth,height=0.75\textheight]{img/svg/DCL/Cloudflare.svg}
             \\Quinto grafico, Interfaccia CloudFlare
