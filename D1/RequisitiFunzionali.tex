@@ -9,10 +9,10 @@ Da questo punto del documento in poi ogni riferimento a un "cliente" si riferir�
 		\item utente autenticato-standard / utente standard (\ref{ob:Registrazione});
 		\item utente autenticato-premium / utente premium (\ref{ob:AccountPremium});
 	\end{enumerate}
-	Il sistema deve permettere all'utente non autenticato di registrarsi sul sito (\ref{ob:Registrazione}) in qualsiasi momento esso voglia, seguendo le regole definite in \ref{rnf:SicurezzaPassword}; inoltre, la piattaforma deve permettere di abbonarsi al servizio premium, con un account preesistente o durante la fase di registrazione.\\
-	A ogni modo il sistema deve rendere disponibile al cliente di utilizzare la piattaforma anche come utente non autenticato in versione demo (\ref{rf:UtenteNonAutenticato}) cosicché possa provare il sito prima di registrarsi.\\
-	Da questo punto del documento in poi ogni riferimento a un "utente standard" sarà usato come sinonimo di "utente autenticato standard", inoltre ogni riferimento a un "utente non autenticato" implicherà un riferimento anche a un "utente standard", in quanto essere un "utente standard" estende le funzionalità di un "utente non autenticato".\\
-	Da questo punto del documento in poi ogni riferimento a un "utente premium" sarà usato come sinonimo di "utente autenticato premium", inoltre ogni riferimento a un "utente standard" implicherà un riferimento anche a un "utente premium", in quanto essere un "utente premium" estende le funzionalità di un "utente standard".
+	Il sistema deve permettere all'utente non autenticato di registrarsi sul sito (\ref{ob:Registrazione}) in qualsiasi momento esso voglia, seguendo le regole definite in seguito in maniera più specifica nel \ref{rnf:SicurezzaPassword}; inoltre, la piattaforma deve permettere di abbonarsi al servizio premium (\ref{ob:AccountPremium}), con un account preesistente o durante la fase di registrazione (Ulteriori informazioni nel \ref{rf:UtentePremium}).\\
+	A ogni modo il sistema deve rendere disponibile al cliente di utilizzare la piattaforma anche come utente non autenticato in versione demo (trattato più nello specifico nel \ref{rf:UtenteNonAutenticato}) cosicché possa provare il sito prima di registrarsi.\\
+	Da questo punto del documento in poi ogni riferimento a un "utente standard" sarà usato come sinonimo di "utente autenticato standard", inoltre ogni riferimento a un "utente non autenticato" implicherà un riferimento anche alle funzionalità di un "utente standard", in quanto essere un "utente standard" estende le funzionalità di un "utente non autenticato".\\
+	Da questo punto del documento in poi ogni riferimento a un "utente premium" sarà usato come sinonimo di "utente autenticato premium", inoltre ogni riferimento a un "utente standard" implicherà un riferimento anche alle funzionalità di un "utente premium", in quanto essere un "utente premium" estende le funzionalità di un "utente standard".
 	\begin{listaPersonale2}{RF}
 		\elemento[METODI AUTENTICAZIONE]{rf:MetodiAutenticazione} L'autenticazione può essere fatta con email e password o con servizi di terze parti, più nello specifico con Google. (\ref{ob:Registrazione}).
 	\end{listaPersonale2}
@@ -154,7 +154,7 @@ Da questo punto del documento in poi ogni riferimento a un "cliente" si riferir�
 
 	\elemento [RECUPERO PASSWORD] {rf:RecuperoPassword} %è da chiedere bene se sia veramente o meno un req funzionale 
 	        Il sistema rende disponibile all' utente standard la possibilità di recuperare la sua password (\ref{ob:Registrazione}), grazie all'utilizzo del sistema esterno Auth0, che gestisce l'intera procedura di reset della password. Ad ogni modo, la nuova password da inserire deve seguire le regole indicate nel  \ref{rnf:SicurezzaPassword}
-			\begin{comment}
-				fornendo alla piattaforma la propria email con cui si è registrati. Il sistema manderà un'email all'indirizzo fornito, in cui sarà presente un link che porterà a una pagina dove si potrà reimpostare la propria password. La nuova password da inserire deve seguire le regole indicate nel  \ref{rnf:SicurezzaPassword}. %o metto RNF o lo posso anche togliere
-			\end{comment}
+	        \begin{comment}
+	        fornendo alla piattaforma la propria email con cui si è registrati. Il sistema manderà un'email all'indirizzo fornito, in cui sarà presente un link che porterà a una pagina dove si potrà reimpostare la propria password. La nuova password da inserire deve seguire le regole indicate nel  \ref{rnf:SicurezzaPassword}. %o metto RNF o lo posso anche togliere
+	        \end{comment}
 \end{listaPersonale}
