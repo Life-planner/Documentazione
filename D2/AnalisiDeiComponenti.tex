@@ -897,11 +897,11 @@ In questa sezione vengono definiti i componenti.
 
     \textbf{Descrizione:} Il componente deve permettere di fare chiamate per leggere i dati dal database esterno MongoDB in modo ottimizzato e resistente ai fallimenti.
 
-    \textbf{Interfaccia fornita - modifica account:} Manda al database la richiesta di modifica dei dati di un account.
+    \textbf{Interfaccia fornita - modifica account:} manda al database la richiesta di modifica dei dati di un account.
 
-    \textbf{Interfaccia fornita - richiesta dati account:} Richiede al database le informazioni relativa all'account di un certo utente.
+    \textbf{Interfaccia fornita - richiesta dati account:} richiede al database le informazioni relative all'account di un certo utente.
 
-    \textbf{Interfaccia richiesta - ricezione dati account:} Riceve dal database i dati relativi all'account dell'utente richiesto
+    \textbf{Interfaccia richiesta - ricezione dati account:} Riceve dal database i dati relativi all'account dell'utente richiesto.
 
     \textbf{Interfaccia fornita - creazione evento:} richiede all database di creare un nuovo evento per l'utente selezionato con le relative informazioni dell'evento.
 
@@ -911,51 +911,51 @@ In questa sezione vengono definiti i componenti.
 
     \textbf{Interfaccia richiesta - ricezione dati evento:} riceve i dati relativi ad un evento richiesto al database.
 
-    \textbf{Interfaccia richiesta - richiesta dati eventi:} il componente gestione dashboard richiede al componente gestione chiamate mongoDB tutti dati relativi agli eventi del corrente utente.
+    \textbf{Interfaccia richiesta - richiesta dati eventi:} il componente "Gestione Dashboard" richiede al componente "Gestione Chiamate MongoDB" tutti dati relativi agli eventi del corrente utente.
 
-    \textbf{Interfaccia fornita- dati eventi:} il componente gestione dashboard invia al componente gestione chiamate mongoDB tutti dati relativi agli eventi del corrente utente.
+    \textbf{Interfaccia fornita- dati eventi:} il componente "Gestione Chiamate MongoDB" invia al componente "Gestione Dashboard" tutti dati relativi agli eventi del corrente utente, dopo aver ricevuto tale richiesta.
 
-    \textbf{Interfaccia richiesta - richiesta calendari:} il componente gestione visualizzazione calendari ed eventi richiede al componente gestione chiamate mongoDB tutti i dati relativi ai calendari del corrente utente.
+    \textbf{Interfaccia richiesta - richiesta calendari:} il componente "Gestione Visualizzazione calendari ed eventi" richiede al componente "Gestione Chiamate MongoDB" tutti i dati relativi ai calendari del corrente utente.
 
-    \textbf{Interfaccia fornita - dati calendari:} fornisce al componente gestione visualizzazioni calendari ed eventi tutti i dati relativi ai calendari di un utente.
+    \textbf{Interfaccia fornita - dati calendari:} fornisce al"Gestione Visualizzazione calendari ed eventi" tutti i dati relativi ai calendari di un utente.
 
-    \textbf{Interfaccia richiesta - modifica evento:} riceve la richiesta di modificare un evento da gestione visualizzazione calendari ed eventi che verrà poi elaborata con una richiesta di modifica evento sul database.
+    \textbf{Interfaccia richiesta - modifica evento:} riceve la richiesta di modificare un evento da  "Gestione Visualizzazione calendari ed eventi" che verrà poi elaborata con una richiesta di modifica evento sul database.
 
-    \textbf{Interfaccia richiesta - richiesta eventi:} il componente gestione visualizzazione calendari ed eventi richiede al componente gestione chiamate mongoDB tutti i dati relativi agli eventi dei calendari a cui ha accesso l'utente.
+    \textbf{Interfaccia richiesta - richiesta eventi:} il componente "Gestione Visualizzazione calendari ed eventi" richiede al componente "Gestione Chiamate MongoDB" tutti i dati relativi agli eventi dei calendari a cui ha accesso l'utente.
 
-    \textbf{Interfaccia fornita - dati eventi:} il componente gestione chiamate mongoDB fornisce i dati degli eventi dei calendari a cui ha accesso l'utente al componente di gestione visualizzazione calendari ed eventi.
+    \textbf{Interfaccia fornita - dati eventi:} il componente "Gestione Chiamate MongoDB" fornisce i dati degli eventi dei calendari a cui ha accesso l'utente al componente di "Gestione Visualizzazione calendari ed eventi".
 
-    \textbf{Interfaccia richiesta - aggiunta eventi e calendari:} il componente gestione import/export attraverso file dopo un operazione di import calendario da file manda al componente gestione chiamate mongoDB i dati che devono essere aggiunti al database.
+    \textbf{Interfaccia richiesta - aggiunta eventi e calendari:} il componente "Gestione import/export attraverso file" dopo un operazione di import calendario da file manda al componente "Gestione Chiamate MongoDB" i dati che devono essere aggiunti al database.
 
-    \textbf{Interfaccia richiesta - modifica impostazioni account:} il componente di gestione chiamate mongoDB riceve la richiesta di modifiche delle impostazioni dell'account dell'utente dal componente di gestione impostazioni account e procede con l'aggiornamento dei dati nel database.
+    \textbf{Interfaccia richiesta - modifica impostazioni account:} il componente di "Gestione Chiamate MongoDB" riceve la richiesta di modifiche delle impostazioni dell'account dell'utente dal componente di "Gestione impostazioni account" e procede con l'aggiornamento dei dati nel database.
 
     \textbf{Interfaccia richiesta - ricezione dati calendario:} riceve da parte del database tutti i dati relativi a un calendario di un utente.
 
-    \textbf{Interfaccia fornita - richiesta dati calendario:} Il componente gestione chiamate mongoDB richiede al database i dati relativi a un determinato calendario.
+    \textbf{Interfaccia fornita - richiesta dati calendario:} Il componente "Gestione Chiamate MongoDB" richiede al database i dati relativi a un determinato calendario.
 
-    \textbf{Interfaccia fornita - modifica calendario:} Il componente gestione chiamate MongoDB manda una richiesta di modifica dei dati relativi ad un certo calendario a MongoDB.
+    \textbf{Interfaccia fornita - modifica calendario:} Il componente "Gestione Chiamate MongoDB" manda una richiesta di modifica dei dati relativi ad un certo calendario a MongoDB.
 
-    \textbf{Interfaccia fornita - creazione calendario:} Il componente gestione chiamate mongoDB manda una richiesta di creazione di un nuovo calendario con i relativi dati al database di MongoDB.
+    \textbf{Interfaccia fornita - creazione calendario:} Il componente "Gestione Chiamate MongoDB" manda una richiesta di creazione di un nuovo calendario con i relativi dati al database di MongoDB.
 
-    \textbf{Interfaccia richiesta - richiesta dati account:} Il componente gestione chiamate mongoDB riceve una richiesta riguardante i dati di un account da parte del componente di gestione account.
+    \textbf{Interfaccia richiesta - richiesta dati account:} Il componente "Gestione Chiamate MongoDB" riceve una richiesta riguardante i dati di un account da parte del componente di "Gestione account".
 
-    \textbf{Interfaccia fornita - invio dati utente:} Il componente gestione chiamate mongoDB invia i dati dell'account richiesto al componente di gestione account.
+    \textbf{Interfaccia fornita - invio dati utente:} Il componente "Gestione Chiamate MongoDB" invia i dati dell'account richiesto al componente di "Gestione account".
 
-    \textbf{Interfaccia fornita - dati calendario:} Il componente manda i dati di un calendario richiesto all componente Gestione creazione o modifica calendario.
+    \textbf{Interfaccia fornita - dati calendario:} Il componente manda i dati di un calendario richiesto al componente "Gestione creazione o modifica calendario".
 
-    \textbf{Interfaccia richiesta - richiesta calendario:} Il componente riceve una richiesta dei dati di un calendario da parte del componente gestione e creazione e modifica calendario.
+    \textbf{Interfaccia richiesta - richiesta calendario:} Il componente riceve una richiesta dei dati di un calendario da parte del componente "Gestione e creazione e modifica calendario".
 
-    \textbf{Interfaccia richiesta - modifica calendario:} Il componente riceve dal componente Gestione creazione o modifica calendario i dati di un calendario da modificare.
+    \textbf{Interfaccia richiesta - modifica calendario:} Il componente riceve dal componente "Gestione creazione o modifica calendario" i dati di un calendario da modificare.
 
-    \textbf{Interfaccia richiesta  - creazione calendario:} Il componente riceve dal componente Gestione creazione o modifica calendario i dati di un calendario da creare.
+    \textbf{Interfaccia richiesta  - creazione calendario:} Il componente riceve dal componente "Gestione creazione o modifica calendario" i dati di un calendario da creare.
 
-    \textbf{Interfaccia fornita - dati evento:} Il componente fornisce al componente gestione creazione e modifica evento i dati relativi all'evento richiesto.
+    \textbf{Interfaccia fornita - dati evento:} Il componente fornisce al componente "Gestione creazione e modifica evento" i dati relativi all'evento richiesto.
 
-    \textbf{Interfaccia richiesta - richiesta dati evento:} Il componente riceve dal componente gestione creazione e modifica evento la richiesta dei dati relativi ad un evento.
+    \textbf{Interfaccia richiesta - richiesta dati evento:} Il componente riceve dal componente "Gestione creazione e modifica evento" la richiesta dei dati relativi ad un evento.
 
-    \textbf{Interfaccia richiesta - crea evento:} Il componente riceve una richiesta di creazione evento da parte del componente gestione modifica e creazione eventi con i relativi dati dell'evento.
+    \textbf{Interfaccia richiesta - crea evento:} Il componente riceve una richiesta di creazione evento da parte del componente "Gestione modifica e creazione eventi" con i relativi dati dell'evento.
 
-    \textbf{Interfaccia richiesta - modifica evento:} Il componente riceve una richiesta di modifica di un evento da parte del componente gestione modifica e creazione eventi con i relativi dati da modificare dell'evento.
+    \textbf{Interfaccia richiesta - modifica evento:} Il componente riceve una richiesta di modifica di un evento da parte del componente "Gestione modifica e creazione eventi" con i relativi dati da modificare dell'evento.
 
 
 
@@ -964,11 +964,11 @@ In questa sezione vengono definiti i componenti.
 
     \textbf{Descrizione:}  Il componente deve gestire la procedura di richiesta di autenticazione.
 
-    \textbf{Interfaccia richiesta - invio dati utente:} il componente riceve dal componente gestione chiamate mongoDB i dati relativi all'utente richiesto.
+    \textbf{Interfaccia richiesta - invio dati utente:} il componente riceve dal componente "Gestione chiamate MongoDB" i dati relativi all'utente richiesto.
 
-    \textbf{Interfaccia fornita - richiesta dati account:} richiede al componente gestione chiamate mongoDB i dati relativi ad un utente.
+    \textbf{Interfaccia fornita - richiesta dati account:} richiede al componente "Gestione chiamate MongoDB" i dati relativi ad un utente.
 
-    \textbf{Interfaccia richiesta - richiesta accesso:} riceve la richiesta da parte del componente gestione homepage di reindirizzare l'utente sulla pagina di login per l'autenticazione.
+    \textbf{Interfaccia richiesta - richiesta accesso:} riceve la richiesta da parte del componente "Gestione Homepage" di reindirizzare l'utente sulla pagina di login per l'autenticazione.
 
     \textbf{Interfaccia richiesta - richiesta tipologia account:} il componente riceve la richiesta delle informazioni relative alla tipologia dell'account richiesto.
 
@@ -978,17 +978,17 @@ In questa sezione vengono definiti i componenti.
 
     \textbf{Interfaccia fornita - abbonamento account:} il componente fornisce i dati relativi al tipo di abbonamento posseduto da un account.
 
-    \textbf{Interfaccia fornita - dati account:} Il componente fornisce al componente gestione impostazioni account i dati relativi all'account richiesto.
+    \textbf{Interfaccia fornita - dati account:} Il componente fornisce al componente "Gestione impostazioni account" i dati relativi all'account richiesto.
 
-    \textbf{Interfaccia richiesta - richiesta dati account:} Il componente riceve da parte del componente gestione impostazioni account la richiesta dei dati dell'account dell'utente.
+    \textbf{Interfaccia richiesta - richiesta dati account:} Il componente riceve da parte del componente "Gestione impostazioni account" la richiesta dei dati dell'account dell'utente.
 
-    \textbf{Interfaccia richiesta - dati utente:} avvenuta l'autenticazione il componente interfaccia Auth0 manda al componente gestione account i dati relativi all'utente autenticato quali email utente.
+    \textbf{Interfaccia richiesta - dati utente:} avvenuta l'autenticazione il componente interfaccia Auth0 manda al componente "Gestione account" i dati relativi all'utente autenticato quali email utente.
 
-    \textbf{Interfaccia fornita - richiesta autenticazione:} Il componente richiede all'interfaccia Auth0 di reindirizzare l'utente sulla pagina di autenticazione di Auth0 per procedere a tale operazione.
+    \textbf{Interfaccia fornita - richiesta autenticazione:} Il componente richiede all' "Interfaccia Auth0" di reindirizzare l'utente sulla pagina di autenticazione di Auth0 per procedere a tale operazione.
 
-    \textbf{Interfaccia fornita - sistema di mappe:} Il componente fornisce il sistema di mappe predefinito dell'utente al componente di gestione mappe.
+    \textbf{Interfaccia fornita - sistema di mappe:} Il componente fornisce il sistema di mappe predefinito dell'utente al componente di "Interfaccia mappe".
 
-    \textbf{Interfaccia richiesta - richiesta sistema di mappe predefinito:} Il componente riceva da parte del componente di gestione mappe la richiesta di quale sistema di mappe abbia come predefinito un account.
+    \textbf{Interfaccia richiesta - richiesta sistema di mappe predefinito:} Il componente riceva da parte del componente di "Interfaccia mappe" la richiesta di quale sistema di mappe abbia come predefinito un account.
 
 
     \elemento[Interfaccia Auth0]{dci:InterfacciaAuth0}
@@ -999,9 +999,9 @@ In questa sezione vengono definiti i componenti.
 
     \textbf{Interfaccia fornita - richiesta autenticazione:} inoltra l'utente sulla pagina di accesso fornita da Auth0.
 
-    \textbf{Interfaccia richiesta - richiesta autenticazione:} rappresenta la richiesta da parte di gestione account di reindirizzamento alla pagina di Auth0.
+    \textbf{Interfaccia richiesta - richiesta autenticazione:} rappresenta la richiesta da parte di "Gestione account" di reindirizzamento alla pagina di Auth0.
 
-    \textbf{Interfaccia fornita - dati utente:} passa al componente gestione account i dati dell'utente (email).
+    \textbf{Interfaccia fornita - dati utente:} passa al componente "Gestione account" i dati dell'utente (email).
 
     \textbf{Interfaccia richiesta - richiesta recupero password:} riceve, da parte dell'utente non autenticato, la richiesta di recupero della password.
 
@@ -1012,7 +1012,7 @@ In questa sezione vengono definiti i componenti.
 
     \textbf{Descrizione:} Il componente deve analizzare tutto il traffico proveniente dall'esterno che richiede il sistema e filtrarlo bloccando il traffico a tutti gli attori malevoli.
 
-    \textbf{Interfaccia richiesta - ricezione traffico filtrato:} il componente riceve da cloudflare il traffico filtrato.
+    \textbf{Interfaccia richiesta - ricezione traffico filtrato:} il componente riceve da Cloudflare il traffico filtrato.
 
     \textbf{Interfaccia fornita - invio traffico filtrato:} il componente fornisce al componente “Gestione Homepage” le informazioni del traffico filtrato per far si che il sistema sia accessibile solo da connessioni proveniente da un traffico filtrato.
 
