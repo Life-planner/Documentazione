@@ -1,15 +1,20 @@
 \section{Application Implementation and Documentation}
 \label{secD4:ApplicationImplementationAndDocumentation}
-Nelle sezioni precedenti abbiamo individuato tutte le procedure e funzionalità che sono implementate nel prototipo del sito PlanIt e di come l'utente autenticato può utilizzarle nel suo flusso applicativo mostrando un diagramma di "user flows". L'applicazione è stata sviluppata utilizzando NextJS (anche TypeScript ma solo in piccola parte per la documentazione) per la parte di API e FrontEnd, invece per la parte di UI (user interface) sono stati utilizzati CSS e React. Per la gestione dei dati abbiamo utilizzato MongoDB e la libreria mongoose. Per la gestione di autenticazione all'interno del sito abbiamo utilizzato il sistema esterno Auth0. Per la produzione della documentazione delle APIs abbiamo usato la libreria Swagger per NextJS, invece per il testing, sempre delle APIs, è stato usato il framework di JavaScript Jest. Infine, per fare le chiamate delle APIs da FrontEnd usiamo la libreria di JavaScript Axios.
+Nelle sezioni precedenti abbiamo individuato tutte le procedure e funzionalità che sono implementate nel prototipo del sito PlanIt e di come l'utente autenticato può utilizzarle nel suo flusso applicativo mostrando il diagramma "user flow". L'applicazione è stata sviluppata utilizzando NextJS (anche TypeScript ma solo in piccola parte per la documentazione) per la parte di API e FrontEnd, inoltre per la parte di UI (user interface) sono stati utilizzati anche CSS e React. Per la gestione dei dati abbiamo utilizzato MongoDB e la libreria mongoose. Per la gestione di autenticazione all'interno del sito abbiamo utilizzato il sistema esterno Auth0. Per la produzione della documentazione delle APIs abbiamo usato la libreria Swagger per NextJS, invece per il testing, sempre delle APIs, è stato usato il framework di JavaScript Jest. Infine, per fare le chiamate delle APIs da FrontEnd usiamo la libreria di JavaScript Axios.
 \begin{listaPersonale} {APD}
     \elemento[Project Structure]{apd:ProjectStructure}
-    La struttura del progetto è presentata nelle seguenti foto ed è composto di una cartella "api", dove sono presenti tutte le funzioni per la gestione delle APIs locali, divisi in base a quale resource gestiscono (ovvero "event", "calendar", "user"), di una cartella "pages", al cui interno oltre che la cartella api, sono presenti anche i file di estensione React indispensabili per comporre le interfacce grafiche di ciascuna schermata presente nel sito PlanIt, di una cartella "lib", in cui sono presenti i file usati per andare a stabilire la connessione con il database MongoDB, e, infine, di una cartella "models", dove ci sono i modelli di oggetti implementati per la gestione di dati del nostro sito. Si evidenzia che i modelli definiti sono presenti nel database MongoDB.\\
-    Sottolineiamo che le uniche "pages" che sono state sviluppate in maniera completa sono "calendario" e "eventi". Evidenziamo che le varie componenti che vanno a comporre queste schermate sono state sviluppate in React nella cartella "components", che può essere sempre visualizzata nella seguente foto.\\
-    Inoltre, nella cartella "styles" sono presenti i file "css" sviluppati per andare a definire i stili dei moduli presenti nell'interfaccia grafica che saranno visualizzabili dall'utente che entra nel sito PlanIt.
+    La struttura del progetto è presentata nelle seguenti foto ed è composto da una cartella "api", dove sono presenti tutte le funzioni per la gestione delle APIs locali, divisi in base a quale struttura dati gestiscono (ovvero "event", "calendar", "user"), di una cartella "pages", al cui interno oltre che la cartella "api", sono presenti anche i file di estensione React indispensabili per comporre le interfacce grafiche di ciascuna schermata presente nel sito PlanIt, di una cartella "lib", in cui sono presenti i file usati per andare a stabilire la connessione con il database MongoDB, e, infine, di una cartella "models", dove ci sono i modelli di oggetti implementati per la gestione di dati del nostro sito. Si evidenzia che i modelli definiti sono presenti nel database MongoDB.\\
+    Sottolineiamo che le uniche "pages" che sono state sviluppate in maniera completa sono "Calendario" e "Eventi". Evidenziamo che le varie componenti che vanno a comporre queste schermate sono state sviluppate in React nella cartella "components", che può essere sempre visualizzata nella seguente foto.\\
+    Inoltre, nella cartella "styles" sono presenti i file "css" sviluppati per andare a definire i stili dei moduli presenti nell'interfaccia grafica, che saranno visualizzabili dall'utente che entra nel sito PlanIt.
     \begin{center}
-        \includegraphics[width=0.4\textwidth, height=0.9\textheight]{img/png/project_structure/project_structure_totale.png}
-        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/project_structure/project_structure_totale.png}{PNG} Struttura codice sorgente}
-        \captionof{figure}{Struttura codice sorgente}
+        \includegraphics[width=0.27\textwidth, height=0.9\textheight]{img/png/project_structure/project_structure_totale.png}
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/project_structure/project_structure_totale.png}{PNG} Struttura codice sorgente, 1a parte}
+        \captionof{figure}{Struttura codice sorgente, 1a parte}
+    \end{center}
+    \begin{center}
+        \includegraphics[width=0.3\textwidth, height=0.75\textheight]{img/png/project_structure/project_structure_totale_2.png}
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/project_structure/project_structure_totale_2.png}{PNG} Struttura codice sorgente, 2a parte}
+        \captionof{figure}{Struttura codice sorgente, 2a parte}
     \end{center}
     \newpage
     \elemento[Project Dependencies]{apd:ProjectDependencies}
@@ -18,20 +23,24 @@ Nelle sezioni precedenti abbiamo individuato tutte le procedure e funzionalità 
         \item MongoDB, usato per fare il testing;
         \item Mongoose, libreria usata per connettersi al database MongoDB.
         \item NextJS, framework utilizzato per lo sviluppo delle APIs e del FrontEnd del sito PlanIt;
-        \item Swagger, tool utilizzato per la documentazione delle APIs;
+        \item Swagger, tool utilizzato per la documentazione delle APIs; la libreria "next-swagger-doc", da noi utilizzata, è semplicemente Swagger per Next.
         \item React, libreria di JavaScript per l'implementazione dell'UI del sito;
         \item Jest, framework di JavaScript utilizzato per andare a fare il testing delle APIs;
-        \item PostCSS, è uno strumento di sviluppo software che utilizza plug-in basati su JavaScript per automatizzare le operazioni CSS di routine e quindi lo sviluppo dei moduli presenti nel FrontEnd del nostro sito;
+              \begin{comment}
+              \item PostCSS, è uno strumento di sviluppo software che utilizza plug-in basati su JavaScript per automatizzare le operazioni CSS di routine e quindi lo sviluppo dei moduli presenti nel FrontEnd del nostro sito;
+              \end{comment}
         \item TypeScript, estensione di JavaScript, usata solo in minima parte nello sviluppo delle APIs, ovvero nello sviluppo degli esempi per la documentazione di queste.
+        \item Axios, libreria di JavaScript che permette da FrontEnd di connettersi con le API di backend e gestire le richieste effettuate tramite il protocollo HTTP.
+        \item Toastify, libreria di React che permette di fare dei pop-up di "notifacation"; pop-up di "notification" che utilizzeremo nel FrontEnd.
     \end{itemize}
     \begin{center}
-        \includegraphics[width=0.45\textwidth, height=0.4\textheight]{img/png/package_json.png}
+        \includegraphics[width=0.47\textwidth, height=0.45\textheight]{img/png/package_json.png}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/package_json.png}{PNG} Project Dependencies}
         \captionof{figure}{Project Dependencies}
     \end{center}
     \newpage
     \elemento[Project Data or DB]{apd:ProjectDB}
-    Per la gestione dei dati utili all'applicazione abbiamo definito tre principali strutture dati come illustrato nelle seguenti immagini. Infatti, le strutture dati che abbiamo deciso di avere in questo prototipo del nostro sito PlanIt, sono:
+    Per la gestione dei dati utili all'applicazione abbiamo definito tre principali strutture dati, come illustrato nelle seguenti immagini. Infatti, le strutture dati che abbiamo deciso di avere in questo prototipo del nostro sito PlanIt, sono:
     \begin{itemize}
         \item "UtenteAutenticato", struttura dati che individua l'utente che si è autenticato ed accede al sito;
         \item "Evento", componente fondamentale del calendario, che sta alla base della logica del nostro sito ideato.
@@ -79,24 +88,23 @@ Nelle sezioni precedenti abbiamo individuato tutte le procedure e funzionalità 
     \end{center}
     \newpage
     \elemento[Project APIs]{apd:ProjectAPIs}
-    In questo capitolo, verranno presentate le APIs che sono state sviluppate in questo prototipo del sito PlanIt. Infatti, si passerà dall'esposizione dell' Extract Diagram, diagramma che serve come collegamento tra il Class Diagram alla APIs, e Resources Models, diagramma in cui sono presenti tutte le risorse implementate, alla descrizione del vero e proprio codice delle APIs presentati in questi primi diagrammi.
+    In questo capitolo, verranno presentate le APIs che sono state sviluppate in questo prototipo del sito PlanIt. Infatti, si passerà dall'esposizione dell' Extract Diagram, diagramma che serve come collegamento tra il Class Diagram alla APIs, e Resources Models, diagramma in cui sono presenti tutte le risorse implementate, alla descrizione del vero e proprio codice delle APIs, presentati in questi primi diagrammi.
     \begin{listaPersonale2}[APD]{}
         \elemento[Resources Extraction from the Class Diagram]{apd:ResourceExtraction}
-        Questo diagramma si può dire che faccia da vero e proprio "ponte" tra Class Diagram, presentato nel documento D3, e le resources che andremo ad implementare nelle nostre APIs. \\
-        Come si può notare, abbiamo individuato dodici resources che riteniamo fondamentali per sviluppare almeno la logica che sta alla base del nostro sito PlanIt. \\
+        Questo diagramma si può dire che faccia da vero e proprio "ponte" tra Class Diagram, presentato nel documento D3, e le resources che andremo ad implementare con le nostre APIs. \\
+        Come si può notare, abbiamo individuato dodici resources che riteniamo fondamentali per sviluppare la logica che sta alla base del nostro sito PlanIt. \\
         \begin{itemize}
             \item Partendo dalla classe "UtenteAutenticato", presentata in \prettyref{D3-dcl:TipologieUtenti}, abbiamo individuato tre resources, ovvero:
                   \begin{itemize}
-                      \item CreaAccount, di tipo POST. Risorsa che ha lo scopo di creare un account all'interno del database MongoDB e per questo motivo ha l'etichetta "BackEnd"; infatti l'effetto principale di questa API avviene nel "BackEnd" con la creazione dell'account nel database.\\ L'account è una struttura dati già presenta nel capitolo precedente, ovvero "UtenteAutenticato", e l'input delineato è un "body" in quanto è formato da più di tre parametri, i quali verrano specificati e descritti nel diagramma Resources Model, presentato nel successivo capitolo.
-                      \item ModificaAccount, di tipo PUT. Risorsa che ha al fine di dare la possibilità di andare a modificare un account già presente nel nostro database. L'etichetta "BackEnd" e l'input body sono preseti per gli stessi motivi definiti per la resource "CreaAccount".
+                      \item CreaAccount, di tipo POST. Risorsa che ha lo scopo di creare un account all'interno del database MongoDB e per questo motivo ha l'etichetta "BackEnd"; infatti l'effetto principale di questa API avviene nel "BackEnd" con la creazione dell'account nel database.\\ L'account è una struttura dati già presentata nel capitolo precedente, ovvero "UtenteAutenticato", e l'input delineato è un "body" in quanto è formato da più di tre parametri, i quali verranno specificati e descritti nel diagramma Resources Model, presentato nel successivo capitolo.
+                      \item ModificaAccount, di tipo PUT. Risorsa che ha il fine di dare la possibilità di andare a modificare un account già presente nel nostro database. L'etichetta "BackEnd" e l'input body sono presenti per gli stessi motivi definiti per la resource "CreaAccount".
                       \item GetDatiAccount, di tipo GET. API che ha lo scopo di ottenere i dati di un "UtenteAutenticato" conoscendo l'userId di tale utente. L'effetto ultima di questa resource è nel FrontEnd, in quanto i dati appariranno all'utente e quindi si è deciso di mettere come sua etichetta "FrontEnd"
                       \item GetDatiAccount\_email, di tipo GET. Risorsa analoga a quella precedente, con la sola differenza che l'account, da cui estrarre i dati, non è definito mediante l' "userId", "id" e stringa che identifica univocamente un utente, ma mediante la sua email che ha utilizzato per registrarsi.
                   \end{itemize}
-                  Si specifica che gli attributi "link", "password" e "schema" sono necessari per poter effettuare la connessione con il database MongoDB, come specificato in \prettyref{D3-dcl:MongoDB}, e tutte le resources individuate riguardano a funzioni già presentate sempre in \prettyref{D3-dcl:MongoDB}.
             \item Dopo abbiamo individuato altre tre resources, partendo dalla classe "Evento", già presentata in \prettyref{D3-dcl:CreazioneModificaEvento}, ovvero:
                   \begin{itemize}
                       \item creaEvento, di tipo POST. Resource che ha lo scopo di andare a creare un evento che viene salvato nel database MongoDB. L'input che viene preso da questa API è un insieme di parametri che vanno a formare un oggetto di tipo "Evento", struttura dati già definita nel capitolo precedente, che in quanto piuttosto complicata, non siamo andati a specificare in questo diagramma ma nel "Resources Model" e qua ci siamo fermati nel scrivere come input solo "body". In quanto ha un effetto sul "BackEnd", con il salvataggio dell'evento nel database, abbiamo indicato come etichetta "BackEnd".
-                      \item modificaEvento, di tipo PUT; grazie alla sua esecuzione abbiamo la modifica di un determinato evento già presente al database appartenente ad un utente. In quanto ha un effetto finale nel database, gli abbiamo attribuito l'etichetta "BackEnd".
+                      \item modificaEvento, di tipo PUT; grazie alla sua esecuzione abbiamo la modifica di un determinato evento già presente nel database appartenente ad un utente. In quanto ha un effetto finale nel database, gli abbiamo attribuito l'etichetta "BackEnd".
                       \item eliminaEvento, di tipo DELETE. Lo scopo di questa resource è quello di dare la possibilità di eliminare un "Evento" dato il suo "IDEvento" e l'"userId" dell'utente autenticato che ha questo determinato "Evento" che vuole eliminare. In quanto ha un effetto finale nel database, gli abbiamo attribuito l'etichetta "BackEnd".
                       \item getEventi, di tipo GET. Risorsa mediante cui si ottengo gli eventi di un calendario, dato l'"userId" dell'utente che ha tale calendario e l' "IDCalendario" del calendario da cui vogliamo estrarre gli eventi. L'etichetta "FrontEnd" è stata messa in quanto questa API è fondamentale per mostrare all'utente finale nell'user interface gli eventi di un determinato calendario.
                   \end{itemize}
@@ -104,7 +112,7 @@ Nelle sezioni precedenti abbiamo individuato tutte le procedure e funzionalità 
             \item Infine abbiamo sviluppato tre resources per la classe "Calendario", tipo di dato già presentato nel precedente capitolo, le cui funzionalità e attributi sono stati descritti in \prettyref{D3-dcl:CreazioneModificaCalendario}. Le tre resources sono:
                   \begin{itemize}
                       \item creaCalendario, di tipo POST. API che ha lo scopo di creare un calendario all'interno del database MongoDB, e per questo motivo ha come etichetta "BackEnd". In quanto, per andare a creare un "Calendario" all'interno del database servono gli attributi che formano un oggetto di tipo "Calendario" e l' "userId" dell'utente che vuole creare tale calendario, come input abbiamo indicato body. L'input verrà descritto maggiormente nel Resources Model che viene presentato nel successivo capitolo.
-                      \item modificaCalendario, di tipo PUT; grazie alla sua esecuzione abbiamo la modifica di un determinato calendario già presente al database appartenente ad un utente. In quanto ha un effetto finale nel database, gli abbiamo attribuito l'etichetta "BackEnd".
+                      \item modificaCalendario, di tipo PUT; grazie alla sua esecuzione abbiamo la modifica di un determinato calendario già presente nel database appartenente ad un utente. In quanto ha un effetto finale nel database, gli abbiamo attribuito l'etichetta "BackEnd".
                       \item eliminaCalendario, di tipo DELETE. Lo scopo di questa resource è quello di dare la possibilità di eliminare un "Calendario" dato il suo "IDCalendario" e l'"userId" dell'utente autenticato che ha questo determinato "Calendario" che vuole eliminare. In quanto ha un effetto finale nel database, gli abbiamo attribuito l'etichetta "BackEnd".
                       \item getCalendari, di tipo GET. API che ha lo scopo di ottenere tutti i calendari di un determinato "UtenteAutenticato", dato il suo "userId". Questa risorsa è fondamentale per andare a mostrare i calendari appartenenti all'utente, che potrà, quindi, visualizzare.
                   \end{itemize}
@@ -194,10 +202,16 @@ Nelle sezioni precedenti abbiamo individuato tutte le procedure e funzionalità 
                 Infine, l'ultimo controllo, che si fa sugli attributi ricevuti in input, riguarda l'attributo "principale", booleano che indica se il calendario che si sta creando sia quello principale o meno. Infatti, ogni utente autenticato può avere al massimo un calendario principale, per questo motivo nel caso in cui si provasse a creare un calendario principale già esistente per quell' "userId", si riceve il messaggio di errore: "409 - There are too many primary calendars". \\
                 Grazie, alla funzione "create()", viene creato nel database un calendario con i valori dei campi che lo formano uguali ai parametri inseriti in input; nel caso ci fossero degli errori nell'esecuzione di questa funzione, otteniamo l'errore "500 - Not inserted". Se, invece l'esecuzione di questa funzione è andata a buon fine, otteniamo il messaggio di successo "200 - Calendar inserted correctly". C'è un eventuale altro controllo che serve per individuare errori generici durante l'esecuzione di creaCalendario, quindi otteniamo un messaggio di errore del tipo: "501 - Generic error".
                 \begin{center}
-                    \includegraphics[width=0.55\textwidth, height=0.9\textheight]{img/png/APIs/creaCalendario.png}
+                    \includegraphics[width=0.55\textwidth, height=0.80\textheight]{img/png/APIs/creaCalendario.png}
                     \captionof{figure}{API - creaCalendario}
                     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/APIs/creaCalendario.png}{PNG} API - creaCalendario}
                 \end{center}
+                \begin{center}
+                    \includegraphics[width=0.55\textwidth, height=0.85\textheight]{img/png/APIs/creaCalendario2.png}
+                    \captionof{figure}{API - creaCalendario, 2a parte}
+                    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/APIs/creaCalendario2.png}{PNG} API - creaCalendario, 2a parte}
+                \end{center}
+                \newpage
         \elemento [Modifica Calendario] {apd:modificaCalendario}
                 Grazie a questa API, già mostrata in parte in \ref{apd:ResourcesModelCalendario}, PlanIt riesce a modificare le impostazioni di un calendario già salvato per un utente autenticato. Per fare tale operazione, oltre all' "IDCalendario", "id" del calendario che si vuole modificare, e l' "userId", "id" dell'utente autenticato che vuole modificare un proprio calendario, sono necessari anche tutti gli altri attributi che costituiscono la struttura dati "Calendario", già molte volte mostrata come in (\ref{apd:ProjectDB}), con i quali si andrà a modificare il calendario. Nel caso in cui mancasse uno di questi attributi, si riceve il messaggio di errore: "400 - Parameter missing". \\
                 Come si può notare dal codice, in "modificaCalendario" sono presenti gli stessi controlli già descritti in "creaCalendario", ma con l'aggiunta di qualcuno di nuovo. Infatti per l'oggetto "impostazioniPredefiniteEventi", che ricordiamo essere l'insieme di valori con cui vengono precompilati gli eventi appartenenti ad un calendario specifico, valori che possono essere modificati sia durante la creazione che modifica di un evento in fase di compilazione, vengono fatti ulteriori accertamenti. In primo luogo, vengono controllati che ciascun campo che lo forma sia diverso da "null", inoltre:
@@ -252,7 +266,7 @@ Nelle sezioni precedenti abbiamo individuato tutte le procedure e funzionalità 
                     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/APIs/creaEvento2.png}{PNG} API - creaEvento, 2a parte}
                 \end{center}
                 \begin{center}
-                    \includegraphics[width=0.75\textwidth, height=0.6\textheight]{img/png/APIs/creaEvento3.png}
+                    \includegraphics[width=0.75\textwidth, height=0.9\textheight]{img/png/APIs/creaEvento3.png}
                     \captionof{figure}{API - creaEvento, 3a parte}
                     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/APIs/creaEvento3.png}{PNG} API - creaEvento, 3a parte}
                 \end{center}
