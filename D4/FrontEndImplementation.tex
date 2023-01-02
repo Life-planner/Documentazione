@@ -2,7 +2,7 @@
 \label{secD4:FrontEndImplementation}
 Il FrontEnd, (visualizzabile e utilizzabile al link \href{https://plan-it.it} {https://plan-it.it}) implementato in questo prototipo del sito PlanIt da noi sviluppato, fornisce le funzionalità di visualizzazione, creazione, modifica e cancellazione di calendari ed eventi all'interno dell'applicativo; gli eventi che si possono gestire, in questo prototipo, sono solo singoli, ovvero che in fase di creazione o modifica vengono definiti solo per una specifica data.
 \begin{comment}
-, oppure eventi ripetuti, ovvero che vengono definiti per più giornate in fase di creazione o modifica. 
+, oppure eventi ripetuti, ovvero che vengono definiti per più giornate in fase di creazione o modifica.
 \end{comment}
 Inoltre, dopo il primo accesso, è presente anche l'automatica creazione di un account per l'utente che ha fatto la registrazione e viene anche data la possibilità di modificare il proprio username, che nel caso non venisse definito, corrisponde alla propria email. \\ Prima di cominciare con la descrizione più specifica di ciascuna schermata, partiamo con il dire che le pagine che costituiscono questo prototipo del sito PlanIt, sono: "Homepage", "schermata login", "schermata registrazione", "schermata recupero password", "schermata inserimnento soprannome", "schermata Calendario" e "schermata Eventi".
 \\ In particolare partiamo da come appare il sito, quando ci si accede. La prima pagina che si visualizza, è l'Homepage, visualizzabile nell'immagine sottostante. Dall' "Homepage", l'utente può solo premere il tasto "Login", che lo indirizzerà alla pagina di autenticazione fornita da Auth0. Infatti tutta la fase di registrazione, login e anche recupero password sono gestite completamente da questo sistema esterno di autenticazione che integriamo nel sito. Il bottone "Try Demo", presente nell' "Homepage", non ha nessuna funzionalità, in quanto in questo prototipo del sito, si è sviluppato solo il sito per gli utenti che si autenticano.
@@ -57,7 +57,7 @@ La prima volta che si accede al sito, ovvero dopo la registrazione. Prima di vis
     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/InserimentoSoprannome.jpg}{PNG} FrontEnd - Inserimento soprannome}
 \end{center}
 
-Dopo aver fatto l'autenticazione e se non è la prima volta che si accede al sito (in quel caso prima della pagina "Calendario", come detto precedentemente, si visualizza la pagina "Inserimento soprannome"), l'utente autenticato visualizza la pagina "Calendario", da cui può passare a tutte le altre pagine (ricordiamo che oltre a "Calendario" è stata sviluppata solo la pagina "Eventi" in questo protitipo), può creare un evento  e/o calendario, possibilità visualizzabile dopo aver premuto il "+" in baso a destra, può visualizzare la lista di calendari personali, e anche quelli condivisi, dal bottone "Calendari", che apre una side-bar in cui si possono selezionare i calendari da visualizzare nella schermata "Calendario, e infine può spostarsi temporalmente nel tempo di settimana in settimana grazie ai bottoni "<", con cui si va indietro, e ">", con cui si va avanti, e tornare alla data corrente mediante il bottone "Oggi". Adesso andiamo un po' più nello specifico delle cose visualizzabili e che si possono fare in questa pagina.
+Dopo aver fatto l'autenticazione e se non è la prima volta che si accede al sito (in quel caso prima della pagina "Calendario", come detto precedentemente, si visualizza la pagina "Inserimento soprannome"), l'utente autenticato visualizza la pagina "Calendario", da cui può passare a tutte le altre pagine (ricordiamo che oltre a "Calendario" è stata sviluppata solo la pagina "Eventi" in questo protitipo), può creare un evento  e/o calendario, possibilità visualizzabile dopo aver premuto il "+" in baso a destra, può visualizzare la lista di calendari personali, e anche quelli condivisi, dal bottone "Calendari", che apre una side-bar in cui si possono selezionare i calendari da visualizzare nella schermata "Calendario, può visualizzare le informazioni di un evento creato presente nel calendario premendo l'icona di tale evento e, infine, può spostarsi temporalmente nel tempo di settimana in settimana grazie ai bottoni "<", con cui si va indietro, e ">", con cui si va avanti, e tornare alla data corrente mediante il bottone "Oggi". Adesso andiamo un po' più nello specifico delle cose visualizzabili e che si possono fare in questa pagina.
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Calendario/schermata_calendario.png}
@@ -75,7 +75,7 @@ Dunque, premendo il bottone "Calendari" in alto a destra, appare questa side-bar
 
 Dopo, premendo il tasto "+" in basso a destra è possibile aprire un fab, dove appare la scritta "Evento" e "Calendario". Grazie a questi due scelte, è possibile poter creare un evento singolo
 \begin{comment}
-, specifichiamo che in questa schermata si può creare solo quello singolo, a differenza della schermata "Eventi" in cui si possono creare anche quelli ripetuti, 
+, specifichiamo che in questa schermata si può creare solo quello singolo, a differenza della schermata "Eventi" in cui si possono creare anche quelli ripetuti,
 \end{comment}
 e/o un calendario. Dunque, premendo una delle tue scelte, appare un pop-up di creazione calendario o evento.
 
@@ -100,6 +100,12 @@ Invece, il pop-up sottostante è quello che si ottiene quando l'utente vuole cre
     \captionof{figure}{FrontEnd - Crea Evento}
     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Calendario/calendario_creaEvento.png}{PNG} schermata "Calendario" - Crea Evento}
 \end{center}
+
+Tra le funzionalità che abbiamo elencato, che si possono fare dalla schermata "Calendario", c'è anche quella di visualizzare le impostazioni di un evento presente nel calendario, premendo la sua icona. Infatti, andando a premere un evento nella schermata calendario, appare un pop-up dove sono presenti le impostazioni con cui siamo andati a definire quest'ultimo. Da questo pop-up non si può fare alcuna azione di modifica, ma è solo un pop-up d'informazione riguardo l'evento.
+
+\todo{aggiungi l'immagine}
+
+
 
 Come già detto in precedenza, mediante i bottoni "<", ">" e "Oggi" l'utente può rispettivamente:
 \begin{itemize}
