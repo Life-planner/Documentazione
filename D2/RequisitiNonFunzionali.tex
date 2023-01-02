@@ -104,7 +104,7 @@
         deve contenere almeno:
         una lettera maiuscola, una lettera minuscola, un numero e un simbolo (!\@\#\$\%\^\&*)                                       \\
         \hline
-        Prevenzione attacchi di “sniffing” o “man in the middle”                                                                  &
+        Prevenzione attacchi di "sniffing" o "man in the middle"                                                                  &
         Modalità di trasmissione dei dati dell'utente (\prettyref{D1-rnf:AttacchiSicurezza})                                      &
         Utilizzo protocollo https                                                                                                   \\
         \hline
@@ -113,7 +113,7 @@
         Le politiche CORS impostate sulle api dell'applicativo
         devono essere impostate su Same-Origin Policy                                                                               \\
         \hline
-        Prevenzione attacchi “XSS”                                                                                                &
+        Prevenzione attacchi "XSS"                                                                                                &
         Modalità di trattamento dati inseriti dall'utente (\prettyref{D1-rnf:XSSSicurezza})                                       &
         Sanificazioni dei dati inseriti dall'utente                                                                                 \\
         \hline
@@ -183,13 +183,13 @@
         \hline
         \rowcolor{viola} \textbf{Proprietà}                           &
         \textbf{Descrizione}                                          &
-        \textbf{Misura}                                                                   \\
+        \textbf{Misura}                                                                  \\
         \hline
         Avvio applicazione                                            &
         Tempo massivo di avvio dell'applicazione da parte dell'utente &
         Quando l'utente apre l'applicativo con una connessione
         fast 3G (velocità: ~1.44 Mbps e latenza: ~562.5ms)
-        il sito deve essere disponibile entro tre secondi.                                \\
+        il sito deve essere disponibile entro tre secondi.                               \\
         \hline
         Lighthouse score                                              &
         Misurazione del punteggio dell'applicazione tramite un
@@ -262,11 +262,11 @@
     \elemento[Interoperabilità (\prettyref{D1-rnf:Interoperabilita})]{rnfd2:Interoperabilita}
     \begin{tabular}{|p{0.3\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}|}
         \hline
-        \rowcolor{viola} \textbf{Proprietà}                                                                         &
-        \textbf{Descrizione}                                                                                        &
-        \textbf{Misura}                                                                                               \\
+        \rowcolor{viola} \textbf{Proprietà}                                                                          &
+        \textbf{Descrizione}                                                                                         &
+        \textbf{Misura}                                                                                                \\
         \hline
-        Interazione con sistemi di mappe                                                                            &
+        Interazione con sistemi di mappe                                                                             &
         Per interazione con sistemi di mappe, si intende la
         possibilità la presenza di funzionalità aggiuntive,
         riguardo alla gestione della localizzazione, date
@@ -275,13 +275,13 @@
         \begin{itemize}
             \item Google Maps
             \item OpenStreetMap
-        \end{itemize}                                                                                         &
+        \end{itemize}                                                                                          &
         Quando l'applicativo manda una richiesta d'indirizzo
         al sistema di mappe, questo deve ritornare le sue
         coordinate corrette. Il sistema deve supportare sia
-        Google Maps che OpenstreetMaps                                                                                \\
+        Google Maps che OpenstreetMaps                                                                                 \\
         \hline
-        Interazione con sistemi di pagamento                                                                        &
+        Interazione con sistemi di pagamento                                                                         &
         Per interazione con sistemi di pagamento, si intende
         la presenza di funzionalità aggiuntive, riguardo a
         gestione di pagamenti, date da sistemi di pagamento (\prettyref{D1-rnf:PagamentoInteroperabilita}).
@@ -289,22 +289,22 @@
         \begin{itemize}
             \item PayPal
             \item Stripe
-        \end{itemize}                                                                                             &
+        \end{itemize}                                                                                              &
         Quando l'applicativo manda una richiesta di pagamento,
         questa deve essere presa in carico dal sistema di
         pagamento (PayPal o Stripe), che alla fine della
-        procedura manderà un esito alla nostra piattaforma.                                                           \\
+        procedura manderà un esito alla nostra piattaforma.                                                            \\
         \hline
-        Interazione con sistema di autenticazione                                                                   &
+        Interazione con sistema di autenticazione                                                                    &
         Per interazione con sistema di autenticazione,
         si intende la presenza di funzionalità aggiuntive,
         riguardo alla gestione di autenticazione,
-        data dal sistema esterno di autenticazione (\prettyref{D1-rnf:AutenticazioneInteroperabilita}).             &
+        data dal sistema esterno di autenticazione (\prettyref{D1-rnf:AutenticazioneInteroperabilita}).              &
         L'applicativo deve implementare Auth0 per la
         gestione di registrazione e autenticazione
-        degli utenti della piattaforma                                                                                \\
+        degli utenti della piattaforma                                                                                 \\
         \hline
-        Integrazione con sistema di calendari                                                                       &
+        Integrazione con sistema di calendari                                                                        &
         Per interazione con sistema di calendari,
         si intende la presenza di funzionalità aggiuntive,
         riguardo all'importazione di dati da sistemi terzi
@@ -313,7 +313,7 @@
         presenti su Google Calendar (calendari ed eventi)
         una volta connesso alla piattaforma e dare la
         possibilità anche di esportare dati della piattaforma
-        verso Google Calendar (calendari ed eventi)                                                                   \\
+        verso Google Calendar (calendari ed eventi)                                                                    \\
         \hline
     \end{tabular}
 

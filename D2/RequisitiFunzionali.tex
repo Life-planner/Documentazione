@@ -4,7 +4,7 @@
 Nel presente capitolo vengono riportati i requisiti funzionali del sistema utilizzando il linguaggio naturale e Use Case Diagram (UC) scritti in UML.
 
 \begin{listaPersonale}{UC}
-    \elemento[Use case “Accesso e registrazione” (\prettyref{D1-rf:AccessoRegistrazione})]{uc:AccessoRegistrazioneAccount}
+    \elemento[Use case "Accesso e registrazione" (\prettyref{D1-rf:AccessoRegistrazione})]{uc:AccessoRegistrazioneAccount}
 
     \begin{center}
         \includesvg[width=0.7\textwidth]{img/Diagrammi/svg/UseCases/AccessoRegistrazione.svg}
@@ -20,7 +20,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
     \newpage
-    \elemento[“Funzionalità di ciascuna tipologia di account” (\prettyref{D1-rf:UtenteNonAutenticato}, \prettyref{D1-rf:UtenteStandard}, \prettyref{D1-rf:UtentePremium})]{uc:TipiAccount}
+    \elemento["Funzionalità di ciascuna tipologia di account" (\prettyref{D1-rf:UtenteNonAutenticato}, \prettyref{D1-rf:UtenteStandard}, \prettyref{D1-rf:UtentePremium})]{uc:TipiAccount}
 
     \begin{center}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/FunzionalitaUtenti.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/FunzionalitaUtenti.svg}{SVG} use case funzionalità utenti}
@@ -67,7 +67,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     Specifichiamo che tutti gli use case validi per l'utente non autenticato, lo sono anche per quello autenticato standard e premium. Allo stesso modo gli use case per l'utente autenticato standard sono validi anche per l'utente autenticato premium.
 
 
-    \elemento[Use case “Filtrare calendari” (\prettyref{D1-rf:CondivisioneCalendario})]{uc:GestioneCalendari}
+    \elemento[Use case "Filtrare calendari" (\prettyref{D1-rf:CondivisioneCalendario})]{uc:GestioneCalendari}
 
     \begin{center}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/CondivisioneCalendario.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/CondivisioneCalendario.svg}{SVG} use case condivisione calendario}
@@ -82,9 +82,9 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     \textbf{Descrizione:}
     \begin{enumerate}
         \item Dalla sezione "Calendari", l'utente può visualizzare e filtrare i suoi calendari personali e i calendari condivisi con altre persone.
-        \item L'utente autenticato standard, da questa sezione, può selezionare (filtrare) quali calendari far apparire nella schermata “Calendario” in modo tale da osservare quali siano gli eventi presenti in un calendario specifico.
+        \item L'utente autenticato standard, da questa sezione, può selezionare (filtrare) quali calendari far apparire nella schermata "Calendario" in modo tale da osservare quali siano gli eventi presenti in un calendario specifico.
         \item Il numero di calendari personali, che possono essere presenti in questa schermata, dipende dal tipo di account dell'utente autenticato: l'utente autenticato standard può avere al massimo cinque calendari personali, invece l'utente autenticato premium può averne un numero illimitato.
-        \item Sotto il calendario “Principale” nella lista, sono presenti tutti i calendari condivisi (\ref{uc:ExtensionVisualizzazioneCalendariCondivisi}). Il numero di calendari condivisi, che può avere un utente autenticato dipende dalla tipologia di account: l'utente autenticato standard può avere al massimo tre calendari condivisi, invece l'utente autenticato premium può averne un numero illimitato.
+        \item Sotto il calendario "Principale" nella lista, sono presenti tutti i calendari condivisi (\ref{uc:ExtensionVisualizzazioneCalendariCondivisi}). Il numero di calendari condivisi, che può avere un utente autenticato dipende dalla tipologia di account: l'utente autenticato standard può avere al massimo tre calendari condivisi, invece l'utente autenticato premium può averne un numero illimitato.
     \end{enumerate}
 
 
@@ -94,7 +94,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     \end{enumerate}
 
 
-    \elemento[Use case “Creazione/modifica evento” (\prettyref{D1-rf:CreazioneModificaEvento})]{uc:CreazioneModificaEvento}
+    \elemento[Use case "Creazione/modifica evento" (\prettyref{D1-rf:CreazioneModificaEvento})]{uc:CreazioneModificaEvento}
 
     \begin{center}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/CreazioneModificaEvento.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/CreazioneModificaEvento.svg}{SVG} use case creazione/modifica evento}
@@ -115,7 +115,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
     \newpage
-    \elemento[“Organizzazione attività” (\prettyref{D1-rf:InserimentoAutomaticoCalendario})]{uc:VisualizzazioneEventiCalendario}
+    \elemento["Organizzazione attività" (\prettyref{D1-rf:InserimentoAutomaticoCalendario})]{uc:VisualizzazioneEventiCalendario}
 
 
     \begin{center}
@@ -127,7 +127,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
         \elemento[Use case "Visualizza posizione dell'attività nel calendario"]{uc:VisualizzaEventiNonAutenticato}
         \textbf{Titolo:} Visualizzazione posizione dell'attività nel calendario \\
         \textbf{Riassunto: } \\
-        Questo use case descrive come l'utente non autenticato visualizza l'evento nel proprio calendario e quali informazioni può ottenere dal blocco dell'evento presente nella schermata “Calendario”.
+        Questo use case descrive come l'utente non autenticato visualizza l'evento nel proprio calendario e quali informazioni può ottenere dal blocco dell'evento presente nella schermata "Calendario".
 
         \textbf{Descrizione: }
         \begin{enumerate}
@@ -141,7 +141,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
             \item Dal blocco dell'evento nel calendario, l'utente non autenticato può visualizzare immediatamente alcune informazioni riguardo l'evento:
                   \begin{itemize}
                       \item titolo;
-                      \item colore dell'evento: da questa informazione l'utente non autenticato può comprendere a quale calendario appartiene l'evento; infatti il colore del blocco dell'evento corrisponde al colore del calendario a cui appartiene l'evento (ricordiamo che nel caso di utente non autenticato l'unico colore presente sarà quello del calendario “principale”, in quanto non avrà possibilità di creare altri calendari”).
+                      \item colore dell'evento: da questa informazione l'utente non autenticato può comprendere a quale calendario appartiene l'evento; infatti il colore del blocco dell'evento corrisponde al colore del calendario a cui appartiene l'evento (ricordiamo che nel caso di utente non autenticato l'unico colore presente sarà quello del calendario "principale", in quanto non avrà possibilità di creare altri calendari").
                   \end{itemize}
                   \begin{comment} "può comprendere a quale calendario o raggruppamento appartiene l'evento" \end{comment}
             \item L'utente non autenticato premendo sull'evento fa apparire un pop-up dove può visualizzare tutte le informazioni di tale evento, ovvero tutte quelle sopra descritte e:
@@ -184,7 +184,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
     \newpage
-    \elemento[Use case “Resoconto giornata” (\prettyref{D1-rf:ResocontoGiornata})]{uc:ResocontoGiornata}
+    \elemento[Use case "Resoconto giornata" (\prettyref{D1-rf:ResocontoGiornata})]{uc:ResocontoGiornata}
 
 
     \begin{center}
@@ -197,7 +197,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
     \textbf{Descrizione:}
     \begin{enumerate}
-        \item Nella sezione “Attività”, l'utente autenticato standard visualizza le attività della giornata, ovvero il resoconto della giornata, con alcune loro informazioni, ovvero:
+        \item Nella sezione "Attività", l'utente autenticato standard visualizza le attività della giornata, ovvero il resoconto della giornata, con alcune loro informazioni, ovvero:
               \begin{itemize}
                   \item titolo;
                   \item descrizione;
@@ -206,11 +206,11 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
                   \item posizione;
                   \item difficoltà;
               \end{itemize}
-        \item Dalla sezione “Stato” presente in ciascuna attività, l'utente autenticato standard può indicare lo stato dell'attività:
+        \item Dalla sezione "Stato" presente in ciascuna attività, l'utente autenticato standard può indicare lo stato dell'attività:
               \begin{itemize}
-                  \item premendo sulla “spunta”, questa diventa verde, così l'utente autenticato standard indica il completamento dell'evento, ovvero che è stato svolto; \ref{uc:ExceptionModificaImpegniCompletati}
-                  \item premendo sull' “orologio”, questo diventa giallo, così l'utente autenticato standard indica il non completamento dell'attività. Indicando il non svolgimento di un'attività, il sistema ripianifica il calendario per ridefinire un altro momento dove l'utente potrà svolgere questa attività non completata; \ref{uc:ExceptionRipianificazioneAttivitaLibera}
-                  \item premendo sul “cestino”, questo diventa rosso, così l'utente autenticato standard indica la volontà di eliminare l'evento dal calendario.
+                  \item premendo sulla "spunta", questa diventa verde, così l'utente autenticato standard indica il completamento dell'evento, ovvero che è stato svolto; \ref{uc:ExceptionModificaImpegniCompletati}
+                  \item premendo sull' "orologio", questo diventa giallo, così l'utente autenticato standard indica il non completamento dell'attività. Indicando il non svolgimento di un'attività, il sistema ripianifica il calendario per ridefinire un altro momento dove l'utente potrà svolgere questa attività non completata; \ref{uc:ExceptionRipianificazioneAttivitaLibera}
+                  \item premendo sul "cestino", questo diventa rosso, così l'utente autenticato standard indica la volontà di eliminare l'evento dal calendario.
               \end{itemize}
 
     \end{enumerate}
@@ -219,7 +219,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
     \textbf{Exceptions:}
     \begin{enumerate}[label=\textbf{[exception \arabic{enumii}]}, ref= \textbf{[exception \arabic{enumii}]}]
-        \elemento{uc:ExceptionModificaImpegniCompletati} A fine giornata di default tutti gli impegni sono posti come completati; quindi per modificare tale “stato” deve intervenire l'utente.
+        \elemento{uc:ExceptionModificaImpegniCompletati} A fine giornata di default tutti gli impegni sono posti come completati; quindi per modificare tale "stato" deve intervenire l'utente.
         \elemento{uc:ExceptionRipianificazioneAttivitaLibera} La ripianificazione dell'attività avviene se e solo se l'attività non svolta non aveva definito giorno e ora dell'impegno. Nel caso in cui fosse un evento per cui l'utente aveva definito giorno e ora dell'attività in fase di compilazione e aggiunta evento, tale attività non verrà ripianificata.
     \end{enumerate}
 
@@ -229,7 +229,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
     \newpage
-    \elemento[Use case “impostazione delle notifiche per evento” (\prettyref{D1-rf:Notifiche})]{uc:ImpostazioniNotifiche}
+    \elemento[Use case "impostazione delle notifiche per evento" (\prettyref{D1-rf:Notifiche})]{uc:ImpostazioniNotifiche}
 
 
     \begin{center}
@@ -244,14 +244,14 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
     \textbf{Descrizione:}
     \begin{enumerate}
-        \item L'utente autenticato standard dalla schermata “Modifica/Crea Evento” visualizza il menù “Notifiche”.
-        \item L'utente autenticato standard premendo sul campo “Notifiche” apre un pop-up dove può definire quando ricevere la notifica dell'evento, selezionando il campo "orario" e andando a scrivere in esso. \ref{uc:ExceptionImpostazioniNotifiche}.
+        \item L'utente autenticato standard dalla schermata "Modifica/Crea Evento" visualizza il menù "Notifiche".
+        \item L'utente autenticato standard premendo sul campo "Notifiche" apre un pop-up dove può definire quando ricevere la notifica dell'evento, selezionando il campo "orario" e andando a scrivere in esso. \ref{uc:ExceptionImpostazioniNotifiche}.
         \item L'utente autenticato standard, sempre nel pop-up, può inserire il titolo della notifica che riceverà \ref{uc:ExceptionImpostazioniNotifiche} selezionando il campo "titolo" e andando a scrivere in esso.
     \end{enumerate}
 
     \textbf{Exceptions:}
     \begin{enumerate}[label=\textbf{[exception \arabic{enumii}]}, ref= \textbf{[exception \arabic{enumii}]}]
-        \elemento{uc:ExceptionImpostazioniNotifiche} Nel caso in cui l'utente autenticato standard decidesse di non modificare i campi presenti in “Notifiche” verrà mantenuto il valore definito nelle impostazioni predefinite del calendario (\prettyref{D1-rf:ImpostazioniPredefiniteCalendario}), ovvero:
+        \elemento{uc:ExceptionImpostazioniNotifiche} Nel caso in cui l'utente autenticato standard decidesse di non modificare i campi presenti in "Notifiche" verrà mantenuto il valore definito nelle impostazioni predefinite del calendario (\prettyref{D1-rf:ImpostazioniPredefiniteCalendario}), ovvero:
         \begin{itemize}
             \item la notifica verrà mandata tanto prima quanto indicato nell'impostazione predefinita del calendario in cui stiamo aggiungendo tale evento;
             \item la notifica avrà come titolo, il titolo dell'evento stesso.
@@ -268,7 +268,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
     \newpage
-    \elemento[Use case “Informazioni sull'uso del tempo” (\prettyref{D1-rf:UsoDelTempo})]{uc:InformazioniUsoDelTempo}
+    \elemento[Use case "Informazioni sull'uso del tempo" (\prettyref{D1-rf:UsoDelTempo})]{uc:InformazioniUsoDelTempo}
 
 
     \begin{center}
@@ -303,7 +303,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
     \newpage
-    \elemento[“Filtro impegni” (\prettyref{D1-rf:Filtro})]{uc:FiltroImpegni}
+    \elemento["Filtro impegni" (\prettyref{D1-rf:Filtro})]{uc:FiltroImpegni}
 
 
     \begin{center}
@@ -319,14 +319,14 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
             \textbf{Descrizione:}
             \begin{enumerate}
-                \item Nella sezione “Filtro” l'utente non autenticato può visualizzare gli impegni dato un specifico filtro definito dall'utente secondo alcuni criteri:
+                \item Nella sezione "Filtro" l'utente non autenticato può visualizzare gli impegni dato un specifico filtro definito dall'utente secondo alcuni criteri:
                       \begin{itemize}
                           \item titolo evento con corrispondenza totale o parziale;
                           \item data evento;
                           \item priorità evento;
                       \end{itemize}
 
-                \item L'utente non autenticato può definire secondo quali valori dei criteri andare a filtrare gli impegni andando selezionare ciascuna casella del rispettivo criterio e andando a scrivere il valore che si preferisce in esse. Le caselle, dei vari criteri per il filtro, sono visualizzabili in questa sezione “Filtro”. \ref{uc:ExceptionNienteCriterioFiltro}
+                \item L'utente non autenticato può definire secondo quali valori dei criteri andare a filtrare gli impegni andando selezionare ciascuna casella del rispettivo criterio e andando a scrivere il valore che si preferisce in esse. Le caselle, dei vari criteri per il filtro, sono visualizzabili in questa sezione "Filtro". \ref{uc:ExceptionNienteCriterioFiltro}
                 \item Dopo aver definito i criteri degli impegni da visualizzare, l'utente non autenticato, premendo il tasto di "ricerca", visualizzerà, in un pop-up, la lista delle attività che rispettano i criteri imposti dall'utente.
             \end{enumerate}
 
@@ -347,7 +347,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
 
-    \elemento[“Creazione o modifica di un calendario” (\prettyref{D1-rf:ImpostazioniPredefiniteCalendario})]{uc:CreazioneModificaCalendario}
+    \elemento["Creazione o modifica di un calendario" (\prettyref{D1-rf:ImpostazioniPredefiniteCalendario})]{uc:CreazioneModificaCalendario}
     \begin{center}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/ImpostazioniPredefiniteCalendario.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/ImpostazioniPredefiniteCalendario.svg}{SVG} use case creazione o modifica di un calendario}
         \includesvg[width=0.9\textwidth]{img/Diagrammi/svg/UseCases/ImpostazioniPredefiniteCalendario.svg}
@@ -360,12 +360,12 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
             \textbf{Riassunto:} \\
             Questo use case descrive come l'utente non autenticato può andare a modificare impostazioni del calendario principale; si ricordi, che l'utente non autenticato non può avere altri calendari oltre a quello principale, per questo motivo può andare a modificare solo le impostazioni di questo. \\
             \textbf{Descrizione:} \\
-            L'utente non autenticato, dalla sezione  “Modifica calendario”, schermata a cui si accede per andare a modificare le impostazioni di un calendario, dopo aver selezionato il calendario principale, può andare a modificare le sue impostazioni. Nello specifico, in questa sezione sono presenti i seguenti campi che può andare a selezione e scrivere per modificare i loro valori:
+            L'utente non autenticato, dalla sezione  "Modifica calendario", schermata a cui si accede per andare a modificare le impostazioni di un calendario, dopo aver selezionato il calendario principale, può andare a modificare le sue impostazioni. Nello specifico, in questa sezione sono presenti i seguenti campi che può andare a selezione e scrivere per modificare i loro valori:
             \begin{itemize}
                 \item colore del calendario, ovvero il colore con cui appariranno gli eventi appartenenti a quest'ultimo; andando a selezionare la casella "colore calendario" l'utente non autenticato può andare a specificare quale colore attribuire.
                 \item fuso orario del calendario; andando a selezionare la casella "fuso orario" calendario, l'utente non autenticato può scrivere il valore del fuso orario del calendario. Si precisa che l'utilità del fuso orario di un calendario è la seguente:  se si lavora per un azienda la cui sede è in Cina, se l'azienda fissa un meeting Zoom alle loro 17, nel calendario condiviso viene inserito nell'ora corretta all'utente autenticato standard che ha impostato il fuso orario Cina, GMT+8 rispetto all'Italia, nel proprio calendario.
             \end{itemize}
-            L'utente non autenticato, dopo aver modificato i campi secondo le sue preferenze, salva le modifiche fatte premendo il tasto “Salva” in fondo alla schermata di “Modifica calendario”. Invece, premendo il tasto “Annulla”, le modifiche fatte non verranno salvate.
+            L'utente non autenticato, dopo aver modificato i campi secondo le sue preferenze, salva le modifiche fatte premendo il tasto "Salva" in fondo alla schermata di "Modifica calendario". Invece, premendo il tasto "Annulla", le modifiche fatte non verranno salvate.
 
         \elemento[Use case "Definizione di campi precompilati di un evento del calendario principale"] {uc:DefinizioneCampiCalendarioPrincipale}
             \textbf{Titolo: } definizione di campi precompilati di un evento del calendario principale. \\
@@ -377,7 +377,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
                 \item descrizione e titolo. Sono presenti le caselle descrizione e titolo: l'utente non autenticato, selezionando una alla volta le rispettive caselle, può scrivere il titolo e la descrizione di default.
                 \item difficoltà, ovvero la complessità dell'evento da svolgere. È presente una casella "priorità": l'utente non autenticato, una volta selezionata tale casella, può andare a definire il valore di default della difficoltà.
             \end{itemize}
-            L'utente non autenticato salva le modifiche fatte premendo il tasto “Salva” in fondo alla schermata di “Modifica calendario”. Invece, premendo il tasto “Annulla”, le modifiche fatte non verranno salvate.
+            L'utente non autenticato salva le modifiche fatte premendo il tasto "Salva" in fondo alla schermata di "Modifica calendario". Invece, premendo il tasto "Annulla", le modifiche fatte non verranno salvate.
 
         \elemento[Use case "creazione o modifica di un calendario personale"] {uc:CreazioneModificaCalendarioAutenticato}
             \textbf{Titolo: } Creazione o modifica di un calendario personale. \\
@@ -397,7 +397,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
                           \item il nome del calendario che si sta creando o modificando. È presente una casella "nome calendario": l'utente autenticato standard una volta selezionata tale casella, può andare a scrivere il nome del calendario, che verrà utilizzato nel caso in cui, alla fine della procedura di creazione o modifica, l'utente autenticato standard premerà il tasto "salva" sotto citato.
                           \item eliminare il calendario che si sta modificando. È presente un tasto "elimina", che premuto, eliminerà il calendario. Una volta che l'utente autenticato standard premerà anche questo bottone, il calendario, di cui stiamo modificando le impostazioni in "Modifica calendario", viene eliminato.
                       \end{itemize}
-                      L'utente non autenticato salva le modifiche fatte, su questo calendario, premendo il tasto “Salva” in fondo alla schermata di “Modifica calendario”. Invece, premendo il tasto “Annulla”, le modifiche fatte non verranno salvate. Ovviamente questi ultimi comandi, nella modifica del calendario, sono utilizzabili solo nel caso non avessimo eliminato il calendario che stavamo modificando.
+                      L'utente non autenticato salva le modifiche fatte, su questo calendario, premendo il tasto "Salva" in fondo alla schermata di "Modifica calendario". Invece, premendo il tasto "Annulla", le modifiche fatte non verranno salvate. Ovviamente questi ultimi comandi, nella modifica del calendario, sono utilizzabili solo nel caso non avessimo eliminato il calendario che stavamo modificando.
             \end{enumerate}
 
 
@@ -413,7 +413,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
                   \item quando ricevere la notifica dell'evento;
                   \item titolo della notifica dell'evento.
               \end{itemize}
-        \item L'utente autenticato standard, così, può creare o modificare il calendario premendo il tasto “Salva” che si trova in fonda alla schermata. L'utente può annullare l'azione premendo il tasto “Annulla” che trova sempre in fondo alla schermata di “Crea Calendario”.
+        \item L'utente autenticato standard, così, può creare o modificare il calendario premendo il tasto "Salva" che si trova in fonda alla schermata. L'utente può annullare l'azione premendo il tasto "Annulla" che trova sempre in fondo alla schermata di "Crea Calendario".
               \end{enumerate}
               \textbf{Exceptions:}
               \begin{enumerate}[label=\textbf{[exception \arabic{enumiii}]}, ref= \textbf{[exception \arabic{enumiii}]}]
@@ -428,7 +428,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
     \newpage
-    \elemento[Use case “Impostazioni account” (\prettyref{D1-rf:ImpostazioniAccount})]{uc:ImpostazioniAccount}
+    \elemento[Use case "Impostazioni account" (\prettyref{D1-rf:ImpostazioniAccount})]{uc:ImpostazioniAccount}
 
     \begin{center}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/ImpostazioniAccount.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/ImpostazioniAccount.svg}{SVG} use case impostazioni account}
@@ -448,7 +448,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
     \begin{listaPersonale2}[UC] {}
         \newpage
-        \elemento[Use case “Sottoscrizione all'account premium” (\prettyref{D1-rf:PagamentoUtentePremium})]{uc:SottoscrizioneAccountPremium}
+        \elemento[Use case "Sottoscrizione all'account premium" (\prettyref{D1-rf:PagamentoUtentePremium})]{uc:SottoscrizioneAccountPremium}
 
         \begin{center}
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/UtentePremium.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/UtentePremium.svg}{SVG} use case sottoscrizione account premium}
@@ -464,12 +464,12 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
         \textbf{Descrizione:}
         \begin{enumerate}
-            \item L'utente autenticato standard, nella sezione “impostazioni account”, preme il tasto il campo: “Abbonarsi”.
+            \item L'utente autenticato standard, nella sezione "impostazioni account", preme il tasto il campo: "Abbonarsi".
             \item Una volta selezionato questo campo, l'utente autenticato standard dovrà scegliere tra due possibili metodi di pagamento predefiniti: Stripe o PayPal. L'utente autenticato standard sceglie il metodo di pagamento preferito, selezionando la sua icona, e premendo il tasto "Avanti".
             \item Dopo aver scelto uno dei metodi di pagamento, l'utente autenticato standard verrà indirizzato nella pagina del metodo di pagamento selezionato, dove dovrà inserire le proprie credenziali riguardanti il suo account del sistema esterno di pagamento. \ref{uc:ExceptionCredenzialiSistemaDiPagamento}
             \item Una volta che l'utente autenticato standard avrà inserito queste credenziali, l'utente autenticato standard avrà aggiunto correttamente al suo account il metodo di pagamento dell'abbonamento.
-            \item L'abbonamento all'account premium, a questo punto, partirà automaticamente con un costo mensile di 15 euro. Ogni mese il pagamento verrà fatto in maniera automatica mediante il metodo di pagamento inserito \ref{uc:ExceptionPagamentoNonValido}, che può essere modificato in “Impostazioni Account”.
-            \item L'account premium può essere disabilitato, in ogni momento, da “Impostazioni Account” premendo sul tasto "Modifica metodo di pagamento": una volta premuto questo tasto, invece che andare a scegliere un nuovo metodo di pagamento per l'abbonamento, non si deve andare a definire nessuna scelta premendo subito il tasto "Avanti", così automaticamente il sistema, in assenza di scelta del metodo di pagamento, annullerà l'abbonamento a fine del periodo di sottoscrizione (ovvero quando finisce il mese di sottoscrizione).
+            \item L'abbonamento all'account premium, a questo punto, partirà automaticamente con un costo mensile di 15 euro. Ogni mese il pagamento verrà fatto in maniera automatica mediante il metodo di pagamento inserito \ref{uc:ExceptionPagamentoNonValido}, che può essere modificato in "Impostazioni Account".
+            \item L'account premium può essere disabilitato, in ogni momento, da "Impostazioni Account" premendo sul tasto "Modifica metodo di pagamento": una volta premuto questo tasto, invece che andare a scegliere un nuovo metodo di pagamento per l'abbonamento, non si deve andare a definire nessuna scelta premendo subito il tasto "Avanti", così automaticamente il sistema, in assenza di scelta del metodo di pagamento, annullerà l'abbonamento a fine del periodo di sottoscrizione (ovvero quando finisce il mese di sottoscrizione).
         \end{enumerate}
 
         \textbf{Exceptions:}
@@ -480,7 +480,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
         \newpage
-        \elemento[“Interagire con Google Calendar” (\prettyref{D1-rf:GoogleCalendar})]{uc:GoogleCalendar}
+        \elemento["Interagire con Google Calendar" (\prettyref{D1-rf:GoogleCalendar})]{uc:GoogleCalendar}
 
         \begin{center}
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/GoogleCalendar.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/GoogleCalendar.svg}{SVG} use case Google Calendar}
@@ -508,7 +508,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
             \textbf{Descrizione: }
             \begin{enumerate}
                 \item L'utilizzo d'import-export di file di eventi o calendari presenta un'alternativa dall'utilizzo della sincronizzazione con Google Calendar per andare a interagire con quest'ultima piattaforma, soprattutto quando l'utente autenticato standard non vuole fornire dati sensibili riguardo al suo account Google, o non l'ha.
-                \item Nella sezione “importa/esporta” della sezione "Interazione con Google Calendar" si può trovare un casella "import" dove si può inserire un file di calendario o evento Google Calendar che si vuole importare \ref{uc:ExceptionErroreUpload} su PlanIt. Ovviamente, il file di "import" deve essere prima scaricato prima dalla piattaforma Google Calendar.
+                \item Nella sezione "importa/esporta" della sezione "Interazione con Google Calendar" si può trovare un casella "import" dove si può inserire un file di calendario o evento Google Calendar che si vuole importare \ref{uc:ExceptionErroreUpload} su PlanIt. Ovviamente, il file di "import" deve essere prima scaricato prima dalla piattaforma Google Calendar.
                 \item Una volta che il file inserito ha finito il suo caricamento, premendo il tasto "Applica", il file calendario o evento inserito verrà applicato (integrato) nella nostra piattaforma, ovvero viene caricato su PlanIt e quindi sarà presente anche in quest'ultima piattaforma.
                 \item Nella sezione "importa/esporta" è presente anche un tasto "export", che premendolo, avvia il download del file di calendario o evento\ref{uc:ExceptionErroreDownload} che si può inserire su Google Calendar, in modo tale di esportare tale evento o calendario anche su quest'ultimo applicativo. \ref{uc:ExceptionFileNonValidoOCorrotto}. Ovviamente, dopo che si è ottenuto il file di export, questo deve essere inserito su Google Calendar da parte dell'utente autenticato standard.
             \end{enumerate}
@@ -527,7 +527,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
     \newpage
-    \elemento[Use case “Recupero password” (\prettyref{D1-rf:RecuperoPassword})]{uc:RecuperoPassword}
+    \elemento[Use case "Recupero password" (\prettyref{D1-rf:RecuperoPassword})]{uc:RecuperoPassword}
 
     \begin{center}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/RecuperoPassword.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/RecuperoPassword.svg}{SVG} use case recupero password}
