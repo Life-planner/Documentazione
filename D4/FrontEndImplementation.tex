@@ -1,6 +1,6 @@
 \section{FrontEnd Implementation}
 \label{secD4:FrontEndImplementation}
-Il FrontEnd, (visualizzabile e utilizzabile al link \href{https://plan-it.it} {https://plan-it.it}) implementato in questo prototipo del sito PlanIt da noi sviluppato, fornisce le funzionalità di visualizzazione, creazione, modifica e cancellazione di calendari ed eventi all'interno dell'applicativo; gli eventi che si possono gestire, in questo prototipo, sono solo singoli, ovvero che in fase di creazione o modifica vengono definiti solo per una specifica data.
+Il FrontEnd, (visualizzabile e utilizzabile al link \url{https://plan-it.it}) implementato in questo prototipo del sito PlanIt da noi sviluppato, fornisce le funzionalità di visualizzazione, creazione, modifica e cancellazione di calendari ed eventi all'interno dell'applicativo; gli eventi che si possono gestire, in questo prototipo, sono solo singoli, ovvero che in fase di creazione o modifica vengono definiti solo per una specifica data.
 \begin{comment}
 , oppure eventi ripetuti, ovvero che vengono definiti per più giornate in fase di creazione o modifica.
 \end{comment}
@@ -69,7 +69,7 @@ Dunque, premendo il bottone "Calendari" in alto a destra, appare questa side-bar
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Calendario/calendario_calendari.png}
-    \captionof{figure}{FrontEnd - side-bar Calendari}
+    \captionof{figure}{schermata "Calendario" - side-bar Calendari}
     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Calendario/calendario_calendari.png}{PNG} schermata "Calendario" - side-bar Calendari}
 \end{center}
 
@@ -81,29 +81,33 @@ e/o un calendario. Dunque, premendo una delle tue scelte, appare un pop-up di cr
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Calendario/calendario_creazione.png}
-    \captionof{figure}{FrontEnd - Scelta creazione}
+    \captionof{figure}{schermata "Calendario" - Scelta creazione}
     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Calendario/calendario_creazione.png}{PNG} schermata "Calendario" - Scelta creazione}
 \end{center}
 
 Il pop-up sottostante è quello di "Crea Calendario". Tutti i campi visualizzabili sono compilabili, eccetto per "Luogo", in quanto non abbiamo sviluppato la possibilità dell'utente d'indicare il luogo dove si tiene un evento. Dopo aver compilato a piacere i vari campi, l'utente ha la possibilità di salvarlo, oppure anche di annullare l'azione; ricordiamo che il nome del calendario è obbligatorio per poter creare un calendario e quindi far andare a buon fine il salvataggio di quest'ultimo.
 
 \begin{center}
-    \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Calendario/calendario_creaCalendario.png}
-    \captionof{figure}{FrontEnd - Crea Calendario}
+    \includegraphics[width=1\textwidth, height=0.32\textheight]{img/png/FrontEnd/Calendario/calendario_creaCalendario.png}
+    \captionof{figure}{schermata "Calendario" - Crea Calendario}
     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Calendario/calendario_creaCalendario.png}{PNG} schermata "Calendario" - Crea Calendario}
 \end{center}
 
 Invece, il pop-up sottostante è quello che si ottiene quando l'utente vuole creare un evento. Tutti i campi sono compilabili, eccetto per il campo "Luogo", come già detto per "Crea Calendario". Dopo aver compilato a piacere i vari campi (ricordiamo, che il titolo dell'evento e la sua data devono essere definiti obbligatoriamente per poter creare un evento) l'utente ha la possibilità di salvarlo, oppure anche di annullare l'azione.
 
 \begin{center}
-    \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Calendario/calendario_creaEvento.png}
-    \captionof{figure}{FrontEnd - Crea Evento}
+    \includegraphics[width=1\textwidth, height=0.32\textheight]{img/png/FrontEnd/Calendario/calendario_creaEvento.png}
+    \captionof{figure}{schermata "Calendario" - Crea Evento}
     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Calendario/calendario_creaEvento.png}{PNG} schermata "Calendario" - Crea Evento}
 \end{center}
 
 Tra le funzionalità che abbiamo elencato, che si possono fare dalla schermata "Calendario", c'è anche quella di visualizzare le impostazioni di un evento presente nel calendario, premendo la sua icona. Infatti, andando a premere un evento nella schermata calendario, appare un pop-up dove sono presenti le impostazioni con cui siamo andati a definire quest'ultimo. Da questo pop-up non si può fare alcuna azione di modifica, ma è solo un pop-up d'informazione riguardo l'evento.
 
-\todo{aggiungi l'immagine}
+\begin{center}
+    \includegraphics[width=1\textwidth, height=0.32\textheight]{img/png/FrontEnd/Calendario/impostazioniEvento.png}
+    \captionof{figure}{schermata "Calendario" - visualizzazione impostazioni evento}
+    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Calendario/impostazioniEvento.png}{PNG} schermata "Calendario" - visualizzazione impostazioni evento}
+\end{center}
 
 
 
@@ -117,7 +121,7 @@ Come già detto in precedenza, mediante i bottoni "<", ">" e "Oggi" l'utente pu�
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Calendario/calendario_passato.png}
-    \captionof{figure}{FrontEnd - Andare indietro di settimane}
+    \captionof{figure}{schermata "Calendario" - Andare indietro di settimane}
     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Calendario/calendario_passato.png}{PNG} schermata "Calendario" - Andare indietro di settimane}
 \end{center}
 
@@ -131,22 +135,22 @@ Dalla schermata "Calendario", come citato precedentemente, l'utente autenticato 
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Eventi/schermataEventi.png}
-    \captionof{figure}{FrontEnd - schermata Eventi}
-    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Eventi/schermataEventi.png}{PNG} FrontEnd - schermata Eventi}
+    \captionof{figure}{FrontEnd - schermata "Eventi"}
+    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Eventi/schermataEventi.png}{PNG} FrontEnd - schermata "Eventi"}
 \end{center}
 
 Nel caso in cui l'utente volesse creare nuovi calendari e nuovi eventi singoli, premendo i tasti in alto a sinistra "Crea Calendario" e "Crea Evento", può visualizzare nella parte destra della schermata i rispettivi form di creazione, identici a quelli che si possono ottenere nella pagina "Calendario".
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Eventi/EventiCreaCalendario.png}
-    \captionof{figure}{FrontEnd - "Crea Calendario" da schermata "Eventi"}
-    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Eventi/EventiCreaCalendario.png}{PNG} FrontEnd - "Crea Calendario" da schermata "Eventi"}
+    \captionof{figure}{schermata "Eventi" - "Crea Calendario"}
+    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Eventi/EventiCreaCalendario.png}{PNG} schermata "Eventi" - "Crea Calendario" }
 \end{center}
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Eventi/EventiCreaEvento.png}
-    \captionof{figure}{FrontEnd - "Crea Evento" da schermata "Eventi"}
-    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Eventi/EventiCreaEvento.png}{PNG} FrontEnd - "Crea Evento" da schermata "Eventi"}
+    \captionof{figure}{schermata "Eventi" - "Crea Evento"}
+    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Eventi/EventiCreaEvento.png}{PNG} schermata "Eventi" - "Crea Evento"}
 \end{center}
 
 \begin{comment}
@@ -157,15 +161,15 @@ L'utente, inoltre, in questa schermata "Eventi" visualizza la lista di calendari
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Eventi/EventiModificaEvento.png}
-    \captionof{figure}{FrontEnd - "Modifica Evento" da schermata "Eventi"}
-    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Eventi/EventiModificaEvento.png}{PNG} FrontEnd - "Modifica Evento" da schermata "Eventi"}
+    \captionof{figure}{schermata "Eventi" - "Modifica Evento"}
+    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Eventi/EventiModificaEvento.png}{PNG} schermata "Eventi" - "Modifica Evento"}
 \end{center}
-
+\newpage
 
 Infine, selezionando uno dei calendari della lista, si apre il form di "Modifica Calendario", che è identico a quello di "Crea Evento", eccetto per la presenza del bottone "Elimina", che l'utente può utilizzare per eliminare tale calendario.
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Eventi/EventiModificaCalendario.png}
-    \captionof{figure}{FrontEnd - "Modifica Calendario" da schermata "Eventi"}
-    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Eventi/EventiModificaCalendario.png}{PNG} FrontEnd - "Modifica Calendario" da schermata "Eventi"}
+    \captionof{figure}{schermata "Eventi" - "Modifica Calendario"}
+    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Eventi/EventiModificaCalendario.png}{PNG} schermata "Eventi" - "Modifica Calendario"}
 \end{center}

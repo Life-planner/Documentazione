@@ -7,12 +7,12 @@ Nelle sezioni precedenti abbiamo individuato tutte le procedure e funzionalità 
     Sottolineiamo che le uniche "pages" che sono state sviluppate in maniera completa sono "Calendario" e "Eventi". Evidenziamo che le varie componenti che vanno a comporre queste schermate sono state sviluppate in React nella cartella "components", che può essere sempre visualizzata nella seguente foto.\\
     Inoltre, nella cartella "styles" sono presenti i file "css" sviluppati per andare a definire i stili dei moduli presenti nell'interfaccia grafica, che saranno visualizzabili dall'utente che entra nel sito PlanIt.
     \begin{center}
-        \includegraphics[width=0.27\textwidth, height=0.9\textheight]{img/png/project_structure/project_structure_totale.png}
+        \includegraphics[width=0.25\textwidth, height=0.9\textheight]{img/png/project_structure/project_structure_totale.png}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/project_structure/project_structure_totale.png}{PNG} Struttura codice sorgente, 1a parte}
         \captionof{figure}{Struttura codice sorgente, 1a parte}
     \end{center}
     \begin{center}
-        \includegraphics[width=0.3\textwidth, height=0.75\textheight]{img/png/project_structure/project_structure_totale_2.png}
+        \includegraphics[width=0.28\textwidth, height=0.75\textheight]{img/png/project_structure/project_structure_totale_2.png}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/project_structure/project_structure_totale_2.png}{PNG} Struttura codice sorgente, 2a parte}
         \captionof{figure}{Struttura codice sorgente, 2a parte}
     \end{center}
@@ -34,11 +34,53 @@ Nelle sezioni precedenti abbiamo individuato tutte le procedure e funzionalità 
         \item Toastify, libreria di React che permette di fare dei pop-up di "notifacation"; pop-up di "notification" che utilizzeremo nel FrontEnd.
         \item Prettier, formattatore di codice. Lo abbiamo utilizzato per avere una formattazione di codice che fosse uguale per tutti.
     \end{itemize}
+    \begin{comment}
     \begin{center}
         \includegraphics[width=0.47\textwidth, height=0.45\textheight]{img/png/package_json.png}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/package_json.png}{PNG} Project Dependencies}
         \captionof{figure}{Project Dependencies}
     \end{center}
+    \end{comment}
+
+    \begin{lstlisting}[language=json,firstnumber=1]
+{
+  name: "life-planner",
+  version: "0.1.0",
+  private: true,
+  scripts: {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "jest --watchAll --silent=false --runInBand --coverage",
+    "lint": "next lint",
+    "pretty": "prettier --write \"./**/*.{js,jsx,json}\""
+  },
+  dependencies: {
+    "@auth0/nextjs-auth0": "2.0.1",
+    "axios": "^1.2.2",
+    "mongodb": "3.5.9",
+    "mongoose": "^6.8.0",
+    "next": "13.0.6",
+    "next-swagger-doc": "^0.3.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-toastify": "^9.1.1",
+    "swagger-ui-react": "^4.15.5"
+  },
+  devDependencies: {
+    "@shelf/jest-mongodb": "^4.1.4",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@types/node": "18.11.12",
+    "jest": "^29.3.1",
+    "jest-environment-jsdom": "^29.3.1",
+    "jest-html-reporter": "^3.7.0",
+    "node-mocks-http": "^1.12.1",
+    "prettier": "^2.8.1",
+    "typescript": "4.9.4"
+  }
+}
+    \end{lstlisting}
     \newpage
     \elemento[Project Data or DB]{apd:ProjectDB}
     Per la gestione dei dati utili all'applicazione abbiamo definito tre principali strutture dati, come illustrato nelle seguenti immagini. Infatti, le strutture dati che abbiamo deciso di avere in questo prototipo del nostro sito PlanIt, sono:
@@ -210,6 +252,7 @@ Nelle sezioni precedenti abbiamo individuato tutte le procedure e funzionalità 
                 Mediante la funzione "find()", l' API va a cercare nel database, gli utenti autenticati che hanno l' "userId" inserito; nel caso in cui trovasse più di un utente con questo "userId", si riceve un messaggio di errore del tipo "400 - There are too many users with that userId"; invece, nel caso in cui trovasse nessun utente autenticato con tale "userId" si riceve il messaggio di errore "400 - There is no user with that userId". \\
                 Infine, l'ultimo controllo, che si fa sugli attributi ricevuti in input, riguarda l'attributo "principale", booleano che indica se il calendario che si sta creando sia quello principale o meno. Infatti, ogni utente autenticato può avere al massimo un calendario principale, per questo motivo nel caso in cui si provasse a creare un calendario principale già esistente per quell' "userId", si riceve il messaggio di errore: "409 - There are too many primary calendars". \\
                 Grazie, alla funzione "create()", viene creato nel database un calendario con i valori dei campi che lo formano uguali ai parametri inseriti in input; nel caso ci fossero degli errori nell'esecuzione di questa funzione, otteniamo l'errore "500 - Not inserted". Se, invece l'esecuzione di questa funzione è andata a buon fine, otteniamo il messaggio di successo "200 - Calendar inserted correctly". C'è un eventuale altro controllo che serve per individuare errori generici durante l'esecuzione di creaCalendario, quindi otteniamo un messaggio di errore del tipo: "501 - Generic error".
+                \begin{comment}
                 \begin{center}
                     \includegraphics[width=0.55\textwidth, height=0.80\textheight]{img/png/APIs/creaCalendario.png}
                     \captionof{figure}{API - creaCalendario}
@@ -220,11 +263,183 @@ Nelle sezioni precedenti abbiamo individuato tutte le procedure e funzionalità 
                     \captionof{figure}{API - creaCalendario, 2a parte}
                     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/APIs/creaCalendario2.png}{PNG} API - creaCalendario, 2a parte}
                 \end{center}
+                \end{comment}
+                \begin{lstlisting}[language=JavaScript]
+export async function creaCalendario(req, res) {
+  await dbConnect();
+  try {
+    const {
+      nome,
+      fusoOrario,
+      colore,
+      principale,
+      partecipanti,
+      impostazioniPredefiniteEventi,
+    } = req.query;
+    const { userId } = req.query;
+
+    let arrPartecipanti;
+
+    try {
+      arrPartecipanti = JSON.parse(partecipanti);
+    } catch (error) {
+      arrPartecipanti = partecipanti;
+    }
+
+    if (nome == null || userId == null) {
+      res.status(400).json({ error: "Name missing" }); //TODO or userID
+      return;
+    }
+
+    if (colore != null && !/^#([0-9a-f]{3}){1,2}$/i.test(colore)) {
+      res.status(400).json({ error: "Wrong format for color" });
+      return;
+    }
+
+    let tempFusoOrario = null;
+
+    if (fusoOrario != null) {
+      try {
+        tempFusoOrario = JSON.parse(fusoOrario);
+      } catch {
+        tempFusoOrario = fusoOrario;
+      }
+
+      if (
+        tempFusoOrario.GMTOffset == null ||
+        tempFusoOrario.localita == null ||
+        tempFusoOrario.GMTOffset > 12 ||
+        tempFusoOrario.GMTOffset < -12
+      ) {
+        res.status(400).json({ error: "Wrong format for time zone" });
+        return;
+      }
+    }
+
+    let tempImpostazioniPredefiniteEventi = null;
+
+    if (impostazioniPredefiniteEventi != null) {
+      try {
+        tempImpostazioniPredefiniteEventi = JSON.parse(
+          impostazioniPredefiniteEventi
+        );
+      } catch {
+        tempImpostazioniPredefiniteEventi = impostazioniPredefiniteEventi;
+      }
+      if (
+        tempImpostazioniPredefiniteEventi.titolo == null ||
+        tempImpostazioniPredefiniteEventi.descrizione == null ||
+        tempImpostazioniPredefiniteEventi.durata == null ||
+        tempImpostazioniPredefiniteEventi.tempAnticNotifica == null ||
+        tempImpostazioniPredefiniteEventi.luogo == null ||
+        tempImpostazioniPredefiniteEventi.luogo.latitudine == null ||
+        tempImpostazioniPredefiniteEventi.luogo.longitudine == null ||
+        !/^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/.test(
+          tempImpostazioniPredefiniteEventi.luogo.latitudine
+        ) ||
+        !/^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$/.test(
+          tempImpostazioniPredefiniteEventi.luogo.longitudine
+        ) ||
+        tempImpostazioniPredefiniteEventi.priorita == null ||
+        tempImpostazioniPredefiniteEventi.priorita <= 0 ||
+        tempImpostazioniPredefiniteEventi.priorita > 10 ||
+        tempImpostazioniPredefiniteEventi.difficolta == null ||
+        tempImpostazioniPredefiniteEventi.difficolta <= 0 ||
+        tempImpostazioniPredefiniteEventi.difficolta > 10 ||
+        tempImpostazioniPredefiniteEventi.durata <= 0 ||
+        tempImpostazioniPredefiniteEventi.tempAnticNotifica < 0
+      ) {
+        res
+          .status(400)
+          .json({ error: "Wrong format impostazioni predefinite" });
+        return;
+      }
+    }
+
+    const users = await UtenteAutenticato.find({
+      userId: userId,
+    });
+    if (Object.keys(users).length == 0) {
+      res.status(409).json({ error: "There is no user with that userId" });
+      return;
+    } else if (Object.keys(users).length > 1) {
+      res
+        .status(409)
+        .json({ error: "There are too many users with that userId" });
+      return;
+    }
+
+    if (principale === "true" || principale == true) {
+      const calendariPrincipali = await Calendario.find({
+        $and: [{ partecipanti: userId }, { principale: true }],
+      });
+      if (Object.keys(calendariPrincipali).length >= 1) {
+        res.status(409).json({
+          error: "There are too many primary calendars",
+        });
+        return;
+      }
+    }
+
+    let tempPartecipanti =
+      arrPartecipanti != null && Array.isArray(arrPartecipanti)
+        ? arrPartecipanti.filter((item) => item !== userId)
+        : null;
+
+    await Calendario.create(
+      {
+        nome: nome,
+        fusoOrario: fusoOrario == null ? undefined : tempFusoOrario,
+        colore: colore == null ? undefined : colore,
+        partecipanti: [userId],
+        principale: principale == null ? false : principale,
+        impostazioniPredefiniteEventi:
+          tempImpostazioniPredefiniteEventi == null
+            ? undefined
+            : tempImpostazioniPredefiniteEventi,
+      },
+      function (err, calendar) {
+        if (err) {
+          res.status(500).json({ error: "Not inserted" });
+          return;
+        }
+        if (tempPartecipanti != null && tempPartecipanti != []) {
+          var ObjectId = require("mongoose").Types.ObjectId;
+          Calendario.updateMany(
+            { _id: new ObjectId(String(calendar._id)) },
+            {
+              $addToSet: { partecipanti: { $each: tempPartecipanti } },
+            },
+            function (err) {
+              if (err) {
+                res.status(500).json({ error: "Error parteciapnti" });
+                return;
+              }
+              res.status(200);
+            }
+          );
+        } else {
+          res.status(200);
+        }
+      }
+    );
+    if (res.statusCode === 200) {
+      res.json({ success: "Calendar inserted correctly" });
+    }
+    return;
+  } catch (e) {
+    
+    res.status(501).json({ error: "Generic error" });
+    return;
+  }
+}
+                    \end{lstlisting}
                 \newpage
         \elemento [Modifica Calendario] {apd:modificaCalendario}
                 Grazie a questa API, già mostrata in parte in \ref{apd:ResourcesModelCalendario}, PlanIt riesce a modificare le impostazioni di un calendario già salvato per un utente autenticato. Per fare tale operazione, oltre all' "IDCalendario", "id" del calendario che si vuole modificare, e l' "userId", "id" dell'utente autenticato che vuole modificare un proprio calendario, sono necessari anche tutti gli altri attributi che costituiscono la struttura dati "Calendario", già molte volte mostrata come in (\ref{apd:ProjectDB}), con i quali si andrà a modificare il calendario. Nel caso in cui mancasse uno di questi attributi, si riceve il messaggio di errore: "400 - Parameter missing". \\
                 Come si può notare dal codice, in "modificaCalendario" sono presenti gli stessi controlli già descritti in "creaCalendario", ma con l'aggiunta di qualcuno di nuovo. Infatti, viene controllato se il calendario, che si vuole modificare, appartenga o meno alla lista di calendari di quell'utente autenticato identificato dall' "userId". Questo controllo viene fatto grazie alla funzione "find()" che va a trovare nel database il calendario con l' "IDCalendario" inserito, e dopo aver ottenuto questo oggetto, viene controllato che il suo proprietario (primo utente presente nella lista di partecipanti al calendario, attributo che indica chi partecipa ad un calendario, ovvero ai suoi eventi) sia uguale all' "userId" inserito in input. Nel caso non lo fosse, si riceve il messaggio di errore: "409 - You do not own the calendar". \\
                 Infine, invece che usare la funzione "create()", usata per salvare un calendario nel database in "creaCalendario", viene usata la funzione "updataMany()" che va ad aggiornare gli attributi che costituiscono il calendario che si vuole modificare secondo i parametri ricevuti in input.
+                \begin{comment}
                 \begin{center}
                     \includegraphics[width=0.6\textwidth, height=0.9\textheight]{img/png/APIs/modificaCalendario.png}
                     \captionof{figure}{API - modificaCalendario, 1a parte}
@@ -235,27 +450,316 @@ Nelle sezioni precedenti abbiamo individuato tutte le procedure e funzionalità 
                     \captionof{figure}{API - modificaCalendario, 2a parte}
                     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/APIs/modificaCalendario2.png}{PNG} API - modificaCalendario, 2a parte}
                 \end{center}
+                \end{comment}
+                \begin{lstlisting}[language=JavaScript]
+export async function modificaCalendario(req, res) {
+  await dbConnect();
+  try {
+    const {
+      IDCalendario,
+      nome,
+      fusoOrario,
+      colore,
+      partecipanti,
+      impostazioniPredefiniteEventi,
+    } = req.query;
+    const { userId } = req.query;
+
+    let arrPartecipanti;
+
+    try {
+      arrPartecipanti = JSON.parse(partecipanti);
+    } catch (error) {
+      arrPartecipanti = partecipanti;
+    }
+
+    let tempFusoOrario;
+
+    if (fusoOrario != null) {
+      try {
+        tempFusoOrario = JSON.parse(fusoOrario);
+      } catch {
+        tempFusoOrario = fusoOrario;
+      }
+    }
+    let tempImpostazioniPredefiniteEventi;
+
+    if (impostazioniPredefiniteEventi != null) {
+      try {
+        tempImpostazioniPredefiniteEventi = JSON.parse(
+          impostazioniPredefiniteEventi
+        );
+      } catch {
+        tempImpostazioniPredefiniteEventi = impostazioniPredefiniteEventi;
+      }
+    }
+
+    if (
+      IDCalendario == null ||
+      userId == null ||
+      nome == null ||
+      fusoOrario == null ||
+      tempFusoOrario.GMTOffset == null ||
+      tempFusoOrario.localita == null ||
+      colore == null ||
+      arrPartecipanti == null ||
+      impostazioniPredefiniteEventi == null ||
+      tempImpostazioniPredefiniteEventi.titolo == null ||
+      tempImpostazioniPredefiniteEventi.descrizione == null ||
+      tempImpostazioniPredefiniteEventi.durata == null ||
+      tempImpostazioniPredefiniteEventi.tempAnticNotifica == null ||
+      tempImpostazioniPredefiniteEventi.luogo == null ||
+      tempImpostazioniPredefiniteEventi.luogo.latitudine == null ||
+      tempImpostazioniPredefiniteEventi.luogo.longitudine == null ||
+      tempImpostazioniPredefiniteEventi.priorita == null ||
+      tempImpostazioniPredefiniteEventi.difficolta == null
+    ) {
+      res.status(400).json({ error: "Parameter missing" });
+      return;
+    }
+
+    if (
+      tempFusoOrario.GMTOffset == null ||
+      tempFusoOrario.localita == null ||
+      tempFusoOrario.GMTOffset > 12 ||
+      tempFusoOrario.GMTOffset < -12
+    ) {
+      res.status(400).json({ error: "Wrong format for time zone" });
+      return;
+    }
+
+    if (
+      tempImpostazioniPredefiniteEventi.titolo == null ||
+      tempImpostazioniPredefiniteEventi.descrizione == null ||
+      tempImpostazioniPredefiniteEventi.durata == null ||
+      tempImpostazioniPredefiniteEventi.tempAnticNotifica == null ||
+      tempImpostazioniPredefiniteEventi.luogo == null ||
+      tempImpostazioniPredefiniteEventi.luogo.latitudine == null ||
+      tempImpostazioniPredefiniteEventi.luogo.longitudine == null ||
+      !/^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/.test(
+        tempImpostazioniPredefiniteEventi.luogo.latitudine
+      ) ||
+      !/^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$/.test(
+        tempImpostazioniPredefiniteEventi.luogo.longitudine
+      ) ||
+      tempImpostazioniPredefiniteEventi.priorita == null ||
+      tempImpostazioniPredefiniteEventi.priorita <= 0 ||
+      tempImpostazioniPredefiniteEventi.priorita > 10 ||
+      tempImpostazioniPredefiniteEventi.difficolta == null ||
+      tempImpostazioniPredefiniteEventi.difficolta <= 0 ||
+      tempImpostazioniPredefiniteEventi.difficolta > 10 ||
+      tempImpostazioniPredefiniteEventi.durata <= 0 ||
+      tempImpostazioniPredefiniteEventi.tempAnticNotifica < 0
+    ) {
+      res.status(400).json({ error: "Wrong format impostazioni predefinite" });
+      return;
+    }
+
+    if (!/^#([0-9a-f]{3}){1,2}$/i.test(colore)) {
+      res.status(400).json({ error: "Wrong format for color" });
+      return;
+    }
+
+    const users = await UtenteAutenticato.find({
+      userId: userId,
+    });
+    if (Object.keys(users).length == 0) {
+      res.status(409).json({ error: "There is no user with that userId" });
+      return;
+    } else if (Object.keys(users).length > 1) {
+      res
+        .status(409)
+        .json({ error: "There are too many users with that userId" });
+      return;
+    }
+    var ObjectId = require("mongoose").Types.ObjectId;
+
+    const calendariPosseduti = await Calendario.find({
+      $and: [{ partecipanti: userId }, { _id: new ObjectId(IDCalendario) }],
+    });
+    if (
+      Object.keys(calendariPosseduti).length == 0 ||
+      calendariPosseduti[0].partecipanti[0] != userId
+    ) {
+      res.status(409).json({
+        error: "You do not own the calendar",
+      });
+      return;
+    }
+
+    let tempPartecipanti = arrPartecipanti.filter((item) => item !== userId);
+    let error = false;
+
+    Calendario.updateMany(
+      { _id: new ObjectId(IDCalendario) },
+      {
+        partecipanti: [userId],
+      },
+      function (err) {
+        if (err) {
+          res.status(500).json({ error: "Not edited" });
+          return;
+        }
+
+        Calendario.updateMany(
+          { _id: new ObjectId(IDCalendario) },
+          {
+            nome: nome,
+            fusoOrario: tempFusoOrario,
+            colore: colore,
+            $addToSet: { partecipanti: { $each: tempPartecipanti } },
+            impostazioniPredefiniteEventi: tempImpostazioniPredefiniteEventi,
+          },
+          function (err) {
+            if (err) {
+              res.status(500).json({ error: "Not edited" });
+              return;
+            }
+
+            res.status(200);
+          }
+        );
+      }
+    );
+    if (res.statusCode === 200) {
+      res.json({ success: "Calendar updated correctly" });
+    }
+    return;
+  } catch (e) {
+    
+    res.status(501).json({ error: "Generic error" });
+    return;
+  }
+}
+            \end{lstlisting}
         \elemento [Elimina Calendario] {apd:eliminaCalendario}
                 Lo scopo di questa API, come già descritto in \ref{apd:ResourcesModelCalendario}, è quella di eliminare un calendario, dato il suo "IDCalendario" e l' "userId", per questo motivo questi due parametri non devono essere vuoti, sennò si riceve il messaggio di errore "400 - Parameter missing". Anche in questa API, come in "modificaCalendario" (\ref{apd:modificaCalendario}), viene controllato che l' "userId" inviato non sia un duplicato, che esista, che il calendario che si vuole eliminare appartenga alla lista di calendari dell'utente autenticato identificato dall' "userId". \\
                 Infine, per eliminare il calendario dal database viene usata la funzione "deleteMany()" che sfrutta solo l' "IDCalendario" inviato in input per identificare il calendario da eliminare. Nel caso in cui non fosse eliminato nessun calendario per qualche motivo, c'è l'invio dell'errore "500 - Calendar not deleted"; un motivo che porta questo errore è la sconnessione improvvisa dal database MongoDB.
+                \begin{comment}
                 \begin{center}
                     \includegraphics[width=0.8\textwidth, height=0.9\textheight]{img/png/APIs/eliminaCalendario.png}
                     \captionof{figure}{API - eliminaCalendario}
                     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/APIs/eliminaCalendario.png}{PNG} API - eliminaCalendario}
                 \end{center}
+                \end{comment}
+                \begin{lstlisting}[language=JavaScript]
+export async function eliminaCalendario(req, res) {
+  await dbConnect();
+  try {
+    const { IDCalendario } = req.query;
+    const { userId } = req.query;
+
+    if (IDCalendario == null || userId == null) {
+      res.status(400).json({ error: "Parameter missing" });
+      return;
+    }
+
+    const users = await UtenteAutenticato.find({
+      userId: userId,
+    });
+    if (Object.keys(users).length == 0) {
+      res.status(409).json({ error: "There is no user with that userId" });
+      return;
+    } else if (Object.keys(users).length > 1) {
+      res
+        .status(409)
+        .json({ error: "There are too many users with that userId" });
+      return;
+    }
+    var ObjectId = require("mongoose").Types.ObjectId;
+
+    const calendariPosseduti = await Calendario.find({
+      $and: [{ partecipanti: userId }, { _id: new ObjectId(IDCalendario) }],
+    });
+    if (
+      Object.keys(calendariPosseduti).length == 0 ||
+      calendariPosseduti[0].partecipanti[0] != userId
+    ) {
+      res.status(409).json({
+        error: "You do not own the calendar",
+      });
+      return;
+    }
+
+    const deleteCalendar = await Calendario.deleteMany({
+      _id: new ObjectId(IDCalendario),
+    });
+
+    if (deleteCalendar.deletedCount >= 1) {
+      res.status(200).json({ success: "Calendar deleted correctly" });
+      return;
+    } else {
+      res.status(500).json({ error: "Calendar not deleted" });
+      return;
+    }
+  } catch (e) {
+    
+    res.status(501).json({ error: "Generic error" });
+    return;
+  }
+}
+                \end{lstlisting}
         \elemento [getCalendari] {apd:getCalendari}
                 L'applicativo PlanIt usa questa API, come già detto in \ref{apd:ResourcesModelCalendario}, per ottenere tutti i calendari dell'utente autenticato identificato dall' "userId" ricevuto in input. Dunque l'unico parametro che deve essere presente, per non riceve l'errore "400 - Parameter missing", è l' "userId", su cui si fanno sempre i soliti controlli. Alla fine della procedura, se questa va a buon fine, si ottiene l'array di strutture dati "Calendario" (già mostrata in \ref{apd:ProjectDB}) che appartengono all' utente autenticato che ha tale "userId".
+                \begin{comment}
                 \begin{center}
                     \includegraphics[width=0.65\textwidth, height=0.55\textheight]{img/png/APIs/getCalendari.png}
                     \captionof{figure}{API - getCalendari}
                     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/APIs/getCalendari.png}{PNG} API - getCalendari}
                 \end{center}
+                \end{comment}
+
+                \begin{lstlisting}[language=JavaScript]
+export async function getCalendari(req, res) {
+  await dbConnect();
+  try {
+    const { userId } = req.query;
+
+    if (userId == null) {
+      res.status(400).json({ error: "Parameter missing" });
+      return;
+    }
+
+    const users = await UtenteAutenticato.find({
+      userId: userId,
+    });
+    if (Object.keys(users).length == 0) {
+      res.status(409).json({ error: "There is no user with that userId" });
+      return;
+    } else if (Object.keys(users).length > 1) {
+      res
+        .status(409)
+        .json({ error: "There are too many users with that userId" });
+      return;
+    }
+
+    const calendari = await Calendario.find({
+      partecipanti: userId,
+    });
+    if (Object.keys(calendari).length == 0) {
+      res
+        .status(409)
+        .json({ error: "There are no calendars with that userId" });
+      return;
+    }
+    res.status(200).json({
+      calendari,
+    });
+    return;
+  } catch (e) {
+    
+    res.status(501).json({ error: "Generic error" });
+    return;
+  }
+}
+            \end{lstlisting}
                 \newpage
         \elemento [Crea Evento] {apd:creaEvento}
                 Mediante questa API, l'applicativo PlanIt riesce a salvare nel database MongoDB un evento con gli attributi uguali ai parametri inviati in input, per l'utente autenticato identificato dall' "userId" indicato. Già in \ref{apd:ResourcesModelEvento}, nella descrizione della risorsa "Crea Evento", siamo andati a presentare quali sono i casi in cui questa API invia come messaggio di errore "400 - IDCalendario or titolo or evento details missing", per questo motivo non andremo a ripeterli nuovamente. \\
                 Come si può notare per gli attributi "luogo", "prorita", "difficolta", "notifiche" e "durata" vengono fatti gli stessi controlli già presentati in "modificaCalendario" (\ref{apd:modificaCalendario}) per l'attributo "impostazioniPredefiniteEventi", in quanto quest'ultimo oggetto contiene gli attributi sopra citati, presenti anche durante la crazione e modifica di un evento, dunque non vengono riscritti tutti specificamente. Nel caso in cui uno di questi attributi non passasse un controllo, riceviamo un errore del tipo "400 - Wrong format (parameter)". \\
                 I controlli non presenti nelle altre API già descritte, riguardano gli attributi "eventoSingolo" ed "eventoRipetuto", oggetti che contengono informazioni fondamentali per creare un evento singolo, evento che poniamo solo in un giorno in fase di creazione, e un evento ripetuto, evento che poniamo su più giornate in fase di creazione o modifica. Per la struttura dati "eventoSingolo" andiamo a controllare che gli attributi "data" e "isScadenza" (questo attributo indica se l'evento che si sta mettendo con tale data sia una deadline di qualcosa oppure no) siano diversi da "null": se lo fossero riceviamo il messaggio di errore "400 - Wrong format for eventoSingolo".  Invece, per la struttura dati "eventoRipetuto" andiamo ad controllare che "numeroRipetizione", attributo che indica quante volte si ripete tale evento, sia diverso da "null" e maggiore e uguale di 1, che "data", attributo che indica il giorno, mese, anno e orario dell'evento, sia diverso da "null" e che, infine, "giornidellaSettimana", attributo che indica in quali giorni si ripete tale evento, sia diverso da "null" e che non sia un array vuoto. Se questi attributi non rispettassero queste restrizioni, riceviamo l'errore "400 - Wrong format for eventoRipetuto". \\
                 Dopo sono presenti i soliti controlli già citati per il parametro "userId", ma evidenziamo la presenza della funzione "find()" che viene utilizzata per andare a vedere se il calendario, dove stiamo aggiungendo l'evento da che si sta creando, esista e appartenga all'utente autenticato identificato dall' "userId"; se così non fosse, otteniamo il messaggio di errore  "409 - There is no calendar with that ID or you do not own the calendar". Come per "creaCalendario" (\ref{apd:creaCalendario}), viene usata la funzione "create()" per andare a creare nel database MongoDB un oggetto "Evento" con le caratteristiche dei parametri ricevuti in input.
+                \begin{comment}
                 \begin{center}
                     \includegraphics[width=0.55\textwidth, height=0.9\textheight]{img/png/APIs/creaEvento.png}
                     \captionof{figure}{API - creaEvento, 1a parte}
@@ -271,9 +775,266 @@ Nelle sezioni precedenti abbiamo individuato tutte le procedure e funzionalità 
                     \captionof{figure}{API - creaEvento, 3a parte}
                     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/APIs/creaEvento3.png}{PNG} API - creaEvento, 3a parte}
                 \end{center}
+                \end{comment}
+                \begin{lstlisting}[language=JavaScript]
+export async function creaEvento(req, res) {
+  await dbConnect();
+  try {
+    const {
+      IDCalendario,
+      titolo,
+      descrizione,
+      luogo,
+      priorita,
+      difficolta,
+      partecipanti,
+      notifiche,
+      durata,
+      isEventoSingolo,
+      eventoSingolo,
+      eventoRipetuto,
+    } = req.query;
+    const { userId } = req.query;
+
+    let arrPartecipanti;
+    try {
+      arrPartecipanti = JSON.parse(partecipanti);
+    } catch (error) {
+      arrPartecipanti = partecipanti;
+    }
+    if (
+      IDCalendario == null ||
+      titolo == null ||
+      userId == null ||
+      isEventoSingolo == null ||
+      (isEventoSingolo == true && eventoSingolo == null) ||
+      (isEventoSingolo == false && eventoRipetuto == null)
+    ) {
+      res
+        .status(400)
+        .json({ error: "IDCalendario or titolo or evento details missing" }); //TODO or userID
+      return;
+    }
+
+    let tempLuogo;
+    if (luogo != null) {
+      try {
+        tempLuogo = JSON.parse(luogo);
+      } catch {
+        tempLuogo = luogo;
+      }
+      if (
+        tempLuogo.latitudine == null ||
+        tempLuogo.longitudine == null ||
+        !/^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/.test(
+          tempLuogo.latitudine
+        ) ||
+        !/^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$/.test(
+          tempLuogo.longitudine
+        )
+      ) {
+        res.status(400).json({ error: "Wrong format for location" });
+        return;
+      }
+    }
+    if (priorita != null && (priorita <= 0 || priorita > 10)) {
+      res.status(400).json({ error: "Wrong format for priorita" });
+      return;
+    }
+    if (difficolta != null && (difficolta <= 0 || difficolta > 10)) {
+      res.status(400).json({ error: "Wrong format for difficolta" });
+      return;
+    }
+    let tempNotifiche;
+    if (notifiche != null) {
+      try {
+        tempNotifiche = JSON.parse(notifiche);
+      } catch {
+        tempNotifiche = notifiche;
+      }
+
+      if (tempNotifiche.titolo == null || tempNotifiche.data == null) {
+        res.status(400).json({ error: "Wrong format for notifiche" });
+        return;
+      }
+    }
+    if (durata != null && durata <= 0) {
+      res.status(400).json({ error: "Wrong format for durata" });
+      return;
+    }
+
+    let tempEvento;
+
+    if (isEventoSingolo) {
+      if (eventoSingolo != null) {
+        try {
+          tempEvento = JSON.parse(eventoSingolo);
+        } catch {
+          tempEvento = eventoSingolo;
+        }
+        if (tempEvento.data == null || tempEvento.isScadenza == null) {
+          res.status(400).json({ error: "Wrong format for eventoSingolo" });
+          return;
+        }
+        tempEvento.data = new Date(tempEvento.data);
+      }
+    } else {
+      if (eventoRipetuto != null) {
+        try {
+          tempEvento = JSON.parse(eventoRipetuto);
+        } catch {
+          tempEvento = eventoRipetuto;
+        }
+        if (
+          tempEvento.numeroRipetizioni == null ||
+          tempEvento.impostazioniAvanzate == null ||
+          tempEvento.impostazioniAvanzate.giorniSettimana == null ||
+          tempEvento.impostazioniAvanzate.data == null ||
+          tempEvento.numeroRipetizioni < 1 ||
+          tempEvento.impostazioniAvanzate.giorniSettimana == []
+        ) {
+          res.status(400).json({ error: "Wrong format for eventoRipetuto" });
+          return;
+        }
+
+        tempEvento.impostazioniAvanzate.data = new Date(tempEvento.data);
+      }
+    }
+
+    const users = await UtenteAutenticato.find({
+      userId: userId,
+    });
+    if (Object.keys(users).length == 0) {
+      res.status(409).json({ error: "There is no user with that userId" });
+      return;
+    } else if (Object.keys(users).length > 1) {
+      res
+        .status(409)
+        .json({ error: "There are too many users with that userId" });
+      return;
+    }
+
+    var ObjectId = require("mongoose").Types.ObjectId;
+
+    const calendariPosseduti = await Calendario.find({
+      $and: [{ partecipanti: userId }, { _id: new ObjectId(IDCalendario) }],
+    });
+    if (
+      Object.keys(calendariPosseduti).length == 0 ||
+      calendariPosseduti[0].partecipanti[0] != userId
+    ) {
+      res.status(409).json({
+        error:
+          "There is no calendar with that ID or you do not own the calendar",
+      });
+      return;
+    }
+
+    let tempPartecipanti =
+      arrPartecipanti != null && Array.isArray(arrPartecipanti)
+        ? arrPartecipanti.filter((item) => item !== userId)
+        : calendariPosseduti[0].partecipanti.filter((item) => item !== userId);
+
+    if (isEventoSingolo) {
+      await Evento.create(
+        {
+          IDCalendario: IDCalendario,
+          titolo: titolo,
+          descrizione: descrizione == null ? undefined : descrizione,
+          luogo: luogo == null ? undefined : tempLuogo,
+          priorita: priorita == null ? undefined : priorita,
+          difficolta: difficolta == null ? undefined : difficolta,
+          partecipanti: [userId],
+          notifiche: notifiche == null ? undefined : tempNotifiche,
+          durata: durata == null ? undefined : durata,
+          isEventoSingolo: true,
+          eventoSingolo: tempEvento,
+        },
+        function (err, event) {
+          if (err) {
+            res.status(500).json({ error: "Not inserted" });
+            return;
+          }
+          if (tempPartecipanti != null && tempPartecipanti != []) {
+            var ObjectId = require("mongoose").Types.ObjectId;
+            Evento.updateMany(
+              { _id: new ObjectId(String(event._id)) },
+              {
+                $addToSet: { partecipanti: { $each: tempPartecipanti } },
+              },
+              function (err) {
+                if (err) {
+                  res.status(500).json({ error: "Error parteciapnti" });
+                  return;
+                }
+                res.status(200);
+                return;
+              }
+            );
+          } else {
+            res.status(200);
+            return;
+          }
+        }
+      );
+    } else {
+      Evento.create(
+        {
+          IDCalendario: IDCalendario,
+          titolo: titolo,
+          descrizione: descrizione == null ? undefined : descrizione,
+          luogo: luogo == null ? undefined : tempLuogo,
+          priorita: priorita == null ? undefined : priorita,
+          difficolta: difficolta == null ? undefined : difficolta,
+          partecipanti: [userId],
+          notifiche: notifiche == null ? undefined : tempNotifiche,
+          durata: durata == null ? undefined : durata,
+          isEventoSingolo: false,
+          eventoRipetuto: tempEvento,
+        },
+        function (err, event) {
+          if (err) {
+            res.status(500).json({ error: "Not inserted" });
+            return;
+          }
+          if (tempPartecipanti != null && tempPartecipanti != []) {
+            var ObjectId = require("mongoose").Types.ObjectId;
+            Evento.updateMany(
+              { _id: new ObjectId(String(event._id)) },
+              {
+                $addToSet: { partecipanti: { $each: tempPartecipanti } },
+              },
+              function (err) {
+                if (err) {
+                  res.status(500).json({ error: "Error parteciapnti" });
+                  return;
+                }
+                res.status(200);
+                return;
+              }
+            );
+          } else {
+            res.status(200);
+            return;
+          }
+        }
+      );
+    }
+    if (res.statusCode === 200) {
+      res.json({ success: "Event inserted correctly" });
+    }
+    return;
+  } catch (e) {
+    
+    res.status(501).json({ error: "Generic error" });
+    return;
+  }
+}
+            \end{lstlisting}
         \elemento [Modifica Evento] {apd:modificaEvento}
                 Grazie a questa API, come già detto in \ref{apd:ResourcesModelEvento}, è possibile modificare un "Evento" già salvato nel database MongoDB, con i vari parametri ricevuti in input, che non sono altro che gli attributi che formano la struttura dati "Evento", struttura dati già più volte mostrata (\ref{apd:ProjectDB}), e l' "userId" dell'utente autenticato che vuole modificare tale evento. I controlli, presenti in questa API, sono gli stessi già descritti per "creaEvento" (\ref{apd:creaEvento}) e "modificaCalendario" (\ref{apd:modificaCalendario}); l'unica differenza è che per non ricevere il messaggio di errore "400 - Parameter missing", tutti gli attributi che andranno a formare l'oggetto "Evento" (\ref{apd:ProjectDB}) e l' "userId" devono essere diversi da "null". \\
                 Alla fine della funzione, grazie alla funzione "updateMany()", viene aggiornato l'oggetto "Evento" presente nel database secondo i parametri ricevuti, come per "modificaCalendario" (\ref{apd:modificaCalendario}). Specifichiamo che a seconda se stiamo andando a modificare un "eventoSingolo" o "eventoRipetuto" abbiamo una diversa procedura di aggiornamento.
+                \begin{comment}
                 \begin{center}
                     \includegraphics[width=0.55\textwidth, height=0.9\textheight]{img/png/APIs/modificaEvento.png}
                     \captionof{figure}{API - modificaEvento, 1a parte}
@@ -289,57 +1050,608 @@ Nelle sezioni precedenti abbiamo individuato tutte le procedure e funzionalità 
                     \captionof{figure}{API - modificaEvento, 3a parte}
                     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/APIs/modificaEvento2.png}{PNG} API - modificaEvento, 3a parte}
                 \end{center}
+                \end{comment}
+                \begin{lstlisting}[language=JavaScript]
+export async function modificaEvento(req, res) {
+  await dbConnect();
+  try {
+    const {
+      IDEvento,
+      IDCalendario,
+      titolo,
+      descrizione,
+      luogo,
+      priorita,
+      difficolta,
+      partecipanti,
+      notifiche,
+      durata,
+      isEventoSingolo,
+      eventoSingolo,
+      eventoRipetuto,
+    } = req.query;
+    const { userId } = req.query;
+
+    let arrPartecipanti;
+
+    try {
+      arrPartecipanti = JSON.parse(partecipanti);
+    } catch (error) {
+      arrPartecipanti = partecipanti;
+    }
+
+    let tempLuogo;
+    if (luogo != null) {
+      try {
+        tempLuogo = JSON.parse(luogo);
+      } catch {
+        tempLuogo = luogo;
+      }
+    }
+    let tempNotifiche;
+    if (notifiche != null) {
+      try {
+        tempNotifiche = JSON.parse(notifiche);
+      } catch {
+        tempNotifiche = notifiche;
+      }
+    }
+    let tempEvento;
+    if (isEventoSingolo) {
+      if (eventoSingolo != null) {
+        try {
+          tempEvento = JSON.parse(eventoSingolo);
+        } catch {
+          tempEvento = eventoSingolo;
+        }
+      }
+    } else {
+      if (eventoRipetuto != null) {
+        try {
+          tempEvento = JSON.parse(eventoRipetuto);
+        } catch {
+          tempEvento = eventoRipetuto;
+        }
+      }
+    }
+
+    if (
+      IDEvento == null ||
+      IDCalendario == null ||
+      titolo == null ||
+      userId == null ||
+      isEventoSingolo == null ||
+      (isEventoSingolo == true && eventoSingolo == null) ||
+      (isEventoSingolo == false && eventoRipetuto == null) ||
+      descrizione == null ||
+      luogo == null ||
+      arrPartecipanti == null ||
+      priorita == null ||
+      difficolta == null ||
+      notifiche == null ||
+      durata == null
+    ) {
+      res.status(400).json({ error: "Parameter missing" });
+      return;
+    }
+
+    if (priorita <= 0 || priorita > 10) {
+      res.status(400).json({ error: "Wrong format for priorita" });
+      return;
+    }
+    if (difficolta <= 0 || difficolta > 10) {
+      res.status(400).json({ error: "Wrong format for difficolta" });
+      return;
+    }
+
+    if (durata <= 0) {
+      res.status(400).json({ error: "Wrong format for durata" });
+      return;
+    }
+
+    if (
+      tempLuogo.latitudine == null ||
+      tempLuogo.longitudine == null ||
+      !/^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/.test(
+        tempLuogo.latitudine
+      ) ||
+      !/^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$/.test(
+        tempLuogo.longitudine
+      )
+    ) {
+      res.status(400).json({ error: "Wrong format for location" });
+      return;
+    }
+    if (tempNotifiche.titolo == null || tempNotifiche.data == null) {
+      res.status(400).json({ error: "Wrong format for notifiche" });
+      return;
+    }
+
+    if (isEventoSingolo) {
+      if (eventoSingolo != null) {
+        if (tempEvento.data == null || tempEvento.isScadenza == null) {
+          res.status(400).json({ error: "Wrong format for eventoSingolo" });
+          return;
+        }
+      }
+    } else {
+      if (eventoRipetuto != null) {
+        if (
+          tempEvento.numeroRipetizioni == null ||
+          tempEvento.impostazioniAvanzate == null ||
+          tempEvento.impostazioniAvanzate.giorniSettimana == null ||
+          tempEvento.impostazioniAvanzate.data == null ||
+          tempEvento.numeroRipetizioni < 1 ||
+          tempEvento.impostazioniAvanzate.giorniSettimana == []
+        ) {
+          res.status(400).json({ error: "Wrong format for eventoRipetuto" });
+          return;
+        }
+      }
+    }
+
+    const users = await UtenteAutenticato.find({
+      userId: userId,
+    });
+    if (Object.keys(users).length == 0) {
+      res.status(409).json({ error: "There is no user with that userId" });
+      return;
+    } else if (Object.keys(users).length > 1) {
+      res
+        .status(409)
+        .json({ error: "There are too many users with that userId" });
+      return;
+    }
+    var ObjectId = require("mongoose").Types.ObjectId;
+
+    const evento = await Evento.find({
+      _id: new ObjectId(IDEvento),
+      partecipanti: userId,
+    });
+    if (
+      Object.keys(evento).length == 0 ||
+      evento[0].partecipanti[0] != userId
+    ) {
+      res.status(409).json({
+        error: "You do not own the event",
+      });
+      return;
+    }
+
+    const calendario = await Calendario.find({
+      _id: new ObjectId(IDCalendario),
+      partecipanti: userId,
+    });
+    if (
+      Object.keys(calendario).length == 0 ||
+      calendario[0].partecipanti[0] != userId
+    ) {
+      res.status(409).json({
+        error:
+          "There is no calendar with that ID or you do not own the calendar",
+      });
+      return;
+    }
+
+    let tempPartecipanti = arrPartecipanti.filter((item) => item !== userId);
+    let error = false;
+
+    Evento.updateMany(
+      { _id: new ObjectId(IDEvento) },
+      {
+        partecipanti: [userId],
+      },
+      function (err) {
+        if (err) {
+          res.status(500).json({ error: "Not modified" });
+          return;
+        }
+
+        if (isEventoSingolo) {
+          Evento.updateMany(
+            { _id: new ObjectId(IDEvento) },
+            {
+              IDCalendario: IDCalendario,
+              titolo: titolo,
+              descrizione: descrizione,
+              luogo: tempLuogo,
+              priorita: priorita,
+              difficolta: difficolta,
+              $addToSet: { partecipanti: { $each: tempPartecipanti } },
+              notifiche: tempNotifiche,
+              durata: durata,
+              isEventoSingolo: true,
+              eventoSingolo: tempEvento,
+            },
+            function (err) {
+              if (err) {
+                res.status(500).json({ error: "Not modified" });
+                return;
+              }
+              res.status(200);
+            }
+          );
+        } else {
+          Evento.updateMany(
+            { _id: new ObjectId(IDEvento) },
+            {
+              IDCalendario: IDCalendario,
+              titolo: titolo,
+              descrizione: descrizione,
+              luogo: tempLuogo,
+              priorita: priorita,
+              difficolta: difficolta,
+              $addToSet: { partecipanti: { $each: tempPartecipanti } },
+              notifiche: tempNotifiche,
+              durata: durata,
+              isEventoSingolo: false,
+              eventoRipetuto: tempEvento,
+            },
+            function (err) {
+              if (err) {
+                res.status(500).json({ error: "Not modified" });
+                return;
+              }
+              res.status(200);
+            }
+          );
+        }
+      }
+    );
+    if (res.statusCode === 200) {
+      res.json({ success: "Event edited correctly" });
+    }
+    return;
+  } catch (e) {
+    
+    res.status(501).json({ error: "Generic error" });
+    return;
+  }
+}
+                \end{lstlisting}
         \elemento [Elimina Evento] {apd:eliminaEvento}
                 Questa API, come già anticipato in \ref{apd:ResourcesModelEvento}, ha lo scopo di andare ad eliminare un "Evento", dato il suo "IDEvento" e l' "userId" dell'utente autenticato che ha questo evento che vuole eliminare. Ovviamente, nel caso in cui non avessimo uno di questi due parametri, come già detto in \ref{apd:ResourcesModelEvento}, otteniamo un messaggio di errore del tipo "400 - Parameter missing". \\
                 In seguito, vengono fatti sempre gli stessi controlli già citati in "EliminaCalendario" \ref{apd:eliminaCalendario}, ma stavolta per gli eventi. Infatti si controlla che l'evento che si vuole eliminare faccia parte della lista degli eventi appartenenti all'utente autenticato indicato dall' "userId". Se così non fosse, l'API invia l'errore "409 - You do not own the event". \\
                 Infine, anche per questa funzione vengono usate le funzioni "find()" e "deleteMany()" per ottenere rispettivamente la lista di eventi di un utente autenticato e per eliminare l'evento identificato dall' "IDEvento".
+                \begin{comment}
                 \begin{center}
                     \includegraphics[width=0.65\textwidth, height=0.7\textheight]{img/png/APIs/eliminaEvento.png}
                     \captionof{figure}{API - eliminaEvento}
                     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/APIs/eliminaEvento.png}{PNG} API - eliminaEvento}
                 \end{center}
+                \end{comment}
+                \begin{lstlisting}[language=JavaScript]
+export async function eliminaEvento(req, res) {
+  await dbConnect();
+  try {
+    const { IDEvento } = req.query;
+    const { userId } = req.query;
+
+    if (IDEvento == null || userId == null) {
+      res.status(400).json({ error: "Parameter missing" });
+      return;
+    }
+
+    const users = await UtenteAutenticato.find({
+      userId: userId,
+    });
+    if (Object.keys(users).length == 0) {
+      res.status(409).json({ error: "There is no user with that userId" });
+      return;
+    } else if (Object.keys(users).length > 1) {
+      res
+        .status(409)
+        .json({ error: "There are too many users with that userId" });
+      return;
+    }
+    var ObjectId = require("mongoose").Types.ObjectId;
+
+    const eventiPosseduti = await Evento.find({
+      $and: [{ partecipanti: userId }, { _id: new ObjectId(IDEvento) }],
+    });
+    if (
+      Object.keys(eventiPosseduti).length == 0 ||
+      eventiPosseduti[0].partecipanti[0] != userId
+    ) {
+      res.status(409).json({
+        error: "You do not own the event",
+      });
+      return;
+    }
+
+    const deleteEvent = await Evento.deleteMany({
+      _id: new ObjectId(IDEvento),
+    });
+
+    if (deleteEvent.deletedCount >= 1) {
+      res.status(200).json({ success: "Event deleted correctly" });
+      return;
+    } else {
+      res.status(500).json({ error: "Event not deleted" });
+      return;
+    }
+  } catch (e) {
+    
+    res.status(501).json({ error: "Generic error" });
+    return;
+  }
+}
+                \end{lstlisting}
                 \newpage
         \elemento [getEventi] {apd:getEventi}
                 Questa API, precedentemente descritta in \ref{apd:ResourcesModelEvento}, viene usata per ottenere tutti gli eventi che appartengono ad un calendario di un utente autenticato. Questo calendario viene identificato dall' "IDCalendario" e l' "userId" ricevuti in input, i quali, per ottenere un successo dalla procedura dell'API, non devono essere vuoti. Sul parametro "userId" vengono fatti i soliti controlli già presenti nelle altre API. Invece, dato l' "IDCalendario" e l' "userId", grazie alla funzione "find()", "getEventi" controlla che tale calendario esista e che appartenga alla lista dei calendari dell'utente autenticato; se così non si fosse, si riceve il messaggio di errore "409 - There is no calendar with that ID or you are not part of it". \\
                 Infine, si controlla anche che questo calendario non sia vuoto, ovvero che abbia almeno un evento, in caso lo fosse si ottiene il messaggio di errore "409 - There are no events with that userId and IDCalendario", come già detto in \ref{apd:ResourcesModelEvento}.
+                \begin{comment}
                 \begin{center}
                     \includegraphics[width=0.60\textwidth, height=0.70\textheight]{img/png/APIs/getEventi.png}
                     \captionof{figure}{API - getEventi}
                     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/APIs/getEventi.png}{PNG} API - getEventi}
                 \end{center}
+                \end{comment}
+                \begin{lstlisting}[language=JavaScript]
+export async function getEventi(req, res) {
+  await dbConnect();
+  try {
+    const { IDCalendario } = req.query;
+    const { userId } = req.query;
+
+    if (IDCalendario == null || userId == null) {
+      res.status(400).json({ error: "Parameter missing" });
+      return;
+    }
+
+    const users = await UtenteAutenticato.find({
+      userId: userId,
+    });
+    if (Object.keys(users).length == 0) {
+      res.status(409).json({ error: "There is no user with that userId" });
+      return;
+    } else if (Object.keys(users).length > 1) {
+      res
+        .status(409)
+        .json({ error: "There are too many users with that userId" });
+      return;
+    }
+    var ObjectId = require("mongoose").Types.ObjectId;
+
+    const calendariPosseduti = await Calendario.find({
+      $and: [{ partecipanti: userId }, { _id: new ObjectId(IDCalendario) }],
+    });
+    if (Object.keys(calendariPosseduti).length == 0) {
+      res.status(409).json({
+        error: "There is no calendar with that ID or you are not part of it",
+      });
+      return;
+    }
+
+    const eventi = await Evento.find({
+      $and: [
+        { partecipanti: userId },
+        { IDCalendario: new ObjectId(IDCalendario) },
+      ],
+    });
+    if (Object.keys(eventi).length == 0) {
+      res.status(409).json({
+        error: "There are no events with that userId and IDCalendario",
+      });
+      return;
+    }
+    res.status(200).json({
+      eventi,
+    });
+    return;
+  } catch (e) {
+    
+    res.status(501).json({ error: "Generic error" });
+    return;
+  }
+}
+                \end{lstlisting}
         \elemento [Crea Account] {apd:creaAccount}
                 Questa API (descritta in parte in \ref{apd:ResourcesModelUtenteAutenticato}) viene utilizzata per creare un "account", ovvero un oggetto di tipo "UtenteAutenticato", struttura dati già mostrata in precendenza in \ref{apd:ProjectDB}, all'interno del database MongoDB, la prima volta che un utente accede autenticandosi nel sito PlanIt. I parametri, che devono essere presenti per non ottenere il messaggio di errore "400 - Parameter missing", sono: "userId", "email" e "username" dell'utente autenticato che si vuole creare. \\
                 I controlli che vengono effettuati sono gli stessi già descritti nelle altre API, si evidenzia la presenza della funzione "find()" che ha lo scopo di trovare se esistono nel database già utenti con l' "userId" o l' "email" inseriti in input; se ne esistessero otteniamo come errore "409 - There is already one user with that id or email". \\
                 Alla fine della funzione, viene usata la funzione "create()" per andare a creare nel database un oggetto "UtenteAutenticato" con gli attributi ricevuti come parametri.
+                \begin{comment}
                 \begin{center}
                     \includegraphics[width=0.65\textwidth, height=0.55\textheight]{img/png/APIs/creaUser.png}
                     \captionof{figure}{API - creaAccount}
                     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/APIs/creaUser.png}{PNG} API - creaAccount}
                 \end{center}
+                \end{comment}
+                \begin{lstlisting}[language=JavaScript]
+export async function creaUser(req, res) {
+  await dbConnect();
+  try {
+    const { userId, email, username } = req.query;
+
+    if (userId == null || email == null || username == null) {
+      res.status(400).json({ error: "Parameter missing" });
+      return;
+    }
+
+    const users = await UtenteAutenticato.find({
+      $or: [{ userId: userId }, { email: email }],
+    });
+    if (Object.keys(users).length >= 1 || /[, \\%=]/gm.test(userId)) {
+      res
+        .status(409)
+        .json({ error: "There is alrady one user with that id or email" });
+      return;
+    }
+
+    UtenteAutenticato.create(
+      {
+        userId: userId,
+        email: email,
+        username: username,
+      },
+      function (err) {
+        if (err) {
+          res.status(500).json({ error: "Not inserted" });
+          return;
+        }
+        res.status(200);
+      }
+    );
+    if (res.statusCode === 200) {
+      res.json({ success: "User inserted correctly" });
+    }
+    return;
+  } catch (e) {
+    res.status(501).json({ error: "Generic error" });
+    return;
+  }
+}
+                \end{lstlisting}
                 \newpage
         \elemento [Modifica Account] {apd:modificaAccount}
                 L'applicativo PlanIt sfrutta questa API, già anticipata in parte in \ref{apd:ResourcesModelUtenteAutenticato}, per andare a modificare l'account, più precisamente l' "username", di un oggetto "UtenteAutenticato" già presente nel database. Per andare a modificare l'oggetto "UtenteAutenticato" vengono utilizzati i parametri che sono ricevuti in input, che non sono altro che gli attributi che formano un oggetto di tipo "UtenteAutenticato" (guardare \ref{apd:ProjectDB}). Per andare ad identificare l'utente da modificare viene usato l' "userId" ricevuto, invece l' "username" è l'attributo che viene modificato nell'oggetto "UtenteAutenticato" già presente nel database. I controlli effettuati, all'interno di questa API, sono gli stessi già descritti per altre API; infatti si controlla che l' "userId" inserito corrisponda ad un utente esistente e non duplicato e che la funzione "updateMany()" esegua con nessun tipo di errore.
+                \begin{comment}
                 \begin{center}
                     \includegraphics[width=0.65\textwidth, height=0.55\textheight]{img/png/APIs/modificaUser.png}
                     \captionof{figure}{API - modificaAccount}
                     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/APIs/modificaUser.png}{PNG} API - modificaAccount}
                 \end{center}
+                \end{comment}
+                \begin{lstlisting}[language=JavaScript]
+export async function modificaUser(req, res) {
+  await dbConnect();
+  try {
+    const { userId, username } = req.query;
+
+    if (userId == null || username == null) {
+      res.status(400).json({ error: "Parameter missing" });
+      return;
+    }
+
+    const users = await UtenteAutenticato.find({
+      userId: userId,
+    });
+    if (Object.keys(users).length == 0) {
+      res.status(409).json({ error: "There is no user with that userId" });
+      return;
+    } else if (Object.keys(users).length > 1) {
+      res
+        .status(409)
+        .json({ error: "There are too many users with that userId" });
+      return;
+    }
+
+    const put = await UtenteAutenticato.updateMany(
+      { userId: userId },
+      { $set: { username: username } }
+    );
+
+    if (put.modifiedCount == 1) {
+      res.status(200).json({ success: "User updated correctly" });
+    } else {
+      res.status(500).json({ error: "Not edited" });
+    }
+  } catch (e) {
+    
+    res.status(501).json({ error: "Generic error" });
+    return;
+  }
+}
+                \end{lstlisting}
                 \newpage
         \elemento [Get Dati Account - userId] {apd:getDatiAccount_userId}
                 Questa API viene utilizzata per ottenere in output un oggetto di tipo "UtenteAutenticato" che abbia l' "userId" uguale al parametro "userId" inserito in input. Nel caso in cui l' "userId" non fosse ricevuto in input o non corrispondesse a nessun "UtenteAutenticato" salvato nel database o corrispondesse a più utenti, riceviamo un messaggio di errore diverso per ciascuno dei casi, già descritti più volte precedentemente nelle altre APIs.
+                \begin{comment}
                 \begin{center}
                     \includegraphics[width=0.65\textwidth, height=0.55\textheight]{img/png/APIs/getUser_userId.png}
                     \captionof{figure}{API - Get Dati Account\_userId}
                     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/APIs/getUser_userId.png}{PNG} API - Get Dati Account\_userId}
                 \end{center}
+                \end{comment}
+                \begin{lstlisting}[language=JavaScript]
+export async function getUser(req, res) {
+  await dbConnect();
+  try {
+    const { userId } = req.query;
+
+    if (userId == null) {
+      res.status(400).json({ error: "Parameter missing" });
+      return;
+    }
+
+    const users = await UtenteAutenticato.find({
+      userId: userId,
+    });
+    if (Object.keys(users).length == 0) {
+      res.status(409).json({ error: "There is no user with that userId" });
+      return;
+    } else if (Object.keys(users).length > 1) {
+      res
+        .status(409)
+        .json({ error: "There are too many users with that userId" });
+      return;
+    }
+
+    res.status(200).json({
+      userId: users[0].userId,
+      email: users[0].email,
+      username: users[0].username,
+    });
+    return;
+  } catch (e) {
+    
+    res.status(501).json({ error: "Generic error" });
+    return;
+  }
+}
+                \end{lstlisting}
                 \newpage
         \elemento [Get Dati Account - email] {apd:getDatiAccount_email}
                 Questa API viene utilizzata per ottenere in output un oggetto di tipo "UtenteAutenticato" che abbia l' "email" uguale al parametro "email" inserito in input. Questa API fa la stessa procedura e ha lo stesso scopo dell'API descritta in \ref{apd:getDatiAccount_userId}, ovvero quella precedente (Get Dati Account - userId), l'unica cosa che cambia è che viene utilizzata l'email per identificare univocamente un "UtenteAutenticato". Con entrambe le APIs, ad ogni modo, si dovrebbe ottenere lo stesso risultato in quanto sia l' "userId" che l' "email" dovrebbero identificare univocamente un "UtenteAutenticato".
+                \begin{comment}
                 \begin{center}
                     \includegraphics[width=0.65\textwidth, height=0.55\textheight]{img/png/APIs/getUser_email.png}
                     \captionof{figure}{API - Get Dati Account\_email}
                     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/APIs/getUser_email.png}{PNG} API - Get Dati Account\_email}
                 \end{center}
+                \end{comment}
+                \begin{lstlisting}[language=JavaScript]
+export async function getUser(req, res) {
+  await dbConnect();
+  try {
+    const { email } = req.query;
+
+    if (
+      email == null ||
+      !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+    ) {
+      res.status(400).json({ error: "Parameter missing or malformed" });
+      return;
+    }
+
+    const emailDB = await UtenteAutenticato.find({
+      email: email,
+    });
+
+    if (Object.keys(emailDB).length == 0) {
+      res.status(409).json({ error: "There is no user with that email" });
+      return;
+    } else if (Object.keys(emailDB).length > 1) {
+      res
+        .status(409)
+        .json({ error: "There are too many users with that email" });
+      return;
+    }
+
+    res.status(200).json({
+      userId: emailDB[0].userId,
+      email: emailDB[0].email,
+      username: emailDB[0].username,
+    });
+    return;
+  } catch (e) {
+    
+    res.status(501).json({ error: "Generic error" });
+    return;
+  }
+}
+                \end{lstlisting}
                 \newpage
     \end{listaPersonale2}
 \end{listaPersonale}
