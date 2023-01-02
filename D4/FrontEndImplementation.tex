@@ -1,6 +1,6 @@
 \section{FrontEnd Implementation}
 \label{secD4:FrontEndImplementation}
-Il FrontEnd, (visualizzabile al link \href{https://frontend.plan-it.it} {https://frontend.plan-it.it}) implementato in questo prototipo del sito PlanIt da noi sviluppato, fornisce le funzionalità di visualizzazione, creazione, modifica e cancellazione di calendari ed eventi all'interno dell'applicativo; gli eventi che si possono gestire sono sia singoli, ovvero che in fase di creazione o modifica vengono definiti solo per una specifica data, oppure eventi ripetuti, ovvero che vengono definiti per più giornate in fase di creazione o modifica. Inoltre, dopo il primo accesso, è presente anche l'automatica creazione di un account per l'utente che ha fatto la registrazione. L'username attribuito a tale utente autenticato, che inizialmente corrisponde alla sua email, può anche esser modificato in fase di registrazione. \\ Prima di cominciare con la descrizione più specifica di ciascuna schermata, partiamo con il dire che le pagine che costituiscono questo prototipo del sito PlanIt, sono: "Homepage", "schermata login", "schermata registrazione", "schermata recupero password", "schermata Calendario" e "schermata Eventi".
+Il FrontEnd, (visualizzabile al link \href{https://frontend.plan-it.it} {https://frontend.plan-it.it}) implementato in questo prototipo del sito PlanIt da noi sviluppato, fornisce le funzionalità di visualizzazione, creazione, modifica e cancellazione di calendari ed eventi all'interno dell'applicativo; gli eventi che si possono gestire sono sia singoli, ovvero che in fase di creazione o modifica vengono definiti solo per una specifica data, oppure eventi ripetuti, ovvero che vengono definiti per più giornate in fase di creazione o modifica. Inoltre, dopo il primo accesso, è presente anche l'automatica creazione di un account per l'utente che ha fatto la registrazione e viene anche data la possibilità di modificare il proprio username, che nel caso non venisse definito, corrisponde alla propria email. \\ Prima di cominciare con la descrizione più specifica di ciascuna schermata, partiamo con il dire che le pagine che costituiscono questo prototipo del sito PlanIt, sono: "Homepage", "schermata login", "schermata registrazione", "schermata recupero password", "schermata inserimnento soprannome", "schermata Calendario" e "schermata Eventi".
 \\ In particolare partiamo da come appare il sito, quando ci si accede. La prima pagina che si visualizza, è l'Homepage, visualizzabile nell'immagine sottostante. Dall' "Homepage", l'utente può solo premere il tasto "Login", che lo indirizzerà alla pagina di autenticazione fornita da Auth0. Infatti tutta la fase di registrazione, login e anche recupero password sono gestite completamente da questo sistema esterno di autenticazione che integriamo nel sito. Il bottone "Try Demo", presente nell' "Homepage", non ha nessuna funzionalità, in quanto in questo prototipo del sito, si è sviluppato solo il sito per gli utenti che si autenticano.
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Homepage_Autenticazione/Homepage.png}
@@ -21,7 +21,7 @@ Quindi, dopo aver premuto il bottone "Login", si è indirizzati nella pagina dov
 \end{center}
 
 Quando l'utente non ha un proprio account PlanIt e non vuole accedere mediante Google, può indirizzarsi alla pagina di registrazione, mediante la scritta "Registrati". Da questa schermata, l'utente può tornare indietro alla pagina di "Login" nel caso in cui avesse sbagliato, può ancora "continuare con Google" oppure, ovviamente, inserire le proprie credenziali con cui si vuole registrare. Ovviamente, le credenziali da inserire devono rispettare delle restrizioni che sono imposte e che vengono mostrate all'utente.\\
-Una volta inserite delle credenziali che soddisfano tali restrizioni, l'utente può terminare la procedura di registrazione premendo il tasto "Continua", che lo indirizza alla pagina "Calendario". Contemporaneamente, l'utente riceve anche una email per la validazione dell'email inserita per la registrazione; questa validazione è davvero importante, in quanto l'email verificata è quella che si dovrà utilizzare in caso di reset password.
+Una volta inserite delle credenziali che soddisfano tali restrizioni, l'utente può terminare la procedura di registrazione premendo il tasto "Continua", che lo indirizza alla pagina "Inserimento soprannome". Contemporaneamente, l'utente riceve anche una email per la validazione dell'email inserita per la registrazione; questa validazione è davvero importante, in quanto l'email verificata è quella che si dovrà utilizzare in caso di reset password.
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Homepage_Autenticazione/registrazione_valida.png}
@@ -45,7 +45,15 @@ Infine, dopo l'inserimento dell'email e averla confermata, l'utente visualizza l
     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Homepage_Autenticazione/controlla_email.png}{PNG} FrontEnd - Controlla email}
 \end{center}
 
-Dopo aver fatto l'autenticazione, l'utente autenticato visualizza la pagina "Calendario", da cui può passare a tutte le altre pagine (ricordiamo che oltre a "Calendario" è stata sviluppata solo la pagina "Eventi" in questo protitipo), può creare un evento  e/o calendario, possibilità visualizzabile dopo aver premuto il "+" in baso a destra, può visualizzare la lista di calendari personali, e anche quelli condivisi, dal bottone "Calendari", che apre una side-bar in cui si possono selezionare i calendari da visualizzare nella schermata "Calendario, e infine può spostarsi temporalmente nel tempo di settimana in settimana grazie ai bottoni "<", con cui si va indietro, e ">", con cui si va avanti, e tornare alla data corrente mediante il bottone "Oggi". Adesso andiamo un po' più nello specifico delle cose visualizzabili e che si possono fare in questa pagina.
+La prima volta che si accede al sito, ovvero dopo la registrazione. Prima di visualizzare la pagina "Calendario" si visualizza la pagina "Inserimento soprannome", dove l'utente può definire un soprannome, che nel caso in cui non fosse inserito, rimane l'email. Infatti, nel caso in cui l'utente volesse inserire un soprannome, può scriverlo e schiacciare su "Continua". Invece, nel caso in cui non gli interessasse, può schiacciare direttamente su "salta" e sarà indirizzato immediatamente alla pagina "Calendario".
+
+\begin{center}
+    \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/InserimentoSoprannome.jpg}
+    \captionof{figure}{FrontEnd - Inserimento soprannome}
+    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/InserimentoSoprannome.jpg}{PNG} FrontEnd - Inserimento soprannome}
+\end{center}
+
+Dopo aver fatto l'autenticazione e se non è la prima volta che si accede al sito (in quel caso prima della pagina "Calendario", come detto precedentemente, si visualizza la pagina "Inserimento soprannome"), l'utente autenticato visualizza la pagina "Calendario", da cui può passare a tutte le altre pagine (ricordiamo che oltre a "Calendario" è stata sviluppata solo la pagina "Eventi" in questo protitipo), può creare un evento  e/o calendario, possibilità visualizzabile dopo aver premuto il "+" in baso a destra, può visualizzare la lista di calendari personali, e anche quelli condivisi, dal bottone "Calendari", che apre una side-bar in cui si possono selezionare i calendari da visualizzare nella schermata "Calendario, e infine può spostarsi temporalmente nel tempo di settimana in settimana grazie ai bottoni "<", con cui si va indietro, e ">", con cui si va avanti, e tornare alla data corrente mediante il bottone "Oggi". Adesso andiamo un po' più nello specifico delle cose visualizzabili e che si possono fare in questa pagina.
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Calendario/schermata_calendario.png}
@@ -107,7 +115,25 @@ Come già detto in precedenza, mediante i bottoni "<", ">" e "Oggi" l'utente pu�
 
 Dalla schermata "Calendario", come citato precedentemente, l'utente autenticato può passare alla schermata "Eventi". Da quest'ultima schermata, oltre a poter creare nuovi eventi singoli e nuovi calendari, mediante gli stessi pop-up ottenibili nella pagina "Calendario", è possibile anche modificare sia gli eventi che i calendari salvati e creare e modificare eventi ripetuti. Adesso andiamo più nello specifico di ciò che può visualizzare e fare l'utente da questa schermata.
 
+\begin{center}
+    \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Eventi/schermataEventi.png}
+    \captionof{figure}{FrontEnd - schermata Eventi}
+    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Eventi/schermataEventi.png}{PNG} FrontEnd - schermata Eventi}
+\end{center}
+
 Nel caso in cui l'utente volesse creare nuovi calendari e nuovi eventi singoli, premendo i tasti in alto a sinistra "Crea Calendario" e "Crea Evento", può visualizzare nella parte destra della schermata i rispettivi form di creazione, identici a quelli che si possono ottenere nella pagina "Calendario".
+
+\begin{center}
+    \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Eventi/EventiCreaCalendario.png}
+    \captionof{figure}{FrontEnd - "Crea Calendario" da schermata "Eventi"}
+    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Eventi/EventiCreaCalendario.png}{PNG} FrontEnd - "Crea Calendario" da schermata "Eventi"}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Eventi/EventiCreaEvento.png}
+    \captionof{figure}{FrontEnd - "Crea Evento" da schermata "Eventi"}
+    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Eventi/EventiCreaEvento.png}{PNG} FrontEnd - "Crea Evento" da schermata "Eventi"}
+\end{center}
 
 Dopo, quando l'utente vuole creare un evento ripetuto, ovvero un evento che definiamo presente su più giorni, già in fase di creazione dell'evento, basta che usi il bottone "Crea Evento Ripetuto" per far apparire il form di creazione "Crea Evento Ripetuto". In questo form, tutti i campi sono compilabili, eccetto per "Luogo". Ricordiamo che i campi "nome" e, almeno, una data su cui cade tale evento devono essere sempre presenti, per far andare a buon fine la creazione dell'evento ripetuto. L'utente, mediante le "Impostazioni avanzate", può andare a specificare maggiormente quando cadono tali eventi e in quali orari. Con l'attributo "Durata", l'utente indica per quale periodo di tempo questo evento ripetuto vale e quindi deve essere presente nel calendario.
 
