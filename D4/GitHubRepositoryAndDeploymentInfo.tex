@@ -1,7 +1,7 @@
 \section{GitHub Repository and Deployment Info}
 \label{secD4:GitHubRepositoryAndDeploymentInfo}
 La repo Git, dove è stato scritto il codice sviluppato per questo prototipo del sito PlanIt, si chiama "Codice" (repo dove è presente tutto il codice da noi sviluppato per l'implementazione del sito PlanIt, sia BackEnd che FrontEnd). Sull'organizzazione di questa repo molto è già stato descritto in \ref{apd:ProjectStructure}. Si sottolinea che abbiamo usato la stessa repo "Codice" per andare a sviluppare il FrontEnd e BackEnd, ma andando a creare due branch, di nome "FrontEnd" e "API" rispettivamente. In questa capitolo andiamo a descrivere altre cartelle presenti nel nostro git "Codice" (link: \url{https://github.com/Life-planner/Codice}). Infatti in questa cartella git è presente anche la cartella "\_\_tests\_\_" dove sono presenti tutti i test effettuati per ciascuna API che è stata implementata, divisi a seconda di quale struttura dati (guardare Extract Diagram \ref{apd:ResourceExtraction}) riguardano. Inoltre, in  ciascuno file della cartella api, è presente la documentazione relativa alle funzioni presenti in tale file. E' stato fatto in questo modo, ovvero la presenza della documentazione nel relativo file, in quando abbiamo usato una libreria apposita di Swagger per NextJS che richiede tale procedura per andare a formare la documentazione. Infatti, grazie "next-swagger-doc", basta fornire la documentazione in ciascun file e automaticamente viene compilato un file "swagger.json" dove è scritta tutta la documentazione in formato ".json". Questo file è contenuto nella cartella "public", dove sono presenti anche tutti gli "asset" del progetto.\\
-Ci sono altre cose da dire riguardo alla nostra \href{https://github.com/orgs/Life-planner/repositories}{organization} Github: specifichiamo che in questa \href{https://github.com/orgs/Life-planner/repositories}{organizazzione} è presente anche la repo "Documentazione" (\href{https://github.com/Life-planner/Documentazione}{link repo "Documentazione"}) dove sono stati fatti tutti i documenti di progetto, divisi per deliverable, con il linguaggio LaTeX. Tutti i motivi per cui abbiamo usato LaTeX sono elencati nel D5, ma sicuramente la possibilità di poter avere anche la "Documentazione" all'interno di GitHub e, quindi, di poter andare a modificare e condividere i vari documenti utilizzando Git, è stata una delle ragioni fondamentali per cui abbiamo deciso di usare LaTeX per fare i nostri documenti di progetto. \\
+Ci sono altre cose da dire riguardo alla nostra \href{https://github.com/orgs/Life-planner/repositories}{organization} Github: specifichiamo che in questa \href{https://github.com/orgs/Life-planner/repositories}{organizzazione} è presente anche la repo "Documentazione" (\href{https://github.com/Life-planner/Documentazione}{link repo "Documentazione"}) dove sono stati fatti tutti i documenti di progetto, divisi per deliverable, con il linguaggio LaTeX. Tutti i motivi per cui abbiamo usato LaTeX sono elencati nel D5, ma sicuramente la possibilità di poter avere anche la "Documentazione" all'interno di GitHub e, quindi, di poter andare a modificare e condividere i vari documenti utilizzando Git, è stata una delle ragioni fondamentali per cui abbiamo deciso di usare LaTeX per fare i nostri documenti di progetto. \\
 Inoltre, ovviamente, nella nostra \href{https://github.com/orgs/Life-planner/repositories}{organization} è presente anche la repo \href{https://github.com/Life-planner/Deliverables}{Deliverables}, dove ci sono tutti i nostri documenti di progetto definitivi che abbiamo consegnato. \\
 Infine, in questo capitolo presentiamo anche le informazioni riguardo al deployment e al link per eseguire il prototipo PlanIt da noi implementato. Per l'hosting del nostro sito abbiamo deciso di utilizzare il sito di hosting Netlify. \\ Questi sono i link da noi fatti da cui si può usufruire di ciò che abbiamo implementato:
 \begin{itemize}
@@ -30,8 +30,19 @@ Prerequisiti:
 \end{itemize}
 
 \begin{enumerate}
-    \item Aprire un terminale;
-    \item Clonare repo: \inlinecode{git clone https://github.com/Life-planner/Codice.git}
-    \item Eseguire \inlinecode{cd Codice}
-    \item Eseguire \inlinecode{npm install}
+    \item Aprire un terminale.
+    \item Clonare repo: \inlinecode{git clone https://github.com/Life-planner/Codice.git}.
+    \item Eseguire \inlinecode{cd Codice}.
+    \item Eseguire \inlinecode{npm install}.
+    \item Creare file \inlinecode{.env.local} e se si vuole fare il testing bisogna anche creare \inlinecode{.env.test.local}.
+    \item Inserire
+          \begin{itemize}
+              \item \inlinecode{MONGODB_URI = 'mongodb+srv://"user":"pass"@"cluste".mongodb.net/PlanIt?retryWrites=true&w=majority'}
+              \item \inlinecode{AUTH0_SECRET= 'inserire auth0 secret'}
+              \item \inlinecode{AUTH0_BASE_URL='http://localhost:3000'}
+              \item \inlinecode{AUTH0_ISSUER_BASE_URL='inserire base_url'}
+              \item \inlinecode{AUTH0_CLIENT_ID='inserire clienId'}
+              \item \inlinecode{AUTH0_CLIENT_SECRET='inserire client secret'}
+          \end{itemize}
+    \item Eseguire \inlinecode{npm run dev} o \inlinecode{npm run build} e \inlinecode{npm run test}
 \end{enumerate}

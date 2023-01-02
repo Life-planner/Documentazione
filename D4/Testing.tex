@@ -152,7 +152,7 @@ Abbiamo deciso anche di produrre un secondo resoconto, reperibile a questo \href
                 Questa API, per iniziare la propria di procedura (come già scritto in \ref{apd:modificaCalendario}), ha bisogno di tutti gli attributi che formano una struttura dati "Calendario" come parametri in input, ovvero "IDCalendario", "id" del calendario che si vuole modificare, "nome", nome del calendario, "fusoOrario", "colore", "partecipanti", persone che partecipano agli eventi appartenenti a questo calendario, "principale", booleano che indica se il calendario modificato è quello principale o meno. Quindi nel primo test, in cui avevamo l'obiettivo di ottenere il codice "200" con il messaggio di successo "Calendar modified correctly", abbiamo inserito come parametri tutti questi attributi, in modo che fossero corretti e superassero anche gli altri controlli, e come aspettato, abbiamo ottenuto come codice e messaggio quelli sopra citati.
                 \begin{center}
                         \includegraphics[width=1\textwidth, height=0.08\textheight]{img/png/tests/CalendarioPut/200_putCalendario.png}
-                        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/tests/CalendarioPut/200_putCalendario.png}{PNG} Casi 200, PUT Evento}
+                        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/tests/CalendarioPut/200_putCalendario.png}{PNG} Casi 200, PUT Calendario}
                         \captionof{figure}{Casi 200, PUT Calendario}
                 \end{center}
                 Nei seguenti diciannove test avevamo l'obiettivo di ottenere dall'API il codice "400" con il messaggio "Parameter missing"; infatti, siamo andati a togliere, uno alla volta, i parametri sopra scritti, andando anche più nello specifico e togliendo una alla volta anche gli attributi che formavano gli oggetti "luogo" e "impostazioniPredefiniteEventi", per notare se l'API notasse queste mancanze e ci inviasse il codice e messaggio sopra descritti. Come si può notare dalla foto sottostante e da questa \href{https://plan-it.it/test-report.html} {pagina}, così è stato!
@@ -248,8 +248,8 @@ Abbiamo deciso anche di produrre un secondo resoconto, reperibile a questo \href
                 Questa API, come già scritto in \ref{apd:modificaAccount}, ha lo scopo di modificare l' "username" di un utente identificato dal suo "userId". Per questo motivo, i parametri che devono essere presenti quando si invoca questa API, sono i due attributi sopra citati. Dunque, nel primo test, in cui volevamo ottenere il codice "200" e il messaggio di successo "User update correctly", abbiamo inserito questi due parametri in modo che superassero anche gli altri controlli presenti e, come previsto, abbiamo ottenuto il codice e messaggio scritti precedentemente.
                 \begin{center}
                         \includegraphics[width=1\textwidth, height=0.08\textheight]{img/png/tests/UtentePost/200_postUtente.png}
-                        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/tests/UtentePost/200_postUtente.png}{PNG} Casi 200, POST Utente}
-                        \captionof{figure}{Casi 200, POST Utente}
+                        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/tests/UtentePost/200_postUtente.png}{PNG} Casi 200, PUT Utente}
+                        \captionof{figure}{Casi 200, PUT Utente}
                 \end{center}
                 Nei seguenti casi, siamo andati a controllare che, se non inserissimo uno dei parametri sopra descritti, l'API lo nota e ci invii il codice "400" con messaggio di errore "Parameter missing", cosa che è avvenuta sia nel caso in cui mancava "userId", sia nel caso in cui mancava "username" e sia nel caso in cui mancavano entrambi.
                 \begin{center}
