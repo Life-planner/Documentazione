@@ -1,6 +1,10 @@
 \section{FrontEnd Implementation}
 \label{secD4:FrontEndImplementation}
-Il FrontEnd, (visualizzabile al link \href{https://frontend.plan-it.it} {https://frontend.plan-it.it}) implementato in questo prototipo del sito PlanIt da noi sviluppato, fornisce le funzionalità di visualizzazione, creazione, modifica e cancellazione di calendari ed eventi all'interno dell'applicativo; gli eventi che si possono gestire sono sia singoli, ovvero che in fase di creazione o modifica vengono definiti solo per una specifica data, oppure eventi ripetuti, ovvero che vengono definiti per più giornate in fase di creazione o modifica. Inoltre, dopo il primo accesso, è presente anche l'automatica creazione di un account per l'utente che ha fatto la registrazione e viene anche data la possibilità di modificare il proprio username, che nel caso non venisse definito, corrisponde alla propria email. \\ Prima di cominciare con la descrizione più specifica di ciascuna schermata, partiamo con il dire che le pagine che costituiscono questo prototipo del sito PlanIt, sono: "Homepage", "schermata login", "schermata registrazione", "schermata recupero password", "schermata inserimnento soprannome", "schermata Calendario" e "schermata Eventi".
+Il FrontEnd, (visualizzabile al link \href{https://plan-it.it} {https://plan-it.it}) implementato in questo prototipo del sito PlanIt da noi sviluppato, fornisce le funzionalità di visualizzazione, creazione, modifica e cancellazione di calendari ed eventi all'interno dell'applicativo; gli eventi che si possono gestire, in questo prototipo, sono solo singoli, ovvero che in fase di creazione o modifica vengono definiti solo per una specifica data.
+\begin{comment}
+, oppure eventi ripetuti, ovvero che vengono definiti per più giornate in fase di creazione o modifica. 
+\end{comment}
+Inoltre, dopo il primo accesso, è presente anche l'automatica creazione di un account per l'utente che ha fatto la registrazione e viene anche data la possibilità di modificare il proprio username, che nel caso non venisse definito, corrisponde alla propria email. \\ Prima di cominciare con la descrizione più specifica di ciascuna schermata, partiamo con il dire che le pagine che costituiscono questo prototipo del sito PlanIt, sono: "Homepage", "schermata login", "schermata registrazione", "schermata recupero password", "schermata inserimnento soprannome", "schermata Calendario" e "schermata Eventi".
 \\ In particolare partiamo da come appare il sito, quando ci si accede. La prima pagina che si visualizza, è l'Homepage, visualizzabile nell'immagine sottostante. Dall' "Homepage", l'utente può solo premere il tasto "Login", che lo indirizzerà alla pagina di autenticazione fornita da Auth0. Infatti tutta la fase di registrazione, login e anche recupero password sono gestite completamente da questo sistema esterno di autenticazione che integriamo nel sito. Il bottone "Try Demo", presente nell' "Homepage", non ha nessuna funzionalità, in quanto in questo prototipo del sito, si è sviluppato solo il sito per gli utenti che si autenticano.
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Homepage_Autenticazione/Homepage.png}
@@ -69,7 +73,11 @@ Dunque, premendo il bottone "Calendari" in alto a destra, appare questa side-bar
     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Calendario/calendario_calendari.png}{PNG} schermata "Calendario" - side-bar Calendari}
 \end{center}
 
-Dopo, premendo il tasto "+" in basso a destra è possibile aprire un fab, dove appare la scritta "Evento" e "Calendario". Grazie a questi due scelte, è possibile poter creare un evento, specifichiamo che in questa schermata si può creare solo quello singolo, a differenza della schermata "Eventi" in cui si possono creare anche quelli ripetuti, e/o un calendario. Dunque, premendo una delle tue scelte, appare un pop-up di creazione calendario o evento.
+Dopo, premendo il tasto "+" in basso a destra è possibile aprire un fab, dove appare la scritta "Evento" e "Calendario". Grazie a questi due scelte, è possibile poter creare un evento singolo
+\begin{comment}
+, specifichiamo che in questa schermata si può creare solo quello singolo, a differenza della schermata "Eventi" in cui si possono creare anche quelli ripetuti, 
+\end{comment}
+e/o un calendario. Dunque, premendo una delle tue scelte, appare un pop-up di creazione calendario o evento.
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Calendario/calendario_creazione.png}
@@ -113,7 +121,7 @@ Come già detto in precedenza, mediante i bottoni "<", ">" e "Oggi" l'utente pu�
     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Calendario/calendario_futuro.png}{PNG} schermata "Calendario" - Andare avanti di settimane}
 \end{center}
 
-Dalla schermata "Calendario", come citato precedentemente, l'utente autenticato può passare alla schermata "Eventi". Da quest'ultima schermata, oltre a poter creare nuovi eventi singoli e nuovi calendari, mediante gli stessi pop-up ottenibili nella pagina "Calendario", è possibile anche modificare sia gli eventi che i calendari salvati e creare e modificare eventi ripetuti. Adesso andiamo più nello specifico di ciò che può visualizzare e fare l'utente da questa schermata.
+Dalla schermata "Calendario", come citato precedentemente, l'utente autenticato può passare alla schermata "Eventi". Da quest'ultima schermata, oltre a poter creare nuovi eventi singoli e nuovi calendari, mediante gli stessi pop-up ottenibili nella pagina "Calendario", è possibile anche modificare sia gli eventi che i calendari salvati. Adesso andiamo più nello specifico di ciò che può visualizzare e fare l'utente da questa schermata.
 
 \begin{center}
     \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Eventi/schermataEventi.png}
@@ -135,9 +143,23 @@ Nel caso in cui l'utente volesse creare nuovi calendari e nuovi eventi singoli, 
     \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Eventi/EventiCreaEvento.png}{PNG} FrontEnd - "Crea Evento" da schermata "Eventi"}
 \end{center}
 
+\begin{comment}
 Dopo, quando l'utente vuole creare un evento ripetuto, ovvero un evento che definiamo presente su più giorni, già in fase di creazione dell'evento, basta che usi il bottone "Crea Evento Ripetuto" per far apparire il form di creazione "Crea Evento Ripetuto". In questo form, tutti i campi sono compilabili, eccetto per "Luogo". Ricordiamo che i campi "nome" e, almeno, una data su cui cade tale evento devono essere sempre presenti, per far andare a buon fine la creazione dell'evento ripetuto. L'utente, mediante le "Impostazioni avanzate", può andare a specificare maggiormente quando cadono tali eventi e in quali orari. Con l'attributo "Durata", l'utente indica per quale periodo di tempo questo evento ripetuto vale e quindi deve essere presente nel calendario.
+\end{comment}
 
 L'utente, inoltre, in questa schermata "Eventi" visualizza la lista di calendari. Avendo la possibilità di esplorarli, ovvero visualizzare quali eventi ne fanno parte, può selezionare uno dei suoi eventi per aprire il form di "Modifica Evento". Questo form è uguale a quello di "Crea Evento", ovvero ha gli stessi campi, eccetto che l'utente ha la possibilità di eliminare tale evento selezionato mediante il bottone "Elimina".
 
+\begin{center}
+    \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Eventi/EventiModificaEvento.png}
+    \captionof{figure}{FrontEnd - "Modifica Evento" da schermata "Eventi"}
+    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Eventi/EventiModificaEvento.png}{PNG} FrontEnd - "Modifica Evento" da schermata "Eventi"}
+\end{center}
+
 
 Infine, selezionando uno dei calendari della lista, si apre il form di "Modifica Calendario", che è identico a quello di "Crea Evento", eccetto per la presenza del bottone "Elimina", che l'utente può utilizzare per eliminare tale calendario.
+
+\begin{center}
+    \includegraphics[width=1\textwidth, height=0.3\textheight]{img/png/FrontEnd/Eventi/EventiModificaCalendario.png}
+    \captionof{figure}{FrontEnd - "Modifica Calendario" da schermata "Eventi"}
+    \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D4/img/png/FrontEnd/Eventi/EventiModificaCalendario.png}{PNG} FrontEnd - "Modifica Calendario" da schermata "Eventi"}
+\end{center}
