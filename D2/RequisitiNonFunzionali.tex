@@ -93,34 +93,34 @@
     \elemento[Sicurezza (\prettyref{D1-rnf:Sicurezza})]{rnfd2:Sicurezza}
     \begin{tabular}{|p{0.3\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}|}
         \hline
-        \rowcolor{viola} \textbf{Proprietà}                                                                                      &
-        \textbf{Descrizione}                                                                                                     &
-        \textbf{Misura}                                                                                                            \\
+        \rowcolor{viola} \textbf{Proprietà}                                                                                       &
+        \textbf{Descrizione}                                                                                                      &
+        \textbf{Misura}                                                                                                             \\
         \hline
-        Password                                                                                                                 &
+        Password                                                                                                                  &
         Password decisa obbligatoriamente dagli utenti in fase di
-        registrazione non mediante servizi di terze parti (\prettyref{D1-rnf:SicurezzaPassword})                                 &
+        registrazione non mediante servizi di terze parti (\prettyref{D1-rnf:SicurezzaPassword})                                  &
         La password deve essere formata da almeno otto caratteri e
         deve contenere almeno:
-        una lettera maiuscola, una lettera minuscola, un numero e un simbolo (!\@\#\$\%\^\&*)                                                    \\
+        una lettera maiuscola, una lettera minuscola, un numero e un simbolo (!\@\#\$\%\^\&*)                                       \\
         \hline
-        Prevenzione attacchi di “sniffing” o “man in the middle”                                                                 &
-        Modalità di trasmissione dei dati dell'utente (\prettyref{D1-rnf:AttacchiSicurezza})                                     &
-        Utilizzo protocollo https                                                                                                  \\
+        Prevenzione attacchi di “sniffing” o “man in the middle”                                                                  &
+        Modalità di trasmissione dei dati dell'utente (\prettyref{D1-rnf:AttacchiSicurezza})                                      &
+        Utilizzo protocollo https                                                                                                   \\
         \hline
-        Politiche sull'origine dei dati                                                                                          &
-        L'accesso alle api dell'applicazione devono essere limitate alla stessa origine (\prettyref{D1-rnf:OrigineDatiSicurezza} &
+        Politiche sull'origine dei dati                                                                                           &
+        L'accesso alle api dell'applicazione devono essere limitate alla stessa origine (\prettyref{D1-rnf:OrigineDatiSicurezza}) &
         Le politiche CORS impostate sulle api dell'applicativo
-        devono essere impostate su Same-Origin Policy                                                                              \\
+        devono essere impostate su Same-Origin Policy                                                                               \\
         \hline
-        Prevenzione attacchi “XSS”                                                                                               &
-        Modalità di trattamento input inseriti dall'utente (\prettyref{D1-rnf:XSSSicurezza})                                     &
-        Sanificazioni dei dati inseriti dall'utente                                                                                \\
+        Prevenzione attacchi “XSS”                                                                                                &
+        Modalità di trattamento dati inseriti dall'utente (\prettyref{D1-rnf:XSSSicurezza})                                       &
+        Sanificazioni dei dati inseriti dall'utente                                                                                 \\
         \hline
-        Prevenzione attacchi DDOS                                                                                                &
-        Modalità di protezione abilitata sui server di hosting del sistema (\prettyref{D1-rnf:DDOSSicurezza})                    &
+        Prevenzione attacchi DDOS                                                                                                 &
+        Modalità di protezione abilitata sui server di hosting del sistema (\prettyref{D1-rnf:DDOSSicurezza})                     &
         Il firewall dei server di hosting del sistema devono implementare
-        un sistema che blocchi ogni attacchi di tipo DDOS                                                                          \\
+        un sistema che blocchi ogni attacchi di tipo DDOS                                                                           \\
         \hline
     \end{tabular}
 
@@ -166,7 +166,7 @@
         Per eccezioni si intendono tutti i vari errori che
         possono avvenire all'interno del sistema (\prettyref{D1-rnf:GestioneEccezioniAffidabilita}) &
         Il sistema deve gestire tutte queste eccezioni con
-        errori appropriati e evitando il crash del sistema                                            \\
+        errori appropriati ed evitando il crash del sistema                                           \\
         \hline
         Resilienza                                                                                  &
         Per resilienza si intende la capacità del sistema di
@@ -188,20 +188,20 @@
         Avvio applicazione                                            &
         Tempo massivo di avvio dell'applicazione da parte dell'utente &
         Quando l'utente apre l'applicativo con una connessione
-        fast 3G (velocità: ~1.44 Mbps e latenza: ~562.5ms )
-        il sito deve essere disponibile entro 3 secondi.                                  \\
+        fast 3G (velocità: ~1.44 Mbps e latenza: ~562.5ms)
+        il sito deve essere disponibile entro tre secondi.                                \\
         \hline
         Lighthouse score                                              &
         Misurazione del punteggio dell'applicazione tramite un
         sistema di benchmark chiamato Lighthouse comprensivo
         di tale categorie, ovvero:
         \begin{itemize}
-            \item performance;
-            \item accessibility;
-            \item best practises;
+            \item prestazioni;
+            \item accessibilità;
+            \item buone pratiche;
             \item SEO;
         \end{itemize}                                         &
-        Il sito deve ottenere un punteggio per ogvni categoria di almeno 85\% o superiore \\
+        Il sito deve ottenere un punteggio per ogni categoria di almeno 85\% o superiore \\
         \hline
     \end{tabular}
 
@@ -308,12 +308,12 @@
         Per interazione con sistema di calendari,
         si intende la presenza di funzionalità aggiuntive,
         riguardo all'importazione di dati da sistemi terzi
-        e esportazione di dati verso calendari di sistemi terzi (\prettyref{D1-rnf:GoogleCalendarInteroperabilita}) &
+        ed esportazione di dati verso calendari di sistemi terzi (\prettyref{D1-rnf:GoogleCalendarInteroperabilita}) &
         L'applicativo deve poter importare dati
-        presenti su google calendar (calendari ed eventi)
+        presenti su Google Calendar (calendari ed eventi)
         una volta connesso alla piattaforma e dare la
         possibilità anche di esportare dati della piattaforma
-        verso Google calendar (calendari ed eventi)                                                                   \\
+        verso Google Calendar (calendari ed eventi)                                                                   \\
         \hline
     \end{tabular}
 
@@ -366,7 +366,7 @@
         per rendere l'esperienza utente
         più fluida                          &
         Presenza di cookie per mantenimento
-        delle informazione dell'utente e
+        delle informazioni dell'utente e
         della sezione dopo che l'utente
         ne acconsente la presenza             \\
         \hline

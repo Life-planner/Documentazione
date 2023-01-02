@@ -10,7 +10,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
         \includesvg[width=0.7\textwidth]{img/Diagrammi/svg/UseCases/AccessoRegistrazione.svg}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/AccessoRegistrazione.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/AccessoRegistrazione.svg}{SVG} use case Accesso e registrazione}
     \end{center}
-    In quanto le azioni di "Login" e "Registrazione" presentano molte procedure in comune, poichè c'è la partecipazione in comune di Auth0, che gestisce sia il login che la registrazione, abbiamo deciso di fare un State Machine Diagram con swimlanes che ingloba entrambi gli use case di "Login" e "Registrazione", anziché andare a fare due State Machine Diagram distinti, i quali avrebbero avuto molte ridondanze. \\ Lo State Machine Diagram prende in considerazione tutte le possibili procedure che l'utente non autenticato  può intraprendere a seconda delle sue scelte. Proprio queste scelte sono stato il motivo per cui abbiamo deciso di usare uno State Machine Diagram a discapito di una descrizione in italiano, in cui non è possibile andare a specificare la possibilità di scelta.
+    In quanto le azioni di "Login" e "Registrazione" presentano molte procedure in comune, poiché c'è la partecipazione in comune di Auth0, che gestisce sia il login che la registrazione, abbiamo deciso di fare un State Machine Diagram con Swimlanes che ingloba entrambi gli use case di "Login" e "Registrazione", anziché andare a fare due State Machine Diagram distinti, i quali avrebbero avuto molte ridondanze. \\ Lo State Machine Diagram prende in considerazione tutte le possibili procedure che l'utente non autenticato  può intraprendere a seconda delle sue scelte. Proprio queste scelte sono stato il motivo per cui abbiamo deciso di usare uno State Machine Diagram a discapito di una descrizione in italiano, in cui non è possibile andare a specificare la possibilità di scelta.
 
     \textbf{Diagramma:}
     \begin{center}
@@ -100,12 +100,12 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/CreazioneModificaEvento.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/CreazioneModificaEvento.svg}{SVG} use case creazione/modifica evento}
         \includesvg[width=0.85\textwidth, height = 0.5\textheight]{img/Diagrammi/svg/UseCases/CreazioneModificaEvento.svg}
     \end{center}
-    Per andare a descrivere questo use case si è deciso di utilizzare un Activity Diagram con swimlanes, in quanto, in questo use case, sono presenti delle fork, join e anche delle scelte che possono essere effettuate da parte dell'utente non autenticato o autenticato standard. Inoltre, non si è diviso l'Activate Diagram in due parti, a seconda della tipologia di account, in quanto se ci fossero due diagrammi, questi avrebbero molto ridondanze. Infatti, come si può notare dall'Use Case Diagram, l'utente autenticato standard presenta le stesse funzionalità di quello non autenticato, avendo anche delle funzionalità aggiuntive.
+    Per andare a descrivere questo use case si è deciso di utilizzare un Activity Diagram con Swimlanes, in quanto, in questo use case, sono presenti delle fork, join e anche delle scelte che possono essere effettuate da parte dell'utente non autenticato o autenticato standard. Inoltre, non si è diviso l'Activate Diagram in due parti, a seconda della tipologia di account, in quanto se ci fossero due diagrammi, questi avrebbero molto ridondanze. Infatti, come si può notare dall'Use Case Diagram, l'utente autenticato standard presenta le stesse funzionalità di quello non autenticato, avendo anche delle funzionalità aggiuntive.
 
 
     \textbf{Diagramma:}
     \begin{center}
-        \includesvg[width=1.1\textwidth, height = 0.4\textheight]{img/Diagrammi/svg/DS/DS_CreazioneModificaEvento.svg}
+        \includesvg[width=0.9\textwidth]{img/Diagrammi/svg/DS/DS_CreazioneModificaEvento.svg}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/DS/DS_CreazioneModificaEvento.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/DS/DS_CreazioneModificaEvento.svg}{SVG} diagramma creazione/modifica evento}
         Si prega di zoomare a piacere in modo tale di poter leggere bene le varie parti del diagramma
     \end{center}
@@ -119,7 +119,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
 
     \begin{center}
-        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/InserimentoAutomaticoCalendario.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/InserimentoAutomaticoCalendario.svg}{SVG} use case organizzazione attivita}
+        \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/InserimentoAutomaticoCalendario.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/InserimentoAutomaticoCalendario.svg}{SVG} use case organizzazione attività}
         \includesvg[width=0.7\textwidth]{img/Diagrammi/svg/UseCases/InserimentoAutomaticoCalendario.svg}
     \end{center}
 
@@ -159,7 +159,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
         \textbf{Descrizione: }
         \begin{enumerate}
             \item Come si può notare dalla "generalizzazione" nell'use case, l'utente autenticato standard eredita dall'utente non autenticato tutte le sue funzionalità. Inoltre, nel pop-up di visualizzazione delle informazioni di un evento, l'utente autenticato standard visualizza ulteriori informazioni.
-            \item Nel caso di un utente autenticato standard, nel pop-up di visualizzazione di informazioni aggiuntive di un evento saranno presenti ulteriori campi, ovvero:
+            \item Nel caso di un utente autenticato standard, nel pop-up di visualizzazione d'informazioni aggiuntive di un evento saranno presenti ulteriori campi, ovvero:
                   \begin{itemize}
                       \item luogo dove si terrà l'evento; sarà presente la mappa con la segnalazione del luogo e anche il suo indirizzo;
                       \item lista di utenti a cui è condiviso l'evento;
@@ -210,7 +210,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
               \begin{itemize}
                   \item premendo sulla “spunta”, questa diventa verde, così l'utente autenticato standard indica il completamento dell'evento, ovvero che è stato svolto; \ref{uc:ExceptionModificaImpegniCompletati}
                   \item premendo sull' “orologio”, questo diventa giallo, così l'utente autenticato standard indica il non completamento dell'attività. Indicando il non svolgimento di un'attività, il sistema ripianifica il calendario per ridefinire un altro momento dove l'utente potrà svolgere questa attività non completata; \ref{uc:ExceptionRipianificazioneAttivitaLibera}
-                  \item premendo sul “cestino”, questo diventa rosso, così l'utente autenticato standard indica la volonta di eliminare l'evento dal calendario.
+                  \item premendo sul “cestino”, questo diventa rosso, così l'utente autenticato standard indica la volontà di eliminare l'evento dal calendario.
               \end{itemize}
 
     \end{enumerate}
@@ -287,7 +287,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
               \begin{itemize}
                   \item un grafico a barre dei vari eventi per ogni giorno della settimana; l'altezza delle barre corrisponde al quantitativo di ore dedicate a quell'attività. \ref{uc:ExtensionSelezioneAttivita}
                   \item una heatmap riguardo al tempo che deve essere dedicato ogni giorno per rispettare le varie deadline.
-                  \item un grafico a torta delle attività. La dimensione di ciascuna attività, all'interno del grafico, e' proporzionata al tempo da spendere.
+                  \item un grafico a torta delle attività. La dimensione di ciascuna attività, all'interno del grafico, è proporzionata al tempo da spendere.
               \end{itemize}
         \item L'utente non autenticato, in questa sezione, visualizza anche una lista delle attività del proprio calendario, che è sincronizzata con il grafico a torta sopra citato, ovvero nelle due sezioni sono presenti le stesse attività con le medesime durate. \ref{uc:ExtensionSincronizzazioneGrafici} \ref{uc:ExtensionVisualizzazioneAttivita}
     \end{enumerate}
@@ -295,8 +295,8 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     \textbf{Extensions:}
     \begin{enumerate}[label=\textbf{[extension \arabic{enumii}]}, ref= \textbf{[extension \arabic{enumii}]}]
         \elemento{uc:ExtensionSelezioneAttivita} Selezionando un' attività dalla legenda del grafico, il grafico evidenzia l'attività selezionata in modo tale che l'utente non autenticato possa vedere più in dettaglio quando ha tale evento.
-        \elemento{uc:ExtensionSincronizzazioneGrafici} La sincronizzazione tra grafico a torta e lista di attività si mantiene anche in caso di modifiche temporanee della lista di attività. Infatti premendo su un'attività, il sistema modifica la lista delle attività mostrando le sottoattività di quest'ultima e aggiornando il grafico a torta secondo la nuova lista visualizzata.
-        \elemento{uc:ExtensionVisualizzazioneAttivita} Mettendo il cursore sopra ad una delle attività della lista, l'utente non autenticato visualizza evidenziata tale attività nel grafico a torta.
+        \elemento{uc:ExtensionSincronizzazioneGrafici} La sincronizzazione tra grafico a torta e lista di attività si mantiene anche in caso di modifiche temporanee della lista di attività. Infatti premendo su un'attività, il sistema modifica la lista delle attività mostrando le sotto attività di quest'ultima e aggiornando il grafico a torta secondo la nuova lista visualizzata.
+        \elemento{uc:ExtensionVisualizzazioneAttivita} Mettendo il cursore sopra a una delle attività della lista, l'utente non autenticato visualizza evidenziata tale attività nel grafico a torta.
     \end{enumerate}
 
 
@@ -319,7 +319,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
             \textbf{Descrizione:}
             \begin{enumerate}
-                \item Nelle sezione “Filtro” l'utente non autenticato può visualizzare gli impegni dato un specifico filtro definito dall'utente secondo alcuni criteri:
+                \item Nella sezione “Filtro” l'utente non autenticato può visualizzare gli impegni dato un specifico filtro definito dall'utente secondo alcuni criteri:
                       \begin{itemize}
                           \item titolo evento con corrispondenza totale o parziale;
                           \item data evento;
@@ -329,11 +329,12 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
                 \item L'utente non autenticato può definire secondo quali valori dei criteri andare a filtrare gli impegni andando selezionare ciascuna casella del rispettivo criterio e andando a scrivere il valore che si preferisce in esse. Le caselle, dei vari criteri per il filtro, sono visualizzabili in questa sezione “Filtro”. \ref{uc:ExceptionNienteCriterioFiltro}
                 \item Dopo aver definito i criteri degli impegni da visualizzare, l'utente non autenticato, premendo il tasto di "ricerca", visualizzerà, in un pop-up, la lista delle attività che rispettano i criteri imposti dall'utente.
             \end{enumerate}
-        \elemento [Use case "Filtrare secondo le persone incluse nell'evento"]{uc:FiltroImpegniAutenticato}
 
+
+        \elemento [Use case "Filtrare secondo le persone incluse nell'evento"]{uc:FiltroImpegniAutenticato}
                 \textbf{Titolo: } Filtro secondo le persone incluse nell'evento \\
                 \textbf{Riassunto: } \\ Questo use case descrive la possibilità data all'utente autenticato standard di definire un altro criterio per filtrare gli eventi del proprio calendario.\\
-                \textbf{Descrizione: } \\ Come si può notare, data la presenza della "generalizzazione" nell'use case diagram, l'utente autenticato standard eredita dall'utente non autenticato tutti i criteri e funzionalità del filtro impegni, ma un utente autenticato standard, nella creazione o modifica di un evento, può anche definire delle persone a cui condividere tale evento. Per questo motivo, nel filtro impegni per l'utente autenticato standard è presente anche il criterio "persone incluse nell'evento". E' presente una casella che può essere selezionata per andare a scrivere al suo interno l'username degli utenti autenticati standard, di cui vogliamo trovare gli eventi che abbiamo in condivisione.
+                \textbf{Descrizione: } \\ Come si può notare, data la presenza della "generalizzazione" nell'use case diagram, l'utente autenticato standard eredita dall'utente non autenticato tutti i criteri e funzionalità del filtro impegni, ma un utente autenticato standard, nella creazione o modifica di un evento, può anche definire delle persone a cui condividere tale evento. Per questo motivo, nel filtro impegni per l'utente autenticato standard è presente anche il criterio "persone incluse nell'evento". È presente una casella che può essere selezionata per andare a scrivere al suo interno l'username degli utenti autenticati standard, di cui vogliamo trovare gli eventi che abbiamo in condivisione.
                 Dopo aver definito gli username, premendo invio, questo criterio per il filtro impegni verrà preso in considerazione e utilizzato una volta che l'utente autenticato standard premerà il tasto "ricerca" sopra citato.
 
                 \textbf{Exceptions:}
@@ -349,7 +350,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
     \elemento[“Creazione o modifica di un calendario” (\prettyref{D1-rf:ImpostazioniPredefiniteCalendario})]{uc:CreazioneModificaCalendario}
     \begin{center}
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/ImpostazioniPredefiniteCalendario.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/ImpostazioniPredefiniteCalendario.svg}{SVG} use case creazione o modifica di un calendario}
-        \includesvg[width=1\textwidth]{img/Diagrammi/svg/UseCases/ImpostazioniPredefiniteCalendario.svg}
+        \includesvg[width=0.9\textwidth]{img/Diagrammi/svg/UseCases/ImpostazioniPredefiniteCalendario.svg}
     \end{center}
 
 
@@ -359,7 +360,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
             \textbf{Riassunto:} \\
             Questo use case descrive come l'utente non autenticato può andare a modificare impostazioni del calendario principale; si ricordi, che l'utente non autenticato non può avere altri calendari oltre a quello principale, per questo motivo può andare a modificare solo le impostazioni di questo. \\
             \textbf{Descrizione:} \\
-            L'utente non autenticato, dalla sezione  “Modifica calendario”, schermata a cui si accede per andare a modificare le impostazioni di un calendairo, dopo aver selezionato il calendario principale, può andare a modificare le sue impostazioni. Nello specifico, in questa sezione sono presenti i seguenti campi che può andare a selezione e scrivere per modificare i loro valori:
+            L'utente non autenticato, dalla sezione  “Modifica calendario”, schermata a cui si accede per andare a modificare le impostazioni di un calendario, dopo aver selezionato il calendario principale, può andare a modificare le sue impostazioni. Nello specifico, in questa sezione sono presenti i seguenti campi che può andare a selezione e scrivere per modificare i loro valori:
             \begin{itemize}
                 \item colore del calendario, ovvero il colore con cui appariranno gli eventi appartenenti a quest'ultimo; andando a selezionare la casella "colore calendario" l'utente non autenticato può andare a specificare quale colore attribuire.
                 \item fuso orario del calendario; andando a selezionare la casella "fuso orario" calendario, l'utente non autenticato può scrivere il valore del fuso orario del calendario. Si precisa che l'utilità del fuso orario di un calendario è la seguente:  se si lavora per un azienda la cui sede è in Cina, se l'azienda fissa un meeting Zoom alle loro 17, nel calendario condiviso viene inserito nell'ora corretta all'utente autenticato standard che ha impostato il fuso orario Cina, GMT+8 rispetto all'Italia, nel proprio calendario.
@@ -372,9 +373,9 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
             \textbf{Descrizione: } \\
             L'utente non autenticato può definire dei valori di default dei seguenti campi, presenti nella compilazione di un evento da aggiungere al calendario principale: \ref{uc:ExceptionCampiPrecompilatiCalendario}:
             \begin{itemize}
-                \item priorità. E' presente una casella "priorità": l'utente non autenticato una volta selezionata tale casella, può andare a definire il valore di default della priorità.
+                \item priorità. È presente una casella "priorità": l'utente non autenticato una volta selezionata tale casella, può andare a definire il valore di default della priorità.
                 \item descrizione e titolo. Sono presenti le caselle descrizione e titolo: l'utente non autenticato, selezionando una alla volta le rispettive caselle, può scrivere il titolo e la descrizione di default.
-                \item difficoltà, ovvero la complessità dell'evento da svolgere. E' presente una casella "priorità": l'utente non autenticato, una volta selezionata tale casella, può andare a definire il valore di default della difficoltà.
+                \item difficoltà, ovvero la complessità dell'evento da svolgere. È presente una casella "priorità": l'utente non autenticato, una volta selezionata tale casella, può andare a definire il valore di default della difficoltà.
             \end{itemize}
             L'utente non autenticato salva le modifiche fatte premendo il tasto “Salva” in fondo alla schermata di “Modifica calendario”. Invece, premendo il tasto “Annulla”, le modifiche fatte non verranno salvate.
 
@@ -391,19 +392,19 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
                 \item Nella schermata di "Crea Calendario", sezione a cui accede l'utente autenticato standard quando vuole andare a creare un nuovo calendario personale, o nella schermata "Modifica calendario", sezione a cui accede l'utente autenticato standard per andare a modificare le impostazioni di un proprio calendario selezionato, l'utente autenticato standard può andare a definire delle impostazioni riguardanti al calendario che sta creando o modificando, ovvero:
                       \begin{itemize}
                           \item tutti i campi già presenti per la modifica del calendario principale per un utente non autenticato (\ref{uc:ModificaCalendarioNonAutenticato});
-                          \item persone a cui è condiviso il calendario. Si ricordi che il calendario principale non può essere condiviso, se non per alcuni eventi che lo formano. E' presente una casella che può essere selezionata per andare a scrivere al suo interno l'username degli utenti autenticati standard, a cui vogliamo condividere tale calendario.
+                          \item persone a cui è condiviso il calendario. Si ricordi che il calendario principale non può essere condiviso, se non per alcuni eventi che lo formano. È presente una casella che può essere selezionata per andare a scrivere al suo interno l'username degli utenti autenticati standard, a cui vogliamo condividere tale calendario.
                                 Dopo aver definito gli username, premendo invio, questa modifica verrà presa in considerazione per la creazione o modifica del calendario, una volta che l'utente autenticato standard premerà il tasto "salva" sotto citato.
-                          \item il nome del calendario che si sta creando o modificando. E' presente una casella "nome calendario": l'utente autenticato standard una volta selezionata tale casella, può andare a scrivere il nome del calendario, che verrà utilizzato nel caso in cui, alla fine della procedura di creazione o modifica, l'utente autenticato standard premerà il tasto "salva" sotto citato.
-                          \item eliminare il calendario che si sta modificando. E' presente un tasto "elimina", che premuto, eliminerà il calendario. Una volta che l'utente autenticato standard premerà anche questo bottone, il calendario, di cui stiamo modificando le impostazioni in "Modifica calendario", viene eliminato.
+                          \item il nome del calendario che si sta creando o modificando. È presente una casella "nome calendario": l'utente autenticato standard una volta selezionata tale casella, può andare a scrivere il nome del calendario, che verrà utilizzato nel caso in cui, alla fine della procedura di creazione o modifica, l'utente autenticato standard premerà il tasto "salva" sotto citato.
+                          \item eliminare il calendario che si sta modificando. È presente un tasto "elimina", che premuto, eliminerà il calendario. Una volta che l'utente autenticato standard premerà anche questo bottone, il calendario, di cui stiamo modificando le impostazioni in "Modifica calendario", viene eliminato.
                       \end{itemize}
                       L'utente non autenticato salva le modifiche fatte, su questo calendario, premendo il tasto “Salva” in fondo alla schermata di “Modifica calendario”. Invece, premendo il tasto “Annulla”, le modifiche fatte non verranno salvate. Ovviamente questi ultimi comandi, nella modifica del calendario, sono utilizzabili solo nel caso non avessimo eliminato il calendario che stavamo modificando.
             \end{enumerate}
 
 
-        \elemento[Use case "Definizione di campi precompilati di un evento di un calendario personale"] {uc:DefinizioneCampiCalendarioPersonale}
+            \elemento[Use case "Definizione di campi precompilati di un evento di un calendario personale"]{uc:DefinizioneCampiCalendarioPersonale}
             \textbf{Titolo: } definizione di campi precompilati di un evento di un calendario personale. \\
             \textbf{Riassunto: } \\ L'utente autenticato standard, nella schermata "Modifica calendario" o nella schermata "Crea calendario", può anche andare a definire dei valori con cui precompilare alcuni campi, presenti in fase di creazione di un evento da aggiungere al calendario a cui appartiene tale evento. L'utente autenticato standard eredita dall'utente non autenticato i campi che quest'ultimo può definire, ma ha degli ulteriori campi in quanto, come già scritto, ha delle funzionalità in più in fase di creazione di un evento. \\
-            \textbf{Descrizione: } \\
+            \textbf{Descrizione: }
             \begin {enumerate}
         \item L'utente autenticato standard, trovandosi nella schermata "Modifica calendario" o nella schermata "Crea calendario", può definire i seguenti valori con cui verranno precompilati i corrispettivi campi in fase di creazione di un evento, appartenente al calendario di cui si stanno definendo le impostazioni: \ref{uc:ExceptionCampiPrecompilatiCalendario}
               \begin{itemize}
@@ -434,12 +435,12 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
         \includesvg[width=0.75\textwidth, height = 0.35\textheight]{img/Diagrammi/svg/UseCases/ImpostazioniAccount.svg}\\
         Si prega di zoomare a piacere per di poter leggere bene le varie parti dell'use case
     \end{center}
-    Per andare a descrivere questo use case si è deciso di utilizzare uno State Machine Diagram con swimlanes a discapito della descrizione in italiano, in quanto in questo use case sono presenti delle scelte che possono essere effettuate dall'utente autenticato standard o autenticato premium. Inoltre, non si è diviso l'Activate Diagram in due parti, a seconda della tipologia di account, in quanto se ci fossero due diagrammi, questi avrebbero molto ridondanze. Infatti, come si può notare dall'Use Case Diagram, l'utente autenticato premium presenta le stesse funzionalità di quello autenticato premium, quest'ultimo ha anche delle funzionalità aggiuntive. Al posto, quindi di fare due diagrammi, si è preferito farne uno che presente il controllo per poter sapere se l'utente autenticato in questione è o standard o premium in modo tale da fornire le giuste funzionalità.
+    Per andare a descrivere questo use case si è deciso di utilizzare uno State Machine Diagram con Swimlanes a discapito della descrizione in italiano, in quanto in questo use case sono presenti delle scelte che possono essere effettuate dall'utente autenticato standard o autenticato premium. Inoltre, non si è diviso l'Activate Diagram in due parti, a seconda della tipologia di account, in quanto se ci fossero due diagrammi, questi avrebbero molto ridondanze. Infatti, come si può notare dall'Use Case Diagram, l'utente autenticato premium presenta le stesse funzionalità di quello autenticato premium, quest'ultimo ha anche delle funzionalità aggiuntive. Al posto, quindi di fare due diagrammi, si è preferito farne uno che presente il controllo per poter sapere se l'utente autenticato in questione è o standard o premium in modo tale da fornire le giuste funzionalità.
     Infine, in quanto gli use case "interagire con Google Calendar" e "sottoscrivere abbonamento" presentano delle procedure da analizzare più dettagliatamente, si è deciso di fare dei sotto use case a parte, che entrano molto di più nel merito delle funzionalità.
     \newpage
     \textbf{Diagramma:}
     \begin{center}
-        \includesvg[width=1\textwidth]{img/Diagrammi/svg/DS/DS_ImpostazioneAccount.svg}\\
+        \includesvg[width=0.9\textwidth]{img/Diagrammi/svg/DS/DS_ImpostazioneAccount.svg}\\
         \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/DS/DS_ImpostazioneAccount.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/DS/DS_ImpostazioneAccount.svg}{SVG} diagramma impostazioni account}
         Si prega di zoomare a piacere per poter leggere bene le varie parti del diagramma
     \end{center}
@@ -459,7 +460,7 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
         \textbf{Riassunto:} \\
         Questo use case descrive come avviene la sottoscrizione all'account premium mediante un abbonamento a pagamento.
-        Questo use case è una specifica dell'use case "Impostazioni Account" in quanto la procedura di sottoscrizione all'account premium richiede una maggiore dettagliatezza e, per questo motivo, si è deciso di fare un use case a parte.
+        Questo use case è una specifica dell'use case "Impostazioni Account" in quanto la procedura di sottoscrizione all'account premium richiede maggiore dettaglio e, per questo motivo, si è deciso di fare un use case a parte.
 
         \textbf{Descrizione:}
         \begin{enumerate}
@@ -483,18 +484,16 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
 
         \begin{center}
             \blfootnote{Immagine \href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/png/UseCases/GoogleCalendar.png}{PNG}/\href{https://github.com/Life-planner/Documentazione/blob/main/D2/img/Diagrammi/svg/UseCases/GoogleCalendar.svg}{SVG} use case Google Calendar}
-            \includesvg[width=1\textwidth]{img/Diagrammi/svg/UseCases/GoogleCalendar.svg}
+            \includesvg[width=0.87\textwidth]{img/Diagrammi/svg/UseCases/GoogleCalendar.svg}
         \end{center}
 
-        \begin{listaPersonale3} [UC]{}
-            \elemento[Use case "interagire con Google Calendar-sincronizzazione con Google Calendar"]{uc:GoogleCalendarSincronizzazione}
+        \begin{listaPersonale3}[UC]{}
+            \elemento[Use case "interagire con Google Calendar/sincronizzazione con Google Calendar"]{uc:GoogleCalendarSincronizzazione}
             \textbf{Titolo:} interagire con Google Calendar - sincronizzazione con Google Calendar\\
-
             \textbf{Riassunto:} \\
             Questo use case descrive come il sistema permetta all'utente autenticato standard l'utilizzo di Google Calendar tramite la piattaforma, andando a delineare come avviene il processo di sincronizzazione di eventi o calendari con Google Calendar.
-            Questo use case è una specifica dell'use case "Impostazioni Account" in quanto la procedura di interazione (integrazione) con Google Calendar richiede una maggiore dettagliatezza, poichè possono essere individuate due diverse procedure di interazione. Quindi, si è deciso di fare un use case a parte che andasse a descrivere la sincronizzazione con tale applicazione con maggiore precisione.
-
-            \textbf{Descrizione:} \\
+            Questo use case è una specifica dell'use case "Impostazioni Account" in quanto la procedura d'interazione (integrazione) con Google Calendar richiede maggiore dettaglio, poiché possono essere individuate due diverse procedure d'interazione. Quindi, si è deciso di fare un use case a parte che andasse a descrivere la sincronizzazione con tale applicazione con maggiore precisione.
+            \textbf{Descrizione:}
             \begin{enumerate}
                 \item Da "Impostazioni Account" nella sezione "Interazione con Google Calendar" l'utente può scegliere come interagire con Google Calendar. Infatti, nella sezione "Interazione con Google Calendar" sono presenti le procedure con cui può avvenire l'integrazione di Google Calendar su PlanIt. In questa sezione viene data la possibilità all'utente di sincronizzare il suo account di PlanIt con Google Calendar.
                 \item L'utente autenticato standard potrà iniziare la procedura di sincronizzazione tra il proprio account PlanIt e Google Calendar andando a premere la scelta "Sincronizza con Google Calendar". Infatti tramite un'apposita finestra di dialogo, l'utente autenticato standard farà l'accesso al proprio account Google e concederà alla piattaforma i permessi per interagire con il calendario di Google Calendar \ref{uc:ExceptionInterruzioneSincronizzazione}.
@@ -502,14 +501,13 @@ Nel presente capitolo vengono riportati i requisiti funzionali del sistema utili
                 \item Una volta che l'utente selezionerà gli eventi o calendari da sincronizzare con Google Calendar e salvato le modifiche effettuate premendo il tasto "salva", avviene automaticamente l'importazione e/o l'esportazione di eventi e calendari con Google Calendar secondo le scelte fatte. Una volta che modificheremo tali eventi o calendari da PlanIt, questi si aggiorneranno anche su Google Calendar e/o viceversa.
             \end{enumerate}
 
-            \elemento[Use case "interagire con Google Calendar-import/export di file"]{uc:GoogleCalendarImportExport}
-
+            \elemento[Use case "interagire con Google Calendar/import-export di file"]{uc:GoogleCalendarImportExport}
             \textbf{Titolo: } interagire con Google Calendar - import/export di file\\
-            \textbf{Riassunto: } Questo use case descrive come il sistema permetta all'utente autenticato standard l'utilizzo di Google Calendar tramite la piattaforma, andando a delineare come avviene il processo di import/export di file di eventi o calendari da e/o verso Google Calendar. \\
-            Questo use case è una specifica dell'use case "Impostazioni Account" in quanto la procedura di interazione con Google Calendar richiede una maggiore dettagliatezza, poichè possono essere individuate due diverse procedure di interazione (integrazione); una di queste è già stata delineata sopra, ovvero la sincronizzazione con Google Calendar. Quindi, si è deciso di fare un use case a parte che andasse a descrivere la procedura di import/export di file con tale applicazione con maggiore precisione.
+            \textbf{Riassunto: } Questo use case descrive come il sistema permetta all'utente autenticato standard l'utilizzo di Google Calendar tramite la piattaforma, andando a delineare come avviene il processo d'import-export di file di eventi o calendari da e/o verso Google Calendar. \\
+            Questo use case è una specifica dell'use case "Impostazioni Account" in quanto la procedura d'interazione con Google Calendar richiede maggiore dettaglio, poiché possono essere individuate due diverse procedure d'interazione (integrazione); una di queste è già stata delineata sopra, ovvero la sincronizzazione con Google Calendar. Quindi, si è deciso di fare un use case a parte che andasse a descrivere la procedura d'import-export di file con tale applicazione con maggiore precisione.
             \textbf{Descrizione: }
             \begin{enumerate}
-                \item L'utilizzo di import/export di file di eventi o calendari presenta un'alternativa dall'utilizzo della sincronizzazione con Google Calendar per andare ad interagire con quest'ultima piattaforma, soprattutto quando l'utente autenticato standard non vuole fornire dati sensibili riguardo al suo account Google, o non l'ha.
+                \item L'utilizzo d'import-export di file di eventi o calendari presenta un'alternativa dall'utilizzo della sincronizzazione con Google Calendar per andare a interagire con quest'ultima piattaforma, soprattutto quando l'utente autenticato standard non vuole fornire dati sensibili riguardo al suo account Google, o non l'ha.
                 \item Nella sezione “importa/esporta” della sezione "Interazione con Google Calendar" si può trovare un casella "import" dove si può inserire un file di calendario o evento Google Calendar che si vuole importare \ref{uc:ExceptionErroreUpload} su PlanIt. Ovviamente, il file di "import" deve essere prima scaricato prima dalla piattaforma Google Calendar.
                 \item Una volta che il file inserito ha finito il suo caricamento, premendo il tasto "Applica", il file calendario o evento inserito verrà applicato (integrato) nella nostra piattaforma, ovvero viene caricato su PlanIt e quindi sarà presente anche in quest'ultima piattaforma.
                 \item Nella sezione "importa/esporta" è presente anche un tasto "export", che premendolo, avvia il download del file di calendario o evento\ref{uc:ExceptionErroreDownload} che si può inserire su Google Calendar, in modo tale di esportare tale evento o calendario anche su quest'ultimo applicativo. \ref{uc:ExceptionFileNonValidoOCorrotto}. Ovviamente, dopo che si è ottenuto il file di export, questo deve essere inserito su Google Calendar da parte dell'utente autenticato standard.
